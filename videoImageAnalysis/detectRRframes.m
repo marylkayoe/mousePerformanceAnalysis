@@ -5,8 +5,8 @@ function [rrMask RRlengthFrames] = detectRRframes(diffs, stillFrames)
     minFrames = find(isMin);
     burstEndFrameIndex = find(minFrames > speedBurstFrame(end), 1, 'first');
     burstEndFrame = minFrames(burstEndFrameIndex);
-    burstStartFrame = minFrames(burstEndFrameIndex-1);
-    burstStartFrame = ceil(burstEndFrame - widths(end)*2)-1;
+   
+    burstStartFrame = ceil(speedBurstFrame - widths(end)/2);
 
     RRlengthFrames = burstEndFrame-burstStartFrame;
     rrMask = zeros(size(stillFrames));
