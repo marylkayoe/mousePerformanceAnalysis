@@ -12,29 +12,20 @@ RRfileID = '*.avi';
 fileName = getFilenamesForSamples(dataFolder,EXPID, SAMPLEID, TASKID, RRfileID);
 fullFilePath = fullfile(dataFolder, fileName);
 rrVideo = readBehaviorVideo(fullFilePath);
-
+% detecting still moment as the rightning should occur after 1 sec holding
 [stillFrames, diffs] = detectStillnessInVideo(rrVideo, startThreshold, nFrameThreshold);
 
 [rrMask RRlengthFrames] = detectRRframes(diffs, stillFrames);
 
 titleString = strjoin({EXPID SAMPLEID 'RR task duration :' num2str(RRlengthFrames/FRAMERATE) 'sek'});
-%[speedBurstAmp, speedBurstFrame] = findpeaks(diffs, "MinPeakHeight", 0.99);
-% speedBurstFrame(speedBurstFrame < find(stillFrames, 1, 'last')) = [];
-% isMin = islocalmin(diffs);
-% minFrames = find(isMin);
-% burstEndFrameIndex = find(minFrames > speedBurstFrame(end), 1, 'first');
-% burstEndFrame = minFrames(burstEndFrameIndex);
-% burstStartFrame = minFrames(burstEndFrameIndex-1);
-% RRlengthFrames = burstEndFrame-burstStartFrame;
-% burstMask = zeros(size(stillFrames));
-% burstMask(burstStartFrame:burstEndFrame) = 1;
+figure; hold on;
 displayBehaviorVideo(rrVideo, diffs, rrMask, titleString);
-figure; hold on; 
-xAx = makexAxisFromFrames(length(diffs), FRAMERATE);
-plot(xAx, diffs);
-plot(xAx, rrMask);
-legend({'Diff', 'rightning'});
-title (titleString);
-figure;
+% figure; hold on; 
+% xAx = makexAxisFromFrames(length(diffs), FRAMERATE);
+% plot(xAx, diffs);
+% plot(xAx, rrMask);
+% legend({'Diff', 'rightning'});
+% title (titleString);
+figure; hold on;
 showKeyFrames(rrVideo, find(rrMask));
 title (titleString);
