@@ -5,7 +5,7 @@ if ~exist('FRAMERATE', 'var')
 end
 
 startThreshold = 0.05;
-nFrameThreshold = 30;
+nFrameThreshold = FRAMERATE;
 
 RRfileID = '*.avi';
 
@@ -17,8 +17,14 @@ rrVideo = readBehaviorVideo(fullFilePath);
 
 [rrMask RRlengthFrames] = detectRRframes(diffs, stillFrames);
 
+
 titleString = strjoin({EXPID SAMPLEID 'RR task duration :' num2str(RRlengthFrames/FRAMERATE) 'sek'});
+
 figure; hold on;
+showKeyFrames(rrVideo, find(rrMask));
+title (titleString);
+
+
 displayBehaviorVideo(rrVideo, diffs, rrMask, titleString);
 % figure; hold on; 
 % xAx = makexAxisFromFrames(length(diffs), FRAMERATE);
@@ -26,6 +32,4 @@ displayBehaviorVideo(rrVideo, diffs, rrMask, titleString);
 % plot(xAx, rrMask);
 % legend({'Diff', 'rightning'});
 % title (titleString);
-figure; hold on;
-showKeyFrames(rrVideo, find(rrMask));
-title (titleString);
+
