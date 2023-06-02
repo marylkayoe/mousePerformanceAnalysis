@@ -23,3 +23,5 @@ coordData = coordData * PIXELSIZE;
 smoothedTraj = smoothdata(coordData(:, :), 'movmedian', 3);
 f = plotOpenFieldTrial(smoothedTraj(1:end-1, :),instSpeeds, [], 0.2, 160);
  plotTrialSpeedData(instSpeeds, 0, FRAMERATE, strjoin({EXPID, '-',  SAMPLEID}));
+
+ %displayMouseMasks(mouseMask, FRAMERATE);
