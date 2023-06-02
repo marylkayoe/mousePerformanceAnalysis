@@ -1,31 +1,43 @@
-function mouseCentroids = trackMouseInOF(videoMatrix)
-
-% Preallocate arrays for the mouse centroid coordinates
-mouseCentroids = zeros(videoMatrix.NumberOfFrames, 2);
-
-% Read in the first frame (assume it's the background)
-background = double(readFrame(videoMatrix));
-frame = 1;
+function [centroids mouseMaskMatrix] = trackMouseInOF(videoMatrix)
 nFrames = length(videoMatrix);
-% Loop through the remaining frames
-for frame = 1:nFrames  
-    currentFrame = videoMatrix(:, :, frame);    
-    % Calculate the absolute difference between the current frame and the background
-    diffFrame = abs(currentFrame - background);
-    
-    % Threshold the difference image (you may need to adjust this value)
-    binaryImage = diffFrame > 50;
-    
-    % Get the properties of the connected components in the image
-    properties = regionprops(binaryImage, 'Centroid', 'Area');
-    
-    % Store the centroid of the largest component (assume it's the mouse)
-    if ~isempty(properties)
-        % If there are multiple components, assume the one with the maximum area is the mouse
-        [~, idx] = max([properties.Area]);
-        mouseCentroids(frame, :) = properties(idx).Centroid;
-    end
-    frame = frame+1;
-end
+% Preallocate arrays for the mouse centroid coordinates
+mouseCentroids = zeros(nFrames, 2);
+meanImage = mean(videoMatrix, 3);
+mouseMaskMatrix = zeros(size(videoMatrix));
+subtractedMatrix = videoMatrix-meanImage;
 
-% Now mouseCentroids contains the (x, y) coordinates of the mouse centroid for each frame
+% Preallocate array for storing centroid coordinates
+centroids = zeros(size(videoMatrix, 3), 2);
+
+% Loop over each frame
+for frameIdx = 1:size(videoMatrix, 3)
+    % Get current frame
+    frame = videoMatrix(:,:,frameIdx);
+
+    % Determine an optimal threshold using Otsu's method
+    T = multithresh(frame, 10);
+    seg_I = imquantize(frame,T);
+
+    % Segment mouse from background by thresholding
+    mouseMask = (seg_I==1);
+    % Fill holes in the binary image
+    mouseMask = imfill(mouseMask, 'holes');
+
+    % Perform morphological closing to smooth the image
+    mouseMask = bwmorph(mouseMask, 'close');
+
+
+    % Find connected components in the binary image
+    CC = bwconncomp(mouseMask);
+    % Compute properties of connected components
+    stats = regionprops(CC, 'Centroid', 'Area');
+    [~, idx] = max([stats.Area]);  % find the largest connected component
+    centroids(frameIdx,:) = stats(idx).Centroid;
+
+    % Create a binary image containing only the selected connected component
+    mouseMask = false(size(mouseMask));
+    mouseMask(CC.PixelIdxList{idx}) = true;
+    mouseMaskMatrix(:, :, frameIdx) = mouseMask;
+
+
+end
