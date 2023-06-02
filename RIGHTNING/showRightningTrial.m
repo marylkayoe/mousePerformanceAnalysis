@@ -7,13 +7,14 @@ end
 startThreshold = 0.05;
 nFrameThreshold = FRAMERATE;
 
-RRfileID = '*.avi';
+RRfileID = '*.mp4';
 
 fileName = getFilenamesForSamples(dataFolder,EXPID, SAMPLEID, TASKID, RRfileID);
 fullFilePath = fullfile(dataFolder, fileName);
 rrVideo = readBehaviorVideo(fullFilePath);
+videoMatrix = readVideoIntoMatrix(fullFilePath);
 % detecting still moment as the rightning should occur after 1 sec holding
-[stillFrames, diffs] = detectStillnessInVideo(rrVideo, startThreshold, nFrameThreshold);
+[stillFrames, diffs] = detectStillnessInVideo(videoMatrix, startThreshold, nFrameThreshold);
 
 [rrMask RRlengthFrames] = detectRRframes(diffs, stillFrames);
 
@@ -21,15 +22,15 @@ rrVideo = readBehaviorVideo(fullFilePath);
 titleString = strjoin({EXPID SAMPLEID 'RR task duration :' num2str(RRlengthFrames/FRAMERATE) 'sek'});
 
 figure; hold on;
-showKeyFrames(rrVideo, find(rrMask));
-title (titleString);
+showKeyFrames(videoMatrix, find(rrMask));
+title (strjoin({titleString, ' RR frames: '}));
 
 
 displayBehaviorVideo(rrVideo, diffs, rrMask, titleString);
-% figure; hold on; 
-% xAx = makexAxisFromFrames(length(diffs), FRAMERATE);
-% plot(xAx, diffs);
-% plot(xAx, rrMask);
-% legend({'Diff', 'rightning'});
-% title (titleString);
+figure; hold on; 
+xAx = makexAxisFromFrames(length(diffs), FRAMERATE);
+plot(xAx, diffs);
+plot(xAx, rrMask);
+legend({'Diff', 'rightning'});
+title (titleString);
 
