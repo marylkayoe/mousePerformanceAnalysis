@@ -47,3 +47,7 @@ for sample = 1:nSamples
     dirlist = dir (searchString);
     fileNames = [fileNames dirlist.name];
 end
+
+if isempty(fileNames)
+    warning(strjoin({'No file found for',IDstring }));
+end

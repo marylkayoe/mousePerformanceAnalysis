@@ -1,4 +1,4 @@
-function coordData = showOFtrial(dataFolder,EXPID, SAMPLEID, TASKID, FRAMERATE, PIXELSIZE)
+function coordData = showOFtrial(dataFolder,EXPID, SAMPLEID, TASKID, OFfileID, FRAMERATE, PIXELSIZE)
 % PIXELSIZE = how many mm one pixel is
 if ~exist('TASKID', 'var')
     TASKID = OF;
@@ -11,12 +11,16 @@ end
 if ~exist('FRAMERATE', 'var')
     FRAMERATE = 30;
 end
-OFfileID = '*.mp4';
 %% import the video file and make it into a grayscale matrix:
 fileName = getFilenamesForSamples(dataFolder,EXPID, SAMPLEID, TASKID, OFfileID);
+if isempty(fileName)
+    coordData = [];
+    warning('No video loaded');
+    return;
+end
 fullFilePath = fullfile(dataFolder, fileName);
-ofVideo = readBehaviorVideo(fullFilePath);
-videoMatrix = readVideoIntoMatrix(fullFilePath);
+[ofVideo newFilePath] = readBehaviorVideo(fullFilePath); % newFilePath is with .mp4 ending
+videoMatrix = readVideoIntoMatrix(newFilePath);
 
 
 %% track the mouse

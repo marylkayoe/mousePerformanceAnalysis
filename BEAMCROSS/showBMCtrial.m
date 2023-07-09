@@ -17,7 +17,8 @@ function coordData = showMBCtrial(dataFolder,EXPID, SAMPLEID, TASKID, FRAMERATE,
 %% import the video file and make it into a grayscale matrix:
 fileName = getFilenamesForSamples(dataFolder,EXPID, SAMPLEID, TASKID, BMCfileID);
 fullFilePath = fullfile(dataFolder, fileName);
-bmcVideo = readBehaviorVideo(fullFilePath);
-videoMatrix = readVideoIntoMatrix(fullFilePath);
+ [videoMatrix newFilePath] = readBehaviorVideo(fullFilePath);
+% bmcVideo = readBehaviorVideo(fullFilePath);
+% videoMatrix = readVideoIntoMatrix(fullFilePath);
 
 displayBehaviorVideo(bmcVideo, [], 1:length(videoMatrix), 'Beamcrossing');

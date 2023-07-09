@@ -4,7 +4,7 @@ function videoMatrix = readVideoIntoMatrix(filePath)
     filePath = filePath{1};
 end
     vidObj = VideoReader(filePath);
-    
+    disp(['reading file into matrix... ' filePath]);
     % Preallocate a 3D matrix to hold the video frames
     vidHeight = vidObj.Height;
     vidWidth = vidObj.Width;

@@ -1,4 +1,4 @@
-function vidObj = readBehaviorVideo(filePath)
+function [videoMatrix filePath] = readBehaviorVideo(filePath)
 % readBehaviorVideo - read behavior video file
 if iscell(filePath)
     filePath = filePath{1};
@@ -30,3 +30,4 @@ catch ME
     error('File %s is not a valid video file. \nError Message: %s', filePath, ME.message);
 end
 
+videoMatrix = uint8(readVideoIntoMatrix(filePath));

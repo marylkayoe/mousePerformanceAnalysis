@@ -1,25 +1,32 @@
-function [centroids mouseMaskMatrix] = trackMouseInOF(videoMatrix)
+function [centroids mouseMaskMatrix] = trackMouseInBB(videoMatrix)
 % trackMouseInOF.m - Track the mouse in a open field video
 % videoMatrix is the video data converted into a 3D matrix
 nFrames = length(videoMatrix);
 
 % Preallocate arrays for the mouse centroid coordinates
 mouseCentroids = zeros(nFrames, 2);
-% preallocate for the masked video
-mouseMaskMatrix = zeros(size(videoMatrix));
+
 % Preallocate array for storing centroid coordinates
 centroids = zeros(size(videoMatrix, 3), 2);
 
 % we don't have background image so we subtract the mean image. Not perfect but ok
 meanImage = getMeanFrame(videoMatrix);
-subtractedMatrix = subtractFrom(videoMatrix, meanImage);
+medianImage = getMedianFrame(videoMatrix);
+sumImage = getSumFrame(videoMatrix);
+subtractedMatrix = subtractFrom(videoMatrix, sumImage);
+meanSubtractedImage = getMeanFrame(subtractedMatrix);
+meanSubtractedMatrix = subtractFrom(videoMatrix, meanImage);
 %subtractedMatrix = videoMatrix-meanImage;
 
+barYcoord = findBarYCoordInImage(meanSubtractedImage);
+croppedVideoMatrix = cropVideoAboveBar(meanSubtractedMatrix, barYcoord);
+% preallocate for the masked video
+mouseMaskMatrix = zeros(size(croppedVideoMatrix));
 % Loop over each frame
 %display current frame counter
 fprintf('Processing frames (out of %d): ', nFrames);
 for frameIdx = 1:nFrames
-    currFrame = videoMatrix(:,:,frameIdx);
+    currFrame = croppedVideoMatrix(:,:,frameIdx);
     %display current frame counter and total number of frames
     % by erasing the previous value
 
@@ -28,7 +35,7 @@ for frameIdx = 1:nFrames
     % the mouse is black and the background is white
     % finetuning could be done with more careful choides of thresholds
     
-    T = multithresh(currFrame, 10);
+    T = multithresh(currFrame);
     segmentedFrame = imquantize(currFrame,T);
 
     % Mouse is in the pixels classified as the lowest intensity
