@@ -36,6 +36,8 @@ slips=frameDifferences>100;
 displayBehaviorVideoMatrix(imadjustn(croppedSubtractedVideoMatrix), frameDifferences, slips, 'foo');
 figure;
 findpeaks(frameDifferences, 'MinPeakProminence', 1000, "Annotate","peaks");
+
+[centroids mouseMaskMatrix] = trackMouseInBB(videoMatrix);
 R = 1;
 
 

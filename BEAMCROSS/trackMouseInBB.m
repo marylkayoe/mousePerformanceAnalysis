@@ -1,7 +1,7 @@
 function [centroids mouseMaskMatrix] = trackMouseInBB(videoMatrix)
 % trackMouseInOF.m - Track the mouse in a open field video
 % videoMatrix is the video data converted into a 3D matrix
-nFrames = length(videoMatrix);
+[h w nFrames] = size(videoMatrix);
 
 % Preallocate arrays for the mouse centroid coordinates
 mouseCentroids = zeros(nFrames, 2);
@@ -13,20 +13,22 @@ centroids = zeros(size(videoMatrix, 3), 2);
 meanImage = getMeanFrame(videoMatrix);
 medianImage = getMedianFrame(videoMatrix);
 sumImage = getSumFrame(videoMatrix);
-subtractedMatrix = subtractFrom(videoMatrix, sumImage);
-meanSubtractedImage = getMeanFrame(subtractedMatrix);
+sumSubtractedMatrix = subtractFrom(videoMatrix, sumImage);
+meanSumSubtractedImage = getMeanFrame(sumSubtractedMatrix);
 meanSubtractedMatrix = subtractFrom(videoMatrix, meanImage);
 %subtractedMatrix = videoMatrix-meanImage;
 
-barYcoord = findBarYCoordInImage(meanSubtractedImage);
+barYcoord = findBarYCoordInImage(meanSumSubtractedImage);
 croppedVideoMatrix = cropVideoAboveBar(meanSubtractedMatrix, barYcoord);
 % preallocate for the masked video
 mouseMaskMatrix = zeros(size(croppedVideoMatrix));
+adjustedCroppedVideoMatrix = imadjustn(croppedVideoMatrix);
+globalThreshold = multithresh(adjustedCroppedVideoMatrix, 3);
 % Loop over each frame
 %display current frame counter
 fprintf('Processing frames (out of %d): ', nFrames);
 for frameIdx = 1:nFrames
-    currFrame = croppedVideoMatrix(:,:,frameIdx);
+    currFrame = adjustedCroppedVideoMatrix(:,:,frameIdx);
     %display current frame counter and total number of frames
     % by erasing the previous value
 
@@ -35,8 +37,8 @@ for frameIdx = 1:nFrames
     % the mouse is black and the background is white
     % finetuning could be done with more careful choides of thresholds
     
-    T = multithresh(currFrame);
-    segmentedFrame = imquantize(currFrame,T);
+   % T = multithresh(currFrame, 3);
+    segmentedFrame = imquantize(currFrame,globalThreshold);
 
     % Mouse is in the pixels classified as the lowest intensity
     mouseMask = (segmentedFrame==1);
@@ -47,17 +49,23 @@ for frameIdx = 1:nFrames
 
     % Find connected components in the binary image
     CC = bwconncomp(mouseMask);
-
+mouseMask = false(size(mouseMask));
     % Compute properties of connected components
     stats = regionprops(CC, 'Centroid', 'Area');
     %in case there are more than one connected component, take the largest
     [~, idx] = max([stats.Area]); 
+    if isempty(idx)
+        warning('No mouse found in frame ');
+        centroids(frameIdx,:) = nan;
+    else
     centroids(frameIdx,:) = stats(idx).Centroid;
+        mouseMask(CC.PixelIdxList{idx}) = true;
+    mouseMaskMatrix(:, :, frameIdx) = mouseMask;
+    end
 
     % Create a binary image containing only the selected connected component
-    mouseMask = false(size(mouseMask));
-    mouseMask(CC.PixelIdxList{idx}) = true;
-    mouseMaskMatrix(:, :, frameIdx) = mouseMask;
+    
+
     if mod(frameIdx, 10) == 0
         fprintf('.');
     end

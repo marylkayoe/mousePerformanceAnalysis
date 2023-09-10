@@ -9,6 +9,7 @@ if ~exist(filePath, 'file')
 end
 
 % if the file is an .avi video, call system ffmpeg and convert it to mp4:
+% note ffmpeg needs full path to file
 if strcmp(filePath(end-3:end), '.avi')
     [pathstr, name, ext] = fileparts(filePath);
     newFilePath = fullfile(pathstr, [name '.mp4']);
