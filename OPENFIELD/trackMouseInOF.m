@@ -1,6 +1,7 @@
 function [centroids mouseMaskMatrix] = trackMouseInOF(videoMatrix)
 % trackMouseInOF.m - Track the mouse in a open field video
 % videoMatrix is the video data converted into a 3D matrix
+
 nFrames = length(videoMatrix);
 
 % Preallocate arrays for the mouse centroid coordinates

@@ -14,7 +14,7 @@ if strcmp(filePath(end-3:end), '.avi')
     [pathstr, name, ext] = fileparts(filePath);
     newFilePath = fullfile(pathstr, [name '.mp4']);
     if ~exist(newFilePath, 'file')
-        fprintf('Converting %s to mp4...\n', filePath);
+        fprintf('Converting %s to mp4... 4x spatial downsample \n', filePath);
         cmd = sprintf('ffmpeg -i %s -c:v libx264 -crf 19 -preset slow -vf scale=iw/4:-1 -an -vsync 0 %s', filePath, newFilePath);
         system(cmd);
 

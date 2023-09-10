@@ -1,4 +1,4 @@
-function  [meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, instSpeeds] = analyzeOFtrial(dataFolder,EXPID, SAMPLEID, TASKID,TIMEPOINT, TRIALID, CAMID, USERID, FRAMERATE, PIXELSIZE)
+function  [meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, instSpeeds] = analyzeOFtrial(dataFolder,EXPID, SAMPLEID, TASKID,TIMEPOINT, TRIALID, CAMID, USERID, FRAMERATE, PIXELSIZE )
 
 % PIXELSIZE = how many mm one pixel is
 % filenamestructure: EXPID_SAMPLEID_TRIALID_CAMID_DATE_USERID.avi
@@ -52,5 +52,7 @@ end
 
  [videoMatrix newFilePath] = readBehaviorVideo([dataFolder separator fileName{1}]);
  [centroidCoords mouseMaskMatrix] = trackMouseInOF(videoMatrix);
-
+ centroidCoords = centroidCoords ./ PIXELSIZE;
+ 
+displayBehaviorVideoMatrix(mouseMaskMatrix, fileName);
  [meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, instSpeeds] = getLocoMeasures(centroidCoords, FRAMERATE);
