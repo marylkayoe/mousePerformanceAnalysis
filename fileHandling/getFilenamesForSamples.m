@@ -71,7 +71,7 @@ for sample = 1:nSamples
         IDstring = [IDstring '*' USERID];
     end
 
-    IDstring = [IDstring VIDEOTYPE];
+    IDstring = [IDstring '*' VIDEOTYPE];
     searchString =  [dataFolder separator IDstring TRIALID];
     dirlist = dir (searchString);
     fileNames = [fileNames dirlist.name];
