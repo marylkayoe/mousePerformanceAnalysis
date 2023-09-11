@@ -54,6 +54,12 @@ end
  [centroidCoords mouseMaskMatrix] = trackMouseInOF(videoMatrix);
  centroidCoords = centroidCoords * PIXELSIZE;
  
-displayBehaviorVideoMatrix(mouseMaskMatrix, fileName);
+
 [meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, meanSpeedLocomoting, instSpeeds] = getSpeedMeasures(centroidCoords, FRAMERATE, fileName{1});
  %[meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, instSpeeds] = getLocoMeasures(centroidCoords, FRAMERATE);
+
+% note: padding speed array with zero since first frame does not have speed
+ displayBehaviorVideoMatrix(mouseMaskMatrix, fileName, [0 ; instSpeeds]);
+
+ plotOpenFieldTrial(centroidCoords,[0 ; instSpeeds]);
+

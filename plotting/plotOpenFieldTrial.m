@@ -23,13 +23,18 @@ if (~exist('FRAMERATE', 'var'))
     FRAMERATE = 25;
 end
 
+if (~exist('centerFrames', 'var'))
+    centerFrames =  [];
+
+end
+
 if (~exist('BORDERLIMIT', 'var'))
     BORDERLIMIT = 0.15;
-    return
+
 end
 
 
- figure; hold on;
+figure; hold on;
 coordData = coordData ./ XYSCALE; % scaling in xy
 colormap(hot);
 patch(coordData(:, 1), coordData(:, 2),speedArray,'EdgeColor','interp', 'FaceColor','none', 'LineWidth', 3, 'HandleVisibility', 'off');
@@ -38,7 +43,9 @@ caxis([0 400]);
 c = colorbar;
 c.Label.String = 'mouse speed mm/sec';
 
-scatter(coordData(centerFrames, 1), coordData(centerFrames, 2), 'o');
+if ~isempty(centerFrames)
+    scatter(coordData(centerFrames, 1), coordData(centerFrames, 2), 'o');
+end
 legend('in center', 'Location', 'northeastoutside');
 xlabel ('X (mm)');
 ylabel ('Y (mm)');
