@@ -30,6 +30,10 @@ for frameIdx = 1:nFrames
     % finetuning could be done with more careful choides of thresholds
     
     T = multithresh(currFrame, 10);
+    %occasionally there might be too little difference between two
+    %thresholds so they end up being the same... so we will just remove the
+    %duplicate
+    T = unique(T, 'stable');
     segmentedFrame = imquantize(currFrame,T);
 
     % Mouse is in the pixels classified as the lowest intensity

@@ -1,4 +1,4 @@
-function [meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, meanSpeedLocomoting, instSpeeds] = getSpeedMeasures(mouseTrajectory, FRAMERATE, dataDescriptor)
+function [meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, meanSpeedLocomoting, instSpeeds, isLocomoting] = getSpeedMeasures(mouseTrajectory, FRAMERATE, dataDescriptor)
 %GETSPEEDMEASURES Calculate various speed measures from a mouse trajectory.
 %
 %   [instSpeeds, meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, meanSpeedLocomoting] = GETSPEEDMEASURES(mouseTrajectory, FRAMERATE, dataDescriptor)
@@ -57,7 +57,7 @@ function [meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting,
 
     % Placeholder for plotting the data
    % infoString = sprintf('Mean Speed: %.2f mm/s\nMax Speed: %.2f mm/s\nLoco Time: %.2f s\nTotal Distance: %.2f mm\nTotal Distance Locomoting: %.2f mm\nMean Speed Locomoting: %.2f mm/s', meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, meanSpeedLocomoting);
-    plotTrialSpeedData(instSpeeds, LOCOTHRESHOLD, FRAMERATE, dataDescriptor);
+
 
 
 end
