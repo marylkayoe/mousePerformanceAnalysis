@@ -20,24 +20,25 @@ if isempty(fileName)
 end
 fullFilePath = fullfile(dataFolder, fileName);
 [videoMatrix newFilePath] = readBehaviorVideo(fullFilePath); % newFilePath is with .mp4 ending
-%videoMatrix = readVideoIntoMatrix(newFilePath);
-
+%videoMatrix = readVideoIntoMatrix(fullFilePath);
+%videoMatrix = cropVideoMid(videoMatrix, 3);
 sumFrame = getSumFrame(videoMatrix);
 meanFrame = getMeanFrame(videoMatrix);
 sumSubtractedVideoMatrix = subtractFrom(videoMatrix, sumFrame);
 
-
-medianFrame = getMedianFrame(sumSubtractedVideoMatrix);
+% medianSubtractedVideoMatrix = subtractFrom(videoMatrix, medianFrame);
+ medianFrame = getMedianFrame(sumSubtractedVideoMatrix);
 barYcoord = findBarYCoordInImage(medianFrame);
 croppedSubtractedVideoMatrix = cropVideoBelowBar(sumSubtractedVideoMatrix, barYcoord);
 
 frameDifferences = getLocalizedFrameDifferences(croppedSubtractedVideoMatrix, 50);
-slips=frameDifferences>100;
-displayBehaviorVideoMatrix(imadjustn(croppedSubtractedVideoMatrix), frameDifferences, slips, 'foo');
+slips=frameDifferences>0.5;
+displayBehaviorVideoMatrix(imadjustn(croppedSubtractedVideoMatrix), fileName, frameDifferences, slips);
 figure;
-findpeaks(frameDifferences, 'MinPeakProminence', 1000, "Annotate","peaks");
-
-[centroids mouseMaskMatrix] = trackMouseInBB(videoMatrix);
+findpeaks(frameDifferences, 'MinPeakProminence', 0.5, "Annotate","peaks");
+blankedVideoMatrix = videoMatrix;
+blankedVideoMatrix(:, :, frameDifferences<0.01) = 0;
+[centroids mouseMaskMatrix] = trackMouseInBB(videoMatrix, frameDifferences );
 R = 1;
 
 

@@ -1,4 +1,4 @@
-function [centroids mouseMaskMatrix] = trackMouseInBB(videoMatrix)
+function [centroids mouseMaskMatrix] = trackMouseInBB(videoMatrix, diffs)
 % trackMouseInOF.m - Track the mouse in a open field video
 % videoMatrix is the video data converted into a 3D matrix
 [h w nFrames] = size(videoMatrix);
@@ -22,8 +22,9 @@ barYcoord = findBarYCoordInImage(meanSumSubtractedImage);
 croppedVideoMatrix = cropVideoAboveBar(meanSubtractedMatrix, barYcoord);
 % preallocate for the masked video
 mouseMaskMatrix = zeros(size(croppedVideoMatrix));
-adjustedCroppedVideoMatrix = imadjustn(croppedVideoMatrix);
-globalThreshold = multithresh(adjustedCroppedVideoMatrix, 3);
+adjustedCroppedVideoMatrix = imadjustn(croppedVideoMatrix, [0 0.6]);
+globalThreshold = multithresh(adjustedCroppedVideoMatrix, 2);
+
 % Loop over each frame
 %display current frame counter
 fprintf('Processing frames (out of %d): ', nFrames);
@@ -37,7 +38,7 @@ for frameIdx = 1:nFrames
     % the mouse is black and the background is white
     % finetuning could be done with more careful choides of thresholds
     
-   % T = multithresh(currFrame, 3);
+    %T = multithresh(currFrame, 3);
     segmentedFrame = imquantize(currFrame,globalThreshold);
 
     % Mouse is in the pixels classified as the lowest intensity
@@ -55,7 +56,7 @@ mouseMask = false(size(mouseMask));
     %in case there are more than one connected component, take the largest
     [~, idx] = max([stats.Area]); 
     if isempty(idx)
-        warning('No mouse found in frame ');
+        warning('No object found in frame ');
         centroids(frameIdx,:) = nan;
     else
     centroids(frameIdx,:) = stats(idx).Centroid;
@@ -74,4 +75,6 @@ mouseMask = false(size(mouseMask));
     end
 end
 fprintf('\n');
+mouseMaskMatrix(:, :, diffs<0.01) = 0;
 end
+
