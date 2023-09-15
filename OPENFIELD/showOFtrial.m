@@ -1,37 +1,44 @@
-function coordData = showOFtrial(dataFolder,EXPID, SAMPLEID, TASKID, OFfileID, FRAMERATE, PIXELSIZE)
+function coordData = showOFtrial(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT ,PIXELSIZE, FRAMERATE)
 % PIXELSIZE = how many mm one pixel is
 if ~exist('TASKID', 'var')
     TASKID = OF;
 end
 
-if ~exist('PIXELSIZE', 'var')
+if ~exist('OFfileID', 'var')
+    TIMEPOINT = '';
+end
+
+
+if ~exist('PIXELSIZE', 'var') 
     PIXELSIZE = 1;
 end
 
-if ~exist('FRAMERATE', 'var')
-    FRAMERATE = 30;
-end
+DOWNSAMPLEFACTOR = 2; % how much videos are downsampled when converting to .mp4
+PIXELSIZE = PIXELSIZE * DOWNSAMPLEFACTOR; 
+
+% if ~exist('FRAMERATE', 'var') % note: FRAMERATE is read from the videos
+%     FRAMERATE = 30;
+% end
 %% import the video file and make it into a grayscale matrix:
-fileName = getFilenamesForSamples(dataFolder,EXPID, SAMPLEID, TASKID, OFfileID);
+fileName = getFilenamesForSamples(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT);
 if isempty(fileName)
     coordData = [];
-    warning('No video loaded');
+    warning('No video found and loaded');
     return;
 end
 fullFilePath = fullfile(dataFolder, fileName);
-[ofVideo newFilePath] = readBehaviorVideo(fullFilePath); % newFilePath is with .mp4 ending
-videoMatrix = readVideoIntoMatrix(newFilePath);
+[videoMatrix newFilePath FRAMERATE] = readBehaviorVideo(fullFilePath, DOWNSAMPLEFACTOR); % newFilePath is with .mp4 ending
 
 
 %% track the mouse
-[coordData mouseMask] = trackMouseInOF(uint8(videoMatrix));
+[coordData mouseMask] = trackMouseInOF(videoMatrix);
 coordData = coordData * PIXELSIZE;
-[instSpeeds] = getMouseSpeedFromTraj(coordData, FRAMERATE, 10);
+[instSpeeds] = getMouseSpeedFromTraj(coordData, FRAMERATE, FRAMERATE);
 smoothedTraj = smoothdata(coordData(:, :), 'movmedian', 3);
 
 %% plot movement in arena and speed
 f = plotOpenFieldTrial(smoothedTraj(1:end-1, :),instSpeeds, [], 0.2, 160);
  plotTrialSpeedData(instSpeeds, 40, FRAMERATE, strjoin({EXPID, '-',  SAMPLEID}));
-
+displayBehaviorVideoMatrix(videoMatrix);
 % this makes a video of the masked mouse
- displayMouseMasks(mouseMask, FRAMERATE);
+ displayBehaviorVideoMatrix(mouseMask);

@@ -24,7 +24,7 @@ if ~exist('TRIALID', 'var')
 end
 
 if ~exist('TIMEPOINT', 'var')
-    TIMEPOINT = '';
+    TIMEPOINT = '*_';
 end
 
 if ~exist('USERID', 'var')
@@ -72,9 +72,9 @@ for sample = 1:nSamples
     end
 
     IDstring = [IDstring '*' VIDEOTYPE];
-    searchString =  [dataFolder separator IDstring TRIALID];
+    searchString =  [dataFolder separator IDstring];
     dirlist = dir (searchString);
-    fileNames = [fileNames dirlist.name];
+    fileNames = [fileNames {dirlist.name}];
 end
 
 if isempty(fileNames)

@@ -1,8 +1,18 @@
-function [videoMatrix filePath] = readBehaviorVideo(filePath)
+function [videoMatrix filePath frameRate, DOWNSAMPLERATIO] = readBehaviorVideo(filePath, DOWNSAMPLERATIO)
 % readBehaviorVideo - read behavior video file
+% if filename is not mp4, attempt to find a mp4 version, if such does not
+% exist then making a conversion
+
+if ~exist('DOWNSAMPLERATIO', 'var')
+    DOWNSAMPLERATIO = 4;
+end
+
+
 if iscell(filePath)
     filePath = filePath{1};
 end
+
+
 % Check if file exists
 if ~exist(filePath, 'file')
     error('File %s does not exist.', videoFile);
@@ -14,21 +24,13 @@ if strcmp(filePath(end-3:end), '.avi')
     [pathstr, name, ext] = fileparts(filePath);
     newFilePath = fullfile(pathstr, [name '.mp4']);
     if ~exist(newFilePath, 'file')
-        fprintf('Converting %s to mp4... 4x spatial downsample \n', filePath);
-        cmd = sprintf('ffmpeg -i %s -c:v libx264 -crf 19 -preset slow -vf scale=iw/4:-1 -an -vsync 0 %s', filePath, newFilePath);
-        system(cmd);
+        disp('Need to convert .avi to .mp4');
+        filePath = convertToMP4(filePath, DOWNSAMPLERATIO);
 
     end
     filePath = newFilePath;
 end
 
-
-
-% Check if it's a valid video file
-try
-    vidObj = VideoReader(filePath);
-catch ME
-    error('File %s is not a valid video file. \nError Message: %s', filePath, ME.message);
+[videoMatrix frameRate] = readVideoIntoMatrix(filePath);
+frameRate = floor(frameRate);
 end
-
-videoMatrix = uint8(readVideoIntoMatrix(filePath));
