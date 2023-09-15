@@ -7,7 +7,7 @@ function fileNames = getFilenamesForSamples(dataFolder, EXPID, SAMPLEIDS, TASKID
 % CAMID: string  used to select camera when there are more than one, such as 'CAM1'
 % USERID: the experimenter's initials ('THT')
 % TRIALID: string denoting the trial. Such as, 'Trial1'
-% TIMEPOINT: string denoting the experimental timepoint, e.g. D21
+% TIMEPOINT: string denoting the experimental timepoint, e.g. 'D21'
 
 
 if ~exist('TASKID', 'var')

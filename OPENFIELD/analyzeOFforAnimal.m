@@ -24,3 +24,11 @@ for file = 1:nFiles
     [meanSpeeds(file), maxSpeeds(file), locoTimes(file), totalDistancesLocomoting(file), meanSpeedsLocomoting(file), centerFractions(file)] = analyzeSingleOFfile(dataFolder, fileNames{file}, PIXELSIZE, MAKEPLOTS);
 filesProcessed{file} = fileNames{file};
 end
+
+meanSpeeds = meanSpeeds';
+maxSpeeds = maxSpeeds';
+locoTimes = locoTimes';
+totalDistancesLocomoting = totalDistancesLocomoting';
+meanSpeedsLocomoting = meanSpeedsLocomoting';
+centerFractions = centerFractions';
+filesProcessed = filesProcessed';

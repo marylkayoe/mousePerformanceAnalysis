@@ -4,7 +4,7 @@ function f = plotOpenFieldTrial(coordData,speedArray, centerFrames, BORDERLIMIT,
 % centerFrames - the frames in which themouse is in center
 % SCALE - how many mm per pixel
 % FRAMERATE of recording. default 25
-
+% FILEID is used for making title in a plot
 %% Checking input variables amd setting defaults
 [nRows, nCols] = size(coordData);
 if nCols ~= 2
@@ -45,7 +45,7 @@ if ~isempty(centerFrames)
 end
 patch(coordData(:, 1), coordData(:, 2),speedArray,'EdgeColor','interp', 'FaceColor','none', 'LineWidth', 3, 'HandleVisibility', 'off');
 set(gca,'Color', [0.7 0.7 0.7]);
-caxis([0 400]);
+caxis([0 250]);
 c = colorbar;
 c.Label.String = 'mouse speed mm/sec';
 

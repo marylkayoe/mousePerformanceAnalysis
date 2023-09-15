@@ -1,8 +1,10 @@
 function  [meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, meanSpeedLocomoting, centerFraction, instSpeeds] = analyzeSingleOFfile(dataFolder, fileName, PIXELSIZE, MAKEPLOTS,BORDERLIMIT, DOWNSAMPLERATIO )
 % runs the analysis for single trial based on filename
 % note: the file has to be mp4; if not, it will be converted using
-% DOWNSAMPLERATIO downsampling
-
+% DOWNSAMPLERATIO downsampling; do not change, it should be 2 (default if
+% no variable given)
+% Borderlimit: fraction of arena  considered "border region"; e.g. 0.15
+% dataFolder without trailing separator (/)
 % PIXELSIZE = how many mm one pixel is
 % filenamestructure: EXPID_SAMPLEID_TRIALID_CAMID_DATE_USERID.avi
 
