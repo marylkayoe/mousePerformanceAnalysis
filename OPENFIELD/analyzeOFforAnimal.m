@@ -21,10 +21,10 @@ fileNames = getFilenamesForSamples(dataFolder, EXPID, SAMPLEID, 'OF');
 nFiles = length(fileNames);
 meanSpeeds = nan(nFiles, 1);
 for file = 1:nFiles
-    [meanSpeeds(file), maxSpeeds(file), locoTimes(file), totalDistancesLocomoting(file), meanSpeedsLocomoting(file), centerFractions(file)] = analyzeSingleOFfile(dataFolder, fileNames{file}, PIXELSIZE, MAKEPLOTS);
+    [meanSpeeds(file), maxSpeeds(file), locoTimes(file), totalDistance(file), totalDistancesLocomoting(file), meanSpeedsLocomoting(file), centerFractions(file)] = analyzeSingleOFfile(dataFolder, fileNames{file}, PIXELSIZE, MAKEPLOTS);
 filesProcessed{file} = fileNames{file};
 end
-
+  
 meanSpeeds = meanSpeeds';
 maxSpeeds = maxSpeeds';
 locoTimes = locoTimes';

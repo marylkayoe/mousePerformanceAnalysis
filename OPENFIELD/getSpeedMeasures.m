@@ -50,7 +50,7 @@ function [meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting,
     totalDistance = nansum(instSpeeds) * (1/FRAMERATE);
     totalDistanceLocomoting = nansum(instSpeeds(isLocomoting)) * (1/FRAMERATE);
     % Get locomotion frames and logical array
-    [~, isLocomoting] = getLocoFrames(instSpeeds, LOCOTHRESHOLD);
+    %[~, isLocomoting] = getLocoFrames(instSpeeds, LOCOTHRESHOLD);
 
     % Compute time spent locomoting
     locoTime = sum(isLocomoting) / FRAMERATE;
