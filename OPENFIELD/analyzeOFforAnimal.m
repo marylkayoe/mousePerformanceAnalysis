@@ -1,4 +1,4 @@
-function [meanSpeeds maxSpeeds locoTimes totalDistancesLocomoting, meanSpeedsLocomoting] = analyzeOFforAnimal(dataFolder, EXPID, SAMPLEID, FRAMERATE, PIXELSIZE, MAKEPLOTS )
+function [meanSpeeds maxSpeeds locoTimes totalDistancesLocomoting, meanSpeedsLocomoting, filesProcessed] = analyzeOFforAnimal(dataFolder, EXPID, SAMPLEID, FRAMERATE, PIXELSIZE, MAKEPLOTS )
 % analyze open field recordings for all files found for the SAMPLEID
 
 
@@ -22,6 +22,6 @@ nFiles = length(fileNames);
 meanSpeeds = nan(nFiles, 1);
 for file = 1:nFiles
     [meanSpeeds(file), maxSpeeds(file), locoTimes(file), totalDistancesLocomoting(file), meanSpeedsLocomoting(file)] = analyzeSingleOFfile(dataFolder, fileNames{file}, FRAMERATE, PIXELSIZE, MAKEPLOTS);
-
+filesProcessed{file} = fileNames{file};
 end
 

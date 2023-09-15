@@ -1,4 +1,4 @@
-function [rrFrames] = analyzeRRforAnimal(dataFolder, EXPID, ANIMALID, STILLTHRESHOLD, FRAMERATE, MAKEPLOTS )
+function [rrFrameCounts, filesProcessed, QCs] = analyzeRRforAnimal(dataFolder, EXPID, ANIMALID, STILLTHRESHOLD, FRAMERATE, MAKEPLOTS )
 % analyze open field recordings for all files found for the SAMPLEID
 
 
@@ -21,7 +21,11 @@ fileNames = getFilenamesForSamples(dataFolder, EXPID, ANIMALID, 'RR');
 nFiles = length(fileNames);
 rrFrames = nan(nFiles, 1);
 for file = 1:nFiles
-    [rrFrames(file)] = analyzeSingleRRfile(dataFolder, fileNames(file), FRAMERATE,STILLTHRESHOLD, MAKEPLOTS);
-
+    [rrFrameCounts(file) QCs(file)] = analyzeSingleRRfile(dataFolder, fileNames(file), FRAMERATE,STILLTHRESHOLD, MAKEPLOTS);
+filesProcessed{file} =  fileNames(file);
 end
+
+rrFrameCounts = rrFrameCounts';
+filesProcessed = filesProcessed';
+QCs = QCs';
 

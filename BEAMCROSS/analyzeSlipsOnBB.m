@@ -31,13 +31,13 @@ sumSubtractedVideoMatrix = subtractFrom(videoMatrix, sumFrame);
 barYcoord = findBarYCoordInImage(medianFrame);
 croppedSubtractedVideoMatrix = cropVideoBelowBar(sumSubtractedVideoMatrix, barYcoord);
 
-frameDifferences = getLocalizedFrameDifferences(croppedSubtractedVideoMatrix, 50);
+frameDifferences = getLocalizedFrameDifferences(croppedSubtractedVideoMatrix, 100);
 slips=frameDifferences>0.5;
 displayBehaviorVideoMatrix(imadjustn(croppedSubtractedVideoMatrix), fileName, frameDifferences, slips);
 figure;
 findpeaks(frameDifferences, 'MinPeakProminence', 0.5, "Annotate","peaks");
 blankedVideoMatrix = videoMatrix;
-blankedVideoMatrix(:, :, frameDifferences<0.01) = 0;
+blankedVideoMatrix(:, :, frameDifferences<0.02) = 0;
 [centroids mouseMaskMatrix] = trackMouseInBB(videoMatrix, frameDifferences );
 R = 1;
 

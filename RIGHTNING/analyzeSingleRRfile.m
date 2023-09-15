@@ -1,4 +1,4 @@
-function RRlengthFrames = analyzeSingleRRfile(dataFolder, fileName, FRAMERATE,STILLTHRESHOLD, MAKEPLOTS)
+function [RRlengthFrames QC]= analyzeSingleRRfile(dataFolder, fileName, FRAMERATE,STILLTHRESHOLD, MAKEPLOTS)
 
 if ~exist('FRAMERATE', 'var')
     FRAMERATE = 30;
@@ -9,7 +9,7 @@ if ~exist('TIMEPOINT', 'var')
 end
 
 if ~exist('STILLTHRESHOLD', 'var')
-    STILLTHRESHOLD = 0.05;
+    STILLTHRESHOLD = 0.06;
 end
 
 
@@ -54,7 +54,7 @@ end
 
 % defining the rightning response (as a burst of activity after the HOLD
 % period
-[rrMask RRlengthFrames] = detectRRframes(diffs, stillFrames);
+[rrMask RRlengthFrames QC] = detectRRframes(diffs, stillFrames);
 if isempty(rrMask)
     warning(['RR detection failed for file', fileName{1}]);
 end
@@ -71,15 +71,19 @@ if MAKEPLOTS
     figure; hold on;
     xAx = makexAxisFromFrames(length(diffs), FRAMERATE);
     plot( diffs);
+    if(find(any(rrMask)))
+        if QC
+        plot( rrMask, 'g', 'LineWidth', 2);
+        else
+            plot( rrMask, 'r', 'LineWidth', 2);
+        end
+    end
 
     if(find(any(stillFrames)))
         plot( stillFrames, 'LineWidth', 2);
     end
 
-    if(find(any(rrMask)))
-        plot( rrMask, 'g', 'LineWidth', 2);
-    end
-    legend({'Diff', 'stillness', 'rightning'});
+    legend({'Movement', 'RR', 'HOLD'});
     xlabel('FRAMES');
 
 

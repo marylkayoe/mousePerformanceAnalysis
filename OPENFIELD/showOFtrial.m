@@ -24,7 +24,7 @@ videoMatrix = readVideoIntoMatrix(newFilePath);
 
 
 %% track the mouse
-[coordData mouseMask] = trackMouseInOF(double(videoMatrix));
+[coordData mouseMask] = trackMouseInOF(uint8(videoMatrix));
 coordData = coordData * PIXELSIZE;
 [instSpeeds] = getMouseSpeedFromTraj(coordData, FRAMERATE, 10);
 smoothedTraj = smoothdata(coordData(:, :), 'movmedian', 3);
@@ -34,4 +34,4 @@ f = plotOpenFieldTrial(smoothedTraj(1:end-1, :),instSpeeds, [], 0.2, 160);
  plotTrialSpeedData(instSpeeds, 40, FRAMERATE, strjoin({EXPID, '-',  SAMPLEID}));
 
 % this makes a video of the masked mouse
-% displayMouseMasks(mouseMask, FRAMERATE);
+ displayMouseMasks(mouseMask, FRAMERATE);
