@@ -23,7 +23,7 @@ end
 if isempty(speedBurstFrame)
     warning('No RR found after stillness, enterning largest peak HW, CHECK VALUE');
     [speedBurstAmp, speedBurstFrame, RRlengthFrames, peaks] = findpeaks(diffs, "MinPeakHeight", 0.90, "MinPeakWidth", 10);
-    
+
     % rrMask(speedBurstFrame(end)-RRlengthFrames(end)/2:speedBurstFrame(end)+RRlengthFrames(end)/2) = 1;
     QC = 0;
 
@@ -43,9 +43,9 @@ else
 
     % find the END of the RR:
     % looking at movement after burst half-width
-postBurstDiffs = diffsAfterStill;
+    postBurstDiffs = diffsAfterStill;
     %blank out the movement until half-width
-    postBurstDiffs(1:speedBurstFrame(1) + widths(1)) = nan;
+    postBurstDiffs(1:speedBurstFrame(1) + floor(widths(1)/2)) = nan;
 
     [isPostMin P] = islocalmin(smooth(postBurstDiffs), 'FlatSelection', 'last');
     if(diffsAfterStill(find(isPostMin, 1, 'first'))) > RRSTARTThreshold % if the movement at first minimum is too high
