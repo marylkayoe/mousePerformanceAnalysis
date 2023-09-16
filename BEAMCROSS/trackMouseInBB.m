@@ -1,4 +1,4 @@
-function [centroids mouseMaskMatrix] = trackMouseInBB(videoMatrix, diffs)
+function [centroids mouseMaskMatrix] = trackMouseInBB(videoMatrix)
 % trackMouseInOF.m - Track the mouse in a open field video
 % videoMatrix is the video data converted into a 3D matrix
 [h w nFrames] = size(videoMatrix);

@@ -1,4 +1,4 @@
-function R = analyzeSlipsOnBB(dataFolder,EXPID, SAMPLEID, TASKID, OFfileID)
+function R = analyzeSlipsOnBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, CAMID)
 
 if ~exist('TASKID', 'var')
     TASKID = OF;
@@ -11,17 +11,24 @@ end
 if ~exist('FRAMERATE', 'var')
     FRAMERATE = 30;
 end
+
+DOWNSAMPLERATIO = 2;
 %% import the video file and make it into a grayscale matrix:
-fileName = getFilenamesForSamples(dataFolder,EXPID, SAMPLEID, TASKID, OFfileID);
+fileName = getFilenamesForSamples(dataFolder,EXPID, SAMPLEID, TASKID, [TIMEPOINT '_' CAMID]);
 if isempty(fileName)
     R = [];
     warning('No video loaded');
     return;
 end
+if (iscell(fileName))
+    fileName = fileName{1};
+end
 fullFilePath = fullfile(dataFolder, fileName);
-[videoMatrix newFilePath] = readBehaviorVideo(fullFilePath); % newFilePath is with .mp4 ending
-%videoMatrix = readVideoIntoMatrix(fullFilePath);
-%videoMatrix = cropVideoMid(videoMatrix, 3);
+[videoMatrix newFilePath FRAMERATE] = readBehaviorVideo(fullFilePath, DOWNSAMPLERATIO); % newFilePath is with .mp4 ending
+
+[centroids mouseMaskMatrix] = trackMouseInBB(videoMatrix );
+
+
 sumFrame = getSumFrame(videoMatrix);
 meanFrame = getMeanFrame(videoMatrix);
 sumSubtractedVideoMatrix = subtractFrom(videoMatrix, sumFrame);
@@ -38,7 +45,7 @@ figure;
 findpeaks(frameDifferences, 'MinPeakProminence', 0.5, "Annotate","peaks");
 blankedVideoMatrix = videoMatrix;
 blankedVideoMatrix(:, :, frameDifferences<0.02) = 0;
-[centroids mouseMaskMatrix] = trackMouseInBB(videoMatrix, frameDifferences );
+
 R = 1;
 
 

@@ -24,7 +24,6 @@ diffs = sum(sum(absDiffImages, 1), 2);
 
 % Reshape diffs into a column vector
 diffs = squeeze(diffs);
-
 % 
 % 
 % % Compute difference between each pair of consecutive frames

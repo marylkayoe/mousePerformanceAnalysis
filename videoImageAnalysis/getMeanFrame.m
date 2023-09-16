@@ -1,5 +1,5 @@
 function meanFrame = getMeanFrame(videoMatrix)
 
 
-meanFrame = mean(videoMatrix, 3);
+meanFrame = uint8(mean(videoMatrix, 3));
 
