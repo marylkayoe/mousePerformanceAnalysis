@@ -21,7 +21,7 @@ diffs = diffs - min(diffs);
 slowFrames = zeros(size(diffs));
 
 slowFrames = diffs < threshold;
-slowFrames(1:trialStartFrame) = 0;
+%slowFrames(1:trialStartFrame) = 0;
 
 stillChanges = diff(slowFrames);
 stillStartFrames = find(stillChanges==1);

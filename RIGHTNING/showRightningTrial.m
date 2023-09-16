@@ -13,6 +13,7 @@ end
 
 
 STILLNESHRESHOLD = 0.05; % fraction of moving pixels that is accepted during "HOLD"
+STILLTHRESHOLDTIME = 0.7;
 
 
 % import video data, converting from avi to mp4 if needed (4x spatial downsample)
@@ -36,7 +37,7 @@ croppedVideoMatrix = cropVideoMid(videoMatrix, 3);
 
 
 % detecting still moment as the rightning should occur after 1 sec holding
-[stillFrames, diffs] = detectStillnessInVideo(croppedVideoMatrix, STILLNESHRESHOLD, FRAMERATE);
+[stillFrames, diffs] = detectStillnessInVideo(croppedVideoMatrix, STILLNESHRESHOLD, FRAMERATE*STILLTHRESHOLDTIME);
 if ~(any(stillFrames))
     warning(['Stillness detection failed for file', fileName{1}]);
 end
