@@ -39,6 +39,8 @@ if isempty(speedBurstFrame)
     end
     rrMask = zeros(size(stillFrames));
     rrMask(burstStartFrame:burstEndFrame) = 1;
+    RRlengthFrames = burstEndFrame-burstStartFrame;
+
 else
 
     % find the END of the RR:
