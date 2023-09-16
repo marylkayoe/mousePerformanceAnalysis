@@ -42,20 +42,6 @@ if (isunix)
 else
     separator = '\';
 end
-% 
-% [~, name, ext] = fileparts(fileName);
-% if ~strcmp(ext, '.mp4')
-%     warning('Provided filename indicates incorrect format (should be mp4).. seeking right version');
-%     newFilePath = convertToMP4([dataFolder separator fileName]);
-%     if isempty(newFilePath)
-%         disp('Failed conversion, aborting');
-%         return;
-%     end
-%     fileName = newFilePath;
-% 
-% end
-% 
-
 
 
 [videoMatrix newFilePath FRAMERATE] = readBehaviorVideo([dataFolder separator fileName], DOWNSAMPLERATIO);

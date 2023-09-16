@@ -1,7 +1,7 @@
 function newFilePath = convertToMP4(fullFilePath, DOWNSAMPLERATIO)
 
 if ~exist('DOWNSAMPLERATIO', 'var')
-    DOWNSAMPLERATIO = 4;
+    DOWNSAMPLERATIO = 2;
 end
 
 

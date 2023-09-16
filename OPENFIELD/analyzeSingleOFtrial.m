@@ -1,8 +1,19 @@
-function  [meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, meanSpeedLocomoting, instSpeeds, centerFraction] = analyzeSingleOFtrial(dataFolder,EXPID, SAMPLEID, TASKID,TIMEPOINT, TRIALID, CAMID, USERID, PIXELSIZE, MAKEPLOTS, DOWNSAMPLERATIO )
+function  [meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, meanSpeedLocomoting, centerFraction, instSpeeds] = analyzeSingleOFtrial(dataFolder,EXPID, SAMPLEID, TASKID,TIMEPOINT, TRIALID, CAMID, USERID, PIXELSIZE, BORDERLIMIT, MAKEPLOTS, DOWNSAMPLERATIO )
 % runs the analysis for single trial based on experimental identifiers
+% this function finds the right filename and then calls analyzeSingleOFfile
+% 
+% TASKID: should be "OF" (default) 
+% TIMEPOINT: which timepoint is used. eg. "D07".
 % PIXELSIZE = how many mm one pixel is
+% BORDERLIMIT : what fraction of the arena is considered to be "border" (default: 0.15)
+% MAKEPLOTS : if 0, no figures are made, only results returned
+% DOWNSAMPLERATIO : for situations when you want to test different
+% compression factors. OMIT unless you know what you are doing.
 % filenamestructure should be: EXPID_SAMPLEID_TRIALID_CAMID_DATE_USERID.avi
 % CAMID TRIALID USERID DATE are currently ignored
+
+% all output variables are single values except instSpeeds that returns a
+% vector with instantaneous speeds during the trial
 
 if ~exist('CAMID', 'var') % CAMID is used when there are more than one camera file
     CAMID = '*';
@@ -33,6 +44,12 @@ if ~exist('PIXELSIZE', 'var')
     PIXELSIZE = 1;
 end
 
+
+if ~exist('BORDERLIMIT', 'var')
+    BORDERLIMIT = 0.15;
+end
+
+
 if ~exist('MAKEPLOTS', 'var')
     MAKEPLOTS = 0;
 end
@@ -44,7 +61,6 @@ end
 
 PIXELSIZE = PIXELSIZE * DOWNSAMPLERATIO;
 
-BORDERLIMIT = 0.2;
 
 if (isunix)
     separator = '/';
@@ -63,23 +79,6 @@ end
 if iscell(fileName)
     fileName = fileName{1};
 end
-fileIDstring = getFileIDfromFilename(fileName); % cleaned-up version of the file indicator for figures
 
-[videoMatrix newFilePath FRAMERATE] = readBehaviorVideo([dataFolder separator fileName], DOWNSAMPLERATIO);
-[centroidCoords mouseMaskMatrix] = trackMouseInOF(videoMatrix);
-centroidCoords = centroidCoords * PIXELSIZE;
+ [meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, meanSpeedLocomoting, centerFraction, instSpeeds] = analyzeSingleOFfile(dataFolder, fileName, PIXELSIZE, MAKEPLOTS,BORDERLIMIT, DOWNSAMPLERATIO );
 
-[meanSpeed, maxSpeed, locoTime, totalDistance, totalDistanceLocomoting, meanSpeedLocomoting, instSpeeds, isLocomoting] = getSpeedMeasures(centroidCoords, FRAMERATE, fileIDstring);
-
-[centerFrames borderFrames centerFraction] = getCenterBorderFrames(centroidCoords, BORDERLIMIT);
-isCenter = zeros(size(instSpeeds));
-isCenter(centerFrames) = 1;
-
-
-if MAKEPLOTS
-    % note: padding speed array with zero since first frame does not have speed
-    indicatorString = [fileIDstring ' with centerFrames indicated'];
-    displayBehaviorVideoMatrix(mouseMaskMatrix, indicatorString, [0 ; instSpeeds], isCenter);
-    plotTrialSpeedData(instSpeeds, 40, FRAMERATE,fileIDstring);
-    plotOpenFieldTrial(centroidCoords,[0 ; instSpeeds], centerFrames, BORDERLIMIT, FRAMERATE, PIXELSIZE, fileIDstring);
-end

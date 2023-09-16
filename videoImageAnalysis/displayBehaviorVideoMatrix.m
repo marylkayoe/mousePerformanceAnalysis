@@ -12,7 +12,7 @@ end
 % videoMatrixNormalized = (videoMatrix - min(videoMatrix(:))) / (max(videoMatrix(:)) - min(videoMatrix(:)));
 
 % displayBehaviorVideo - display behavior video with scrollbar, play/pause button, and data display
-fig = figure('Name', 'Behavior Video', 'NumberTitle', 'off');
+fig = figure('Name', titleString, 'NumberTitle', 'off');
 
 ax = axes('Parent', fig, 'Position', [0.05 0.2 0.9 0.7]);
 sld = uicontrol('Style', 'slider', 'Parent', fig, 'Units', 'normalized', ...

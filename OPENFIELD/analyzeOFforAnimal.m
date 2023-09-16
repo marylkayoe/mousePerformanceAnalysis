@@ -25,7 +25,7 @@ for file = 1:nFiles
 filesProcessed{file} = fileNames{file};
 end
   
-meanSpeeds = meanSpeeds';
+meanSpeeds = meanSpeeds;
 maxSpeeds = maxSpeeds';
 locoTimes = locoTimes';
 totalDistancesLocomoting = totalDistancesLocomoting';
