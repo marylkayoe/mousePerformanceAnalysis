@@ -1,9 +1,13 @@
-function newFilePath = convertToMP4(fullFilePath, DOWNSAMPLERATIO)
+function newFilePath = convertToMP4(fullFilePath, DOWNSAMPLERATIO, CROPVIDEO)
 
 if ~exist('DOWNSAMPLERATIO', 'var')
     DOWNSAMPLERATIO = 2;
 end
 
+
+if ~exist('CROPVIDEO', 'var')
+    CROPVIDEO = 0;
+end
 
 
 [pathstr, name, ext] = fileparts(fullFilePath);
@@ -38,7 +42,11 @@ if isempty(newFileExists)
 
     %cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf scale=iw/%d:-1 -an -vsync 0 "%s" >/dev/null 2>&1', fullFilePath, DOWNSAMPLERATIO, newFilePath);
 
-    cropHeight = height / 2;  % retain the middle 50% of the video vertically
+    if CROPVIDEO
+        cropHeight = height / 2;  % retain the middle 50% of the video vertically
+    else
+        cropHeight = height;
+    end
     cropWidth = width;  % retain 100% of the video horizontally
 
     % Creating the ffmpeg command with the crop and scale filters
