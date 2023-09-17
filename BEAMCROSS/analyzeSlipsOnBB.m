@@ -13,7 +13,7 @@ if ~exist('FRAMERATE', 'var')
 end
 
 DOWNSAMPLERATIO = 4;
-CROPVIDEO = 1 % crop top and bottom, 1/4 each
+CROPVIDEO = 1; % crop top and bottom, 1/4 each
 %% import the video file and make it into a grayscale matrix:
 fileName = getFilenamesForSamples(dataFolder,EXPID, SAMPLEID, TASKID, [TIMEPOINT '_' CAMID]);
 if isempty(fileName)
@@ -32,6 +32,8 @@ fullFilePath = fullfile(dataFolder, fileName);
 [centroids instProgressionSpeeds locoFrames mouseMaskMatrix]= trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE );
 displayBehaviorVideoMatrix(mouseMaskMatrix, fileID, instProgressionSpeeds, locoFrames, 0);
 displayBehaviorVideoMatrix(videoMatrix, fileID, instProgressionSpeeds, locoFrames, 0);
+
+plotOpenFieldTrial(centroids,instProgressionSpeeds, '', '', FRAMERATE, PIXELSIZE, fileID);
 sumFrame = getSumFrame(videoMatrix);
 meanFrame = getMeanFrame(videoMatrix);
 sumSubtractedVideoMatrix = subtractFrom(videoMatrix, sumFrame);

@@ -33,7 +33,7 @@ diffs = sum(sum(absDiffImages, 1), 2);
 
 % Reshape diffs into a column vector
 diffs = squeeze(diffs);
-
+disp('Removing spurious frames....');
 blankTH = FRAMERATE / 5;
 % Finding peaks and their prominences
 [~, locs, w, p] = findpeaks(diffs);

@@ -71,11 +71,11 @@ if mod(newHeight, 2) ~= 0
 end
 
 
-% cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync 0 "%s">/dev/null 2>&1', ...
-%     fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
-
-cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync 0 "%s"', ...
+cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync 0 "%s">/dev/null 2>&1', ...
     fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
+
+% cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync 0 "%s"', ...
+%     fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
 
 
     [failed] = system(cmd);
@@ -86,7 +86,7 @@ cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:
     else
         [status, cmdout] = system(sprintf('ffmpeg -i "%s" -hide_banner', newFilePath));
         framerate = regexp(cmdout, '(\d+(?:\.\d+)?) fps', 'tokens');
-            [status, cmdout] = system(sprintf('ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 "%s"', fullFilePath));
+            [status, cmdout] = system(sprintf('ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 "%s"', newFilePath));
  resolution = strsplit(cmdout, 'x');
         width = str2double(resolution{1});
         height = str2double(resolution{2});

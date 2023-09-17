@@ -91,7 +91,7 @@ diffs = getLocalizedFrameDifferences (mouseMaskMatrix, 10, FRAMERATE);
 diffs = smooth(diffs, FRAMERATE);
 diffs = diffs ./ max(diffs);
 blankedIdx = find(diffs < 0.2);
-
+disp('Calculating centroid position and forward speed...');
 % mouse position defined by the segment centroids
 centroids = centroids / PIXELSIZE;
 centroidsSMOOTH = smoothdata(centroids, 'movmean', floor(FRAMERATE/20));
