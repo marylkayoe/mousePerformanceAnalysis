@@ -5,7 +5,7 @@ if ~exist('TASKID', 'var')
 end
 
 if ~exist('PIXELSIZE', 'var')
-    PIXELSIZE = 1;
+    PIXELSIZE = 1.5;
 end
 
 if ~exist('FRAMERATE', 'var')
@@ -23,12 +23,14 @@ end
 if (iscell(fileName))
     fileName = fileName{1};
 end
+fileID = getFileIDfromFilename (fileName);
+
 fullFilePath = fullfile(dataFolder, fileName);
 [videoMatrix newFilePath FRAMERATE] = readBehaviorVideo(fullFilePath, DOWNSAMPLERATIO); % newFilePath is with .mp4 ending
 
-[centroids mouseMaskMatrix] = trackMouseInBB(videoMatrix );
-
-
+[centroids instProgressionSpeeds locoFrames mouseMaskMatrix]= trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE );
+displayBehaviorVideoMatrix(mouseMaskMatrix, fileID, instProgressionSpeeds, locoFrames, 0);
+displayBehaviorVideoMatrix(videoMatrix, fileID, instProgressionSpeeds, locoFrames, 0);
 sumFrame = getSumFrame(videoMatrix);
 meanFrame = getMeanFrame(videoMatrix);
 sumSubtractedVideoMatrix = subtractFrom(videoMatrix, sumFrame);

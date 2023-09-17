@@ -1,10 +1,14 @@
-function [videoMatrix filePath frameRate, DOWNSAMPLERATIO] = readBehaviorVideo(filePath, DOWNSAMPLERATIO)
+function [videoMatrix filePath frameRate, DOWNSAMPLERATIO] = readBehaviorVideo(filePath, DOWNSAMPLERATIO, CROPVIDEO)
 % readBehaviorVideo - read behavior video file
 % if filename is not mp4, attempt to find a mp4 version, if such does not
 % exist then making a conversion
 
 if ~exist('DOWNSAMPLERATIO', 'var')
-    DOWNSAMPLERATIO = 4;
+    DOWNSAMPLERATIO =2;
+end
+
+if ~exist('CROPVIDEO', 'var')
+    CROPVIDEO = 0;
 end
 
 
@@ -25,7 +29,7 @@ if strcmp(filePath(end-3:end), '.avi')
     newFilePath = fullfile(pathstr, [name '.mp4']);
     if ~exist(newFilePath, 'file')
         disp('Need to convert .avi to .mp4');
-        filePath = convertToMP4(filePath, DOWNSAMPLERATIO);
+        filePath = convertToMP4(filePath, DOWNSAMPLERATIO, CROPVIDEO);
 
     end
     filePath = newFilePath;

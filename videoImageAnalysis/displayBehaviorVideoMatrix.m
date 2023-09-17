@@ -1,9 +1,23 @@
-function displayBehaviorVideoMatrix(videoMatrix, titleString, dispData, logicalData)
+function displayBehaviorVideoMatrix(videoMatrix, titleString, dispData, logicalData, NORMHISTO)
 if ~exist('dispData', 'var')
     dispData = string(1:length(videoMatrix));
 end
+if isempty(dispData)
+    dispData = string(1:length(videoMatrix));
+end
+
+
 if ~exist('logicalData', 'var')
     logicalData = false(length(videoMatrix), 1);
+end
+
+if isempty(logicalData)
+    logicalData = false(length(videoMatrix), 1);
+end
+
+
+if ~exist('NORMHISTO', 'var')
+    NORMHISTO = 0;
 end
 
 if ~exist('titleString', 'var')
@@ -37,7 +51,11 @@ title(ax, titleString);
         delete(findobj(ax, 'Type', 'rectangle'));
 
         frame = videoMatrix(:, :, frameNum);
-        imshow(frame, 'Parent', ax);
+        if NORMHISTO
+            imshow(frame, [], 'Parent', ax);
+        else
+            imshow(frame, 'Parent', ax);
+        end
 
         if logicalData(frameNum)
             % Draw a rectangle on top of the video. Modify the position values
@@ -56,7 +74,11 @@ title(ax, titleString);
                 delete(findobj(ax, 'Type', 'rectangle'));
 
                 frame = videoMatrix(:, :, frameNum);
-                imshow(frame, 'Parent', ax);
+                if NORMHISTO
+                    imshow(frame, [], 'Parent', ax);
+                else
+                    imshow(frame, 'Parent', ax);
+                end
                 frameNumText.String = sprintf('Frame: %d, Value: %f', frameNum, dispData(frameNum));
                 if logicalData(frameNum)
                     % Draw a rectangle on top of the video. Modify the position values
