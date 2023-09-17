@@ -1,4 +1,4 @@
-function f = plotOpenFieldTrial(coordData,speedArray, centerFrames, BORDERLIMIT, FRAMERATE, XYSCALE, FILEID)
+function f = plotOpenFieldTrial(coordData,speedArray, centerFrames, BORDERLIMIT, FRAMERATE, XYSCALE, FILEID, TITLESTRING)
 % a plot to show the trajectory. return handle to the plot
 % speedArray - inst speed of mouse in the frame
 % centerFrames - the frames in which themouse is in center
@@ -18,6 +18,12 @@ if (~exist('XYSCALE', 'var'))
     XYSCALE = 1;
 end
 
+if (~exist('TITLESTRING', 'var'))
+    TITLESTRING = 'Open field trajectory: ';
+
+end
+
+
 if (~exist('FRAMERATE', 'var'))
     warning('FRAMERATE missing - defaulting to 25');
     FRAMERATE = 25;
@@ -35,7 +41,8 @@ if (~exist('BORDERLIMIT', 'var'))
     BORDERLIMIT = 0.15;
 
 end
-
+startIndex = find(~isnan(coordData(:, 1)), 1, 'first');
+endIndex = find(~isnan(coordData(:, 1)), 1, 'last');
 
 figure; hold on;
 coordData = coordData ./ XYSCALE; % scaling in xy
@@ -48,14 +55,14 @@ set(gca,'Color', [0.7 0.7 0.7]);
 caxis([0 250]);
 c = colorbar;
 c.Label.String = 'mouse speed mm/sec';
+ scatter(coordData(startIndex, 2), coordData(startIndex, 2), 100,'red', 'o', 'filled')
 
-
-legend('in center', 'Location', 'northeastoutside', 'FontSize', 12);
+%legend({'in center', 'END'}, 'Location', 'northeastoutside', 'FontSize', 12);
 xlabel ('X (mm)');
 ylabel ('Y (mm)');
 
 axis tight;
 f = gca;
-title(['Open field trajectory for '  FILEID ', center fraction ' num2str(centerFraction, '%.2d') '%']);
+title([TITLESTRING ' ' FILEID ', center fraction ' num2str(centerFraction, '%.2d') '%']);
 end
 
