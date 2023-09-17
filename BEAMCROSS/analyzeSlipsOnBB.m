@@ -36,14 +36,14 @@ displayBehaviorVideoMatrix(videoMatrix, fileID, instProgressionSpeeds, locoFrame
     
 titlestring = ['BB centroid from ' CAMID];
 plotOpenFieldTrial(centroids,[0 instProgressionSpeeds'], '', '', FRAMERATE, PIXELSIZE, fileID, titlestring);
-sumFrame = getSumFrame(videoMatrix);
-meanFrame = getMeanFrame(videoMatrix);
-sumSubtractedVideoMatrix = subtractFrom(videoMatrix, sumFrame);
+% sumFrame = getSumFrame(videoMatrix);
+% meanFrame = getMeanFrame(videoMatrix);
+% sumSubtractedVideoMatrix = subtractFrom(videoMatrix, sumFrame);
 
 % medianSubtractedVideoMatrix = subtractFrom(videoMatrix, medianFrame);
- medianFrame = getMedianFrame(sumSubtractedVideoMatrix);
-barYcoord = findBarYCoordInImage(medianFrame);
-croppedSubtractedVideoMatrix = cropVideoBelowBar(sumSubtractedVideoMatrix, barYcoord);
+ % medianFrame = getMedianFrame(sumSubtractedVideoMatrix);
+
+underBarVideoMatrix = cropVideoBelowBar(videoMatrix);
 
 frameDifferences = getLocalizedFrameDifferences(croppedSubtractedVideoMatrix, 100);
 slips=frameDifferences>0.5;
