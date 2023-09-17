@@ -12,7 +12,8 @@ if ~exist('FRAMERATE', 'var')
     FRAMERATE = 30;
 end
 
-DOWNSAMPLERATIO = 2;
+DOWNSAMPLERATIO = 4;
+CROPVIDEO = 1 % crop top and bottom, 1/4 each
 %% import the video file and make it into a grayscale matrix:
 fileName = getFilenamesForSamples(dataFolder,EXPID, SAMPLEID, TASKID, [TIMEPOINT '_' CAMID]);
 if isempty(fileName)
@@ -26,7 +27,7 @@ end
 fileID = getFileIDfromFilename (fileName);
 
 fullFilePath = fullfile(dataFolder, fileName);
-[videoMatrix newFilePath FRAMERATE] = readBehaviorVideo(fullFilePath, DOWNSAMPLERATIO); % newFilePath is with .mp4 ending
+[videoMatrix newFilePath FRAMERATE] = readBehaviorVideo(fullFilePath, DOWNSAMPLERATIO, CROPVIDEO); % newFilePath is with .mp4 ending
 
 [centroids instProgressionSpeeds locoFrames mouseMaskMatrix]= trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE );
 displayBehaviorVideoMatrix(mouseMaskMatrix, fileID, instProgressionSpeeds, locoFrames, 0);

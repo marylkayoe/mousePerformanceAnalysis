@@ -2,7 +2,7 @@ function diffs = getLocalizedFrameDifferences(videoMatrix, nFramesSmooth, FRAMER
 
 % Number of frames to use for smoothing
 %nFramesSmooth = 5;  % or whatever number you want
-
+disp('Finding movement frames....');
 % Smooth video frames
 smoothedVideoMatrix = movmean(videoMatrix, nFramesSmooth, 3);
 

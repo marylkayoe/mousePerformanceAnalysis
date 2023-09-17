@@ -65,8 +65,8 @@ mouseMask = false(size(mouseMask));
         warning('No object found in frame ');
         centroids(frameIdx,:) = nan;
     else
-        if stats(idx).Area < frameSize*0.1
-            %warning('The largest object is smaller than the threshold (10% of framesize)');
+        if stats(idx).Area < frameSize*0.05
+            %warning('The largest object is smaller than the threshold (5% of framesize)');
             centroids(frameIdx,:) = nan;
         else
 

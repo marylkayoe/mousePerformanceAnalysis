@@ -4,7 +4,6 @@ if ~exist('DOWNSAMPLERATIO', 'var')
     DOWNSAMPLERATIO = 2;
 end
 
-
 if ~exist('CROPVIDEO', 'var')
     CROPVIDEO = 0;
 end
@@ -40,22 +39,43 @@ if isempty(newFileExists)
     end
     fprintf('Converting %s to mp4... %d x spatial downsample, original framerate \n', fullFilePath, DOWNSAMPLERATIO);
 
-    %cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf scale=iw/%d:-1 -an -vsync 0 "%s" >/dev/null 2>&1', fullFilePath, DOWNSAMPLERATIO, newFilePath);
 
-    if CROPVIDEO
-        cropHeight = height / 2;  % retain the middle 50% of the video vertically
-    else
-        cropHeight = height;
+
+%%
+if CROPVIDEO
+    cropHeight = floor(height / 2);  % retain the middle 50% of the video vertically
+    yOffset = floor((height - cropHeight) / 2); % Adjust this to change the vertical start point of the crop
+    newHeight = floor(cropHeight / DOWNSAMPLERATIO); % compensate for downscaling
+    if mod(cropHeight, 2) ~= 0
+        cropHeight = cropHeight - 1;
     end
-    cropWidth = width;  % retain 100% of the video horizontally
+else
+    cropHeight = height;
+    yOffset = 0;
+    newHeight = floor(height / DOWNSAMPLERATIO); % here we get the newHeight if CROPVIDEO is false
+    if mod(newHeight, 2) ~= 0
+        newHeight = newHeight - 1;
+    end
+end 
 
-    % Creating the ffmpeg command with the crop and scale filters
-    cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=iw/%d:-1" -an -vsync 0 "%s" >/dev/null 2>&1', ...
-        fullFilePath, cropWidth, cropHeight, height/4, DOWNSAMPLERATIO, newFilePath);
+% Defining the new width values
+cropWidth = width; % retain 100% of the video horizontally
+newWidth = floor(width / DOWNSAMPLERATIO); 
+if mod(newWidth, 2) ~= 0
+    newWidth = newWidth - 1;
+end
+
+newHeight = floor(cropHeight / DOWNSAMPLERATIO);
+if mod(newHeight, 2) ~= 0
+    newHeight = newHeight + 1;
+end
 
 
+% cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync 0 "%s">/dev/null 2>&1', ...
+%     fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
 
-
+cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync 0 "%s"', ...
+    fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
 
 
     [failed] = system(cmd);
@@ -66,6 +86,11 @@ if isempty(newFileExists)
     else
         [status, cmdout] = system(sprintf('ffmpeg -i "%s" -hide_banner', newFilePath));
         framerate = regexp(cmdout, '(\d+(?:\.\d+)?) fps', 'tokens');
+            [status, cmdout] = system(sprintf('ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 "%s"', fullFilePath));
+ resolution = strsplit(cmdout, 'x');
+        width = str2double(resolution{1});
+        height = str2double(resolution{2});
+        fprintf('New resolution: %dx%d\n', width, height);
         disp(["Conversion completed, new frame rate " framerate]);
     end
 else

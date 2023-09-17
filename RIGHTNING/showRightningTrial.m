@@ -5,6 +5,11 @@ if ~exist('TIMEPOINT', 'var')
     TIMEPOINT = 'D07';
 end
 
+if ~exist('DOWNSAMPLERATIO', 'var')
+    DOWNSAMPLERATIO = 2;
+end
+
+
 if (isunix)
     separator = '/';
 else
@@ -12,7 +17,7 @@ else
 end
 
 
-STILLNESHRESHOLD = 0.05; % fraction of moving pixels that is accepted during "HOLD"
+STILLNESHRESHOLD = 0.07; % fraction of moving pixels that is accepted during "HOLD"
 STILLTHRESHOLDTIME = 0.7;
 
 
@@ -44,7 +49,7 @@ end
 
 % defining the rightning response (as a burst of activity after the HOLD
 % period
-[rrMask RRlengthFrames] = detectRRframes(diffs, stillFrames);
+[rrMask RRlengthFrames QC] = detectRRframes(diffs, stillFrames);
 if isempty(rrMask)
     warning(['RR detection failed for file', fileName{1}]);
 end
