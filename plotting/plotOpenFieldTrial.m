@@ -48,14 +48,13 @@ figure; hold on;
 coordData = coordData ./ XYSCALE; % scaling in xy
 colormap(hot);
 if ~isempty(centerFrames)
-    scatter(coordData(centerFrames, 1), coordData(centerFrames, 2), 'o');
+    scatter(coordData(centerFrames, 1), coordData(centerFrames, 2), 100, 'blue', 'filled', 'o');
 end
 patch(coordData(:, 1), coordData(:, 2),speedArray,'EdgeColor','interp', 'FaceColor','none', 'LineWidth', 3, 'HandleVisibility', 'off');
 set(gca,'Color', [0.7 0.7 0.7]);
-%caxis([0 250]);
+clim('auto');
 c = colorbar;
 c.Label.String = 'mouse speed mm/sec';
- scatter(coordData(startIndex, 2), coordData(startIndex, 2), 100,'red', 'o', 'filled')
 
 %legend({'in center', 'END'}, 'Location', 'northeastoutside', 'FontSize', 12);
 xlabel ('X (mm)');

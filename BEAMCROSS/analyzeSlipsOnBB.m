@@ -1,4 +1,4 @@
-function R = analyzeSlipsOnBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, CAMID)
+function [nSLIPS slipIndex, slipLocs, meanProgressionSpeed] = analyzeSlipsOnBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, CAMID, SLIPTH, MAKEPLOTS)
 
 if ~exist('TASKID', 'var')
     TASKID = OF;
@@ -10,6 +10,14 @@ end
 
 if ~exist('FRAMERATE', 'var')
     FRAMERATE = 30;
+end
+
+if ~exist('SLIPTH', 'var')
+    SLIPTH = 2;
+end
+
+if ~exist('MAKEPLOTS', 'var')
+    MAKEPLOTS = 0;
 end
 
 DOWNSAMPLERATIO = 4;
@@ -29,13 +37,10 @@ fileID = getFileIDfromFilename (fileName);
 
 fullFilePath = fullfile(dataFolder, fileName);
 [videoMatrix newFilePath FRAMERATE] = readBehaviorVideo(fullFilePath, DOWNSAMPLERATIO, CROPVIDEO); % newFilePath is with .mp4 ending
+nFRAMES = length(videoMatrix);
 
-[centroids instProgressionSpeeds locoFrames mouseMaskMatrix blankedFrames]= trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE );
-displayBehaviorVideoMatrix(mouseMaskMatrix, fileID, instProgressionSpeeds, locoFrames, 0);
-displayBehaviorVideoMatrix(videoMatrix, fileID, instProgressionSpeeds, locoFrames, 0);
-    
-titlestring = ['BB centroid from ' CAMID];
-plotOpenFieldTrial(centroids,[0 instProgressionSpeeds'], '', '', FRAMERATE, PIXELSIZE, fileID, titlestring);
+[centroids instProgressionSpeeds isLocomoting mouseMaskMatrix blankedFrames]= trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE );
+   
 
 % now track what happens under the bar.. crop only below bar
 underBarVideoMatrix = cropVideoBelowBar(videoMatrix);
@@ -43,19 +48,35 @@ underBarVideoMatrix = cropVideoBelowBar(videoMatrix);
 blankedUnderBarVideoMatrix = underBarVideoMatrix;
 blankedUnderBarVideoMatrix(:, :, blankedFrames) = 0;
 
-%frameDifferences = getLocalizedFrameDifferences(blankedUnderBarVideoMatrix, 100, FRAMERATE);
+
+
 % probability of mouse being in a current position along the bar
 [mouseProbVals mouseProbMatrix] = getMouseProbOnBeam(mouseMaskMatrix);
-underBarDiffs = getHighProbFrameDifferences(blankedUnderBarVideoMatrix, mouseProbVals, FRAMERATE/10);
+% get movement value weighted by mouse presence 
+underBarDiffs = getHighProbFrameDifferences(blankedUnderBarVideoMatrix, mouseProbVals, FRAMERATE/10, SLIPTH);
 
-%underBarVideoMatrixMouseColumns = blankColumnsByProb(blankedUnderBarVideoMatrix, mouseProbVals);
-slips=frameDifferences>0.5;
-displayBehaviorVideoMatrix(imadjustn(croppedSubtractedVideoMatrix), fileName, frameDifferences, slips);
-figure;
-findpeaks(frameDifferences, 'MinPeakProminence', 0.5, "Annotate","peaks");
-blankedVideoMatrix = videoMatrix;
-blankedVideoMatrix(:, :, frameDifferences<0.02) = 0;
+% find peaks in the (zscored) movement under themouse
+[pks, slipLocs, w, p] = findpeaks(underBarDiffs, 'MinPeakDistance', FRAMERATE/10);
 
-R = 1;
+%track the hand so we can omit those frames from slips
+[isHandInFrame handFrameIdx handMaskMatrix] = trackHandInBB(videoMatrix, PIXELSIZE, FRAMERATE); 
+% remove "slips" from data if hand was in the frame
+[hf, idx] = intersect(slipLocs, handFrameIdx);
+slipLocs(idx) = [];
+
+nSLIPS = length(slipLocs);
+meanProgressionSpeed = round(mean(instProgressionSpeeds, 'omitnan'));
+blankedUnderBarDiffs = underBarDiffs;
+blankedUnderBarDiffs(handFrameIdx) = [];
+slipIndex = round(sum (blankedUnderBarDiffs));
+if MAKEPLOTS
+%show the frames with slip peaks
+showKeyFrames(videoMatrix, slipLocs,  ['SLIP FRAMES in ' fileID ', ' CAMID]);
+plotOpenFieldTrial(centroids,underBarDiffs, slipLocs, '', FRAMERATE, PIXELSIZE, fileID, ['SLIP PROBABILITY from ' CAMID]);
+titlestring = ['Speed on BB from ' CAMID];
+plotOpenFieldTrial(centroids,[0 instProgressionSpeeds'], slipLocs, '', FRAMERATE, PIXELSIZE, fileID, titlestring);
+displayBehaviorVideoMatrix(mouseMaskMatrix, [fileID '-UBmov-SLIPPING'],blankedUnderBarDiffs, blankedUnderBarDiffs>SLIPTH, 0);
+displayBehaviorVideoMatrix(videoMatrix, [fileID '-speed-SLIPPING'], instProgressionSpeeds, blankedUnderBarDiffs>SLIPTH, 0);
+end
 
 

@@ -1,4 +1,9 @@
-function normFrameDiffs = getHighProbFrameDifferences(videoMatrix, probValMatrix, SMOOTHWIN)
+function stdDiffs = getHighProbFrameDifferences(videoMatrix, probValMatrix, SMOOTHWIN, ZTHRESHOLD)
+
+if ~exist('ZTHRESHOLD', 'var')
+    ZTHRESHOLD = 2.5;
+end
+
 [imHeight imWidth nFRAMES] = size(videoMatrix); 
 
 frameDiffs = zeros(nFRAMES,1);
@@ -22,5 +27,9 @@ end
 probDiffs = columnDiffs .* probValMatrix;
 probDiffsFrames = sum(probDiffs, 2, 'omitnan');
 smoothDiffs = smooth(probDiffsFrames,SMOOTHWIN);
-normFrameDiffs = smoothDiffs ./ max(smoothDiffs);
+stdDiffs = zscore(smoothDiffs);
+stdDiffs(stdDiffs<ZTHRESHOLD) = 0;
+% normFrameDiffs = smoothDiffs ./ max(smoothDiffs);
+% 
+% normFrameDiffs(normFrameDiffs<0.1)= 0;
 

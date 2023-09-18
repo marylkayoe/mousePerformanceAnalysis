@@ -5,6 +5,7 @@ function [centroids instProgressionSpeeds locoFrames mouseMaskMatrix blankedIdx]
 % instProgressionSpeeds = speed in X-direction
 % blankedIdx = frame indexes when there is no mouse
 LOCOTHRESHOLD = 40;
+MOUSESIZETH = 0.05; % mouse can not be bigger than 5% of frame
 disp('Segmenting mouse in video...');
 [h w nFrames] = size(videoMatrix);
 
@@ -66,7 +67,7 @@ mouseMask = false(size(mouseMask));
         warning('No object found in frame ');
         centroids(frameIdx,:) = nan;
     else
-        if stats(idx).Area < frameSize*0.05
+        if stats(idx).Area < frameSize*MOUSESIZETH
             %warning('The largest object is smaller than the threshold (5% of framesize)');
             centroids(frameIdx,:) = nan;
         else

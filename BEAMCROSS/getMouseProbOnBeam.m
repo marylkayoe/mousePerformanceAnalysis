@@ -3,7 +3,7 @@ function [normMouseProbVals mouseProbMatrix ]= getMouseProbOnBeam(mouseMaskMatri
 [imHeight,imWidth, nFRAMES] = size(mouseMaskMatrix);
 mouseProbMatrix = zeros(size(mouseMaskMatrix));
 mouseProbFrame = zeros(imHeight, imWidth);
-
+disp('Calculating mouse probability density ...');
 % loop through all frames
 xInd = 1:nFRAMES;
 for frame = 1:nFRAMES
