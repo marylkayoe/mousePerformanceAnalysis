@@ -52,7 +52,7 @@ if ~isempty(centerFrames)
 end
 patch(coordData(:, 1), coordData(:, 2),speedArray,'EdgeColor','interp', 'FaceColor','none', 'LineWidth', 3, 'HandleVisibility', 'off');
 set(gca,'Color', [0.7 0.7 0.7]);
-caxis([0 250]);
+%caxis([0 250]);
 c = colorbar;
 c.Label.String = 'mouse speed mm/sec';
  scatter(coordData(startIndex, 2), coordData(startIndex, 2), 100,'red', 'o', 'filled')

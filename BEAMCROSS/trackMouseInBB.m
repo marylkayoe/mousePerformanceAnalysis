@@ -1,8 +1,9 @@
-function [centroids instProgressionSpeeds locoFrames mouseMaskMatrix] = trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE)
+function [centroids instProgressionSpeeds locoFrames mouseMaskMatrix blankedIdx] = trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE)
 % trackMouseInOF.m - Track the mouse in a open field video
 % videoMatrix is the video data converted into a 3D matrix
 % return smoothed centroid positions with trial intervals blanked out
 % instProgressionSpeeds = speed in X-direction
+% blankedIdx = frame indexes when there is no mouse
 LOCOTHRESHOLD = 40;
 disp('Segmenting mouse in video...');
 [h w nFrames] = size(videoMatrix);

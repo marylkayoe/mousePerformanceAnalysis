@@ -30,22 +30,25 @@ fileID = getFileIDfromFilename (fileName);
 fullFilePath = fullfile(dataFolder, fileName);
 [videoMatrix newFilePath FRAMERATE] = readBehaviorVideo(fullFilePath, DOWNSAMPLERATIO, CROPVIDEO); % newFilePath is with .mp4 ending
 
-[centroids instProgressionSpeeds locoFrames mouseMaskMatrix]= trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE );
+[centroids instProgressionSpeeds locoFrames mouseMaskMatrix blankedFrames]= trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE );
 displayBehaviorVideoMatrix(mouseMaskMatrix, fileID, instProgressionSpeeds, locoFrames, 0);
 displayBehaviorVideoMatrix(videoMatrix, fileID, instProgressionSpeeds, locoFrames, 0);
     
 titlestring = ['BB centroid from ' CAMID];
 plotOpenFieldTrial(centroids,[0 instProgressionSpeeds'], '', '', FRAMERATE, PIXELSIZE, fileID, titlestring);
-% sumFrame = getSumFrame(videoMatrix);
-% meanFrame = getMeanFrame(videoMatrix);
-% sumSubtractedVideoMatrix = subtractFrom(videoMatrix, sumFrame);
 
-% medianSubtractedVideoMatrix = subtractFrom(videoMatrix, medianFrame);
- % medianFrame = getMedianFrame(sumSubtractedVideoMatrix);
-
+% now track what happens under the bar.. crop only below bar
 underBarVideoMatrix = cropVideoBelowBar(videoMatrix);
+%blank frames without mouse
+blankedUnderBarVideoMatrix = underBarVideoMatrix;
+blankedUnderBarVideoMatrix(:, :, blankedFrames) = 0;
 
-frameDifferences = getLocalizedFrameDifferences(croppedSubtractedVideoMatrix, 100);
+%frameDifferences = getLocalizedFrameDifferences(blankedUnderBarVideoMatrix, 100, FRAMERATE);
+% probability of mouse being in a current position along the bar
+[mouseProbVals mouseProbMatrix] = getMouseProbOnBeam(mouseMaskMatrix);
+underBarDiffs = getHighProbFrameDifferences(blankedUnderBarVideoMatrix, mouseProbVals, FRAMERATE/10);
+
+%underBarVideoMatrixMouseColumns = blankColumnsByProb(blankedUnderBarVideoMatrix, mouseProbVals);
 slips=frameDifferences>0.5;
 displayBehaviorVideoMatrix(imadjustn(croppedSubtractedVideoMatrix), fileName, frameDifferences, slips);
 figure;
