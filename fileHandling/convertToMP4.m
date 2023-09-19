@@ -7,7 +7,7 @@ end
 if ~exist('CROPVIDEO', 'var')
     CROPVIDEO = 0;
 end
-
+CROPOFFSETADJ = 0; % if cropping ends up too high, increase this(eg 0.05)
 
 [pathstr, name, ext] = fileparts(fullFilePath);
 newFilePath = fullfile(pathstr, [name '.mp4']);
@@ -44,7 +44,7 @@ if isempty(newFileExists)
 %%
 if CROPVIDEO
     cropHeight = floor(height / 2);  % retain the middle 50% of the video vertically
-    yOffset = floor((height - cropHeight) / 2); % Adjust this to change the vertical start point of the crop
+    yOffset = floor((height - cropHeight) / 2) + floor((height - cropHeight) / 2 * CROPOFFSETADJ); % Adjust this to change the vertical start point of the crop
     newHeight = floor(cropHeight / DOWNSAMPLERATIO); % compensate for downscaling
     if mod(cropHeight, 2) ~= 0
         cropHeight = cropHeight - 1;

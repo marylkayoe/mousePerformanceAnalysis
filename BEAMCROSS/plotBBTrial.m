@@ -94,6 +94,6 @@ yLimits = ylim;
 
 
 f = gca;
-title([TITLESTRING ' ' FILEID ', n Events ' num2str(nEvents, '%d') '%']);
+title([TITLESTRING ' ' FILEID ', n slips: ' num2str(nEvents, '%d')]);
 end
 

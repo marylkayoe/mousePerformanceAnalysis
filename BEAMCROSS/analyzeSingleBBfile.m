@@ -20,7 +20,7 @@ if ~exist('DOWNSAMPLERATIO', 'var')
 end
 
 
-DOWNSAMPLERATIO = 4;
+
 PIXELSIZE = PIXELSIZE * DOWNSAMPLERATIO;
 CROPVIDEO = 1; % crop top and bottom, 1/4 each
 
@@ -67,7 +67,7 @@ FILEID = getFileIDfromFilename (fileName);
 showKeyFrames(videoMatrix, slipLocs,  ['SLIP FRAMES in ' FILEID ', ' CAMID]);
 %plotOpenFieldTrial(centroids,underBarDiffs, slipLocs, '', FRAMERATE, PIXELSIZE, fileID, ['SLIP PROBABILITY from ' CAMID]);
 plotBBTrial(centroids,underBarDiffs, slipLocs, FRAMERATE, PIXELSIZE, FILEID, ['SLIP PROBABILITY from ' CAMID], 'SLIP PROB');
-ylim([0 imHeight]);
+%ylim([0 imHeight]);
 titlestring = ['Speed on BB from ' CAMID];
 %plotOpenFieldTrial(centroids,[0 instProgressionSpeeds'], slipLocs, '', FRAMERATE, PIXELSIZE, fileID, titlestring);
 plotBBTrial(centroids,[0 instProgressionSpeeds'], slipLocs, FRAMERATE, PIXELSIZE, FILEID, ['Speed from ' CAMID], 'Mouse speed (mm/s)');

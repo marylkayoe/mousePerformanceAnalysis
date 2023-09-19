@@ -1,4 +1,4 @@
-function [nSLIPS slipIndex, slipLocs, meanProgressionSpeed] = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, CAMID, SLIPTH, MAKEPLOTS)
+function [nSLIPS slipIndex, slipLocs, meanProgressionSpeed] = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, CAMID, SLIPTH, MAKEPLOTS, DOWNSAMPLERATIO)
 
 if ~exist('TASKID', 'var')
     TASKID = OF;
@@ -20,7 +20,11 @@ if ~exist('MAKEPLOTS', 'var')
     MAKEPLOTS = 0;
 end
 
-DOWNSAMPLERATIO = 4;
+
+if ~exist('DOWNSAMPLERATIO', 'var')
+    DOWNSAMPLERATIO = 4;
+end
+
 PIXELSIZE = PIXELSIZE * DOWNSAMPLERATIO;
 CROPVIDEO = 1; % crop top and bottom, 1/4 each
 %% import the video file and make it into a grayscale matrix:
