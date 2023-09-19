@@ -48,7 +48,7 @@ figure; hold on;
 coordData = coordData ./ XYSCALE; % scaling in xy
 colormap(hot);
 if ~isempty(centerFrames)
-    scatter(coordData(centerFrames, 1), coordData(centerFrames, 2), 100, 'blue', 'filled', 'o');
+    scatter(coordData(centerFrames, 1), coordData(centerFrames, 2), 100, 'cyan', 'filled', 'o');
 end
 patch(coordData(:, 1), coordData(:, 2),speedArray,'EdgeColor','interp', 'FaceColor','none', 'LineWidth', 3, 'HandleVisibility', 'off');
 set(gca,'Color', [0.7 0.7 0.7]);
