@@ -1,9 +1,11 @@
-function showKeyFrames(videoMatrix, frameRange, TITLESTRING)
+function showKeyFrames(videoMatrix, frameRange, TITLESTRING, VALUES)
     % Create a new array to hold the annotated frames
 
 if ~exist('TITLESTRING', 'var')
     TITLESTRING = 'Key frames';
 end
+
+
 
 
     [height, width, ~] = size(videoMatrix);
@@ -12,6 +14,11 @@ end
     % Get the number of frames to annotate
     numFrames = length(frameRange);
     
+    if ~exist('VALUES', 'var')
+    VALUES = zeros(numFrames, 1);
+end
+
+
     % Loop through each frame and annotate it with the frame number
     for i = 1:numFrames
         % Get the current frame
@@ -21,7 +28,8 @@ end
         frameRGB = cat(3, frame, frame, frame);
 
         % Add the frame number as a text annotation
-        frameRGB = insertText(frameRGB, [5, 5], ['FRAME#' num2str(frameRange(i))], 'FontSize', 18, 'BoxColor', 'white', 'BoxOpacity', 0.7, 'TextColor', 'black');
+        frameAnnotationString = ['FRAME#' num2str(frameRange(i)) ': ' num2str(VALUES(i))] ;
+        frameRGB = insertText(frameRGB, [5, 5], frameAnnotationString, 'FontSize', 18, 'BoxColor', 'white', 'BoxOpacity', 0.7, 'TextColor', 'black');
 
         % Convert the frame back to grayscale
         frame = rgb2gray(frameRGB);

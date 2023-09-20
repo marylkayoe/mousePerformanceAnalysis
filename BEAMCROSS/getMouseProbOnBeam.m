@@ -1,6 +1,11 @@
 function [normMouseProbVals mouseProbMatrix ]= getMouseProbOnBeam(mouseMaskMatrix)
 
 [imHeight,imWidth, nFRAMES] = size(mouseMaskMatrix);
+%CROPEDGE = floor(imWidth / 10); % cropping edges
+% CROPEDGE = 1;
+% mouseMaskMatrix  = mouseMaskMatrix(:, CROPEDGE:end-CROPEDGE, :);
+% [imHeight,imWidth, nFRAMES] = size(mouseMaskMatrix);
+
 mouseProbMatrix = zeros(size(mouseMaskMatrix));
 mouseProbFrame = zeros(imHeight, imWidth);
 disp('Calculating mouse probability density ...');

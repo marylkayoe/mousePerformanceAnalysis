@@ -1,4 +1,4 @@
-function [nSLIPS, slipIndex, slipLocs, meanProgressionSpeed, centroids, instProgressionSpeeds] = analyzeSingleBBfile(dataFolder,fileName, SLIPTH, PIXELSIZE, MAKEPLOTS, DOWNSAMPLERATIO)
+function [nSLIPS, slipIndex, slipLocs, slipZscores, QCflags, meanProgressionSpeed, centroids, instProgressionSpeeds] = analyzeSingleBBfile(dataFolder,fileName, SLIPTH, PIXELSIZE, MAKEPLOTS, DOWNSAMPLERATIO)
 
 % process one file for balance beam trials
 
@@ -59,20 +59,23 @@ meanProgressionSpeed = round(mean(instProgressionSpeeds, 'omitnan'));
 blankedUnderBarDiffs = underBarDiffs;
 blankedUnderBarDiffs(handFrameIdx) = [];
 slipIndex = round(sum (blankedUnderBarDiffs));
+slipZscores = underBarDiffs(slipLocs);
+QCflags = slipZscores<(SLIPTH+SLIPTH*0.1);
+
 if MAKEPLOTS
 
 %show the frames with slip peaks
 CAMID = getCAMIDfromFilename(fileName);
 FILEID = getFileIDfromFilename (fileName);
-showKeyFrames(videoMatrix, slipLocs,  ['SLIP FRAMES in ' FILEID ', ' CAMID]);
+showKeyFrames(videoMatrix, slipLocs,  ['SLIP FRAMES in ' FILEID ', ' CAMID ', with frame slip Zscores'], slipZscores);
 %plotOpenFieldTrial(centroids,underBarDiffs, slipLocs, '', FRAMERATE, PIXELSIZE, fileID, ['SLIP PROBABILITY from ' CAMID]);
-plotBBTrial(centroids,underBarDiffs, slipLocs, FRAMERATE, PIXELSIZE, FILEID, ['SLIP PROBABILITY from ' CAMID], 'SLIP PROB');
+%plotBBTrial(centroids,underBarDiffs, slipLocs, FRAMERATE, PIXELSIZE, FILEID, ['SLIP PROBABILITY from ' CAMID], 'SLIP PROB');
 %ylim([0 imHeight]);
 titlestring = ['Speed on BB from ' CAMID];
 %plotOpenFieldTrial(centroids,[0 instProgressionSpeeds'], slipLocs, '', FRAMERATE, PIXELSIZE, fileID, titlestring);
 plotBBTrial(centroids,[0 instProgressionSpeeds'], slipLocs, FRAMERATE, PIXELSIZE, FILEID, ['Speed from ' CAMID], 'Mouse speed (mm/s)');
 
-displayBehaviorVideoMatrix(mouseMaskMatrix, [FILEID '-UBmov-SLIPPING'],blankedUnderBarDiffs, blankedUnderBarDiffs>SLIPTH, 0);
+%displayBehaviorVideoMatrix(mouseMaskMatrix, [FILEID '-UBmov-SLIPPING'],blankedUnderBarDiffs, blankedUnderBarDiffs>SLIPTH, 0);
 displayBehaviorVideoMatrix(videoMatrix, [FILEID '-speed-SLIPPING'], instProgressionSpeeds, blankedUnderBarDiffs>SLIPTH, 0);
 end
 

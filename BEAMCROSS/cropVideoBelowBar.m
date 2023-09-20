@@ -10,6 +10,7 @@ barYcoord = findBarYCoordInImage(imcomplement(meanImage)); %the coordinate is fr
 [imHeight imWidth nFrames] = size(videoMatrix); 
 BARWIDTH = floor(imHeight/15);
 MOUSEHEIGHT = floor(imHeight/5);
+%
 %CROPEDGE = floor(imWidth / 10);
 CROPEDGE = 1;
 

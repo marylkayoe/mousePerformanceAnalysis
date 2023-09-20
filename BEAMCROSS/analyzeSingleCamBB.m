@@ -1,4 +1,4 @@
-function [nSLIPS slipIndex, slipLocs, meanProgressionSpeed] = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, CAMID, SLIPTH, MAKEPLOTS, DOWNSAMPLERATIO)
+function [nSLIPS, slipIndex, slipLocs, slipZscores,QCflags, meanProgressionSpeed, centroids, instProgressionSpeeds]  = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, CAMID, SLIPTH, MAKEPLOTS, DOWNSAMPLERATIO)
 
 if ~exist('TASKID', 'var')
     TASKID = OF;
@@ -39,5 +39,5 @@ if (iscell(fileName))
 end
 fileID = getFileIDfromFilename (fileName);
 
- [nSLIPS, slipIndex, slipLocs, meanProgressionSpeed] = analyzeSingleBBfile(dataFolder,fileName, SLIPTH, PIXELSIZE, MAKEPLOTS, DOWNSAMPLERATIO);
+[nSLIPS, slipIndex, slipLocs, slipZscores, QCflags, meanProgressionSpeed, centroids, instProgressionSpeeds] = analyzeSingleBBfile(dataFolder,fileName, SLIPTH, PIXELSIZE, MAKEPLOTS, DOWNSAMPLERATIO);
 

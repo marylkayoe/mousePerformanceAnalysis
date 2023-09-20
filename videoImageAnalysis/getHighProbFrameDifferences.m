@@ -11,6 +11,7 @@ frameDiffs = zeros(nFRAMES,1);
 diffImages = diff(videoMatrix, 1, 3);
 absDiffImages = abs(diffImages);
 columnDiffs = squeeze(sum(absDiffImages, 1))';
+% add one row as there's one diff less than frames
 columnDiffs = cat(1, columnDiffs, zeros(1, imWidth));
 
 % Get the dimensions of columnDiffs and probValMatrix
