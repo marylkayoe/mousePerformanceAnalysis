@@ -75,10 +75,10 @@ set(gca,'Color', [0.7 0.7 0.7]);
 clim('auto');
 c = colorbar;
 c.Label.String = COLORLABEL;
-legendString = 'centroid';
+legendString = {'centroid'};
 if ~isempty(keyFrames)
     scatter(coordData(keyFrames, 1), coordData(keyFrames, 2), 100, 'cyan', 'filled', 'o');
-    legendString = {legendString 'SLIP'};
+    legendString{2} = 'SLIP';
 end
 legend(legendString);
 %legend({'in center', 'END'}, 'Location', 'northeastoutside', 'FontSize', 12);

@@ -42,20 +42,20 @@ blankedUnderBarVideoMatrix(:, :, blankedFrames) = 0;
 
 % probability of mouse being in a current position along the bar
 [mouseProbVals mouseProbMatrix] = getMouseProbOnBeam(mouseMaskMatrix);
-% get movement value weighted by mouse presence 
+% get movement value weighted by mouse presence
 underBarDiffs = getHighProbFrameDifferences(blankedUnderBarVideoMatrix, mouseProbVals, FRAMERATE/10, SLIPTH);
 
 % find peaks in the (zscored) movement under themouse
 [pks, slipLocs, w, p] = findpeaks(underBarDiffs, 'MinPeakDistance', FRAMERATE/10);
 
 %track the hand so we can omit those frames from slips
-[isHandInFrame handFrameIdx handMaskMatrix] = trackHandInBB(videoMatrix, PIXELSIZE, FRAMERATE); 
+[isHandInFrame handFrameIdx handMaskMatrix] = trackHandInBB(videoMatrix, PIXELSIZE, FRAMERATE);
 % remove "slips" from data if hand was in the frame
 [hf, idx] = intersect(slipLocs, handFrameIdx);
 slipLocs(idx) = [];
 
 nSLIPS = length(slipLocs);
-meanProgressionSpeed = round(mean(instProgressionSpeeds, 'omitnan'));
+meanProgressionSpeed = round(mean(instProgressionSpeeds, 'omitnan'), 1);
 blankedUnderBarDiffs = underBarDiffs;
 blankedUnderBarDiffs(handFrameIdx) = [];
 slipIndex = round(sum (blankedUnderBarDiffs));
@@ -64,19 +64,19 @@ QCflags = slipZscores<(SLIPTH+SLIPTH*0.1);
 
 if MAKEPLOTS
 
-%show the frames with slip peaks
-CAMID = getCAMIDfromFilename(fileName);
-FILEID = getFileIDfromFilename (fileName);
-showKeyFrames(videoMatrix, slipLocs,  ['SLIP FRAMES in ' FILEID ', ' CAMID ', with frame slip Zscores'], slipZscores);
-%plotOpenFieldTrial(centroids,underBarDiffs, slipLocs, '', FRAMERATE, PIXELSIZE, fileID, ['SLIP PROBABILITY from ' CAMID]);
-%plotBBTrial(centroids,underBarDiffs, slipLocs, FRAMERATE, PIXELSIZE, FILEID, ['SLIP PROBABILITY from ' CAMID], 'SLIP PROB');
-%ylim([0 imHeight]);
-titlestring = ['Speed on BB from ' CAMID];
-%plotOpenFieldTrial(centroids,[0 instProgressionSpeeds'], slipLocs, '', FRAMERATE, PIXELSIZE, fileID, titlestring);
-plotBBTrial(centroids,[0 instProgressionSpeeds'], slipLocs, FRAMERATE, PIXELSIZE, FILEID, ['Speed from ' CAMID], 'Mouse speed (mm/s)');
+    %show the frames with slip peaks
+    CAMID = getCAMIDfromFilename(fileName);
+    FILEID = getFileIDfromFilename (fileName);
+    showKeyFrames(videoMatrix, slipLocs,  ['SLIP FRAMES in ' FILEID ', ' CAMID ', with frame slip Zscores'], slipZscores);
+    %plotOpenFieldTrial(centroids,underBarDiffs, slipLocs, '', FRAMERATE, PIXELSIZE, fileID, ['SLIP PROBABILITY from ' CAMID]);
+    %plotBBTrial(centroids,underBarDiffs, slipLocs, FRAMERATE, PIXELSIZE, FILEID, ['SLIP PROBABILITY from ' CAMID], 'SLIP PROB');
+    %ylim([0 imHeight]);
+    titlestring = ['Speed on BB from ' CAMID];
+    %plotOpenFieldTrial(centroids,[0 instProgressionSpeeds'], slipLocs, '', FRAMERATE, PIXELSIZE, fileID, titlestring);
+    plotBBTrial(centroids,[0 instProgressionSpeeds'], slipLocs, FRAMERATE, PIXELSIZE, FILEID, ['Speed from ' CAMID], 'Mouse speed (mm/s)');
 
-%displayBehaviorVideoMatrix(mouseMaskMatrix, [FILEID '-UBmov-SLIPPING'],blankedUnderBarDiffs, blankedUnderBarDiffs>SLIPTH, 0);
-displayBehaviorVideoMatrix(videoMatrix, [FILEID '-speed-SLIPPING'], instProgressionSpeeds, blankedUnderBarDiffs>SLIPTH, 0);
+    %displayBehaviorVideoMatrix(mouseMaskMatrix, [FILEID '-UBmov-SLIPPING'],blankedUnderBarDiffs, blankedUnderBarDiffs>SLIPTH, 0);
+    displayBehaviorVideoMatrix(videoMatrix, [FILEID CAMID '-speed-SLIPPING'], instProgressionSpeeds, blankedUnderBarDiffs>SLIPTH, 0);
 end
 
 

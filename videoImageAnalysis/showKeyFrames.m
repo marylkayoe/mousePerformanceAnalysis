@@ -38,7 +38,7 @@ end
         % Store the annotated frame back in the array
         annotatedFrames(:, :, 1, i) = frame;
     end
-    
+    figure;
     % Create a montage of the annotated frames
     montage(annotatedFrames);
     title(TITLESTRING);
