@@ -73,8 +73,10 @@ if isempty(newFileExists)
             newHeight = newHeight + 1;
         end
 
-
-        cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync 0 "%s">/dev/null 2>&1', ...
+        % 
+        % cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync 0 "%s">/dev/null 2>&1', ...
+        %     fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
+        cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync 0 "%s"', ...
             fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
 
         failed = system(cmd);
