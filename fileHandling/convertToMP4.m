@@ -78,7 +78,7 @@ if isempty(newFileExists)
         %     fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
         % cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync crf "%s"', ...
         %     fullFilePath, cropWidth, croHeight, yOffset, newWidth, newHeight, newFilePath);
-        if FFfoundVersion >= 6
+        if strfind(FFfoundVersion, '6.0')
             cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 1 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -fps_mode cfr "%s">/dev/null 2>&1', ...
                 fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
         else
