@@ -1,4 +1,4 @@
-function newFilePath = convertToMP4(fullFilePath, DOWNSAMPLERATIO, CROPVIDEO)
+function newFilePath = convertToMP4(fullFilePath, DOWNSAMPLERATIO, CROPVIDEO, CROPOFFSETADJ)
 
 if ~exist('DOWNSAMPLERATIO', 'var')
     DOWNSAMPLERATIO = 2;
@@ -7,7 +7,10 @@ end
 if ~exist('CROPVIDEO', 'var')
     CROPVIDEO = 0;
 end
-CROPOFFSETADJ = 0.1; % if cropping ends up too high, increase this(eg 0.05)
+
+if ~exist('CROPOFFSETADJ', 'var')
+    CROPOFFSETADJ = 0; % if cropping ends up too high, increase this (0.2 or 0.3 used with GMD2 BBs)
+end
 
 [pathstr, name, ext] = fileparts(fullFilePath);
 newFilePath = fullfile(pathstr, [name '.mp4']);

@@ -17,7 +17,7 @@ centroids = zeros(size(videoMatrix, 3), 2);
 
 % we don't have background image so we subtract the mean image. Not perfect but ok
 meanImage = getMeanFrame(videoMatrix);
-barYcoord = findBarYCoordInImage(imcomplement(meanImage)); %the coordinate is from image top
+[barYcoord barWidth] = findBarYCoordInImage(imcomplement(meanImage)); %the coordinate is from image top
 sumImage = getSumFrame(videoMatrix);
 sumSubtractedMatrix = subtractFrom(videoMatrix, sumImage);
 meanSumSubtractedImage = getMeanFrame(sumSubtractedMatrix);
@@ -27,7 +27,7 @@ meanSubtractedMatrix = imadjustn(meanSubtractedMatrix);
 %subtractedMatrix = videoMatrix-meanImage;
 
 %barYcoord = findBarYCoordInImage(meanSumSubtractedImage);
-croppedVideoMatrix = cropVideoAboveBar(meanSubtractedMatrix, barYcoord);
+croppedVideoMatrix = cropVideoAboveBar(meanSubtractedMatrix, barYcoord, barWidth);
 % preallocate for the masked video
 mouseMaskMatrix = zeros(size(croppedVideoMatrix));
 adjustedCroppedVideoMatrix = imadjustn(croppedVideoMatrix, [0 0.6]);

@@ -1,4 +1,4 @@
-function [nSLIPS, slipIndex, slipLocs, slipZscores, QCflags, meanProgressionSpeed, centroids, instProgressionSpeeds] = analyzeSingleBBfile(dataFolder,fileName, SLIPTH, PIXELSIZE, MAKEPLOTS, DOWNSAMPLERATIO)
+function [nSLIPS, slipIndex, slipLocs, slipZscores, QCflags, meanProgressionSpeed, centroids, instProgressionSpeeds] = analyzeSingleBBfile(dataFolder,fileName, SLIPTH, PIXELSIZE, MAKEPLOTS, DOWNSAMPLERATIO, CROPOFFSETADJ)
 
 % process one file for balance beam trials
 
@@ -18,6 +18,9 @@ end
 if ~exist('DOWNSAMPLERATIO', 'var')
     DOWNSAMPLERATIO = 4;
 end
+if ~exist('CROPOFFSETADJ', 'var')
+    CROPOFFSETADJ = 0;
+end
 
 
 
@@ -27,7 +30,7 @@ CROPVIDEO = 1; % crop top and bottom, 1/4 each
 FILEID = getFileIDfromFilename (fileName);
 
 fullFilePath = fullfile(dataFolder, fileName);
-[videoMatrix newFilePath FRAMERATE] = readBehaviorVideo(fullFilePath, DOWNSAMPLERATIO, CROPVIDEO); % newFilePath is with .mp4 ending
+[videoMatrix newFilePath FRAMERATE] = readBehaviorVideo(fullFilePath, DOWNSAMPLERATIO, CROPVIDEO, CROPOFFSETADJ); % newFilePath is with .mp4 ending
 [ imHeight imWidth nFRAMES] = size(videoMatrix);
 
 [centroids instProgressionSpeeds isLocomoting mouseMaskMatrix blankedFrames]= trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE );

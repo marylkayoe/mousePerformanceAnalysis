@@ -1,4 +1,4 @@
-function barYcoord = findBarYCoordInImage(barImage)
+function [barYcoord barWidth] = findBarYCoordInImage(barImage)
 % barImage is average image of a view with balance bar
 % balance bar is white
 % the logic: we sum pixel values horizontally
@@ -8,9 +8,10 @@ function barYcoord = findBarYCoordInImage(barImage)
 
 [imHeight imWidth] = size(barImage);
 vertSum = sum(barImage, 2);
-[pks locs, w, p] = findpeaks(vertSum);
+[pks locs, widths, p] = findpeaks(vertSum);
 [barPk barLoc] = max(pks);
-barYcoord = (locs(barLoc));
+barYcoord = locs(barLoc);
+barWidth = round(widths(barLoc));
 %barYcoord = floor(barYcoord + w(barLoc)/4);
 
 % imshow(barImage, []);

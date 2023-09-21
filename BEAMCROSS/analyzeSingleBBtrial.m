@@ -1,4 +1,4 @@
-function [nSLIPS, slipIndex, slipLocs,nQCflags, meanProgressionSpeed, centroids, instProgressionSpeeds]  = analyzeSingleBBtrial(dataFolder,EXPID, SAMPLEID, TIMEPOINT, SLIPTH, PIXELSIZE, MAKEPLOTS, DOWNSAMPLERATIO)
+function [nSLIPS, slipIndex, slipLocs,nQCflags, meanProgressionSpeed, centroids, instProgressionSpeeds]  = analyzeSingleBBtrial(dataFolder,EXPID, SAMPLEID, TIMEPOINT, SLIPTH, PIXELSIZE, MAKEPLOTS, CROPOFFSETADJ, DOWNSAMPLERATIO)
 
 if ~exist('PIXELSIZE', 'var')
     PIXELSIZE = 1;
@@ -18,11 +18,16 @@ if ~exist('DOWNSAMPLERATIO', 'var')
     DOWNSAMPLERATIO = 4;
 end
 
+if ~exist('CROPOFFSETADJ', 'var')
+    CROPOFFSETADJ = 0;
+end
+
+
 
 TASKID = 'BB';
 
-[nSLIPSCAM1, slipIndexCAM1, slipLocsCAM1, slipZscoresCAM1,QCflagsCAM1, meanProgressionSpeedCAM1, centroidsCAM1, instProgressionSpeedsCAM1]  = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, 'Cam1', SLIPTH, 1, DOWNSAMPLERATIO);
-[nSLIPSCAM2, slipIndexCAM2, slipLocsCAM2, slipZscoresCAM2,QCflagsCAM2, meanProgressionSpeedCAM2, centroidsCAM2, instProgressionSpeedsCAM2]  = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, 'Cam2', SLIPTH, 1, DOWNSAMPLERATIO);
+[nSLIPSCAM1, slipIndexCAM1, slipLocsCAM1, slipZscoresCAM1,QCflagsCAM1, meanProgressionSpeedCAM1, centroidsCAM1, instProgressionSpeedsCAM1]  = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, 'Cam1', SLIPTH, 0, DOWNSAMPLERATIO, CROPOFFSETADJ);
+[nSLIPSCAM2, slipIndexCAM2, slipLocsCAM2, slipZscoresCAM2,QCflagsCAM2, meanProgressionSpeedCAM2, centroidsCAM2, instProgressionSpeedsCAM2]  = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, 'Cam2', SLIPTH, 1, DOWNSAMPLERATIO, CROPOFFSETADJ);
 
     fileName = getFilenamesForSamples(dataFolder, EXPID, SAMPLEID, TASKID, TIMEPOINT, '', 'Cam1');
     frameRate = getFrameRateForVideo(dataFolder, fileName);
@@ -33,8 +38,22 @@ TASKID = 'BB';
 nSLIPS = mean([nSLIPSCAM1 nSLIPSCAM2], 'omitnan');
 slipIndex = mean([slipIndexCAM1 slipIndexCAM2], 'omitnan');
 meanProgressionSpeed = mean([meanProgressionSpeedCAM1 meanProgressionSpeedCAM2], 'omitnan');
-centroids = mean([centroidsCAM1 centroidsCAM2], 'omitnan');
+
 instProgressionSpeeds = mean([instProgressionSpeedsCAM1 instProgressionSpeedsCAM2],2, 'omitnan');
+    % to plot left and right in the same coordinates, need to flip CAM2
+    flipCam2centroids = centroidsCAM2;
+    maxX = max(centroidsCAM2(:, 1));
+    flipCam2centroids(:, 1) = maxX - flipCam2centroids(:, 1) ;
+    %as the camera angles are not exactly the same, shift both coords so they
+    %are centered
+    meanXcam1 = mean(centroidsCAM1(:, 1), 'omitnan');
+    meanXcam2 = mean(flipCam2centroids(:, 1), 'omitnan');
+    centroidsCAM1(:,1) = centroidsCAM1(:,1) -meanXcam1;
+    flipCam2centroids(:,1) = flipCam2centroids(:,1) -meanXcam2;
+    %calculate mean centroid position from 2 cams in each frame:
+    combinedCentroids = cat(3, centroidsCAM1, flipCam2centroids);
+    centroids = mean(combinedCentroids, 3, 'omitnan');
+
 
     %% select unique slip events (seen in both cams)
     slipLocs = unique([slipLocsCAM1; slipLocsCAM2]);
@@ -54,20 +73,9 @@ if MAKEPLOTS
 
 
 
-    % to plot left and right in the same coordinates, need to flip CAM2
-    flipCam2centroids = centroidsCAM2;
-    maxX = max(centroidsCAM2(:, 1));
-    flipCam2centroids(:, 1) = maxX - flipCam2centroids(:, 1) ;
-    %as the camera angles are not exactly the same, shift both coords so they
-    %are centered
-    meanXcam1 = mean(centroidsCAM1(:, 1), 'omitnan');
-    meanXcam2 = mean(flipCam2centroids(:, 1), 'omitnan');
-    centroidsCAM1(:,1) = centroidsCAM1(:,1) -meanXcam1;
-    flipCam2centroids(:,1) = flipCam2centroids(:,1) -meanXcam2;
-    %calculate mean centroid position from 2 cams in each frame:
-    combinedCentroids = cat(3, centroidsCAM1, flipCam2centroids);
-    meanCentroids = mean(combinedCentroids, 3, 'omitnan');
 
-    f = plotBBTrial(meanCentroids,[0; instProgressionSpeeds], slipLocs, frameRate, PIXELSIZE, fileID, [EXPID '-' SAMPLEID '-' TIMEPOINT ' BBtrial'], 'Speed');
+
+
+    f = plotBBTrial(centroids,[0; instProgressionSpeeds], slipLocs, frameRate, PIXELSIZE, fileID, [EXPID '-' SAMPLEID '-' TIMEPOINT ' BBtrial'], 'Speed');
 
 end

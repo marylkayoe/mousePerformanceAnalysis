@@ -1,13 +1,20 @@
-function croppedVideoMatrix = cropVideoAboveBar(videoMatrix, barYCoord)
+function croppedVideoMatrix = cropVideoAboveBar(videoMatrix, barYCoord, barWidth)
 
 [imHeight imWidth nFrames] = size(videoMatrix); 
-BARWIDTH = floor(imHeight/15);
-MOUSEHEIGHT = floor(imHeight/5);
+%barWidth = floor(imHeight/15);
+%MOUSEHEIGHT = floor(imHeight/5);
+mouseHeight = barWidth * 5;
 %CROPEDGE = floor(imWidth / 10);
 CROPEDGE = 1;
-yCropTop = barYCoord-BARWIDTH-MOUSEHEIGHT;
-yCropBottom = barYCoord+BARWIDTH;
+yCropTop = barYCoord-barWidth-mouseHeight;
+yCropBottom = barYCoord+barWidth;
 if yCropBottom > imHeight
     yCropBottom = imHeight;
 end
+
+
+if yCropTop < 1
+    yCropTop = 1;
+end
+
 croppedVideoMatrix  = videoMatrix(yCropTop:yCropBottom, CROPEDGE:end-CROPEDGE, :);

@@ -1,4 +1,4 @@
-function [nSLIPS slipIndex, slipLocs, meanProgressionSpeed] = analyzeSlipsOnBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, CAMID, SLIPTH, MAKEPLOTS)
+function [nSLIPS slipIndex, slipLocs, meanProgressionSpeed] = analyzeSlipsOnBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, CAMID, SLIPTH, MAKEPLOTS, DOWNSAMPLERATIO, CROPOFFSETADJ)
 
 if ~exist('TASKID', 'var')
     TASKID = OF;
@@ -20,7 +20,15 @@ if ~exist('MAKEPLOTS', 'var')
     MAKEPLOTS = 0;
 end
 
-DOWNSAMPLERATIO = 4;
+if ~exist('DOWNSAMPLERATIO', 'var')
+    DOWNSAMPLERATIO = 4;
+end
+
+if ~exist('CROPOFFSETADJ', 'var')
+    CROPOFFSETADJ = 0.2;
+end
+
+
 PIXELSIZE = PIXELSIZE * DOWNSAMPLERATIO;
 CROPVIDEO = 1; % crop top and bottom, 1/4 each
 %% import the video file and make it into a grayscale matrix:
@@ -36,7 +44,7 @@ end
 fileID = getFileIDfromFilename (fileName);
 
 fullFilePath = fullfile(dataFolder, fileName);
-[videoMatrix newFilePath FRAMERATE] = readBehaviorVideo(fullFilePath, DOWNSAMPLERATIO, CROPVIDEO); % newFilePath is with .mp4 ending
+[videoMatrix newFilePath FRAMERATE] = readBehaviorVideo(fullFilePath, DOWNSAMPLERATIO, CROPVIDEO, CROPOFFSETADJ); % newFilePath is with .mp4 ending
 nFRAMES = length(videoMatrix);
 
 [centroids instProgressionSpeeds isLocomoting mouseMaskMatrix blankedFrames]= trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE );
