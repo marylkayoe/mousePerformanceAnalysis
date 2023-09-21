@@ -34,7 +34,7 @@ diffs = sum(sum(absDiffImages, 1), 2);
 % Reshape diffs into a column vector
 diffs = squeeze(diffs);
 disp('Removing spurious frames....');
-blankTH = FRAMERATE / 5;
+blankTH = floor(FRAMERATE / 5);
 % Finding peaks and their prominences
 [~, locs, w, p] = findpeaks(diffs);
 
@@ -45,7 +45,7 @@ outlierEventsIdx = outlierPeakIdx;
 % Removing outlier peak events
 for i = find(outlierEventsIdx)'
     startIdx = max(1, locs(i) - blankTH);
-    endIdx = min(length(diffs), locs(i) +blankTH);
+    endIdx = min(length(diffs), locs(i) + blankTH);
     diffs(startIdx:endIdx) = 0;
 end
 
