@@ -21,7 +21,7 @@ for animal = 1:nANIMALS
     fileNamesForAnimal = getFilenamesForSamples(dataFolder, EXPID, SAMPLEIDS(animal), 'OF');
 
     nFilesForAnimal = length(fileNamesForAnimal);
-   % meanSpeeds = nan(nFilesForAnimal, 1);
+
     for file = 1:nFilesForAnimal
         [meanSpeeds(file), maxSpeeds(file), locoTimes(file), totalDistance(file), totalDistancesLocomoting(file), meanSpeedsLocomoting(file), centerFractions(file)] = analyzeSingleOFfile(dataFolder, fileNamesForAnimal{file}, PIXELSIZE, MAKEPLOTS);
         filesProcessed{file} = fileNamesForAnimal{file};

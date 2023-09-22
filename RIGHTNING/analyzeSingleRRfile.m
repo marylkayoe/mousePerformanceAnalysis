@@ -29,7 +29,7 @@ else
     separator = '\';
 end
 
-STILLTHRESHOLDTIME = 0.7;
+
 
 if iscell(fileName)
     fileName = fileName{1};
@@ -40,7 +40,7 @@ end
 fullFilePath = fullfile(dataFolder, fileName);
 [~, name, ext] = fileparts(fileName);
 if ~strcmp(ext, '.mp4')
-    warning('Provided filename indicates incorrect format (should be mp4).. seeking right version');
+    %warning('Provided filename indicates incorrect format (should be mp4).. seeking right version');
     newFilePath = convertToMP4(fullFilePath, DOWNSAMPLERATIO);
     if isempty(newFilePath)
         disp('Failed conversion, aborting');
@@ -61,6 +61,9 @@ nFrameThreshold = floor(FRAMERATE*STILLTHRESHOLDTIME);
 croppedVideoMatrix = cropVideoMid(videoMatrix, 3);
 
 
+QCtimelimit = FRAMERATE; %if found RR is longer than 1 sec raise QC flag
+
+
 
 % detecting still moment as the rightning should occur after 1 sec (nFrameThreshold frames) holding
 [stillFrames, diffs] = detectStillnessInVideo(croppedVideoMatrix, STILLTHRESHOLD, nFrameThreshold);
@@ -72,6 +75,9 @@ end
 % defining the rightning response (as a burst of activity after the HOLD
 % period
 [rrMask RRlengthFrames QC] = detectRRframes(diffs, stillFrames);
+if RRlengthFrames > QCtimelimit
+    QC = 0;
+end
 RRlengthMS = round(RRlengthFrames*1000 / FRAMERATE);
 if isempty(rrMask)
     warning(['RR detection failed for file', fileName]);
