@@ -51,6 +51,9 @@ if ~isempty(centerFrames)
     scatter(coordData(centerFrames, 1), coordData(centerFrames, 2), 100, 'cyan', 'filled', 'o');
 end
 patch(coordData(:, 1), coordData(:, 2),speedArray,'EdgeColor','interp', 'FaceColor','none', 'LineWidth', 3, 'HandleVisibility', 'off');
+
+
+
 set(gca,'Color', [0.7 0.7 0.7]);
 clim('auto');
 c = colorbar;

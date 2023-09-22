@@ -58,7 +58,7 @@ isCenter(centerFrames) = 1;
 if MAKEPLOTS
     % note: padding speed array with zero since first frame does not have speed
     indicatorString = [fileIDstring ' with locomotion indicated'];
-    displayBehaviorVideoMatrix(mouseMaskMatrix, indicatorString, [0 ; instSpeeds], isLocomoting);
-    plotTrialSpeedData(instSpeeds, 40, FRAMERATE,fileIDstring);
+    %displayBehaviorVideoMatrix(mouseMaskMatrix, indicatorString, [0 ; instSpeeds], isLocomoting);
+    plotTrialSpeedData(instSpeeds, LOCOTHRESHOLD, FRAMERATE,fileIDstring);
     plotOpenFieldTrial(centroidCoords,[0 ; instSpeeds], centerFrames, BORDERLIMIT, FRAMERATE, PIXELSIZE, fileIDstring);
 end
