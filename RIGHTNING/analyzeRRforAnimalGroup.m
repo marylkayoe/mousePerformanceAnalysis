@@ -41,7 +41,10 @@ end
 QCfailed = find(QCsGroup == 0);
 QCfailedFiles = filesProcessedGroup(QCfailed);
 nFilesFailed = length(QCfailedFiles);
-
+if nFilesFailed 
+    disp([num2str(nFilesFailed) ' files need manual checking:']);
+    disp(QCfailedFiles);
+end
 for fFile = 1:nFilesFailed
     analyzeSingleRRfile(dataFolder, QCfailedFiles{fFile}, STILLTHRESHOLD, STILLTHRESHOLDTIME, 1, DOWNSAMPLERATIO);
     title(['QC control flag raised, check RR length manually ' getFileIDfromFilename(QCfailedFiles{fFile})]);
