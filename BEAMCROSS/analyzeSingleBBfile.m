@@ -91,7 +91,7 @@ if MAKEPLOTS
     plotBBTrial(mouseCentroids,[0 instProgressionSpeeds'], slipLocs, FRAMERATE, PIXELSIZE, FILEID, ['Speed from ' CAMID], 'Mouse speed (mm/s)');
 
     %displayBehaviorVideoMatrix(mouseMaskMatrix, [FILEID '-UBmov-SLIPPING'],blankedUnderBarDiffs, blankedUnderBarDiffs>SLIPTH, 0);
-    %displayBehaviorVideoMatrix(videoMatrix, [FILEID CAMID '-speed-SLIPPING'], instProgressionSpeeds, blankedUnderBarDiffs>SLIPTH, 0);
+    displayBehaviorVideoMatrix(videoMatrix, [FILEID CAMID '-speed-SLIPPING'], instProgressionSpeeds, blankedUnderBarDiffs>SLIPTH, 0);
 end
 
 

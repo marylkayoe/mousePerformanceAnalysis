@@ -1,23 +1,20 @@
 function [nSLIPS, slipIndex, slipLocs, slipZscores,QCflags, meanProgressionSpeed,meanSpeedLocomoting, centroids, instProgressionSpeeds]  = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, CAMID, SLIPTH, PIXELSIZE, MAKEPLOTS, DOWNSAMPLERATIO, CROPOFFSETADJ)
 
 if ~exist('TASKID', 'var')
-    TASKID = OF;
+    TASKID =BB;
 end
 
 if ~exist('PIXELSIZE', 'var')
     PIXELSIZE = 1;
 end
 
-if ~exist('FRAMERATE', 'var')
-    FRAMERATE = 30;
-end
 
 if ~exist('SLIPTH', 'var')
-    SLIPTH = 2;
+    SLIPTH = 3;
 end
 
 if ~exist('MAKEPLOTS', 'var')
-    MAKEPLOTS = 0;
+    MAKEPLOTS = 1;
 end
 
 

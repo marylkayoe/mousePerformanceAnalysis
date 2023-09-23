@@ -56,7 +56,7 @@ else
     xArrowEnd = 0.6;
 end
 arrowLabel = 'Mouse Direction';
-xArrowYpos =  0.1;
+xArrowYpos =  0.6;
 
 % Get the limits of your x-axis
 xLimits = xlim;
@@ -86,12 +86,13 @@ xlabel ('X (mm)');
 ylabel ('Y (mm)');
 
 annotation('arrow', [xArrowStart, xArrowEnd], [xArrowYpos, xArrowYpos], 'LineWidth', 4);
-annotation('textbox', [mean([xArrowStart xArrowEnd])-0.05, 0.2, 0.1, 0.03], ...
+annotation('textbox', [mean([xArrowStart xArrowEnd])-0.05, 0.7, 0.1, 0.03], ...
     'String', arrowLabel, 'FontSize', 15, 'LineStyle', 'none', ...
     'HorizontalAlignment', 'center');
 
-yLimits = ylim;
 
+
+ylim([-5 20]);
 
 f = gca;
 title([TITLESTRING ' ' FILEID ', n slips: ' num2str(nEvents, '%d')]);

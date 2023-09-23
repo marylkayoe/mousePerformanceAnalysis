@@ -7,8 +7,8 @@ function [isHandInFrame handFrameIdx handMaskMatrix] = trackHandInBB(videoMatrix
 
 
 disp('Segmenting hand in video...');
-% Downsample the video matrix spatially
-% scalingFactor = 1; % Adjust this value to get the desired downscaling; e.g., 0.5 will reduce the size to half
+%Downsample the video matrix spatially
+% scalingFactor = 0.5; % Adjust this value to get the desired downscaling; e.g., 0.5 will reduce the size to half
 % [imHeight, imWidth, nFrames] = size(videoMatrix);
 % if scalingFactor< 1
 %     downsampledVideoMatrix = zeros(floor(imHeight * scalingFactor), floor(imWidth * scalingFactor), nFrames, 'like', videoMatrix);
@@ -18,7 +18,7 @@ disp('Segmenting hand in video...');
 %     end
 %     videoMatrix = downsampledVideoMatrix;
 % end
-% [imHeight imWidth nFrames] = size(videoMatrix);
+
 
 [imHeight imWidth nFrames] = size(videoMatrix);
 
