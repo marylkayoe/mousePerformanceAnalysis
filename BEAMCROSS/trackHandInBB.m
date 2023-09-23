@@ -31,7 +31,7 @@ meanImage = getMeanFrame(videoMatrix);
  croppedVideoMatrix = cropVideoAboveBar(videoMatrix, barYcoord-(barWidth*5), barWidth);
  meanImage = getMeanFrame(croppedVideoMatrix);
 barArea = barWidth * imWidth;
-HANDSIZETH =round(barArea/2);
+HANDSIZETH =round(barArea/4);
 
 
 sumImage = getSumFrame(croppedVideoMatrix);
@@ -43,8 +43,10 @@ meanSubtractedMatrix = imadjustn(meanSubtractedMatrix);
 
 % preallocate for the masked video
 handMaskMatrix = zeros(size(meanSubtractedMatrix));
+%adjustedMeanSubtractedMatrix = meanSubtractedMatrix;
+%adjustedMeanSubtractedMatrix = imadjustn(meanSubtractedMatrix, [0.2 1]);
 adjustedMeanSubtractedMatrix = imadjustn(meanSubtractedMatrix, [0 0.6]);
-globalThreshold = multithresh(adjustedMeanSubtractedMatrix, 4); % hand is lighter than mouse (black)
+globalThreshold = multithresh(adjustedMeanSubtractedMatrix, 3); % hand is lighter than mouse (black)
 frameSize = numel(adjustedMeanSubtractedMatrix(:,:,1));
   se = strel('disk',floor(barWidth/2));
 % Loop over each frame and display current frame counter
@@ -54,14 +56,15 @@ for frameIdx = 1:nFrames
     segmentedFrame = imquantize(currFrame,globalThreshold);
 
     % hand is in the pixels classified as the higher intensity
-    %handMask = (segmentedFrame==2)|(segmentedFrame==3);
-    handMask = (segmentedFrame==3);
+    handMask = (segmentedFrame==2)|(segmentedFrame==3);
+    %handMask = (segmentedFrame==3);
+    %handMask = (segmentedFrame==2);
 
     % Fill holes in the binary image and smooth
   
-    %handMask = imfill(handMask, 'holes');
-    handMask = imclose(handMask, se);
-    %handMask = bwmorph(handMask, 'close');
+    handMask = imfill(handMask, 'holes');
+    %handMask = imclose(handMask, se);
+    handMask = bwmorph(handMask, 'close');
 
     % Find connected components in the binary image
     CC = bwconncomp(handMask);
@@ -94,7 +97,7 @@ fprintf('\n');
 diffs = getLocalizedFrameDifferences (handMaskMatrix, 10, FRAMERATE);
 diffs = smooth(diffs, FRAMERATE);
 diffs = diffs ./ max(diffs);
-blankedIdx = find(diffs < 0.15);
+blankedIdx = find(diffs < 0.05);
 
 % blank out values when hand not detected
 handMaskMatrix(:, :, blankedIdx) = 0;

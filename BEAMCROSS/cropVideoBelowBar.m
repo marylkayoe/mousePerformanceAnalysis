@@ -11,12 +11,12 @@ meanImage = getMeanFrame(videoMatrix);
 %BARWIDTH = floor(imHeight/15);
 %MOUSEHEIGHT = floor(imHeight/5);
 %
-%CROPEDGE = floor(imWidth / 10);
-CROPEDGE = 1;
+CROPEDGE = floor(imWidth / 10);
+%CROPEDGE = 1;
 
 cropBottom = barYcoord+ceil(barWidth/2);
 if cropBottom > imHeight
     cropBottom = imHeight;
 end
 
-croppedVideoMatrix  = imadjustn(videoMatrix(barYcoord:cropBottom, :, :));
+croppedVideoMatrix  = imadjustn(videoMatrix(barYcoord:cropBottom,CROPEDGE:end-CROPEDGE, :));

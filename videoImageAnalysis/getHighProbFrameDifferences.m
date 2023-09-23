@@ -27,8 +27,9 @@ end
 % Now perform the element-wise multiplication
 probDiffs = columnDiffs .* probValMatrix;
 probDiffsFrames = sum(probDiffs, 2, 'omitnan');
-smoothDiffs = smooth(probDiffsFrames,SMOOTHWIN);
-stdDiffs = zscore(smoothDiffs);
+%smoothDiffs = smooth(probDiffsFrames,SMOOTHWIN);
+stdDiffs = zscore(probDiffsFrames);
+stdDiffs = smooth(stdDiffs,SMOOTHWIN);
 stdDiffs(stdDiffs<ZTHRESHOLD) = 0;
 % normFrameDiffs = smoothDiffs ./ max(smoothDiffs);
 % 

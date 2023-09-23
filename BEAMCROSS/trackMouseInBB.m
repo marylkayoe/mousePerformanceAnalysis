@@ -1,4 +1,4 @@
-function [mouseCentroids instProgressionSpeeds locoFrames mouseMaskMatrix blankedIdx] = trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE)
+function [mouseCentroids instProgressionSpeeds locoFrames meanSpeedLocomoting, mouseMaskMatrix blankedIdx, handFrameIdx] = trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE)
 % trackMouseInOF.m - Track the mouse BB video
 % videoMatrix is the video data converted into a 3D matrix
 % return smoothed centroid positions with trial intervals blanked out
@@ -20,7 +20,7 @@ MOUSESIZETH = round(barArea /4); %min size
 
 frameList = 1:nFrames;
 [hf, idx] = intersect(frameList, handFrameIdx);
-frameList(idx) = [];
+ frameList(idx) = [];
 
 
 
@@ -84,7 +84,7 @@ mouseMask = false(size(mouseMask));
             mouseCentroids(frameIdx,:) = nan;
         else
             if (stats(idx).Area > MOUSESIZETH*3)
-                %warning('The largest object is smaller than the threshold (relative to bar size)');
+              %  warning('The largest object is larger than the threshold (relative to bar size)');
                 mouseCentroids(frameIdx,:) = nan;
             else
                 mouseCentroids(frameIdx,:) = stats(idx).Centroid;
@@ -123,5 +123,6 @@ instProgressionSpeeds( blankedIdx) = nan;
 
 % frames where mouse is (maybe) going forward
 locoFrames = instProgressionSpeeds > LOCOTHRESHOLD;
+meanSpeedLocomoting = mean(instProgressionSpeeds(locoFrames));
 end
 

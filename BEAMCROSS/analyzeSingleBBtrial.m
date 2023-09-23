@@ -1,4 +1,4 @@
-function [nSLIPS, slipIndex, slipLocs,nQCflags, meanProgressionSpeed, centroids, instProgressionSpeeds]  = analyzeSingleBBtrial(dataFolder,EXPID, SAMPLEID, TIMEPOINT, SLIPTH, PIXELSIZE, MAKEPLOTS, CROPOFFSETADJ, DOWNSAMPLERATIO)
+function [nSLIPS, slipIndex, slipLocs,QCflags, meanProgressionSpeed, centroids, instProgressionSpeeds]  = analyzeSingleBBtrial(dataFolder,EXPID, SAMPLEID, TIMEPOINT, SLIPTH, PIXELSIZE, MAKEPLOTS, CROPOFFSETADJ, DOWNSAMPLERATIO)
 
 if ~exist('PIXELSIZE', 'var')
     PIXELSIZE = 0.25;
@@ -6,7 +6,7 @@ end
 
 
 if ~exist('SLIPTH', 'var')
-    SLIPTH = 2;
+    SLIPTH = 3;
 end
 
 if ~exist('MAKEPLOTS', 'var')
@@ -19,7 +19,7 @@ if ~exist('DOWNSAMPLERATIO', 'var')
 end
 
 if ~exist('CROPOFFSETADJ', 'var')
-    CROPOFFSETADJ = 0.3;
+    CROPOFFSETADJ = 0.2;
 end
 
 TASKID = 'BB';
@@ -30,8 +30,8 @@ fileID = getFileIDfromFilename (fileName);
 
 
 % run the analysis for two camera files
-[nSLIPSCAM1, slipIndexCAM1, slipLocsCAM1, slipZscoresCAM1,QCflagsCAM1, meanProgressionSpeedCAM1, centroidsCAM1, instProgressionSpeedsCAM1]  = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, 'Cam1', SLIPTH, PIXELSIZE, 1, DOWNSAMPLERATIO, CROPOFFSETADJ);
-[nSLIPSCAM2, slipIndexCAM2, slipLocsCAM2, slipZscoresCAM2,QCflagsCAM2, meanProgressionSpeedCAM2, centroidsCAM2, instProgressionSpeedsCAM2]  = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, 'Cam2', SLIPTH, PIXELSIZE, 1, DOWNSAMPLERATIO, CROPOFFSETADJ);
+[nSLIPSCAM1, slipIndexCAM1, slipLocsCAM1, slipZscoresCAM1,QCflagsCAM1, meanProgressionSpeedCAM1, meanLocoSpeedCAM1, centroidsCAM1, instProgressionSpeedsCAM1]  = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, 'Cam1', SLIPTH, PIXELSIZE, 1, DOWNSAMPLERATIO, CROPOFFSETADJ);
+[nSLIPSCAM2, slipIndexCAM2, slipLocsCAM2, slipZscoresCAM2,QCflagsCAM2, meanProgressionSpeedCAM2, meanLocoSpeedCAM1, centroidsCAM2, instProgressionSpeedsCAM2]  = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, 'Cam2', SLIPTH, PIXELSIZE, 1, DOWNSAMPLERATIO, CROPOFFSETADJ);
 
 
 %% COMBINE cam results
@@ -69,7 +69,7 @@ retainIndices = [true; slipDiffs >= minInterval];
 slipLocs = slipLocs(retainIndices);
 
 % combined quality control value for whole trial
-nQCflags = mean([sum(QCflagsCAM1);sum(QCflagsCAM2) ]);
+QCflags = mean([sum(QCflagsCAM1);sum(QCflagsCAM2) ]);
 
 if MAKEPLOTS
 % Display the combined results from 2 cameras
