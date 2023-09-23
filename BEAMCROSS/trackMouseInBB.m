@@ -1,23 +1,35 @@
-function [centroids instProgressionSpeeds locoFrames mouseMaskMatrix blankedIdx] = trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE)
-% trackMouseInOF.m - Track the mouse in a open field video
+function [mouseCentroids instProgressionSpeeds locoFrames mouseMaskMatrix blankedIdx] = trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE)
+% trackMouseInOF.m - Track the mouse BB video
 % videoMatrix is the video data converted into a 3D matrix
 % return smoothed centroid positions with trial intervals blanked out
 % instProgressionSpeeds = speed in X-direction
 % blankedIdx = frame indexes when there is no mouse
 LOCOTHRESHOLD = 40;
-MOUSESIZETH = 0.05; % mouse can not be bigger than 5% of frame
+
 disp('Segmenting mouse in video...');
-[h w nFrames] = size(videoMatrix);
-
-% Preallocate arrays for the mouse centroid coordinates
-mouseCentroids = zeros(nFrames, 2);
-
-% Preallocate array for storing centroid coordinates
-centroids = zeros(size(videoMatrix, 3), 2);
-
-% we don't have background image so we subtract the mean image. Not perfect but ok
+[imHeight imWidth nFrames] = size(videoMatrix);
 meanImage = getMeanFrame(videoMatrix);
 [barYcoord barWidth] = findBarYCoordInImage(imcomplement(meanImage)); %the coordinate is from image top
+barArea = barWidth * imWidth;
+MOUSESIZETH = round(barArea /4); %min size
+
+%% start by finding frames where there is a hand in the frame
+
+[isHandInFrame handFrameIdx handMaskMatrix] = trackHandInBB(videoMatrix,PIXELSIZE, FRAMERATE);
+% remove frames we look at if hand was in the frame
+
+frameList = 1:nFrames;
+[hf, idx] = intersect(frameList, handFrameIdx);
+frameList(idx) = [];
+
+
+
+
+% Preallocate arrays for the mouse centroid coordinates
+mouseCentroids = nan(nFrames, 2);
+
+
+% we don't have background image so we subtract the mean image. Not perfect but ok
 sumImage = getSumFrame(videoMatrix);
 sumSubtractedMatrix = subtractFrom(videoMatrix, sumImage);
 meanSumSubtractedImage = getMeanFrame(sumSubtractedMatrix);
@@ -33,10 +45,11 @@ mouseMaskMatrix = zeros(size(croppedVideoMatrix));
 adjustedCroppedVideoMatrix = imadjustn(croppedVideoMatrix, [0 0.6]);
 globalThreshold = multithresh(adjustedCroppedVideoMatrix, 4); % mouse body is
 
+frameSize = numel(adjustedCroppedVideoMatrix(:,:,1));
 % Loop over each frame
 %display current frame counter
 fprintf('Processing frames (out of %d): ', nFrames);
-for frameIdx = 1:nFrames
+for frameIdx = frameList % going through the frames without hand
     currFrame = adjustedCroppedVideoMatrix(:,:,frameIdx);
     %display current frame counter and total number of frames
     % by erasing the previous value
@@ -51,11 +64,10 @@ for frameIdx = 1:nFrames
 
     % Mouse is in the pixels classified as the lowest intensity
     mouseMask = (segmentedFrame==2);
- %mouseMask =(segmentedFrame == 2) | (segmentedFrame == 3);
+
     % Fill holes in the binary image and smooth
     mouseMask = imfill(mouseMask, 'holes');
     mouseMask = bwmorph(mouseMask, 'close');
-frameSize = numel(currFrame);
     % Find connected components in the binary image
     CC = bwconncomp(mouseMask);
 mouseMask = false(size(mouseMask));
@@ -65,20 +77,21 @@ mouseMask = false(size(mouseMask));
     [~, idx] = max([stats.Area]);
     if isempty(idx)
         warning('No object found in frame ');
-        centroids(frameIdx,:) = nan;
+        mouseCentroids(frameIdx,:) = nan;
     else
-        if stats(idx).Area < frameSize*MOUSESIZETH
-            %warning('The largest object is smaller than the threshold (5% of framesize)');
-            centroids(frameIdx,:) = nan;
+        if (stats(idx).Area < MOUSESIZETH)
+            %warning('The largest object is smaller than the threshold (relative to bar size)');
+            mouseCentroids(frameIdx,:) = nan;
         else
-
-            centroids(frameIdx,:) = stats(idx).Centroid;
-            mouseMask(CC.PixelIdxList{idx}) = true;
-            mouseMaskMatrix(:, :, frameIdx) = mouseMask;
+            if (stats(idx).Area > MOUSESIZETH*3)
+                %warning('The largest object is smaller than the threshold (relative to bar size)');
+                mouseCentroids(frameIdx,:) = nan;
+            else
+                mouseCentroids(frameIdx,:) = stats(idx).Centroid;
+                mouseMask(CC.PixelIdxList{idx}) = true;
+                mouseMaskMatrix(:, :, frameIdx) = mouseMask;
+            end
         end
-
-        % Create a binary image containing only the selected connected component
-    end 
 
     if mod(frameIdx, 10) == 0
         fprintf('.');
@@ -86,17 +99,18 @@ mouseMask = false(size(mouseMask));
     if mod(frameIdx, 500) == 0
         fprintf('\n');
     end
+    end
 end
 fprintf('\n');
 % find frames with mouse in (based on movement threshold)
 diffs = getLocalizedFrameDifferences (mouseMaskMatrix, 10, FRAMERATE);
 diffs = smooth(diffs, FRAMERATE);
 diffs = diffs ./ max(diffs);
-blankedIdx = find(diffs < 0.2);
+blankedIdx = find(diffs < 0.05);
 disp('Calculating centroid position and forward speed...');
 % mouse position defined by the segment centroids
-centroids = centroids / PIXELSIZE;
-centroidsSMOOTH = smoothdata(centroids, 'movmean', floor(FRAMERATE/20));
+mouseCentroids = mouseCentroids / PIXELSIZE;
+centroidsSMOOTH = smoothdata(mouseCentroids, 'movmean', floor(FRAMERATE/20));
 centroidsGF = gapFillTrajectory(centroidsSMOOTH);
 
 % we only measure speed along the bar (horizontally)

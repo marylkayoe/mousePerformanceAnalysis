@@ -1,4 +1,4 @@
-function [nSLIPS, slipIndex, slipLocs, slipZscores,QCflags, meanProgressionSpeed, centroids, instProgressionSpeeds]  = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, CAMID, SLIPTH, MAKEPLOTS, DOWNSAMPLERATIO, CROPOFFSETADJ)
+function [nSLIPS, slipIndex, slipLocs, slipZscores,QCflags, meanProgressionSpeed, centroids, instProgressionSpeeds]  = analyzeSingleCamBB(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT, CAMID, SLIPTH, PIXELSIZE, MAKEPLOTS, DOWNSAMPLERATIO, CROPOFFSETADJ)
 
 if ~exist('TASKID', 'var')
     TASKID = OF;
@@ -28,10 +28,10 @@ end
 
 
 if ~exist('CROPOFFSETADJ', 'var')
-    CROPOFFSETADJ = 0;
+    CROPOFFSETADJ = 0.2;
 end
 
-PIXELSIZE = PIXELSIZE * DOWNSAMPLERATIO;
+
 CROPVIDEO = 1; % crop top and bottom, 1/4 each
 %% import the video file and make it into a grayscale matrix:
 fileName = getFilenamesForSamples(dataFolder,EXPID, SAMPLEID, TASKID, [TIMEPOINT '_' CAMID]);

@@ -4,7 +4,7 @@ function [nSLIPS, slipIndex, slipLocs, slipZscores, QCflags, meanProgressionSpee
 
 
 if ~exist('PIXELSIZE', 'var')
-    PIXELSIZE = 1;
+    PIXELSIZE = 0.25;
 end
 
 if ~exist('SLIPTH', 'var')
@@ -52,10 +52,10 @@ underBarDiffs = getHighProbFrameDifferences(blankedUnderBarVideoMatrix, mousePro
 [pks, slipLocs, w, p] = findpeaks(underBarDiffs, 'MinPeakDistance', FRAMERATE/10);
 
 %track the hand so we can omit those frames from slips
-[isHandInFrame handFrameIdx handMaskMatrix] = trackHandInBB(videoMatrix, PIXELSIZE, FRAMERATE);
-% remove "slips" from data if hand was in the frame
-[hf, idx] = intersect(slipLocs, handFrameIdx);
-slipLocs(idx) = [];
+% [isHandInFrame handFrameIdx handMaskMatrix] = trackHandInBB(videoMatrix, mouseMaskMatrix,PIXELSIZE, FRAMERATE);
+% % remove "slips" from data if hand was in the frame
+% [hf, idx] = intersect(slipLocs, handFrameIdx);
+% slipLocs(idx) = [];
 
 nSLIPS = length(slipLocs);
 meanProgressionSpeed = round(mean(instProgressionSpeeds, 'omitnan'), 1);

@@ -1,10 +1,13 @@
-function showKeyFrames(videoMatrix, frameRange, TITLESTRING, VALUES)
+function showKeyFrames(videoMatrix, frameRange, TITLESTRING, VALUES, ADJUSTIMAGE)
     % Create a new array to hold the annotated frames
 
 if ~exist('TITLESTRING', 'var')
     TITLESTRING = 'Key frames';
 end
 
+if ~exist('ADJUSTIMAGE', 'var')
+    ADJUSTIMAGE = 0;
+end
 
 
 
@@ -33,7 +36,9 @@ end
 
         % Convert the frame back to grayscale
         frame = rgb2gray(frameRGB);
+        if ADJUSTIMAGE
         frame = imadjust(frame, [0, 0.6]);
+        end
 
         % Store the annotated frame back in the array
         annotatedFrames(:, :, 1, i) = frame;

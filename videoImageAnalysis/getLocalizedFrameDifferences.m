@@ -51,6 +51,7 @@ end
 
 
 diffs = diffs - min(diffs);
+diffs(1) = 0;
 diffs = diffs ./ max (diffs);
 
 

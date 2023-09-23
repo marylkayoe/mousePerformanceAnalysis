@@ -7,6 +7,9 @@ mouseHeight = barWidth * 5;
 %CROPEDGE = floor(imWidth / 10);
 CROPEDGE = 1;
 yCropTop = barYCoord-barWidth-mouseHeight;
+if yCropTop < 1
+    yCropTop = 1;
+end
 yCropBottom = barYCoord+barWidth;
 if yCropBottom > imHeight
     yCropBottom = imHeight;
@@ -17,4 +20,4 @@ if yCropTop < 1
     yCropTop = 1;
 end
 
-croppedVideoMatrix  = videoMatrix(yCropTop:yCropBottom, CROPEDGE:end-CROPEDGE, :);
+croppedVideoMatrix  = videoMatrix(yCropTop:yCropBottom, :, :);

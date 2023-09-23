@@ -19,4 +19,4 @@ if cropBottom > imHeight
     cropBottom = imHeight;
 end
 
-croppedVideoMatrix  = imadjustn(videoMatrix(barYcoord:cropBottom, CROPEDGE:end-CROPEDGE, :));
+croppedVideoMatrix  = imadjustn(videoMatrix(barYcoord:cropBottom, :, :));
