@@ -9,11 +9,19 @@ if ~exist('TIMEPOINT', 'var')
 end
 
 if ~exist('STILLTHRESHOLD', 'var')
-    STILLTHRESHOLD = 0.05;
+    STILLTHRESHOLD = 0.07;
+end
+
+if isempty(STILLTHRESHOLD)
+    STILLTHRESHOLD = 0.07;
 end
 
 
 if ~exist('STILLTHRESHOLDTIME', 'var') %how many seconds must the hold last
+    STILLTHRESHOLDTIME = 0.7;
+end
+
+if isempty(STILLTHRESHOLDTIME)
     STILLTHRESHOLDTIME = 0.7;
 end
 
