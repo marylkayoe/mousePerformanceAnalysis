@@ -9,9 +9,19 @@ if ~exist('STILLTHRESHOLD', 'var')
     STILLTHRESHOLD = 0.07;
 end
 
+if isempty(STILLTHRESHOLD)
+    STILLTHRESHOLD = 0.07;
+end
+
 if ~exist('STILLTHRESHOLDTIME', 'var') % time (in sec) of stillness used to detect the hold period
     STILLTHRESHOLDTIME = 0.7;
 end
+
+
+if isempty(STILLTHRESHOLDTIME)
+    STILLTHRESHOLDTIME = 0.7;
+end
+
 
 if ~exist('DOWNSAMPLERATIO', 'var')
     DOWNSAMPLERATIO = 2;

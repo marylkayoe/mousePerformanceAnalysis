@@ -36,8 +36,9 @@ coordData = coordData * PIXELSIZE;
 [instSpeeds] = getMouseSpeedFromTraj(coordData, FRAMERATE, FRAMERATE);
 smoothedTraj = smoothdata(coordData(:, :), 'movmedian', 3);
 
+fileIDstring = getFileIDfromFilename(fileName);
 %% plot movement in arena and speed
-f = plotOpenFieldTrial(smoothedTraj(1:end-1, :),instSpeeds, [], 0.2, 160);
+f = plotOpenFieldTrial(smoothedTraj(1:end-1, :),instSpeeds, [], 0.2, 160, PIXELSIZE, fileIDstring);
  plotTrialSpeedData(instSpeeds, 40, FRAMERATE, strjoin({EXPID, '-',  SAMPLEID}));
 displayBehaviorVideoMatrix(videoMatrix);
 % this makes a video of the masked mouse
