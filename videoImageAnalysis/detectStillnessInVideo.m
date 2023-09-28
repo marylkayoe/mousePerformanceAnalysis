@@ -25,7 +25,13 @@ slowFrames = diffs < threshold;
 
 stillChanges = diff(slowFrames);
 stillStartFrames = find(stillChanges==1);
+if isempty(stillStartFrames) % if stillness starts at beginning
+    stillStartFrames = 1;
+end
 stillEndFrames = find(stillChanges == -1);
+if isempty(stillEndFrames)
+    stillEndFrames = nFrames;
+end
 if stillEndFrames(1) < stillStartFrames(1)
     stillEndFrames(1) = [];
 end

@@ -45,13 +45,13 @@ else
 
     % find the END of the RR:
     % looking at movement after burst half-width
-    postBurstDiffs = diffsAfterStill;
+    postBurstDiffs = smooth(diffsAfterStill);
     %blank out the movement until half-width
     postBurstDiffs(1:speedBurstFrame(1) + floor(widths(1)/2)) = nan;
 
-    [isPostMin P] = islocalmin(smooth(postBurstDiffs), 'FlatSelection', 'last');
-    if(diffsAfterStill(find(isPostMin, 1, 'first'))) > RRSTARTThreshold % if the movement at first minimum is too high
-        burstEndFrame = find(isPostMin<RRSTARTThreshold, 1, 'first'); % we take the first point below the threshold
+    [isPostMin P] = islocalmin(postBurstDiffs, 'FlatSelection', 'last');
+    if(postBurstDiffs(find(isPostMin, 1, 'first'))) > RRSTARTThreshold % if the movement at first minimum is too high
+        burstEndFrame = find(postBurstDiffs<RRSTARTThreshold, 1, 'first'); % we take the first point below the threshold
     else
         burstEndFrame = find(isPostMin, 1, 'first');
     end

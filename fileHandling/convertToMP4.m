@@ -36,10 +36,10 @@ if isempty(newFileExists)
 
 
         [status, cmdout] = system(sprintf('ffmpeg -i "%s" -hide_banner', fullFilePath));
-        framerate = regexp(cmdout, '(\d+(?:\.\d+)?) fps', 'tokens');
-        if ~isempty(framerate)
-            framerate = str2double(framerate{1}{1});
-            fprintf('Original framerate: %.2f fps\n', framerate);
+        frameRate = regexp(cmdout, '(\d+(?:\.\d+)?) fps', 'tokens');
+        if ~isempty(frameRate)
+            frameRate = str2double(frameRate{1}{1});
+            fprintf('Original framerate: %.2f fps\n', frameRate);
         else
             warning('Could not determine framerate. Proceeding without framerate information.');
         end
@@ -71,23 +71,25 @@ if isempty(newFileExists)
             newWidth = newWidth - 1;
         end
 
-        newHeight = floor(cropHeight / DOWNSAMPLERATIO);
-        if mod(newHeight, 2) ~= 0
-            newHeight = newHeight + 1;
-        end
+        % newHeight = floor(cropHeight / DOWNSAMPLERATIO);
+        % if mod(newHeight, 2) ~= 0
+        %     newHeight = newHeight + 1;
+        % end
 
         %
         % cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync 0 "%s">/dev/null 2>&1', ...
         %     fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
         % cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync crf "%s"', ...
         %     fullFilePath, cropWidth, croHeight, yOffset, newWidth, newHeight, newFilePath);
-        if strfind(FFfoundVersion, '6.0')
-            cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 1 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -fps_mode cfr "%s">/dev/null 2>&1', ...
-                fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
-        else
-            cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync 0 "%s">/dev/null 2>&1', ...
-                fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
-        end
+        %if strfind(FFfoundVersion, '6.0')
+            cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -r %d -crf 1 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -fps_mode cfr "%s"', fullFilePath, frameRate, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
+
+            % cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -r -crf 1 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -fps_mode cfr "%s">/dev/null 2>&1', ...
+            %     fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, newFilePath);
+      %  else
+     %       cmd = sprintf('ffmpeg -i "%s" -c:v libx264 -crf 0 -preset veryslow -vf "crop=%d:%d:0:%d,scale=%d:%d" -an -vsync 0 -r %d "%s">/dev/null 2>&1', ... fullFilePath, cropWidth, cropHeight, yOffset, newWidth, newHeight, framerate, newFilePath);
+
+      %  end
 
         failed = system(cmd);
         if failed
@@ -96,13 +98,15 @@ if isempty(newFileExists)
             return;
         else
             [status, cmdout] = system(sprintf('ffmpeg -i "%s" -hide_banner', newFilePath));
-            framerate = regexp(cmdout, '(\d+(?:\.\d+)?) fps', 'tokens');
+            frameRate = regexp(cmdout, '(\d+(?:\.\d+)?) fps', 'tokens');
+            frameRate = frameRate{1}{1};
+            frameRate = str2double(frameRate);
             [status, cmdout] = system(sprintf('ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 "%s"', newFilePath));
             resolution = strsplit(cmdout, 'x');
             width = str2double(resolution{1});
             height = str2double(resolution{2});
             fprintf('New resolution: %dx%d\n', width, height);
-            disp(["Conversion completed, new frame rate " framerate]);
+            disp(['Conversion completed, new frame rate:'  num2str(frameRate)]);
         end
 
         disp('Found existing .mp4 file, using it');

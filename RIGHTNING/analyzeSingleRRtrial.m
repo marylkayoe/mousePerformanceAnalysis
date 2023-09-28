@@ -45,6 +45,6 @@ fileName = getFilenamesForSamples(dataFolder,EXPID, SAMPLEID, TASKID, TIMEPOINT)
 if isempty(fileName)
     warning ('File not found');
 else
-    [RRlengthFrames RRlengthMS QC]= analyzeSingleRRfile(dataFolder, fileName, STILLTHRESHOLD,nFrameThreshold, MAKEPLOTS, DOWNSAMPLERATIO)
+    [RRlengthFrames RRlengthMS QC]= analyzeSingleRRfile(dataFolder, fileName, STILLTHRESHOLD,STILLTHRESHOLDTIME, MAKEPLOTS, DOWNSAMPLERATIO)
 end
 
