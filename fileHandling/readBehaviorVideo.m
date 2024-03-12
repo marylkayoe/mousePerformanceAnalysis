@@ -1,5 +1,5 @@
 function [videoMatrix filePath frameRate, DOWNSAMPLERATIO] = readBehaviorVideo(filePath, DOWNSAMPLERATIO, CROPVIDEO, CROPOFFSETADJ)
-% readBehaviorVideo - read behavior video file
+% readBehaviorVideo - read behavior video file into 
 % if filename is not mp4, attempt to find a mp4 version, if such does not
 % exist then making a conversion
 
