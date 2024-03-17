@@ -10,6 +10,20 @@ Currently we have 3 behavioral tasks:
 
 All processing is based on video recordings. As a first step, the raw video files are processed using FFmpeg to convert them to a more manageable format (MP4) and resolution, possibly cropping as applicable to decrease file size. 
 
+# table of contents
+1. [Beam Crossing](#beam-crossing)
+2. [Open Field](#open-field)
+3. [Rightning Reflex](#rightning-reflex)
+4. [Video Processing Scripts](#video-processing-scripts)
+5. [Getting Started](#getting-started)
+6. 
+
+## Beam Crossing
+
+## Open Field
+
+## Rightning Reflex
+
 # Video Processing Scripts
 
 This folder contains MATLAB scripts for video file handling.
