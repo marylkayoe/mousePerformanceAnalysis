@@ -12,9 +12,43 @@ All processing is based on video recordings. As a first step, the raw video file
 
 # Video Processing Scripts
 
-This repository contains MATLAB scripts for video processing using FFmpeg.
+This folder contains MATLAB scripts for video file handling.
 
-## Description
+##  convertAVIToMP4 
+Function to convert an AVI file to MP4 format using FFmpeg. Additionally allows downsampling, cropping and shifting of the video.
+Note that the function calls FFmpeg, so it is necessary to have FFmpeg installed on your system and added to your system path.
+
+### Example uses
+```matlab
+currNamePath = convertAVItoMP4(fullFilePath, DOWNSAMPLERATIO, cropVideoVertical, cropVideoHorizontal, verticalOffset, horizontalOffset, OVERWRITEEXISTING);
+
+% Convert an AVI file to MP4 format without downsampling; if the output file already exists, we add '_new' to the filename
+currNamePath = convertAVItoMP4('C:\Users\username\Documents\video.avi'));
+
+% Convert an AVI file to MP4 format with 2x downsampling, overwrite existing file if it exists
+currNamePath = convertAVItoMP4('C:\Users\username\Documents\video.avi', 2, 0, 0, 0, 0, 1);
+
+% Convert an AVI file to MP4 format with 2x downsampling, crop 10% from the top and bottom, and 5% from the left and right, overwrite existing file if it exists
+currNamePath = convertAVItoMP4('C:\Users\username\Documents\video.avi', 2, 10, 10, 0, 0, 1);
+
+% Convert to MP4 with 2x downsampling, crop 10% from the top and bottom, and 5% from the left and right, and shift the video 20% to the right and 15% up, overwrite existing file if it exists
+currNamePath = convertAVItoMP4('C:\Users\username\Documents\video.avi', 2, 10, 10, 20, 15, 1);
+```
+![Example Output](assets/convertAVItoMP4options.png "Examples of convertAVItoMP4 options")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 These scripts allow you to convert video files to different formats and resolutions. They provide functionality for cropping videos based on specified percentages and downsampling them to a desired resolution.
 

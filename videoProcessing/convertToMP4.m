@@ -1,5 +1,5 @@
 function newFilePath = convertToMP4(fullFilePath, DOWNSAMPLERATIO, CROPVIDEO, CROPOFFSETADJ)
-
+% OLD version, to be removed
 if ~exist('DOWNSAMPLERATIO', 'var')
     DOWNSAMPLERATIO = 2;
 end
