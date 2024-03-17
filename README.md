@@ -36,18 +36,28 @@ Note that the function calls FFmpeg, so it is necessary to have FFmpeg installed
 ```matlab
 currNamePath = convertAVItoMP4(fullFilePath, DOWNSAMPLERATIO, cropVideoVertical, cropVideoHorizontal, verticalOffset, horizontalOffset, OVERWRITEEXISTING);
 
-% Convert an AVI file to MP4 format without downsampling; if the output file already exists, we add '_new' to the filename
+Convert an AVI file to MP4 format without downsampling; if the output file already exists, we add '_new' to the filename
+
+```matlab
 currNamePath = convertAVItoMP4('C:\Users\username\Documents\video.avi'));
+```
 
-% Convert an AVI file to MP4 format with 2x downsampling, overwrite existing file if it exists
+Convert an AVI file to MP4 format with 2x downsampling, overwrite existing file if it exists
+
+```matlab
 currNamePath = convertAVItoMP4('C:\Users\username\Documents\video.avi', 2, 0, 0, 0, 0, 1);
+```
 
-% Convert an AVI file to MP4 format with 2x downsampling, crop 10% from the top and bottom, and 5% from the left and right, overwrite existing file if it exists
+Convert an AVI file to MP4 format with 2x downsampling, crop 10% from the top and bottom, and 5% from the left and right, overwrite existing file if it exists
+```matlab
 currNamePath = convertAVItoMP4('C:\Users\username\Documents\video.avi', 2, 10, 10, 0, 0, 1);
+```
 
-% Convert to MP4 with 2x downsampling, crop 10% from the top and bottom, and 5% from the left and right, and shift the video 20% to the right and 15% up, overwrite existing file if it exists
+Convert to MP4 with 2x downsampling, crop 10% from the top and bottom, and 5% from the left and right, and shift the video 20% to the right and 15% up, overwrite existing file if it exists
+```matlab
 currNamePath = convertAVItoMP4('C:\Users\username\Documents\video.avi', 2, 10, 10, 20, 15, 1);
 ```
+
 ![Example Output](assets/convertAVItoMP4options.png "Examples of convertAVItoMP4 options")
 
 
