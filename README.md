@@ -37,20 +37,13 @@ currNamePath = convertAVItoMP4('C:\Users\username\Documents\video.avi', 2, 10, 1
 ![Example Output](assets/convertAVItoMP4options.png "Examples of convertAVItoMP4 options")
 
 
+### Troubleshooting
+The conversion is done with FFmpeg, and it has been tested with versions 6.1.1 at least. If you encounter strange behavior, check if the version matches.
 
+Also if you encounter an error like this:
+![Example Output](assets/ffmpeg-error.png "Example of FFmpeg error")
+it might be caused by system command not completing correctly. Try to run the function again.
 
-
-
-
-
-
-
-
-
-
-
-
-These scripts allow you to convert video files to different formats and resolutions. They provide functionality for cropping videos based on specified percentages and downsampling them to a desired resolution.
 
 ## Getting Started
 
