@@ -35,6 +35,7 @@ Note that the function calls FFmpeg, so it is necessary to have FFmpeg installed
 ### Example uses
 ```matlab
 currNamePath = convertAVItoMP4(fullFilePath, DOWNSAMPLERATIO, cropVideoVertical, cropVideoHorizontal, verticalOffset, horizontalOffset, OVERWRITEEXISTING);
+```
 
 Convert an AVI file to MP4 format without downsampling; if the output file already exists, we add '_new' to the filename
 
@@ -70,6 +71,25 @@ it might be caused by system command not completing correctly. Try to run the fu
 
 
 ## Getting Started
+
+### Installation
+To use this package:
+
+1. Clone or download this repository to your local machine.
+2. Open MATLAB.
+3. Navigate to the directory where you saved the repository.
+4. Add the repository to your MATLAB path. You can do this by running the following command in the MATLAB Command Window:
+```matlab
+addpath(genpath('path\to\mousePerformanceAnalysis'))
+```
+(Replace 'path\to\mousePerformanceAnalysis' with the actual path to the repository on your machine.)
+
+5. Save the path for future MATLAB sessions:
+  ```matlab
+   savepath;
+   ```
+   
+You should now be able to use the functions in this repository in your MATLAB environment.
 
 ### Dependencies
 
