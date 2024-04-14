@@ -5,17 +5,20 @@ function [videoMatrix frameRate] = readVideoIntoMatrix(filePath, varargin)
     % Optional input arguments:
     %  'scaleFactor': a scalar value to scale the video by. Default is 1. scaleFactor < 1 will reduce the video size
     %  'enhanceContrast': a boolean value to enhance the contrast of the video. Default is false
+    % 'removeGlove': a boolean value to remove the blue color channel from the video. Default is false
 
     % parse the input arguments
     p = inputParser;
     addRequired(p, 'filePath', @ischar);
     addParameter(p, 'scaleFactor', 1, @isnumeric);
     addParameter(p, 'enhanceContrast', false, @islogical);
+    addParameter(p, 'removeGlove', false, @islogical);
     parse(p, filePath, varargin{:});
 
     filePath = p.Results.filePath;
     scaleFactor = p.Results.scaleFactor;
     enhanceContrast = p.Results.enhanceContrast;
+    removeGlove = p.Results.removeGlove;
 
     % Create a VideoReader object
     if iscell(filePath)
@@ -70,9 +73,11 @@ function [videoMatrix frameRate] = readVideoIntoMatrix(filePath, varargin)
         frame = readFrame(vidObj);
 
         if ~isMonochrome
-            % remove blue color channel
-            %frame(:, :, 3) = zeros(size(frame, 1), size(frame, 2));
-            %convert to grayscale
+            if removeGlove
+                % Remove the blue channel from the frame
+                frame = removeBlueGloveFromFrame(frame, 'replaceWith', 'white');
+            end
+
             frame = rgb2gray(frame);
         end
 
