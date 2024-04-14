@@ -24,3 +24,4 @@ end
 
 % Close the file
 close(v);
+R = 1;

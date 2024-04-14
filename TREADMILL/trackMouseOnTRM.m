@@ -26,6 +26,7 @@ minArea = p.Results.minArea;
 nLevels = p.Results.nLevels;
 removeGlove = p.Results.removeGlove;
 minDurationMouse = p.Results.minDurationMouse;
+smoothWindow = p.Results.smoothWindow;
 
 nFrames = length(videoMatrix);
 
