@@ -1,4 +1,4 @@
-function [centroids mouseMaskMatrix] = trackMouseOnTRM(videoMatrix, varargin)
+function [centroids mouseMaskMatrix] = trackMouseOnTRMmatrix(videoMatrix, varargin)
 % trackMouseonTRM.m - Track the mouse in a open field video
 % videoMatrix is the video data converted into a 3D matrix
 % the function is based on trackMouseInOF
