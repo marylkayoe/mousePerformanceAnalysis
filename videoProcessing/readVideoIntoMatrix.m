@@ -31,7 +31,8 @@ function [videoMatrix frameRate] = readVideoIntoMatrix(filePath, varargin)
     % check that the file is .mp4
     [~, ~, ext] = fileparts(filePath);
 
-    if ~strcmp(ext, '.mp4')
+    % check if the file ending is mp4 (case-insensitive)
+    if ~strcmpi(ext, '.mp4')
         warning('File must be a .mp4 file, aborting...');
         return;
     end
