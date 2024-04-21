@@ -1,0 +1,2 @@
+function meanFrame = getMeanFrameRGB(videoMatrix)
+    

@@ -5,6 +5,8 @@ function [x1, x2, y1, y2] = findCropRectangle (imageMatrix, THRESHOLD)
 % where (x1, y1) is the top left corner and (x2, y2) is the bottom right corner
 % the function also takes an optional parameter THRESHOLD, which is the threshold for the horizontal and vertical profiles
 % the default value is 0.9, decrease if the rectangle is not detected properly
+%
+% note: the function assumes that the rectangle is the brightest object in the image, and that the background is dark
 
 % set default value for THRESHOLD
 if ~exist('THRESHOLD', 'var')
