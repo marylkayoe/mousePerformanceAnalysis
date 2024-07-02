@@ -18,8 +18,7 @@ addParameter(p, 'nLevels', 10, @isnumeric); % Number of levels for the Otsu meth
 addParameter(p, 'removeGlove', false, @islogical); % Remove the glove from the video
 addParameter(p, 'minDurationMouse', 60, @isnumeric); % Minimum duration of the mouse track
 addParameter(p, 'smoothWindow', 0, @isnumeric); % Window size for smoothing the centroid coordinates
-
-
+addParameter(p, 'fillHoles', false, @islogical); % post-processing detected mouse shape, better to leave at false
 parse(p, videoMatrix, varargin{:});
 
 minArea = p.Results.minArea;
@@ -27,6 +26,7 @@ nLevels = p.Results.nLevels;
 removeGlove = p.Results.removeGlove;
 minDurationMouse = p.Results.minDurationMouse;
 smoothWindow = p.Results.smoothWindow;
+fillHoles = p.Results.fillHoles;
 
 nFrames = length(videoMatrix);
 
@@ -58,22 +58,26 @@ T = multithresh(wholevideo, nLevels);
 fprintf('Processing frames (out of %d): ', nFrames);
 for frameIdx = 1:nFrames
     currFrame = videoMatrix(:,:,frameIdx);
-    
-    
-    
-    
-    
+
+
+
+
+
     %occasionally there might be too little difference between two
     %thresholds so they end up being the same... so we will just remove the
     %duplicate
     T = unique(T, 'stable');
     segmentedFrame = imquantize(currFrame,T);
-    
+
     % Mouse is in the pixels classified as the lowest intensity
     mouseMask = (segmentedFrame==1);
-    
+
     % Fill holes in the binary image and smooth
-    mouseMask = imfill(mouseMask, 'holes');
+    % note - hole-filling fails if there is darkness around the treadmill,
+    % it will fill in everything
+    if fillHoles
+        mouseMask = imfill(mouseMask, 'holes');
+    end
     mouseMask = bwmorph(mouseMask, 'close');
     mouseMask = bwmorph(mouseMask, 'open');
 
@@ -81,19 +85,19 @@ for frameIdx = 1:nFrames
     mouseMask = imopen(mouseMask, se);
     mouseMask = imclose(mouseMask, se);
     mouseMask = imclearborder(mouseMask);
-    
+
     % Find connected components in the binary image
     CC = bwconncomp(mouseMask);
     if (CC.NumObjects)
-        
+
         % Compute properties of connected components
         stats = regionprops(CC, 'Centroid', 'Area');
-        
+
         %in case there are more than one connected component, take the largest
         [maxArea, idx] = max([stats.Area]);
-        
-        
-        % exclude areas that are smaller than 15% of the image area
+
+
+        % exclude areas that are smaller than minArea% of the image area
         if maxArea < minArea*imageArea
             continue;
         end
@@ -104,8 +108,8 @@ for frameIdx = 1:nFrames
         mouseMask(CC.PixelIdxList{idx}) = true;
         mouseMaskMatrix(:, :, frameIdx) = mouseMask;
     end
-    
-    
+
+
     if mod(frameIdx, 10) == 0
         fprintf('.');
     end
