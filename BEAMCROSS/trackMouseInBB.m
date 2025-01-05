@@ -1,4 +1,4 @@
-function [mouseCentroids instProgressionSpeeds locoFrames meanSpeedLocomoting, mouseMaskMatrix blankedIdx, handFrameIdx] = trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE)
+function [mouseCentroids instProgressionSpeeds locoFrames meanSpeedLocomoting, mouseMaskMatrix, blankedIdx, handFrameIdx] = trackMouseInBB(videoMatrix, PIXELSIZE, FRAMERATE)
 % trackMouseInOF.m - Track the mouse BB video
 % videoMatrix is the video data converted into a 3D matrix
 % return smoothed centroid positions with trial intervals blanked out

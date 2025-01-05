@@ -10,7 +10,12 @@ function R = BBanalysisSingleFile(dataPath, fileName, varargin)
 
 % Output arguments
 % R: structure containing the results of the analysis
-R = 0;
+
+
+R.mouseCentroids = [];
+R.forwardSpeeds = [];
+R.traverseDuration = [];
+R.meanSpeed = [];
 % Default values
 MAKEPLOT = false;
 
@@ -19,13 +24,16 @@ p = inputParser;
 addRequired(p, 'dataPath', @ischar);
 addRequired(p, 'fileName', @ischar);
 addParameter(p, 'MAKEPLOT', MAKEPLOT, @islogical);
+addParameter(p, 'FRAMERATE', 160, @isnumeric);
 parse(p, dataPath, fileName, varargin{:});
 
 dataPath = p.Results.dataPath;
 fileName = p.Results.fileName;
 MAKEPLOT = p.Results.MAKEPLOT;
+FRAMERATE = p.Results.FRAMERATE;
 
 MEASUREBARMARKS = false;
+
 
 % check the file exists 
 
@@ -67,16 +75,69 @@ meanFrameCroppedHoriz = meanFrame(:, leftCropIndex:rightCropIndex);
 
 % crop the video to contain only the vertical extent defined by the cameras
 croppedVideo = videoMatrix(topCameraEdgeY:bottomCameraEdgeY, :, :);
+[imHeight, imWidth, nFrames] = size(croppedVideo);
+
+
+
 barYCoordTop = barYCoordTop - topCameraEdgeY;
 
-% display new mean image of the cropped video
-meanFrameCropped = getMeanFrame(croppedVideo);
-figure; imshow(meanFrameCropped, []);
-% display the bar position as a rectangle
+mouseCentroids = BBtrackingMouse(croppedVideo);
+mouseCentroids(:, 2) = imHeight - mouseCentroids(:, 2)+1; % flip coordinates
+
+% check the period when mouse is seen, longest continuous non-NAN period
+% is the period when the mouse is on the beam
+% use morphological operations to find period of non-nan
+mouseFoundFrames = ~isnan(mouseCentroids(:,1));
+mouseFoundFrames = imclose(mouseFoundFrames, strel('disk', 5));
+mouseFoundFrames = bwareaopen(mouseFoundFrames, 10);
+mouseFoundPeriods = regionprops(mouseFoundFrames, 'Area', 'PixelIdxList');
+[~, longestPeriodIndex] = max([mouseFoundPeriods.Area]);
+longestPeriod = mouseFoundPeriods(longestPeriodIndex).PixelIdxList;
+mouseCentroids = mouseCentroids(longestPeriod, :);
+
+% crop the video to the longest period
+croppedVideo = croppedVideo(:,:,longestPeriod);
+
+
+
+
+% calculate instantaneous speed of the mouse, using FRAMERATE
+% calculate the distance between consecutive frames in X dimension only
+forwardSpeeds = nan(length(mouseCentroids),1);
+velWin = floor(FRAMERATE/10);
+[frameDisplacements ] = pdist2(mouseCentroids(2:end,1), mouseCentroids(1:end-1,1), 'euclidean');
+winDisplacements = diag(frameDisplacements, -velWin);
+
+forwardSpeeds(1:length(winDisplacements)) = winDisplacements / (velWin / FRAMERATE);
+
+
+
+
+% plot x and y coordinates in 2d
+figure; hold on;
+plot(mouseCentroids(:,1), mouseCentroids(:,2), 'LineWidth',2);
+scatter(mouseCentroids(:,1), mouseCentroids(:,2),  50, forwardSpeeds, 'filled');
+xlabel('X coordinate');
+ylabel('Y coordinate');
+colormap('cool');
+% add colorbar and label
+
+c = colorbar;
+c.Label.String = 'Speed (pixels/s)';
+caxis([0, max(forwardSpeeds)]);
+
+title('Mouse position in the video');
+% add horizontal line indicating bar position
 hold on;
-rectangle('Position', [1, barYCoordTop, size(meanFrameCropped, 2), barWidth], 'EdgeColor', 'red');
-%displayBehaviorVideoMatrix(croppedVideo);
-R = 1;
+line([1, size(croppedVideo, 2)], [barYCoordTop, barYCoordTop], 'Color', 'k', 'LineWidth', 6);
+
+
+
+R.mouseCentroids = mouseCentroids;
+R.forwardSpeeds = forwardSpeeds;
+R.traverseDuration = length(forwardSpeeds) / FRAMERATE;
+R.meanSpeed = nanmean(forwardSpeeds);
+end
 
 
 
