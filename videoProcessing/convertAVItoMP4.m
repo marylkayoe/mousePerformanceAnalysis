@@ -95,7 +95,7 @@ else
     end
 end
 
-if ~exist('OVERWRITEEXISTING', 'var') % do we possibly existing mp4 file?
+if ~exist('OVERWRITEEXISTING', 'var') % do we  overwrite possibly already existing mp4 file?
     OVERWRITEEXISTING = 0;
 end
 
