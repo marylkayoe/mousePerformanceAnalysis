@@ -52,60 +52,35 @@ filePath = fullfile(dataPath, fileName);
 % get mean frame to base the cropping and element localization on
 meanFrame = getMeanFrame(videoMatrix);
 
-% segment the frame into the background, two cameras and the balance bar using otsus multithresh
-
-levels = multithresh(meanFrame, 2);
-segMeanFrameCams = imquantize(meanFrame, levels);
-% vertSum = sum(segMeanFrame, 2); % sum pixel values vertically
-% horizSum = sum(segMeanFrame);
-% 
-% figure; imshow(segMeanFrame, []);
-% figure; plot(vertSum);
-% figure; plot(horizSum);
+% do some gaussian blurring to remove the vertical striping
+%meanFrame = imgaussfilt(meanFrame, [0.1, 10]);
 
 
 
+% crop 5% off left and right - there are black marks on the beam that can
+% cause trouble
 
-% cropping the video to contain only the vertical region between the cameras
-% find cameras in the video; they are BLACK
+leftCrop = round(size(meanFrame, 2)*0.05);
+rightCrop = round(size(meanFrame, 2)*0.95);
+meanFrameCroppedHoriz = meanFrame(:, leftCrop:rightCrop);
 
-
-
-if MEASUREBARMARKS % if we want to attempt to find the black marks
-% find the black marks at the ends of the beam
-[beamMarkPks, beamMarkLocs, beamMarkWidths, beamMarkProminence] = findpeaks(diff(horizSum), 'MinPeakProminence', 150);
-% first and last peak mark the ends of white part of the beam
-leftBeamMarkLoc = beamMarkLocs(1);
-[beamMarkPks, beamMarkLocs, beamMarkWidths, beamMarkProminence] = findpeaks(-diff(horizSum), 'MinPeakProminence', 150);
-rightBeamMarkLoc = beamMarkLocs(end);
-% crop the mean frame to contain only the region between the beam marks
-meanFrameCroppedHoriz = meanFrame(:, leftBeamMarkLoc:rightBeamMarkLoc);
-
-else % just crop off 5 percent both left and right edge
-    leftCrop = round(size(meanFrame, 2)*0.05);
-    rightCrop = round(size(meanFrame, 2)*0.95);
-    meanFrameCroppedHoriz = meanFrame(:, leftCrop:rightCrop);
-    segMeanFrameCropHoriz = segMeanFrameCams(:, leftCrop:rightCrop);
-end
+% find edges of the camera rectangles in vertical direction
 [topCameraEdgeY, bottomCameraEdgeY] = findCameraEdgeCoordsInImage(meanFrameCroppedHoriz);
 
-
-
 % find the balance bar in the video
-[barYCoord, barWidth] = findBarYCoordInImage(meanFrameCroppedHoriz);
+[barYCoordTop, barWidth] = findBarYCoordInImage(meanFrameCroppedHoriz);
 
 % crop the video to contain only the vertical extent defined by the cameras
-croppedVideo = videoMatrix(topCameraEdgeY:bottomCameraEdgeY, leftCrop:rightCrop, :);
-barYCoord = barYCoord - topCameraEdgeY;
+croppedVideo = videoMatrix(topCameraEdgeY:bottomCameraEdgeY, :, :);
+barYCoordTop = barYCoordTop - topCameraEdgeY;
 
 % display new mean image of the cropped video
 meanFrameCropped = getMeanFrame(croppedVideo);
 figure; imshow(meanFrameCropped, []);
 % display the bar position as a rectangle
 hold on;
-
-rectangle('Position', [1, barYCoord-barWidth/2, size(meanFrameCropped, 2), barWidth], 'EdgeColor', 'red');
-
+rectangle('Position', [1, barYCoordTop, size(meanFrameCropped, 2), barWidth], 'EdgeColor', 'red');
+%displayBehaviorVideoMatrix(croppedVideo);
 R = 1;
 
 

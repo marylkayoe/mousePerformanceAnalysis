@@ -14,10 +14,21 @@ horizSum = sum(segMeanFrameCams, 1);
 horizSumDiff = diff(horizSum);
 edgeThreshold = std(horizSumDiff)*2;
 
-[pks, locs, widths, p] = findpeaks(horizSumDiff, 'MinPeakProminence', edgeThreshold);
-camRightCoord = locs(end);
-[pks, locs, widths, p] = findpeaks(-horizSumDiff, 'MinPeakProminence', edgeThreshold);
-camLeftCoord = locs(1);
+[pks, locs, widths, p] = findpeaks(horizSumDiff, 'MinPeakHeight', edgeThreshold);
+
+if isempty(pks)
+    camRightCoord = length(horizSumDiff);
+else
+    camRightCoord = locs(end);
+end
+
+[pks, locs, widths, p] = findpeaks(-horizSumDiff, 'MinPeakHeight', edgeThreshold);
+if isempty(pks)
+    camLeftCoord = 1;
+else
+
+    camLeftCoord = locs(1);
+end
 
 camRangeX = camLeftCoord:camRightCoord;
 
@@ -30,12 +41,12 @@ vertSum = sum(segMeanFrameCams(:, camRangeX), 2);
 vertSumDiff = diff(vertSum);
 edgeThreshold = std(vertSumDiff)*3;
 % find the bottom position of the top camera rectangle in Y
-[pks, locs, widths, p] = findpeaks(vertSumDiff, 'MinPeakProminence',edgeThreshold);
-% top and bottom camera edges
+[pks, locs, widths, p] = findpeaks(vertSumDiff, 'MinPeakHeight',edgeThreshold);
+% top camera bottom edge
 topCameraEdgeY = locs(1);
 
-[pks, locs, widths, p] = findpeaks(-vertSumDiff, 'MinPeakProminence',edgeThreshold);
-% top and bottom camera edges
+[pks, locs, widths, p] = findpeaks(-vertSumDiff, 'MinPeakHeight',edgeThreshold);
+% bottom camera top edge
 bottomCameraEdgeY = locs(end);
 
 end

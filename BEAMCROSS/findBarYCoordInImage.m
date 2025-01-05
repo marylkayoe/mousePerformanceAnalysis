@@ -8,53 +8,52 @@ function [barYCoord barWidth] = findBarYCoordInImage(barImage)
 % value
 % add half of the peak width to estimate where the bar ends
 
-%%TODO: need to normalize everything, maybe threshold the blacks 
+BARWIDTHPERC = 5; %(percent of image height)
 
 [imHeight imWidth] = size(barImage);
 
+barWidth = round(imHeight * BARWIDTHPERC / 100);
+
 % first we find where the cameras are (in x coordinate)
 horizSum = sum(barImage, 1); 
-[pks, locs, widths, p] = findpeaks(-horizSum, 'MinPeakProminence', 100);
-[camPk camLoc] = max(pks);
-camXcoord = locs(camLoc);
-camWidth = floor(widths(camLoc));
-camRangeX = camXcoord-camWidth:camXcoord+camWidth;
+horizSumDiff = diff(horizSum);
+edgeThreshold = std(horizSumDiff);
+
+[pks, locs, widths, p] = findpeaks(-horizSumDiff, 'MinPeakHeight', edgeThreshold);
+camXleft = locs(1);
+[pks, locs, widths, p] = findpeaks(horizSumDiff, 'MinPeakHeight', edgeThreshold);
+camXright = locs(end);
+camWidth = camXright - camXleft;
+camRangeX = camXleft:camXright;
 
 % crop image to contain only the midregion defined by cameras
 cropBarImage = barImage(:, camRangeX);
 %find top and bottom edges of the two black rectangles
-
 [topCameraEdgeY, bottomCameraEdgeY] = findCameraEdgeCoordsInImage(cropBarImage);
-levels = multithresh(barImage, 3);
-segMeanFrameBar = imquantize(barImage, levels);
+topCameraEdgeY = topCameraEdgeY + 5; % taking out remainder of camers
+bottomCameraEdgeY = bottomCameraEdgeY-5;
+cropBarImage = cropBarImage(topCameraEdgeY:bottomCameraEdgeY,:);
 
-% 
-% vertSumCams = sum(cropBarImage, 2);
-% 
-% % now find the position of the two camera rectangles in Y
-% [pks, locs, widths, p] = findpeaks(diff(vertSumCams), 'MinPeakProminence', 500);
-% topCamEdgeY = locs(1);
-% [pks, locs, widths, p] = findpeaks(-diff(vertSumCams), 'MinPeakProminence', 500);
-% bottomCamEdgeY = locs(end);
-% 
-%crop image vertically between the two cameras
+%threshold the image; the bar should be in the bright levels
+levels = multithresh(cropBarImage, 2);
+segMeanFrameBar = imquantize(cropBarImage, levels);
 
-cropBarImage = cropBarImage(topCameraEdgeY:bottomCameraEdgeY, :);
-%figure; imshow(cropBarImage, []); title ('cropped between cams');
 
-vertSum = sum(cropBarImage, 2);
+vertSum = sum(segMeanFrameBar, 2);
 vertSumDiff = diff(vertSum);
-edgeThreshold = std(vertSumDiff)*2;
+edgeThreshold = std(vertSumDiff)*3;
+%bottom of the bar should be darker than background
+[pks, locs, widths, p] = findpeaks(vertSumDiff, 'MinPeakHeight', edgeThreshold);
+barYCoordBottom = locs(end) + topCameraEdgeY;
+%[pks, locs, widths, p] = findpeaks(-vertSumDiff, 'MinPeakHeight', edgeThreshold);
+%barYCoordBottom = locs(1) + topCameraEdgeY;
 
-[pks, locs, widths, p] = findpeaks(vertSumDiff, 'MinPeakProminence', edgeThreshold);
-%[barPk, barLoc] = max(pks);
-barYCoordTop = locs(1);
-barYCoordBottom = locs(2);
-barYCoordTop = barYCoordTop + topCameraEdgeY;
-barYCoordBottom = barYCoordBottom + topCameraEdgeY;
+%barYCoord = floor(mean([barYCoordBottom, barYCoordTop]));
 
-barYCoord = floor(mean([barYCoordBottom, barYCoordTop]));
-barWidth = round(barYCoordBottom - barYCoordTop);
+% hardcoding bar width to 5% of image height
+barYCoord = barYCoordBottom - barWidth ;
+
+
 
 
 if 0
@@ -67,8 +66,7 @@ hold on;
 rectangle('Position', [camRangeX(1), 1, 2*camWidth, imHeight], 'EdgeColor', 'cyan')
 
 % show the bar
-rectangle('Position', [1, barYCoordTop, imWidth, barWidth], 'EdgeColor', 'red')
-
+rectangle('Position', [1, barYCoord, imWidth, barWidth], 'EdgeColor', 'red');
 end
 
 
