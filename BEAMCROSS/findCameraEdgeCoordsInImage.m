@@ -1,51 +1,66 @@
 function [topCameraEdgeY, bottomCameraEdgeY] = findCameraEdgeCoordsInImage(meanImage)
-% there are two cameras in the image, one on top and one on bottom
-% they look like black rectangles
+% Locate top & bottom camera edges (vertical coords).
+%
+%   [topCameraEdgeY, bottomCameraEdgeY] = findCameraEdgeCoordsInImage(meanImage)
+%   INPUT:
+%       meanImage - Grayscale image (uint8) containing two black camera
+%                   rectangles, one around the middle and one near the bottom.
+%                   The bar is in between these.
+%
+%   OUTPUT:
+%       topCameraEdgeY    - The row index of the bottom edge of the top camera
+%       bottomCameraEdgeY - The row index of the top edge of the bottom camera
+%
+%   ALGORITHM:
+%     1) Segment the image using two thresholds (3-level quantization).
+%     2) Identify horizontal range of camera zone by summing columns and
+%        detecting edges with findpeaks.
+%     3) Crop to that horizontal zone, then sum rows and detect vertical
+%        peaks to find top/bottom camera edges.
 
+% 1) Segment the mean image into 3 levels
 levels = multithresh(meanImage, 2);
-segMeanFrameCams = imquantize(meanImage, levels);
+segMeanFrame = imquantize(meanImage, levels);
+% Cameras should appear as a distinct (lowest) level if they’re black.
 
+%% --- Horizontal analysis ---------------------------------------
+% sum across columns -> horizontalProfile
+horizontalProfile = sum(segMeanFrame, 1);
+horizontalProfileDiff = diff(horizontalProfile);
+edgeDetectThreshold = std(horizontalProfileDiff) * 2;
 
-% we find the x-coordinates of the region between the two cameras
-
-
-% horizontal sum of the image
-horizSum = sum(segMeanFrameCams, 1);
-horizSumDiff = diff(horizSum);
-edgeThreshold = std(horizSumDiff)*2;
-
-[pks, locs, widths, p] = findpeaks(horizSumDiff, 'MinPeakHeight', edgeThreshold);
-
-if isempty(pks)
-    camRightCoord = length(horizSumDiff);
+% right end of "camera zone":
+[~, locs, ~, ~] = findpeaks(horizontalProfileDiff, 'MinPeakHeight', edgeDetectThreshold);
+if isempty(locs) %
+    camRightCoord = length(horizontalProfileDiff);
 else
     camRightCoord = locs(end);
 end
 
-[pks, locs, widths, p] = findpeaks(-horizSumDiff, 'MinPeakHeight', edgeThreshold);
-if isempty(pks)
+% left end of "camera zone"
+[~, locs, ~, ~] = findpeaks(-horizontalProfileDiff, 'MinPeakHeight', edgeDetectThreshold);
+if isempty(locs)
     camLeftCoord = 1;
 else
-
     camLeftCoord = locs(1);
 end
 
 camRangeX = camLeftCoord:camRightCoord;
 
+%crop the image to the horizontal range of cameras
+segMeanFrame = segMeanFrame(:, camRangeX);
 
-% find cameras as peaks in the negative of the vertical sum
+%% --- Vertical analysis -----------------------------------------
+verticalProfile = sum(segMeanFrame, 2);
+verticalProfileDiff = diff(verticalProfile);
+edgeDetectThreshold = std(verticalProfileDiff) * 3;
 
-vertSum = sum(segMeanFrameCams(:, camRangeX), 2);
-
-
-vertSumDiff = diff(vertSum);
-edgeThreshold = std(vertSumDiff)*3;
 % find the bottom position of the top camera rectangle in Y
-[pks, locs, widths, p] = findpeaks(vertSumDiff, 'MinPeakHeight',edgeThreshold);
+[pks, locs, widths, p] = findpeaks(verticalProfileDiff, 'MinPeakHeight',edgeDetectThreshold);
 % top camera bottom edge
 topCameraEdgeY = locs(1);
 
-[pks, locs, widths, p] = findpeaks(-vertSumDiff, 'MinPeakHeight',edgeThreshold);
+[pks, locs, widths, p] = findpeaks(-verticalProfileDiff, 'MinPeakHeight',edgeDetectThreshold);
 % bottom camera top edge
 bottomCameraEdgeY = locs(end);
 

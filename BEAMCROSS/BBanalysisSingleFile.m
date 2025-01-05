@@ -52,17 +52,12 @@ filePath = fullfile(dataPath, fileName);
 % get mean frame to base the cropping and element localization on
 meanFrame = getMeanFrame(videoMatrix);
 
-% do some gaussian blurring to remove the vertical striping
-%meanFrame = imgaussfilt(meanFrame, [0.1, 10]);
-
-
-
 % crop 5% off left and right - there are black marks on the beam that can
 % cause trouble
 
-leftCrop = round(size(meanFrame, 2)*0.05);
-rightCrop = round(size(meanFrame, 2)*0.95);
-meanFrameCroppedHoriz = meanFrame(:, leftCrop:rightCrop);
+leftCropIndex = round(size(meanFrame, 2)*0.05);
+rightCropIndex = round(size(meanFrame, 2)*0.95);
+meanFrameCroppedHoriz = meanFrame(:, leftCropIndex:rightCropIndex);
 
 % find edges of the camera rectangles in vertical direction
 [topCameraEdgeY, bottomCameraEdgeY] = findCameraEdgeCoordsInImage(meanFrameCroppedHoriz);

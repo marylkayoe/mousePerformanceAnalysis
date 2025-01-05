@@ -1,85 +1,78 @@
-function [barYCoord barWidth] = findBarYCoordInImage(barImage)
-% barImage is average image of a view with balance bar
-% balance bar is white
-% the cameras are seen as two black rectangles indicating midpoint
-% the logic: we sum pixel values horizontally in the region matching
-% cameras
-% find peaks, as the bar is the only continuous thing it must have highest
-% value
-% add half of the peak width to estimate where the bar ends
+function [barYCoord, barWidth] = findBarYCoordInImage(barImage)
+%  Locate the top edge of a (white) balance bar in an image.
+%
+%   [barYCoord, barWidth] = findBarYCoordInImage(barImage)
+%   INPUT:
+%       barImage - Grayscale (uint8 image of the scene
+%                  containing a white bar plus two black camera rectangles.
+%   OUTPUT:
+%       barYCoord - The row index (1-based) of the bar’s top edge
+%       barWidth  - The vertical thickness of the bar (pixels) (hardcoded)
+%
+%   ALGORITHM:
+%     1) Determine the X-range of the cameras in the image by summing columns.
+%     2) Crop to that horizontal range.
+%     3) Use findCameraEdgeCoordsInImage(...) to remove top & bottom camera areas.
+%     4) Threshold to find bright bar.
+%     5) Use vertical projection to locate bottom edge of the bar, then
+%        subtract a fixed bar thickness to get the top edge.
 
-BARWIDTHPERC = 5; %(percent of image height)
+    % We'll define the bar width as 5% of total image height
+    BARWIDTHPERC = 5;
+    [imHeight, imWidth] = size(barImage);
 
-[imHeight imWidth] = size(barImage);
+    barWidth = round(imHeight * (BARWIDTHPERC / 100));
+    %% 1) Find camera zone horizontally
+    horizSum     = sum(barImage, 1);  % sum each column
+    horizSumDiff = diff(horizSum);
+    edgeThreshold = std(horizSumDiff);
+    % Left camera edge => negative peak
+    [~, locsLeft] = findpeaks(-horizSumDiff, 'MinPeakHeight', edgeThreshold);
+    if isempty(locsLeft)
+        warning('No left camera edge found, defaulting to 1');
+        camXleft = 1;
+    else
+        camXleft = locsLeft(1);
+    end
 
-barWidth = round(imHeight * BARWIDTHPERC / 100);
+    % Right camera edge => positive peak
+    [~, locsRight] = findpeaks(horizSumDiff, 'MinPeakHeight', edgeThreshold);
+    if isempty(locsRight)
+        warning('No right camera edge found, defaulting to imWidth');
+        camXright = imWidth;
+    else
+        camXright = locsRight(end);
+    end
 
-% first we find where the cameras are (in x coordinate)
-horizSum = sum(barImage, 1); 
-horizSumDiff = diff(horizSum);
-edgeThreshold = std(horizSumDiff);
+    camRangeX = camXleft:camXright;
+    cropBarImage = barImage(:, camRangeX);
 
-[pks, locs, widths, p] = findpeaks(-horizSumDiff, 'MinPeakHeight', edgeThreshold);
-camXleft = locs(1);
-[pks, locs, widths, p] = findpeaks(horizSumDiff, 'MinPeakHeight', edgeThreshold);
-camXright = locs(end);
-camWidth = camXright - camXleft;
-camRangeX = camXleft:camXright;
+    %% 2) Remove the top and bottom camera rectangles
+    [topCameraEdgeY, bottomCameraEdgeY] = findCameraEdgeCoordsInImage(cropBarImage);
+    topCameraEdgeY    = topCameraEdgeY + 5;  % buffer
+    bottomCameraEdgeY = bottomCameraEdgeY - 5;
+    cropBarImage      = cropBarImage(topCameraEdgeY:bottomCameraEdgeY, :);
+    %% 3) Threshold to isolate bright bar
+    numThresholds = 2;
+    levels = multithresh(cropBarImage, numThresholds);
+    segBarImage = imquantize(cropBarImage, levels);
+    % The bar should be in the upper intensity category.
 
-% crop image to contain only the midregion defined by cameras
-cropBarImage = barImage(:, camRangeX);
-%find top and bottom edges of the two black rectangles
-[topCameraEdgeY, bottomCameraEdgeY] = findCameraEdgeCoordsInImage(cropBarImage);
-topCameraEdgeY = topCameraEdgeY + 5; % taking out remainder of camers
-bottomCameraEdgeY = bottomCameraEdgeY-5;
-cropBarImage = cropBarImage(topCameraEdgeY:bottomCameraEdgeY,:);
+ %% 4) Find vertical position of the bar
+    vertSum = sum(segBarImage, 2);      % sum each row 
+    vertSumDiff = diff(vertSum);
+    edgeThreshold = std(vertSumDiff)*3;
 
-%threshold the image; the bar should be in the bright levels
-levels = multithresh(cropBarImage, 2);
-segMeanFrameBar = imquantize(cropBarImage, levels);
+    % bottom of the bar => presumably a positive jump to lower intensities
+    [~, locsBottom] = findpeaks(vertSumDiff, 'MinPeakHeight', edgeThreshold);
+    if isempty(locsBottom)
+        warning('No bar bottom found, defaulting to bottomCameraEdgeY');
+        barYCoordBottom = bottomCameraEdgeY;
+    else
+        barYCoordBottom = locsBottom(end) + topCameraEdgeY;
+    end
 
+    % The top edge is bottom minus barWidth
+    barYCoord = barYCoordBottom - barWidth;
 
-vertSum = sum(segMeanFrameBar, 2);
-vertSumDiff = diff(vertSum);
-edgeThreshold = std(vertSumDiff)*3;
-%bottom of the bar should be darker than background
-[pks, locs, widths, p] = findpeaks(vertSumDiff, 'MinPeakHeight', edgeThreshold);
-barYCoordBottom = locs(end) + topCameraEdgeY;
-%[pks, locs, widths, p] = findpeaks(-vertSumDiff, 'MinPeakHeight', edgeThreshold);
-%barYCoordBottom = locs(1) + topCameraEdgeY;
-
-%barYCoord = floor(mean([barYCoordBottom, barYCoordTop]));
-
-% hardcoding bar width to 5% of image height
-barYCoord = barYCoordBottom - barWidth ;
-
-
-
-
-if 0
-figure;
-imshow(barImage, []);
-hold on;
-
-% show camera locations with rectangles on top of original image
-
-rectangle('Position', [camRangeX(1), 1, 2*camWidth, imHeight], 'EdgeColor', 'cyan')
-
-% show the bar
-rectangle('Position', [1, barYCoord, imWidth, barWidth], 'EdgeColor', 'red');
 end
-
-
-
-
-
-%barYcoord = floor(barYcoord + w(barLoc)/4);
-
-% imshow(barImage, []);
-% hold on;
-% ys = 1:imHeight;
-% xs = (vertSum / max(vertSum)) * imWidth;
-% 
-% plot(xs, ys, 'LineWidth', 2, 'Color', 'cyan');
-% 
-% scatter(imWidth, barYcoord, '*', 'white');
