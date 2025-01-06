@@ -61,11 +61,11 @@ for frameIndex = 1:nFrames
      ratioMatrix(:,:,frameIndex) = rgb2gray(frameWithMarker);
 
 end
-
-trackedVideo = ratioMatrix;
-displayBehaviorVideoMatrix(ratioMatrix);
-title('Mouse tracking');
-
+% 
+ trackedVideo = ratioMatrix;
+% displayBehaviorVideoMatrix(ratioMatrix);
+% title('Mouse tracking');
+% 
 
 
 

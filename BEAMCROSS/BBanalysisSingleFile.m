@@ -112,34 +112,41 @@ velWin = floor(FRAMERATE/10);
 winDisplacements = diag(frameDisplacements, -velWin);
 
 forwardSpeeds(1:length(winDisplacements)) = winDisplacements / (velWin / FRAMERATE);
-
-
-
+traverseDuration = length(forwardSpeeds) / FRAMERATE;
+meanSpeed = nanmean(forwardSpeeds);
+meanPosturalHeight = nanmean(mouseCentroids(:, 2));
 
 % plot x and y coordinates in 2d
 figure; hold on;
-plot(mouseCentroids(:,1), mouseCentroids(:,2), 'LineWidth',2);
-scatter(mouseCentroids(:,1), mouseCentroids(:,2),  50, forwardSpeeds, 'filled');
-xlabel('X coordinate');
-ylabel('Y coordinate');
+plot(mouseCentroids(:,1), mouseCentroids(:,2)-barYCoordTop, 'LineWidth',2);
+scatter(mouseCentroids(:,1), mouseCentroids(:,2)-barYCoordTop,  50, forwardSpeeds, 'filled');
+xlabel('Position along bar');
+ylabel('Height above bar');
 colormap('cool');
+ylim([0 30]);
 % add colorbar and label
 
 c = colorbar;
-c.Label.String = 'Speed (pixels/s)';
+c.Label.String = 'Forward speed (pixels/s)';
 caxis([0, max(forwardSpeeds)]);
 
 title('Mouse position in the video');
 % add horizontal line indicating bar position
-hold on;
-line([1, size(croppedVideo, 2)], [barYCoordTop, barYCoordTop], 'Color', 'k', 'LineWidth', 6);
+%hold on;
+%line([1, size(croppedVideo, 2)], [barYCoordTop, barYCoordTop], 'Color', 'k', 'LineWidth', 6);
 
+% add textbox with mean speed, traverse duration and filename
+text(0.1, 0.15, ['Mean speed: ', num2str(meanSpeed), ' pixels/s'], 'Units', 'normalized');
+text(0.1, 0.1, ['Traverse duration: ', num2str(traverseDuration), ' s'], 'Units', 'normalized');
+text(0.1, 0.05, ['Mean postural height: ', num2str(meanPosturalHeight), ' pixels'], 'Units', 'normalized');
+text(0.1, 0.01, ['File: ', cleanUnderscores(fileName)], 'Units', 'normalized');
 
+displayBehaviorVideoMatrix(trackedVideo);
 
 R.mouseCentroids = mouseCentroids;
 R.forwardSpeeds = forwardSpeeds;
-R.traverseDuration = length(forwardSpeeds) / FRAMERATE;
-R.meanSpeed = nanmean(forwardSpeeds);
+R.traverseDuration = traverseDuration;
+R.meanSpeed = meanSpeed;
 R.BBvideo = trackedVideo;
 end
 
