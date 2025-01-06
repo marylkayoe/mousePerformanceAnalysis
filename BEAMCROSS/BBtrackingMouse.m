@@ -1,19 +1,23 @@
-function [mouseCentroids, trackedVideo] = BBtrackingMouse(croppedVideo, MOUSESIZETH)
+function [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, meanPosturalHeight, mouseMaskMatrix, trackedVideo, croppedVideo] = BBtrackingMouse(croppedVideo, MOUSESIZETH, FRAMERATE)
 % track the mouse in the video
 % input: croppedVideo - video matrix with the mouse (uint8)
 %        MOUSESIZETH - minimum size of the mouse in fraction of the image,
 %                      used to filter out noise, default 15
 % output: mouseCentroids - centroid positions of the mouse per frame
 
-if nargin < 2
-    MOUSESIZETH = 5;
-end
+ if ~exist('MOUSESIZETH', 'var')
+     MOUSESIZETH = 5;
+ end
+ if ~exist('FRAMERATE', 'var')
+     FRAMERATE = 160;
+ end
+ 
 
 % get the size of the video
 [imHeight, imWidth, nFrames] = size(croppedVideo);
 
 frameArea = imHeight * imWidth;
-minMouseArea = MOUSESIZETH/100 * frameArea;  % 15% of total pixel count
+minMouseArea = MOUSESIZETH/100 * frameArea;  % 5% of total pixel count
 
 
 % Preallocate arrays for the mouse centroid coordinates
@@ -27,7 +31,9 @@ mouseMaskMatrix = ratioMatrix < 0.6;
 % Cleanup
 mouseMaskMatrix = imclose(mouseMaskMatrix, strel('disk', 3));
 mouseMaskMatrix = bwareaopen(mouseMaskMatrix, 50);
- markerSize = 10;    % diameter in pixels
+
+
+markerSize = 10;    % size of the tracking point to be added in video
 
 for frameIndex = 1:nFrames
     
@@ -56,18 +62,46 @@ for frameIndex = 1:nFrames
     centroid = largeBlobs(largestIndex).Centroid;
     mouseCentroids(frameIndex, :) = centroid;
 
+    % add marker to indicate the centroid
     frameWithMarker = insertShape(ratioFrame, 'FilledCircle', ...
     [centroid(1), centroid(2), markerSize/2], 'Color', [1 1 1], 'Opacity', 1);
+    % need to convert the frame back to gray from RGB
      ratioMatrix(:,:,frameIndex) = rgb2gray(frameWithMarker);
 
 end
 % 
+
  trackedVideo = ratioMatrix;
-% displayBehaviorVideoMatrix(ratioMatrix);
-% title('Mouse tracking');
-% 
 
+% check the period when mouse is seen, longest continuous non-NAN period
+% is the period when the mouse is on the beam
+% use morphological operations to find period of non-nan
+mouseFoundFrames = ~isnan(mouseCentroids(:,1));
+mouseFoundFrames = imclose(mouseFoundFrames, strel('disk', 5));
+mouseFoundFrames = bwareaopen(mouseFoundFrames, 10);
+mouseFoundPeriods = regionprops(mouseFoundFrames, 'Area', 'PixelIdxList');
+[~, longestPeriodIndex] = max([mouseFoundPeriods.Area]);
+longestPeriod = mouseFoundPeriods(longestPeriodIndex).PixelIdxList;
 
+% crop out everything else than the period when mouse is in picture
+mouseCentroids = mouseCentroids(longestPeriod, :);
+ trackedVideo = trackedVideo(:, :, longestPeriod);
+ mouseMaskMatrix = mouseMaskMatrix(:, :, longestPeriod);
+ croppedVideo = croppedVideo(:, :, longestPeriod);
+
+% calculate instantaneous speed of the mouse, using FRAMERATE
+% calculate the distance between consecutive frames in X dimension only
+forwardSpeeds = nan(length(mouseCentroids),1);
+velWin = floor(FRAMERATE/10);
+[frameDisplacements ] = pdist2(mouseCentroids(2:end,1), mouseCentroids(1:end-1,1), 'euclidean');
+winDisplacements = diag(frameDisplacements, -velWin);
+
+forwardSpeeds(1:length(winDisplacements)) = winDisplacements / (velWin / FRAMERATE);
+meanSpeed = nanmean(forwardSpeeds);
+
+% other measures
+traverseDuration = length(forwardSpeeds) / FRAMERATE;
+meanPosturalHeight = nanmean(mouseCentroids(:, 2));
 
 
 end

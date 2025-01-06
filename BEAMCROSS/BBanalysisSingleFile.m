@@ -79,47 +79,23 @@ meanFrameCroppedHoriz = meanFrame(:, leftCropIndex:rightCropIndex);
 croppedVideo = videoMatrix(topCameraEdgeY:bottomCameraEdgeY, :, :);
 [imHeight, imWidth, nFrames] = size(croppedVideo);
 
+barYCoordTopCrop = barYCoordTop - topCameraEdgeY;
 
-
-barYCoordTop = barYCoordTop - topCameraEdgeY;
-
-[mouseCentroids, trackedVideo] = BBtrackingMouse(croppedVideo);
+[mouseCentroids,  forwardSpeeds, meanSpeed, traverseDuration, meanPosturalHeight,mouseMaskMatrix, trackedVideo, croppedOriginalVideo] = BBtrackingMouse(croppedVideo);
 mouseCentroids(:, 2) = imHeight - mouseCentroids(:, 2)+1; % flip coordinates
+[maskHeight, maskWidth, maskFrames] = size(mouseMaskMatrix);
 
-% check the period when mouse is seen, longest continuous non-NAN period
-% is the period when the mouse is on the beam
-% use morphological operations to find period of non-nan
-mouseFoundFrames = ~isnan(mouseCentroids(:,1));
-mouseFoundFrames = imclose(mouseFoundFrames, strel('disk', 5));
-mouseFoundFrames = bwareaopen(mouseFoundFrames, 10);
-mouseFoundPeriods = regionprops(mouseFoundFrames, 'Area', 'PixelIdxList');
-[~, longestPeriodIndex] = max([mouseFoundPeriods.Area]);
-longestPeriod = mouseFoundPeriods(longestPeriodIndex).PixelIdxList;
-mouseCentroids = mouseCentroids(longestPeriod, :);
-
-% crop the video to the longest period
-croppedVideo = croppedVideo(:,:,longestPeriod);
-trackedVideo = trackedVideo(:, :, longestPeriod);
-
-
-
-
-% calculate instantaneous speed of the mouse, using FRAMERATE
-% calculate the distance between consecutive frames in X dimension only
-forwardSpeeds = nan(length(mouseCentroids),1);
-velWin = floor(FRAMERATE/10);
-[frameDisplacements ] = pdist2(mouseCentroids(2:end,1), mouseCentroids(1:end-1,1), 'euclidean');
-winDisplacements = diag(frameDisplacements, -velWin);
-
-forwardSpeeds(1:length(winDisplacements)) = winDisplacements / (velWin / FRAMERATE);
-traverseDuration = length(forwardSpeeds) / FRAMERATE;
-meanSpeed = nanmean(forwardSpeeds);
-meanPosturalHeight = nanmean(mouseCentroids(:, 2));
+% the region under the bar that we will look at
+underBarCroppedVideo = trackedVideo(barYCoordTopCrop+barWidth/2:barYCoordTopCrop+barWidth*2, :, :);
+blankedUnderBarVideo = blankOutsideMouse(underBarCroppedVideo, mouseMaskMatrix, 1, 0.1);
+% as we don't want to think about the tail, blanking out the regions og
+[blankedUnderBarVideo, blankMat] = blankOutsideMouse(underBarCroppedVideo, mouseMaskMatrix, 255, 0.2);
+movementTrace = quantifyTrunkMovement(blankedUnderBarVideo, blankMat);
 
 % plot x and y coordinates in 2d
 figure; hold on;
-plot(mouseCentroids(:,1), mouseCentroids(:,2)-barYCoordTop, 'LineWidth',2);
-scatter(mouseCentroids(:,1), mouseCentroids(:,2)-barYCoordTop,  50, forwardSpeeds, 'filled');
+plot(mouseCentroids(:,1), mouseCentroids(:,2)-barYCoordTopCrop, 'LineWidth',2);
+scatter(mouseCentroids(:,1), mouseCentroids(:,2)-barYCoordTopCrop,  50, forwardSpeeds, 'filled');
 xlabel('Position along bar');
 ylabel('Height above bar');
 colormap('cool');
