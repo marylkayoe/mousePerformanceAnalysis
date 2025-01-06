@@ -1,4 +1,4 @@
-function mouseCentroids = BBtrackingMouse(croppedVideo, MOUSESIZETH)
+function [mouseCentroids, trackedVideo] = BBtrackingMouse(croppedVideo, MOUSESIZETH)
 % track the mouse in the video
 % input: croppedVideo - video matrix with the mouse (uint8)
 %        MOUSESIZETH - minimum size of the mouse in fraction of the image,
@@ -62,6 +62,7 @@ for frameIndex = 1:nFrames
 
 end
 
+trackedVideo = ratioMatrix;
 displayBehaviorVideoMatrix(ratioMatrix);
 title('Mouse tracking');
 

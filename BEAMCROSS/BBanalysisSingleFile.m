@@ -25,13 +25,15 @@ addRequired(p, 'dataPath', @ischar);
 addRequired(p, 'fileName', @ischar);
 addParameter(p, 'MAKEPLOT', MAKEPLOT, @islogical);
 addParameter(p, 'FRAMERATE', 160, @isnumeric);
+addParameter(p, 'PIXELSIZE', 1,  @isnumeric);
 parse(p, dataPath, fileName, varargin{:});
 
 dataPath = p.Results.dataPath;
 fileName = p.Results.fileName;
 MAKEPLOT = p.Results.MAKEPLOT;
 FRAMERATE = p.Results.FRAMERATE;
-
+PIXELSIZE = p.Results.PIXELSIZE;
+%TODO: add spatial scaling
 MEASUREBARMARKS = false;
 
 
@@ -81,7 +83,7 @@ croppedVideo = videoMatrix(topCameraEdgeY:bottomCameraEdgeY, :, :);
 
 barYCoordTop = barYCoordTop - topCameraEdgeY;
 
-mouseCentroids = BBtrackingMouse(croppedVideo);
+[mouseCentroids, trackedVideo] = BBtrackingMouse(croppedVideo);
 mouseCentroids(:, 2) = imHeight - mouseCentroids(:, 2)+1; % flip coordinates
 
 % check the period when mouse is seen, longest continuous non-NAN period
@@ -97,6 +99,7 @@ mouseCentroids = mouseCentroids(longestPeriod, :);
 
 % crop the video to the longest period
 croppedVideo = croppedVideo(:,:,longestPeriod);
+trackedVideo = trackedVideo(:, :, longestPeriod);
 
 
 
@@ -137,6 +140,7 @@ R.mouseCentroids = mouseCentroids;
 R.forwardSpeeds = forwardSpeeds;
 R.traverseDuration = length(forwardSpeeds) / FRAMERATE;
 R.meanSpeed = nanmean(forwardSpeeds);
+R.BBvideo = trackedVideo;
 end
 
 
