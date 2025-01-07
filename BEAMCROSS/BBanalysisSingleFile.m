@@ -16,14 +16,12 @@ R.mouseCentroids = [];
 R.forwardSpeeds = [];
 R.traverseDuration = [];
 R.meanSpeed = [];
-% Default values
-MAKEPLOT = false;
 
 % Parse input arguments
 p = inputParser;
 addRequired(p, 'dataPath', @ischar);
 addRequired(p, 'fileName', @ischar);
-addParameter(p, 'MAKEPLOT', MAKEPLOT, @islogical);
+addParameter(p, 'MAKEPLOT', true, @islogical);
 addParameter(p, 'FRAMERATE', 160, @isnumeric);
 addParameter(p, 'PIXELSIZE', 1,  @isnumeric);
 addParameter(p, 'SLIPTHRESHOLD', 1, @isnumeric);
@@ -99,50 +97,69 @@ movementTrace = quantifyWeightedMovement(underBarCroppedVideo, normMouseProbVals
 
 % make a plot of the movement trace with slips indicated
 if MAKEPLOT
-    figure; subplot (2, 1, 1); hold on;
+    figure; hold on;
     xAx = makexAxisFromFrames(length(movementTrace), FRAMERATE);
     plot(movementTrace);
     hold on;
-    scatter(slipEventStarts, movementTrace(slipEventStarts), slipEventAreas*10, 'o', 'filled');
+    if ~isempty(slipEventStarts)
+        scatter(slipEventStarts, movementTrace(slipEventStarts), slipEventAreas*20, 'o', 'filled');
+    end
     title('Movement trace with detected slips');
     xlabel('Frame number');
     ylabel('Movement');
 
+    % plot x and y coordinates in 2d
+ figure; hold on;
+    plot(mouseCentroids(:,1), mouseCentroids(:,2), 'LineWidth',2);
+    scatter(mouseCentroids(:,1), mouseCentroids(:,2),  50, forwardSpeeds, 'filled');
+    xlabel('Position along bar');
+    ylabel('Height above bar');
+    if ~isempty(slipEventStarts)
+    scatter(mouseCentroids(slipEventStarts, 1), mouseCentroids(slipEventStarts, 2), slipEventAreas*20, 'ko', 'filled' );
+    end
+    colormap('cool');
+    ylim([0 30]);
 
-% plot x and y coordinates in 2d
-subplot(2, 1, 2); hold on;
-plot(mouseCentroids(:,1), mouseCentroids(:,2), 'LineWidth',2);
-scatter(mouseCentroids(:,1), mouseCentroids(:,2),  50, forwardSpeeds, 'filled');
-xlabel('Position along bar');
-ylabel('Height above bar');
-scatter(mouseCentroids(slipEventStarts, 1), mouseCentroids(slipEventStarts, 2), slipEventAreas*10, 'ko', 'filled' );
-colormap('cool');
-ylim([0 30]);
+    % add colorbar and label
+    c = colorbar;
+    c.Label.String = 'Forward speed (pixels/s)';
+    caxis([0, max(forwardSpeeds)]);
 
-% add colorbar and label
+    title('Mouse position in the video');
 
-c = colorbar;
-c.Label.String = 'Forward speed (pixels/s)';
-caxis([0, max(forwardSpeeds)]);
+    % check which direction mouse goes and add arrow
+    if (mouseCentroids(1, 1) < mouseCentroids(end, 1)) % we go left to right
+        % add arrow within the subplot area to indicate direction
+        annotation('arrow', [0.2, 0.3], [0.5, 0.5], 'Units', 'normalized');
+        text(0.25, 0.5, 'Forward', 'Units', 'normalized');
+     
+    else
 
-title('Mouse position in the video');
-% add horizontal line indicating bar position
-%hold on;
-%line([1, size(croppedVideo, 2)], [barYCoordTop, barYCoordTop], 'Color', 'k', 'LineWidth', 6);
+        % add arrow pointing to the left and text "forward"
+        annotation('arrow', [0.3, 0.2], [0.5, 0.5], 'Units', 'normalized');
+        text(0.25, 0.5, 'Forward', 'Units', 'normalized');
 
-% add textbox with mean speed, traverse duration and filename
-text(0.1, 0.15, ['Mean speed: ', num2str(meanSpeed), ' pixels/s'], 'Units', 'normalized');
-text(0.1, 0.1, ['Traverse duration: ', num2str(traverseDuration), ' s'], 'Units', 'normalized');
-text(0.1, 0.05, ['Mean postural height: ', num2str(meanPosturalHeight), ' pixels'], 'Units', 'normalized');
-text(0.1, 0.01, ['File: ', cleanUnderscores(fileName)], 'Units', 'normalized');
+    end
+    % add textbox with mean speed, traverse duration and filename
+    text(0.1, 0.25, ['Mean speed: ', num2str(meanSpeed), ' pixels/s'], 'Units', 'normalized');
+    text(0.1, 0.2, ['Traverse duration: ', num2str(traverseDuration), ' s'], 'Units', 'normalized');
+    text(0.1, 0.15, ['Mean postural height: ', num2str(meanPosturalHeight), ' pixels'], 'Units', 'normalized');
+    text(0.1, 0.1, ['File: ', cleanUnderscores(fileName)], 'Units', 'normalized');
 
-displayBehaviorVideoMatrix(trackedVideo);
-
+   % displayBehaviorVideoMatrix(trackedVideo);
+end
 R.mouseCentroids = mouseCentroids;
 R.forwardSpeeds = forwardSpeeds;
 R.traverseDuration = traverseDuration;
 R.meanSpeed = meanSpeed;
 R.BBvideo = trackedVideo;
+R.slipEventStarts = slipEventStarts;
+R.slipEventAreas = slipEventAreas;
+R.slipEventDurations = slipEventDurations;
+R.slipEventPeaks = slipEventPeaks;
+R.nSlips = length(slipEventStarts);
+R.totalSlipMagnitude = sum(slipEventAreas);
+R.meanSlipAmplitude = mean(slipEventAreas);
 end
 
 

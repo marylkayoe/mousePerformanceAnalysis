@@ -21,6 +21,13 @@ if ~exist('DETRENDWINDOW', 'var')
     DETRENDWINDOW = 16;
 end
 
+% default output values
+slipEventStarts = [];
+slipEventPeaks = [];
+slipEventAreas = [];
+slipEventDurations = [];
+
+
 % detrending
 
 
