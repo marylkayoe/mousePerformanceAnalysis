@@ -1,4 +1,4 @@
-function [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations] = detectSlipsFromMovement(movementTrace, threshold, DETRENDWINDOW)
+function [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations] = detectSlips(movementTrace, threshold, DETRENDWINDOW)
 %   Identify slip intervals in a 1D movement trace using:
 %   1) threshold, default 2
 %   2) morphological "closing" to merge tiny gaps
@@ -14,11 +14,11 @@ function [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations] =
 %     .duration              : number of frames in the slip
 
 if ~exist('threshold', 'var')
-    threshold = 2;
+    threshold = 2; % for detecting smaller events, decrease this value
 end
 
 if ~exist('DETRENDWINDOW', 'var')
-    DETRENDWINDOW = 16;
+    DETRENDWINDOW = 16; % rolling window, with 160 fps this is around 100ms
 end
 
 % default output values
@@ -31,14 +31,14 @@ slipEventDurations = [];
 % detrending
 
 
-winSize = 16;  % or choose based on typical posture timescale
+winSize = 64;  % or choose based on typical posture timescale
 localBase = movmedian(movementTrace, winSize);
 detrended = movementTrace - localBase;
 
 movementTrace = detrended;
 
 % -- 1) Create a logical mask of slip frames --
-slipMask = movementTrace > threshold;  % 1D logical array
+slipMask = detrended > threshold;  % 1D logical array
 
 % -- 2) Morphological operations on 1D data --
 % For example, 'closing' merges small gaps up to 1-2 frames wide:

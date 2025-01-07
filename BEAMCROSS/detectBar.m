@@ -1,4 +1,4 @@
-function [barYCoord, barWidth] = findBarYCoordInImage(barImage)
+function [barYCoord, barWidth] = detectBar(barImage)
 %  Locate the top edge of a (white) balance bar in an image.
 %
 %   [barYCoord, barWidth] = findBarYCoordInImage(barImage)
@@ -48,7 +48,7 @@ function [barYCoord, barWidth] = findBarYCoordInImage(barImage)
     cropBarImage = barImage(:, camRangeX);
 
     %% 2) Remove the top and bottom camera rectangles
-    [topCameraEdgeY, bottomCameraEdgeY] = findCameraEdgeCoordsInImage(cropBarImage);
+    [topCameraEdgeY, bottomCameraEdgeY] = detectCameras(cropBarImage);
     topCameraEdgeY    = topCameraEdgeY + 5;  % buffer
     bottomCameraEdgeY = bottomCameraEdgeY - 5;
     cropBarImage      = cropBarImage(topCameraEdgeY:bottomCameraEdgeY, :);

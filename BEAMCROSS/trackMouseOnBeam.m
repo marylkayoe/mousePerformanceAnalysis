@@ -1,4 +1,5 @@
-function [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, meanPosturalHeight, mouseMaskMatrix, trackedVideo, croppedVideo] = BBtrackingMouse(croppedVideo, MOUSESIZETH, FRAMERATE)
+function [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, meanPosturalHeight, mouseMaskMatrix, trackedVideo, croppedVideo] = ...
+    trackMouseOnBeam(croppedVideo, MOUSESIZETH, FRAMERATE)
 % track the mouse in the video
 % input: croppedVideo - video matrix with the mouse (uint8)
 %        MOUSESIZETH - minimum size of the mouse in fraction of the image,

@@ -1,4 +1,4 @@
-function [topCameraEdgeY, bottomCameraEdgeY] = findCameraEdgeCoordsInImage(meanImage)
+function [topCameraEdgeY, bottomCameraEdgeY] = detectCameras(meanImage)
 % Locate top & bottom camera edges (vertical coords).
 %
 %   [topCameraEdgeY, bottomCameraEdgeY] = findCameraEdgeCoordsInImage(meanImage)

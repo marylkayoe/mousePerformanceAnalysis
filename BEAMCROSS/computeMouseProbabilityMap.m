@@ -1,4 +1,4 @@
-function [normMouseProbVals, mouseProbMatrix] = getMouseProbOnBeam(mouseMaskMatrix)
+function [normMouseProbVals, mouseProbMatrix] = computeMouseProbabilityMap(mouseMaskMatrix)
     % GETMOUSEPROBONBEAM  Compute how much of each column is occupied by the mouse,
     %   expressed as a fraction of the frame height (a "probability" of the mouse
     %   being present in that column).

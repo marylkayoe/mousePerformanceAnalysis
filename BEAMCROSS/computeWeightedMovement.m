@@ -1,4 +1,4 @@
-function normMovementTrace = quantifyWeightedMovement(videoMatrix, normMouseProbVals)
+function normMovementTrace = computeWeightedMovement(videoMatrix, normMouseProbVals)
 % QUANTIFYWEIGHTEDMOVEMENTCOLS
 %   Computes frame-to-frame motion in a grayscale video, weighting each column
 %   by how likely the mouse is present (using normMouseProbVals).
@@ -26,6 +26,7 @@ function normMovementTrace = quantifyWeightedMovement(videoMatrix, normMouseProb
 
 % We'll have one movement value per frame
 movementTrace = zeros(nFrames, 1);
+
 
 % The first frame has no "previous" frame to compare
 movementTrace(1) = 0;
@@ -60,10 +61,10 @@ for k = 2 : nFrames
 
 end
 
-
+normMovementTrace = movementTrace;
 
 %% normalization by MAD
-
+if 1
 % 1) Compute median
 medVal = median(movementTrace);
 
@@ -79,7 +80,7 @@ normMovementTrace = (movementTrace - medVal) / sigma_base;
 % smooth the trace
 normMovementTrace = smooth(normMovementTrace, 5);
 
-
+end
 
 
 
