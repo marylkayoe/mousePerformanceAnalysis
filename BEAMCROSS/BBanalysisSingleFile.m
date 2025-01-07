@@ -26,6 +26,7 @@ addRequired(p, 'fileName', @ischar);
 addParameter(p, 'MAKEPLOT', MAKEPLOT, @islogical);
 addParameter(p, 'FRAMERATE', 160, @isnumeric);
 addParameter(p, 'PIXELSIZE', 1,  @isnumeric);
+addParameter(p, 'SLIPTHRESHOLD', 1, @isnumeric);
 parse(p, dataPath, fileName, varargin{:});
 
 dataPath = p.Results.dataPath;
@@ -33,11 +34,11 @@ fileName = p.Results.fileName;
 MAKEPLOT = p.Results.MAKEPLOT;
 FRAMERATE = p.Results.FRAMERATE;
 PIXELSIZE = p.Results.PIXELSIZE;
+SLIPTHRESHOLD = p.Results.SLIPTHRESHOLD;
 %TODO: add spatial scaling
-MEASUREBARMARKS = false;
 
 
-% check the file exists 
+% check the file exists
 
 if ~exist(fullfile(dataPath, fileName), 'file')
     warning('File does not exist, aborting...');
@@ -83,23 +84,41 @@ barYCoordTopCrop = barYCoordTop - topCameraEdgeY;
 
 [mouseCentroids,  forwardSpeeds, meanSpeed, traverseDuration, meanPosturalHeight,mouseMaskMatrix, trackedVideo, croppedOriginalVideo] = BBtrackingMouse(croppedVideo);
 mouseCentroids(:, 2) = imHeight - mouseCentroids(:, 2)+1; % flip coordinates
+mouseCentroids(:, 2) = mouseCentroids(:,2)-barYCoordTopCrop;
 [maskHeight, maskWidth, maskFrames] = size(mouseMaskMatrix);
 
 % the region under the bar that we will look at
 underBarCroppedVideo = trackedVideo(barYCoordTopCrop+barWidth/2:barYCoordTopCrop+barWidth*2, :, :);
-blankedUnderBarVideo = blankOutsideMouse(underBarCroppedVideo, mouseMaskMatrix, 1, 0.1);
-% as we don't want to think about the tail, blanking out the regions og
-[blankedUnderBarVideo, blankMat] = blankOutsideMouse(underBarCroppedVideo, mouseMaskMatrix, 255, 0.2);
-movementTrace = quantifyTrunkMovement(blankedUnderBarVideo, blankMat);
+% as we don't want to think about the tail, blanking out the regions
+% outside mouse
+%[blankedUnderBarVideo, blankMat] = blankOutsideMouse(underBarCroppedVideo, mouseMaskMatrix, 255, 0.2);
+[normMouseProbVals, mouseProbMatrix] = getMouseProbOnBeam(mouseMaskMatrix);
+movementTrace = quantifyWeightedMovement(underBarCroppedVideo, normMouseProbVals);
+[slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations] = ...
+    detectSlipsFromMovement(movementTrace, SLIPTHRESHOLD);
+
+% make a plot of the movement trace with slips indicated
+if MAKEPLOT
+    figure; subplot (2, 1, 1); hold on;
+    xAx = makexAxisFromFrames(length(movementTrace), FRAMERATE);
+    plot(movementTrace);
+    hold on;
+    scatter(slipEventStarts, movementTrace(slipEventStarts), slipEventAreas*10, 'o', 'filled');
+    title('Movement trace with detected slips');
+    xlabel('Frame number');
+    ylabel('Movement');
+
 
 % plot x and y coordinates in 2d
-figure; hold on;
-plot(mouseCentroids(:,1), mouseCentroids(:,2)-barYCoordTopCrop, 'LineWidth',2);
-scatter(mouseCentroids(:,1), mouseCentroids(:,2)-barYCoordTopCrop,  50, forwardSpeeds, 'filled');
+subplot(2, 1, 2); hold on;
+plot(mouseCentroids(:,1), mouseCentroids(:,2), 'LineWidth',2);
+scatter(mouseCentroids(:,1), mouseCentroids(:,2),  50, forwardSpeeds, 'filled');
 xlabel('Position along bar');
 ylabel('Height above bar');
+scatter(mouseCentroids(slipEventStarts, 1), mouseCentroids(slipEventStarts, 2), slipEventAreas*10, 'ko', 'filled' );
 colormap('cool');
 ylim([0 30]);
+
 % add colorbar and label
 
 c = colorbar;

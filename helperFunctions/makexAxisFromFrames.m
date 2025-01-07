@@ -1,3 +1,3 @@
 function xAx = makexAxisFromFrames(nSamples, FRAMERATE)
 
-xAx = linspace(1, floor(nSamples/FRAMERATE), nSamples);
+xAx = linspace(0, floor(nSamples/FRAMERATE), nSamples);
