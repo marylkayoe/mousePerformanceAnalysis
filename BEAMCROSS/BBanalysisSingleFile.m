@@ -137,7 +137,7 @@ barYCoordTopCrop = barTopCoord - topCameraEdgeY;
 
 %% --- Track the Mouse in the Cropped Video ---
 [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, meanPosturalHeight, ...
-    mouseMaskMatrix, trackedVideo, croppedOriginalVideo] = BBtrackingMouse(croppedVideo);
+    mouseMaskMatrix, trackedVideo, croppedOriginalVideo] = trackMouseOnBeam(croppedVideo);
 
 % Flip mouseCentroids' Y so that top=0 => bar is near zero, easier to
 % visualize
@@ -160,7 +160,7 @@ movementTrace = computeWeightedMovement(underBarCroppedVideo, normMouseProbVals)
 
 %% --- Detect Slips from Movement Trace ---
 [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations] = ...
-    detectSlipsFromMovement(movementTrace, SLIPTHRESHOLD);
+    detectSlips(movementTrace, SLIPTHRESHOLD);
 
 %% --- Annotate the Original (Tracked) Video with Slip Intervals ---
 annotatedVideo = annotateVideoMatrix(trackedVideo, slipEventStarts, slipEventDurations, ...
