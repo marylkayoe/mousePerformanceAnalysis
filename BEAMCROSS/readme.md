@@ -64,5 +64,5 @@ Some functions and scripts reside in separate subfolders for organization:
 ## Dependencies
 - MATLAB (tested on R2024b).
 - Image Processing Toolbox (for insertShape, morphological ops, etc.).
-- Videos in .mp4 format, requires ffmpg installation and presence on path.    
+- Videos in .mp4 format, requires ffmpeg installation and presence on path.    
   
