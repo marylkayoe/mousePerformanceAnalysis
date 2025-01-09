@@ -17,6 +17,8 @@ function R = BBanalysisSingleFile(dataPath, fileName, varargin)
 %   'PIXELSIZE'     : (numeric) Spatial scaling factor (pixels to mm, etc.). [1]
 %   'SLIPTHRESHOLD' : (numeric) Threshold for slip detection in z-scored
 %                     movement trace. [2]
+%   'LOCOTHRESHOLD' : (numeric) Threshold for stopping detection in pixels/sec. [100]
+%   'MOUSESIZETHRESHOLD' : (numeric) Minimum fraction of frame area (0-100) for mouse, used for tracking. [5] 
 %
 % OUTPUT:
 %   R : A structure with fields:
@@ -64,6 +66,8 @@ addParameter(p, 'MAKEPLOT', true, @islogical);
 addParameter(p, 'FRAMERATE', 160, @isnumeric);
 addParameter(p, 'PIXELSIZE', 1,  @isnumeric);
 addParameter(p, 'SLIPTHRESHOLD', 2, @isnumeric);
+addParameter(p, 'LOCOTHRESHOLD', 100, @isnumeric);
+addParameter(p, 'MOUSESIZETHRESHOLD', 5, @isnumeric);
 
 parse(p, dataPath, fileName, varargin{:});
 
@@ -73,6 +77,8 @@ MAKEPLOT      = p.Results.MAKEPLOT;
 FRAMERATE     = p.Results.FRAMERATE;      % might be used if readVideoIntoMatrix fails
 PIXELSIZE     = p.Results.PIXELSIZE;      % potential future use for distance scaling
 SLIPTHRESHOLD = p.Results.SLIPTHRESHOLD;
+LOCOTHRESHOLD = p.Results.LOCOTHRESHOLD;
+MOUSESIZETH   = p.Results.MOUSESIZETHRESHOLD;
 
 %% --- Check File Existence & Validity ---
 fullFilePath = fullfile(dataPath, fileName);
@@ -136,8 +142,8 @@ barYCoordTopCrop = barTopCoord - topCameraEdgeY;
 [imHeight, imWidth, nFrames] = size(croppedVideo);
 
 %% --- Track the Mouse in the Cropped Video ---
-[mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, meanPosturalHeight, ...
-    mouseMaskMatrix, trackedVideo, croppedOriginalVideo] = trackMouseOnBeam(croppedVideo);
+[mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, meanPosturalHeight, ...
+    mouseMaskMatrix, trackedVideo, croppedOriginalVideo] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE);
 
 % Flip mouseCentroids' Y so that top=0 => bar is near zero, easier to
 % visualize
@@ -180,6 +186,11 @@ R.slipEventPeaks       = slipEventPeaks;
 R.nSlips               = length(slipEventStarts);
 R.totalSlipMagnitude   = sum(slipEventAreas);
 R.meanSlipAmplitude    = mean(slipEventAreas);
+
+R.nStops = length(stoppingPeriods);
+R.stoppingPeriods = stoppingPeriods;
+R.stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);
+
 
 R.annotatedVideo       = annotatedVideo;
 

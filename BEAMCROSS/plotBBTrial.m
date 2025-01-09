@@ -33,9 +33,28 @@ function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas,
     % figure name should be the file name cleaned up from underscores
     figTitle = cleanUnderscores(fileName);
     figure('Name', figTitle, 'Color', 'w');
+
+    % shape of subplot panels
+    NROWS = 3;
+    NCOLS = 1;
+
+    LOCOTHRESHOLD = 100; % threshold for stopping; in pixels/sec
+
+    % define periods of stopping, as continuous segments below LOCOTHRESHOLD
+    stoppingFrames= forwardSpeeds < LOCOTHRESHOLD;
+    % morphological closing to connect small gaps, exclude too short periods
+    stoppingFrames = bwareaopen(imclose(stoppingFrames, strel('line', 5, 0)), 10);
+    % find contiguous regions of stopping
+    cc = bwconncomp(stoppingFrames);
+    % get the start and end frames of each stopping period
+    stoppingPeriods = cellfun(@(x) [x(1), x(end)], cc.PixelIdxList, 'UniformOutput', false);
+    % get the duration of each stopping period
+    stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);
+
+
     
     % =========== SUBPLOT #1: Movement Trace ===========================
-    subplot(2,1,1);  % top subplot
+    subplot(NROWS,NCOLS,1);  % top subplot
     hold on;
     % Plot the movement trace vs time (or vs frame #)
     plot(timeAxis, movementTrace, 'LineWidth',1.2, 'Color',[0 0.45 0.74], 'HandleVisibility','off');
@@ -59,7 +78,7 @@ function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas,
     grid on;
 
     % =========== SUBPLOT #2: Mouse 2D Position ========================
-    subplot(2,1,2);  
+    subplot(NROWS,NCOLS,2);  
     hold on;
     
     % Plot the mouse XY path
@@ -115,4 +134,41 @@ function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas,
 
     % Done
     hold off;
+
+    % =========== SUBPLOT #3: instantaneous speed profile plot ===============
+    subplot(NROWS,NCOLS,3);  % bottom subplot
+    hold on;
+    % add gray transparent rectangles for stopping periods if any are found
+    for i = 1:length(stoppingPeriods)
+        % get the start and end times of the stopping period
+        startFrame = stoppingPeriods{i}(1);
+        endFrame = stoppingPeriods{i}(2);
+        startTime = (startFrame - 1) / FRAMERATE;
+        endTime = (endFrame - 1) / FRAMERATE;
+        % plot a gray rectangle for the stopping period
+        rectangle('Position', [startTime, 0, endTime-startTime, max(forwardSpeeds)], ...
+            'FaceColor', [0.7, 0.7, 0.7, 0.1], 'FaceAlpha', 0.5, 'EdgeColor', 'k');
+    end
+
+     % Plot the forward speed vs time (or vs frame #)
+    plot(timeAxis, forwardSpeeds, 'LineWidth',1.2, 'Color',[0.85 0.33 0.1], 'HandleVisibility','off');
+   
+    % dummy plot for legend for gray rectangles
+    plot(NaN, NaN, 'Color', [0.7, 0.7, 0.7], 'LineWidth', 10);
+
+    legend('Stops', 'Location', 'best');
+    % Some axis labeling
+    xlabel('Time (s)');
+    ylabel('Forward speed (pixels/s)');
+    title('Forward speed profile','FontSize',12);
+    % add text about number and total duration of stops
+    text(0.02, 0.3, sprintf('Number of stops: %d', length(stoppingPeriods)), ...
+         'Units','normalized','FontSize',10);
+    text(0.02, 0.15, sprintf('Total stop duration: %.2f s', sum(stoppingDurations)/FRAMERATE), ...
+            'Units','normalized','FontSize',10);
+            
+    grid on;
+    hold off;
+
+    
 end
