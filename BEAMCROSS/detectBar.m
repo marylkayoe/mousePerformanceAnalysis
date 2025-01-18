@@ -17,6 +17,9 @@ function [barYCoord, barWidth] = detectBar(barImage)
 %     5) Use vertical projection to locate bottom edge of the bar, then
 %        subtract a fixed bar thickness to get the top edge.
 
+
+MAKEDEBUGPLOT = 1; % show where bar is detected; make this 0 to disable
+
     % We'll define the bar width as 5% of total image height
     BARWIDTHPERC = 5;
     [imHeight, imWidth] = size(barImage);
@@ -53,7 +56,7 @@ function [barYCoord, barWidth] = detectBar(barImage)
     bottomCameraEdgeY = bottomCameraEdgeY - 5;
     cropBarImage      = cropBarImage(topCameraEdgeY:bottomCameraEdgeY, :);
     %% 3) Threshold to isolate bright bar
-    numThresholds = 2;
+    numThresholds = 1; % just the bright line!! 
     levels = multithresh(cropBarImage, numThresholds);
     segBarImage = imquantize(cropBarImage, levels);
     % The bar should be in the upper intensity category.
@@ -74,5 +77,18 @@ function [barYCoord, barWidth] = detectBar(barImage)
 
     % The top edge is bottom minus barWidth
     barYCoord = barYCoordBottom - barWidth;
+
+    if MAKEDEBUGPLOT
+    % for debugging: display image with bar edge indicated
+    figure; imshow(cropBarImage);
+    hold on;
+    plot([1, size(cropBarImage, 2)], [locsBottom(end), locsBottom(end)], 'r', 'LineWidth', 2);
+    plot([1, size(cropBarImage, 2)], [locsBottom(end)-barWidth, locsBottom(end)-barWidth], 'r', 'LineWidth', 2);
+    hold off;
+    title('Bar detection');
+    drawnow;
+    
+    end
+
 
 end
