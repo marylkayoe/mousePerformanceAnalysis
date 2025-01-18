@@ -116,6 +116,11 @@ FRAMERATE = floor(frameRate);
 %      between topCameraEdgeY and bottomCameraEdgeY.
 %% ===========================================================
 
+% 0 crop top 15%
+% this is because of a shadow sometimes seen at the top of the image
+videoMatrix = videoMatrix( round(size(videoMatrix, 1) * 0.15):end, :, :);
+
+
 % 1) Compute mean frame
 meanFrame = getMeanFrame(videoMatrix);
 
