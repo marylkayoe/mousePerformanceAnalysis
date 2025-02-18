@@ -102,7 +102,7 @@ function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas,
     % Some axis labeling
     xlabel('Position along bar (px)');
     ylabel('Height above bar (px)');
-    ylim([0, 30]);  % assuming 20 is the max height
+    ylim([0, 40]);  
 
     % Adjust color limits to highlight speed range
     caxis([0, max(forwardSpeeds)]);

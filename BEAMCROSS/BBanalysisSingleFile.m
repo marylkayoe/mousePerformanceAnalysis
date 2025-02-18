@@ -48,6 +48,9 @@ function R = BBanalysisSingleFile(dataPath, fileName, varargin)
 %   BBtrackingMouse, getMouseProbOnBeam, quantifyWeightedMovement,
 %   detectSlipsFromMovement, annotateVideoMatrix, plotBBtrial,
 %   displayBehaviorVideoMatrix, ...
+
+% TODO: add option to give the vertical position of the bar as an input
+% parameter
 %
 % -------------------------------------------------------------------------
 
@@ -68,6 +71,9 @@ addParameter(p, 'PIXELSIZE', 1,  @isnumeric);
 addParameter(p, 'SLIPTHRESHOLD', 2, @isnumeric);
 addParameter(p, 'LOCOTHRESHOLD', 100, @isnumeric);
 addParameter(p, 'MOUSESIZETHRESHOLD', 5, @isnumeric);
+addParameter(p, 'BARPOSITION', [], @isnumeric); % vertical position of the bar, if empty, it will be detected
+addParameter(p, 'BARWIDTH', 20, @isnumeric); % thickness of the bar, if empty, it will be detected
+% Note: both BARPOSITION and BARTHICKNESS must be provided if one is provided
 
 parse(p, dataPath, fileName, varargin{:});
 
@@ -79,6 +85,8 @@ PIXELSIZE     = p.Results.PIXELSIZE;      % potential future use for distance sc
 SLIPTHRESHOLD = p.Results.SLIPTHRESHOLD;
 LOCOTHRESHOLD = p.Results.LOCOTHRESHOLD;
 MOUSESIZETH   = p.Results.MOUSESIZETHRESHOLD;
+BARPOSITION   = p.Results.BARPOSITION;
+BARWIDTH = p.Results.BARWIDTH;
 
 %% --- Check File Existence & Validity ---
 fullFilePath = fullfile(dataPath, fileName);
@@ -121,7 +129,8 @@ FRAMERATE = floor(frameRate);
 videoMatrix = videoMatrix( round(size(videoMatrix, 1) * 0.15):end, :, :);
 
 
-% 1) Compute mean frame
+% 1) Compute mean frame (optionally from the 5 first frames)
+%meanFrame = getMeanFrame(videoMatrix(:, :, 1:5));
 meanFrame = getMeanFrame(videoMatrix);
 
 % 2) Crop horizontally by 5%
@@ -133,13 +142,20 @@ meanFrameCroppedHoriz = meanFrame(:, leftCropIndex:rightCropIndex);
 [topCameraEdgeY, bottomCameraEdgeY] = detectCameras(meanFrameCroppedHoriz);
 % These should define the black camera boxes at the top & bottom of the image.
 
-% 4) Locate the balance bar in this horizontally cropped mean frame
+% 4) Locate the balance bar in this horizontally cropped mean frame if not provided
+if isempty(BARPOSITION)
+
 [barTopCoord, barThickness] = detectBar(meanFrameCroppedHoriz);
+else
+    barTopCoord = BARPOSITION;
+    barThickness = BARWIDTH;
+end
 % barYCoordTop is the vertical coordinate of the bar's top edge,
 % and barWidth is its estimated thickness.
 
 % 5) Crop the original video vertically using the camera edges
-croppedVideo = videoMatrix(topCameraEdgeY : bottomCameraEdgeY, :, :);
+%croppedVideo = videoMatrix(topCameraEdgeY : bottomCameraEdgeY, :, :);
+croppedVideo = videoMatrix(topCameraEdgeY : BARPOSITION + BARWIDTH*4, :, :);
 
 % The bar's top coordinate in this newly cropped system is offset:
 barYCoordTopCrop = barTopCoord - topCameraEdgeY;
