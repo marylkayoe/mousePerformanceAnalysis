@@ -155,7 +155,7 @@ end
 
 % 5) Crop the original video vertically using the camera edges
 %croppedVideo = videoMatrix(topCameraEdgeY : bottomCameraEdgeY, :, :);
-croppedVideo = videoMatrix(topCameraEdgeY : BARPOSITION + BARWIDTH*4, :, :);
+croppedVideo = videoMatrix(topCameraEdgeY : barTopCoord + barThickness*4, :, :);
 
 % The bar's top coordinate in this newly cropped system is offset:
 barYCoordTopCrop = barTopCoord - topCameraEdgeY;
