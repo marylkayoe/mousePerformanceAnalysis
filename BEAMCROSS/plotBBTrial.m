@@ -70,7 +70,9 @@ function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas,
             markerSizes, 'o', 'filled', 'MarkerFaceColor','r');
     end
     % legend for the markers
+     if ~isempty(slipEventStarts)
     legend('Slip events (size indicates magnitude)', 'Location', 'best');
+     end
 
     title('Movement detected under bar, with detected slips','FontSize',12);
     xlabel('Time (s)');
@@ -108,7 +110,9 @@ function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas,
     caxis([0, max(forwardSpeeds)]);
 
     % legend for the markers
+    if ~isempty(slipEventStarts)
     legend('Slip events (size indicates magnitude)', 'Location', 'best');
+    end
 
  
     % =========== Add Directional Arro to title ===============

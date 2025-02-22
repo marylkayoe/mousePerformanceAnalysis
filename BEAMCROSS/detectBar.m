@@ -1,95 +1,95 @@
 function [barYCoord, barWidth] = detectBar(barImage)
-%  Locate the top edge of a (white) balance bar in an image.
-%
-%   [barYCoord, barWidth] = findBarYCoordInImage(barImage)
-%   INPUT:
-%       barImage - Grayscale (uint8 image of the scene
-%                  containing a white bar plus two black camera rectangles.
-%   OUTPUT:
-%       barYCoord - The row index (1-based) of the bar’s top edge
-%       barWidth  - The vertical thickness of the bar (pixels) (hardcoded)
-%
+    % Detect the top edge of the balance bar in an image.
+    %
+    %   [barYCoord, barWidth] = detectBar(barImage)
+    %   INPUT:
+    %       barImage - Grayscale (uint8) image containing the balance bar and cameras.
+    %
+    %   OUTPUT:
+    %       barYCoord - The row index of the bar’s top edge.
+    %       barWidth  - Estimated thickness of the bar (pixels).
+    %
+
 %   ALGORITHM:
-%     1) Determine the X-range of the cameras in the image by summing columns.
-%     2) Crop to that horizontal range.
-%     3) Use findCameraEdgeCoordsInImage(...) to remove top & bottom camera areas.
-%     4) Threshold to find bright bar.
-%     5) Use vertical projection to locate bottom edge of the bar, then
-%        subtract a fixed bar thickness to get the top edge.
+%     1) Primary Method: Identify the horizontal range of the camera zone and crop the image.
+%     2) Remove detected camera rectangles to focus on the bar.
+%     3) Use adaptive thresholding to extract bright structures.
+%     4) Identify the top-most horizontal structure spanning most of the width.
+%     5) If the structure is not found, default to an estimated position based on changes in image brightness.
 
-
-MAKEDEBUGPLOT = 1; % show where bar is detected; make this 0 to disable
-
-    % We'll define the bar width as 5% of total image height
+    MAKEDEBUGPLOT = 1; % Enable debugging plots
+    
+    % Define bar width estimate as 5% of total image height
     BARWIDTHPERC = 5;
     [imHeight, imWidth] = size(barImage);
-
     barWidth = round(imHeight * (BARWIDTHPERC / 100));
-    %% 1) Find camera zone horizontally
-    horizSum     = sum(barImage, 1);  % sum each column
+    
+    %% Step 1: Identify Camera Zone in X-direction
+    horizSum = sum(barImage, 1); % Sum along columns
     horizSumDiff = diff(horizSum);
     edgeThreshold = std(horizSumDiff);
-    % Left camera edge => negative peak
+    
+    % Find left camera edge (negative peak)
     [~, locsLeft] = findpeaks(-horizSumDiff, 'MinPeakHeight', edgeThreshold);
     if isempty(locsLeft)
-        warning('No left camera edge found, defaulting to 1');
         camXleft = 1;
     else
         camXleft = locsLeft(1);
     end
-
-    % Right camera edge => positive peak
+    
+    % Find right camera edge (positive peak)
     [~, locsRight] = findpeaks(horizSumDiff, 'MinPeakHeight', edgeThreshold);
     if isempty(locsRight)
-        warning('No right camera edge found, defaulting to imWidth');
         camXright = imWidth;
     else
         camXright = locsRight(end);
     end
-
+    
     camRangeX = camXleft:camXright;
     cropBarImage = barImage(:, camRangeX);
-
-    %% 2) Remove the top and bottom camera rectangles
-    %[topCameraEdgeY, bottomCameraEdgeY] = detectCameras(cropBarImage);
-     [topCameraEdgeY, bottomCameraEdgeY] = detectCameras(barImage);
-    topCameraEdgeY    = topCameraEdgeY + 5;  % buffer
-    bottomCameraEdgeY = bottomCameraEdgeY - 5;
-    cropBarImage      = cropBarImage(topCameraEdgeY:bottomCameraEdgeY, :);
-    %% 3) Threshold to isolate bright bar
-    numThresholds = 1; % just the bright line!! 
-    levels = multithresh(cropBarImage, numThresholds);
-    segBarImage = imquantize(cropBarImage, levels);
-    % The bar should be in the upper intensity category.
-
- %% 4) Find vertical position of the bar
-    vertSum = sum(segBarImage, 2);      % sum each row 
-    vertSumDiff = diff(vertSum);
-    edgeThreshold = std(vertSumDiff)*3;
-
-    % bottom of the bar => presumably a positive jump to lower intensities
-    [~, locsBottom] = findpeaks(vertSumDiff, 'MinPeakHeight', edgeThreshold);
-    if isempty(locsBottom)
-        warning('No bar bottom found, defaulting to bottomCameraEdgeY');
-        barYCoordBottom = bottomCameraEdgeY;
-    else
-        barYCoordBottom = locsBottom(end) + topCameraEdgeY;
+    
+    %% Step 2: Remove Camera Rectangles
+    [topCameraEdgeY, bottomCameraEdgeY] = detectCameras(barImage);
+    topCameraEdgeY = topCameraEdgeY + 5;  % Add buffer
+    bottomCameraEdgeY = bottomCameraEdgeY - 5; % Add buffer
+    cropBarImage = cropBarImage(topCameraEdgeY:bottomCameraEdgeY, :);
+    
+    %% Step 3: Extract Bright Structures Using Thresholding
+    bw = imbinarize(cropBarImage, 'adaptive', 'ForegroundPolarity', 'bright');
+    bw = imclose(bw, strel('line', 10, 0)); % Connect broken segments
+    bw = imfill(bw, 'holes');
+    
+    %% Step 4: Find Topmost Horizontal Structure Spanning the Width
+    regionStats = regionprops(bw, 'BoundingBox', 'Area');
+    validBars = [];
+    
+    for k = 1:length(regionStats)
+        bb = regionStats(k).BoundingBox;
+        aspectRatio = bb(3) / bb(4); % Width/Height ratio
+    
+        if aspectRatio > 10 % Ensure the shape is long and horizontal
+            validBars = [validBars; bb];
+        end
     end
-
-    % The top edge is bottom minus barWidth
-    barYCoord = barYCoordBottom - barWidth;
-
+    
+    % Select the topmost detected bar
+    if isempty(validBars)
+        warning('No valid bar detected, defaulting to estimated position.');
+        barYCoord = topCameraEdgeY + round((bottomCameraEdgeY - topCameraEdgeY) / 2);
+    else
+        validBars = sortrows(validBars, 2); % Sort by Y position
+        barYCoord = round(validBars(1, 2)) + topCameraEdgeY; % Select topmost structure
+    end
+    
+    %% Debugging Plot
     if MAKEDEBUGPLOT
-    % for debugging: display image with bar edge indicated
-    figure; imshow(cropBarImage);
-    hold on;
-    plot([1, size(cropBarImage, 2)], [locsBottom(end), locsBottom(end)], 'r', 'LineWidth', 2);
-    plot([1, size(cropBarImage, 2)], [locsBottom(end)-barWidth, locsBottom(end)-barWidth], 'r', 'LineWidth', 2);
-    hold off;
-    title('Bar detection');
-    drawnow;
+        figure; imshow(cropBarImage, []);
+        hold on;
+        plot([1, size(cropBarImage, 2)], [barYCoord-topCameraEdgeY, barYCoord-topCameraEdgeY], 'r', 'LineWidth', 2);
+        hold off;
+        title(['Detected Bar TOP Position:', num2str(barYCoord)]);
+        drawnow;
+    end
     
     end
-
-
-end
+    
