@@ -17,6 +17,7 @@ function [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPe
 %                      For example, 5 => at least 5% of the frame. Default is 5.
 %       FRAMERATE    : (Optional) Video frame rate (frames/sec). Default is 160.
 %                      Used for converting frame-based displacements to speeds.
+%       LOCOTHRESHOLD: (Optional) Speed threshold (pixels/sec) below which the mouse
 %
 %   OUTPUTS:
 %       mouseCentroids   : (nFrames x 2) array of mouse [x, y] centroids (in pixels).
@@ -170,19 +171,10 @@ forwardSpeeds(1:length(winDisplacements)) = ...
 meanSpeed = nanmean(forwardSpeeds);
 
 
-% calculate stops 
-LOCOTHRESHOLD = 100; % threshold for stopping; in pixels/sec
 
-% define periods of stopping, as continuous segments below LOCOTHRESHOLD
-stoppingFrames= forwardSpeeds < LOCOTHRESHOLD;
-% morphological closing to connect small gaps, exclude too short periods
-stoppingFrames = bwareaopen(imclose(stoppingFrames, strel('line', 5, 0)), 10);
-% find contiguous regions of stopping
-cc = bwconncomp(stoppingFrames);
-% get the start and end frames of each stopping period
-stoppingPeriods = cellfun(@(x) [x(1), x(end)], cc.PixelIdxList, 'UniformOutput', false);
-% get the duration of each stopping period
-stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);
+
+[stoppingFrames, stoppingPeriods] = detectStoppingOnBeam(forwardSpeeds, LOCOTHRESHOLD);
+
 
 locoFrameList = find(~stoppingFrames);
 meanSpeedLoco = nanmean(forwardSpeeds(locoFrameList));

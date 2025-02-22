@@ -25,6 +25,10 @@ function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas,
 %   fileName          : string, name of the video/file (for labeling)
 %
 
+if ~exist('LOCOTHRESHOLD', 'var')
+    LOCOTHRESHOLD = 100;   % default: 100 pixels/sec
+end
+
     % -- Create a time axis from frames if desired --
     nFrames = length(movementTrace);
     timeAxis = (0 : nFrames-1) / FRAMERATE;  % in seconds
@@ -51,7 +55,7 @@ function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas,
     % get the duration of each stopping period
     stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);
 
-
+    [stoppingFrames, stoppingPeriods] = detectStoppingOnBeam(forwardSpeeds, LOCOTHRESHOLD);
     
     % =========== SUBPLOT #1: Movement Trace ===========================
     subplot(NROWS,NCOLS,1);  % top subplot
