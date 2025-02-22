@@ -60,7 +60,8 @@ bw = bw(:, camRangeX);
 
 stats = regionprops(~bw, 'BoundingBox', 'Area', 'Extent');
 validRects = [];
-minArea = 1000; % NEED TO CALCULATE THIS instead of fixed value
+%minArea = 1000; % NEED TO CALCULATE THIS instead of fixed value
+minArea = 0.005 * numel(meanImage); % Set dynamically as 20% of image size
 for k = 1:length(stats)
     bb = stats(k).BoundingBox;
     extent = stats(k).Area / (bb(3) * bb(4));
@@ -70,7 +71,7 @@ for k = 1:length(stats)
     end
 end
 
-validRects = round(validRects);
+
 
 nRectangles = height(validRects);
 
@@ -91,6 +92,9 @@ if nRectangles ~= 2
     bottomCameraEdgeY = locs(end);
 
 else
+    validRects = round(validRects);
+    validRects = sortrows(validRects, 2); % Sort by Y position
+
     topCameraEdgeY = validRects(1, 2) + validRects(1, 4);
 
     bottomCameraEdgeY = validRects(2, 2);
