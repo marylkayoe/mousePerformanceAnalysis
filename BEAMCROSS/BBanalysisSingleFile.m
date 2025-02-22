@@ -164,7 +164,7 @@ barYCoordTopCrop = barTopCoord - topCameraEdgeY;
 
 %% --- Track the Mouse in the Cropped Video ---
 [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, meanPosturalHeight, ...
-    mouseMaskMatrix, trackedVideo, croppedOriginalVideo] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE);
+    mouseMaskMatrix, trackedVideo, croppedOriginalVideo, meanSpeedLoco, stdSpeedLoco] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE);
 
 % Flip mouseCentroids' Y so that top=0 => bar is near zero, easier to
 % visualize
@@ -180,7 +180,7 @@ underBarCroppedVideo = trackedVideo( underBarStart:underBarEnd, :, : );
 %% --- Probability Mask for Mouse Columns ---
 % we weight them by how much of "mouse" each column has. So tail will not
 % count so much. 
-[normMouseProbVals, mouseProbMatrix] = computeMouseProbabilityMap(mouseMaskMatrix);
+[normMouseProbVals, ~] = computeMouseProbabilityMap(mouseMaskMatrix);
 
 %% --- Quantify Weighted Movement  under the bar (Slip Indicator) ---
 movementTrace = computeWeightedMovement(underBarCroppedVideo, normMouseProbVals);
@@ -198,6 +198,8 @@ R.mouseCentroids       = mouseCentroids;
 R.forwardSpeeds        = forwardSpeeds;
 R.traverseDuration     = traverseDuration;
 R.meanSpeed            = meanSpeed;
+R.meanSpeedLoco = meanSpeedLoco;
+R.stdSpeedLoco = stdSpeedLoco;
 R.BBvideo              = trackedVideo;
 
 R.slipEventStarts      = slipEventStarts;
@@ -219,8 +221,8 @@ R.annotatedVideo       = annotatedVideo;
 if MAKEPLOT
     % 1) Plot the movement trace with slip events
     plotBBtrial(movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
-        mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, ...
-        meanPosturalHeight, fileName );
+        mouseCentroids, forwardSpeeds, meanSpeedLoco, traverseDuration, ...
+        meanPosturalHeight, fileName, LOCOTHRESHOLD);
 
     % 2) Display annotated video with an interactive UI
     displayBehaviorVideoMatrix(annotatedVideo, cleanUnderscores(fileName), movementTrace);

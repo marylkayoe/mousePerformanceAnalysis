@@ -1,5 +1,5 @@
 function [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, meanPosturalHeight, ...
-    mouseMaskMatrix, trackedVideo, croppedVideo] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE)
+    mouseMaskMatrix, trackedVideo, croppedVideo, meanSpeedLoco, stdSpeedLoco] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE)
 % TRACKMOUSEONBEAM  Detect and track the mouse in a cropped grayscale video of a balance beam.
 %
 %   [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, meanPosturalHeight, ...
@@ -169,6 +169,7 @@ forwardSpeeds(1:length(winDisplacements)) = ...
 
 meanSpeed = nanmean(forwardSpeeds);
 
+
 % calculate stops 
 LOCOTHRESHOLD = 100; % threshold for stopping; in pixels/sec
 
@@ -182,6 +183,12 @@ cc = bwconncomp(stoppingFrames);
 stoppingPeriods = cellfun(@(x) [x(1), x(end)], cc.PixelIdxList, 'UniformOutput', false);
 % get the duration of each stopping period
 stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);
+
+locoFrameList = find(~stoppingFrames);
+meanSpeedLoco = nanmean(forwardSpeeds(locoFrameList));
+stdSpeedLoco = nanstd(forwardSpeeds(locoFrameList));
+
+
 
 
 %% Additional Metrics

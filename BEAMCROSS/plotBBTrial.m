@@ -1,5 +1,5 @@
 function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
-    mouseCentroids, forwardSpeeds,meanSpeed, traverseDuration, meanPosturalHeight,fileName)
+    mouseCentroids, forwardSpeeds,meanSpeed, traverseDuration, meanPosturalHeight,fileName, LOCOTHRESHOLD)
 % PLOTBBTRIAL  Creates a figure with subplots for:
 %   1) Movement trace + slip events
 %   2) Mouse 2D position, color-coded by forward speed, slip events indicated
@@ -38,7 +38,7 @@ function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas,
     NROWS = 3;
     NCOLS = 1;
 
-    LOCOTHRESHOLD = 100; % threshold for stopping; in pixels/sec
+   % LOCOTHRESHOLD = 200; % threshold for stopping; in pixels/sec
 
     % define periods of stopping, as continuous segments below LOCOTHRESHOLD
     stoppingFrames= forwardSpeeds < LOCOTHRESHOLD;
