@@ -163,8 +163,8 @@ barYCoordTopCrop = barTopCoord - topCameraEdgeY;
 [imHeight, imWidth, nFrames] = size(croppedVideo);
 
 %% --- Track the Mouse in the Cropped Video ---
-[mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, meanPosturalHeight, ...
-    mouseMaskMatrix, trackedVideo, croppedOriginalVideo, meanSpeedLoco, stdSpeedLoco] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE);
+[mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, meanPosturalHeight,stdPosturalHeight, ...
+    mouseMaskMatrix, trackedVideo, croppedOriginalVideo, meanSpeedLoco, stdSpeedLoco] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE, barYCoordTopCrop );
 
 % Flip mouseCentroids' Y so that top=0 => bar is near zero, easier to
 % visualize
@@ -209,6 +209,9 @@ R.slipEventPeaks       = slipEventPeaks;
 R.nSlips               = length(slipEventStarts);
 R.totalSlipMagnitude   = sum(slipEventAreas);
 R.meanSlipAmplitude    = mean(slipEventAreas);
+
+R.meanPosturalHeight = meanPosturalHeight;
+R.stdPosturalHeight = stdPosturalHeight;
 
 R.nStops = length(stoppingPeriods);
 R.stoppingPeriods = stoppingPeriods;

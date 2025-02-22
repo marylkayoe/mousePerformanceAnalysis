@@ -1,5 +1,5 @@
-function [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, meanPosturalHeight, ...
-    mouseMaskMatrix, trackedVideo, croppedVideo, meanSpeedLoco, stdSpeedLoco] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE)
+function [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, meanPosturalHeight, stdPosturalHeight, ...
+    mouseMaskMatrix, trackedVideo, croppedVideo, meanSpeedLoco, stdSpeedLoco] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE, barYcoord)
 % TRACKMOUSEONBEAM  Detect and track the mouse in a cropped grayscale video of a balance beam.
 %
 %   [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, meanPosturalHeight, ...
@@ -193,6 +193,7 @@ stdSpeedLoco = nanstd(forwardSpeeds(locoFrameList));
 
 %% Additional Metrics
 traverseDuration   = length(forwardSpeeds) / FRAMERATE;
-meanPosturalHeight = nanmean(mouseCentroids(:, 2));
+meanPosturalHeight = barYcoord - nanmean(mouseCentroids(locoFrameList, 2));
+stdPosturalHeight  = nanstd(mouseCentroids(locoFrameList, 2));
 
 end
