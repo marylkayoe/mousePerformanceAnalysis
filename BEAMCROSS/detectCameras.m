@@ -23,6 +23,11 @@ levels = multithresh(meanImage, 2);
 segMeanFrame = imquantize(meanImage, levels);
 % Cameras should appear as a distinct (lowest) level if they’re black.
 
+bw = imbinarize(meanImage, 'adaptive', 'ForegroundPolarity', 'dark');
+bw = imclose(bw, strel('rectangle', [5,5])); % Fill small gaps
+bw = imopen(bw, strel('rectangle', [3,3]));  % Remove small noise
+
+
 %% --- Horizontal analysis ---------------------------------------
 % sum across columns -> horizontalProfile
 horizontalProfile = sum(segMeanFrame, 1);
@@ -50,19 +55,48 @@ camRangeX = camLeftCoord:camRightCoord;
 %crop the image to the horizontal range of cameras
 segMeanFrame = segMeanFrame(:, camRangeX);
 
-%% --- Vertical analysis -----------------------------------------
-verticalProfile = sum(segMeanFrame, 2);
-verticalProfileDiff = diff(verticalProfile);
-edgeDetectThreshold = std(verticalProfileDiff) * 3;
+bw = bw(:, camRangeX);
 
-% find the bottom position of the top camera rectangle in Y
-[pks, locs, widths, p] = findpeaks(verticalProfileDiff, 'MinPeakHeight',edgeDetectThreshold);
-% top camera bottom edge
-topCameraEdgeY = locs(1);
 
-[pks, locs, widths, p] = findpeaks(-verticalProfileDiff, 'MinPeakHeight',edgeDetectThreshold);
-% bottom camera top edge
-bottomCameraEdgeY = locs(end);
+stats = regionprops(~bw, 'BoundingBox', 'Area', 'Extent');
+validRects = [];
+minArea = 1000; % NEED TO CALCULATE THIS instead of fixed value
+for k = 1:length(stats)
+    bb = stats(k).BoundingBox;
+    extent = stats(k).Area / (bb(3) * bb(4));
+
+    if stats(k).Area > minArea && extent > 0.8
+        validRects = [validRects; bb];  % Store detected rectangles
+    end
+end
+
+validRects = round(validRects);
+
+nRectangles = height(validRects);
+
+if nRectangles ~= 2
+    warning('regionProps camera detection failed, proceeding with edges');
+    %% --- Vertical analysis -----------------------------------------
+    verticalProfile = sum(segMeanFrame, 2);
+    verticalProfileDiff = diff(verticalProfile);
+    edgeDetectThreshold = std(verticalProfileDiff) * 3;
+
+    % find the bottom position of the top camera rectangle in Y
+    [pks, locs, widths, p] = findpeaks(verticalProfileDiff, 'MinPeakHeight',edgeDetectThreshold);
+    % top camera bottom edge
+    topCameraEdgeY = locs(1);
+
+    [pks, locs, widths, p] = findpeaks(-verticalProfileDiff, 'MinPeakHeight',edgeDetectThreshold);
+    % bottom camera top edge
+    bottomCameraEdgeY = locs(end);
+
+else
+    topCameraEdgeY = validRects(1, 2) + validRects(1, 4);
+
+    bottomCameraEdgeY = validRects(2, 2);
+end
+
+
 
 end
 

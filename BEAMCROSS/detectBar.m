@@ -51,7 +51,8 @@ MAKEDEBUGPLOT = 1; % show where bar is detected; make this 0 to disable
     cropBarImage = barImage(:, camRangeX);
 
     %% 2) Remove the top and bottom camera rectangles
-    [topCameraEdgeY, bottomCameraEdgeY] = detectCameras(cropBarImage);
+    %[topCameraEdgeY, bottomCameraEdgeY] = detectCameras(cropBarImage);
+     [topCameraEdgeY, bottomCameraEdgeY] = detectCameras(barImage);
     topCameraEdgeY    = topCameraEdgeY + 5;  % buffer
     bottomCameraEdgeY = bottomCameraEdgeY - 5;
     cropBarImage      = cropBarImage(topCameraEdgeY:bottomCameraEdgeY, :);
