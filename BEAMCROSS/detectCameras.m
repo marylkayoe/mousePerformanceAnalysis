@@ -66,14 +66,23 @@ function [topCameraEdgeY, bottomCameraEdgeY] = detectCameras(meanImage)
     horizontalProfileDiff = diff(horizontalProfile);
     edgeDetectThreshold = std(horizontalProfileDiff) * 2;
     
-    % Identify right boundary of camera zone
-    [~, locs, ~, ~] = findpeaks(horizontalProfileDiff, 'MinPeakHeight', edgeDetectThreshold);
-    camRightCoord = ifelse(isempty(locs), length(horizontalProfileDiff), locs(end));
+% Identify right boundary of camera zone
+[~, locs, ~, ~] = findpeaks(horizontalProfileDiff, 'MinPeakHeight', edgeDetectThreshold);
+if isempty(locs)
+    camRightCoord = length(horizontalProfileDiff);
+else
+    camRightCoord = locs(end);
+end
+
     
-    % Identify left boundary of camera zone
-    [~, locs, ~, ~] = findpeaks(-horizontalProfileDiff, 'MinPeakHeight', edgeDetectThreshold);
-    camLeftCoord = ifelse(isempty(locs), 1, locs(1));
-    
+% Identify left boundary of camera zone
+[~, locs, ~, ~] = findpeaks(-horizontalProfileDiff, 'MinPeakHeight', edgeDetectThreshold);
+if isempty(locs)
+    camLeftCoord = 1;
+else
+    camLeftCoord = locs(1);
+end
+
     % Define camera region in X-range
     camRangeX = camLeftCoord:camRightCoord;
     
