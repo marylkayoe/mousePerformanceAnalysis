@@ -111,8 +111,8 @@ if USENEWVER
 
     barBottomYCoord = barBottomLoc(end);
     % add a buffer to the top and bottom of the bar
-    barBottomYCoord = barBottomYCoord + 5; % add 5 pixels
-    barTopYCoord = barTopYCoord - 5; % subtract 5 pixels
+    barBottomYCoord = barBottomYCoord + 2; % add 2 pixels
+    barTopYCoord = barTopYCoord - 4; % subtract 5 pixels
 
     % calculate the bar width as the average of the two tape marks
     barWidth = round((barBottomYCoord - barTopYCoord));

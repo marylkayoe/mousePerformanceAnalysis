@@ -109,7 +109,7 @@ end
     % Some axis labeling
     xlabel('Position along bar (px)');
     ylabel('Height above bar (px)');
-    ylim([(max(mouseCentroids(:, 2))/2), max(mouseCentroids(:, 2))]);  
+    ylim([0, max(mouseCentroids(:, 2))+5]);  
 
     % Adjust color limits to highlight speed range
     caxis([0, max(forwardSpeeds)]);

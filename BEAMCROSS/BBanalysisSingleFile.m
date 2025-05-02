@@ -23,6 +23,9 @@ function R = BBanalysisSingleFile(dataPath, fileName, varargin)
 %   'BARWIDTH'      : (numeric) Width of the bar in pixels. If empty, it will be detected. []
 %   'mouseStartPosition' : "L" or "R", indicating the mouse's starting position on the beam. 
 %                   if not given, we will assume that trials with CAM1 it's L, and CAM2 it's R.
+%   'meanImageFrames' : array of frame indices to use for mean image calculation. default: [1:5]. In case there's a lot of movement at the beginning of the video, it might be better to use a different set of frames, eg last 5 frames.
+%   'SHOWUNDERBARVIDEO' : show the video of movement under bar, if you want
+%   to check the limits; defaul is false
 %
 % OUTPUT:
 %   R : A structure with fields:
@@ -79,6 +82,8 @@ addParameter(p, 'BARPOSITION', [], @isnumeric); % vertical position of the bar, 
 addParameter(p, 'BARWIDTH', 20, @isnumeric); % thickness of the bar, if empty, it will be detected
 % Note: both BARPOSITION and BARTHICKNESS must be provided if one is provided
 addParameter(p, 'mouseStartPosition', [], @(x) ischar(x) || isempty(x)); % "L" or "R", if empty, it will be detected
+addParameter(p, 'meanImageFrames', 1:5, @(x) isnumeric(x) && all(x > 0)); % frames to use for mean image calculation
+addParameter(p, 'SHOWUNDERBARVIDEO', false, @islogical); % show the video of movement under bar
 
 
 parse(p, dataPath, fileName, varargin{:});
@@ -94,6 +99,8 @@ MOUSESIZETH   = p.Results.MOUSESIZETHRESHOLD;
 BARPOSITION   = p.Results.BARPOSITION;
 BARWIDTH      = p.Results.BARWIDTH;
 mouseStartPosition = p.Results.mouseStartPosition;
+meanImageFrames = p.Results.meanImageFrames;
+SHOWUNDERBARVIDEO = p.Results.SHOWUNDERBARVIDEO;
 
 %% --- Check File Existence & Validity ---
 fullFilePath = fullfile(dataPath, fileName);
@@ -115,6 +122,13 @@ end
 % readVideoIntoMatrix is assumed to return (videoMatrix, frameRate).
 % frameRate is automatically detected from the file if possible.
 [videoMatrix, frameRate] = readVideoIntoMatrix(fullFilePath, 'enhanceContrast', false);
+
+% if videoMatrix is empty, it means the video could not be read
+if isempty(videoMatrix)
+    warning('Failed to read video file: %s\nAborting...', fullFilePath);
+    R = -1;
+    return;
+end
 
 % If readVideoIntoMatrix fails to detect, we fallback on user param:
 if isempty(frameRate) || (frameRate <= 0)
@@ -146,29 +160,28 @@ end
 
 % 0 crop top 15%
 % this is because of a shadow sometimes seen at the top of the image
-videoMatrix = videoMatrix( round(size(videoMatrix, 1) * 0.15):end, :, :);
+videoMatrix = videoMatrix(round(size(videoMatrix, 1) * 0.15):end, :, :);
 
 
-% 1) Compute mean frame (optionally from the 5 first frames)
-meanFrame = getMeanFrame(videoMatrix(:, :, 1:5));
-%meanFrame = getMeanFrame(videoMatrix);
+% 1) Compute mean frame (optionally from the frames specified in meanImageFrames (default: 1:5))
+% if there's a lot of movement at the beginning of the video, it might be better to use a different set of frames, eg last 5 frames.
+meanFrame = getMeanFrame(videoMatrix(:, :, meanImageFrames));
 
-% 2) Crop horizontally by 5%
+
+% 2) Crop horizontally by 5% - this removes the black tape marks that 
+% confuse camera detection
 leftCropIndex  = round(size(meanFrame, 2) * 0.05);
 rightCropIndex = round(size(meanFrame, 2) * 0.95);
 meanFrameCroppedHoriz = meanFrame(:, leftCropIndex:rightCropIndex);
 
 % 3) Identify the camera rectangles (top & bottom)
-[topCameraEdgeY, bottomCameraEdgeY] = detectCameras(meanFrameCroppedHoriz);
+%[topCameraEdgeY, bottomCameraEdgeY] = detectCameras(meanFrameCroppedHoriz);
 
-% These should define the black camera boxes at the top & bottom of the image.
+% These should define the edges black camera boxes at the top & bottom of the image.
 
 % 4) Locate the balance bar in this horizontally cropped mean frame if not provided
 if isempty(BARPOSITION)
-
-%[barTopCoord, barThickness] = detectBar(meanFrameCroppedHoriz);
-[barTopCoord, barThickness] = detectBar(meanFrame, mouseStartPosition, 'MAKEDEBUGPLOT', true, 'USENEWVER', true);
-
+    [barTopCoord, barThickness] = detectBar(meanFrame, mouseStartPosition, 'MAKEDEBUGPLOT', true, 'USENEWVER', true);
 else
     barTopCoord = BARPOSITION;
     barThickness = BARWIDTH;
@@ -176,14 +189,16 @@ end
 % barYCoordTop is the vertical coordinate of the bar's top edge,
 % and barWidth is its estimated thickness.
 
-% 5) Crop the original video vertically using the camera edges
+% 5) Crop the original video vertically
+% the bar thickness is the metric. 4x bar thickness above the bartop, 4x below
 %croppedVideo = videoMatrix(topCameraEdgeY : bottomCameraEdgeY, :, :);
-croppedVideo = videoMatrix(topCameraEdgeY : barTopCoord + barThickness*4, :, :);
+%croppedVideo = videoMatrix(topCameraEdgeY : barTopCoord + barThickness*4, :, :);
+croppedVideo = videoMatrix(barTopCoord-barThickness*3 : barTopCoord + barThickness*3, :, :);
 
 % The bar's top coordinate in this newly cropped system is offset:
-barYCoordTopCrop = barTopCoord - topCameraEdgeY;
+barYCoordTopCrop = barThickness*3;
 % new size of the final cropped video
-[imHeight, imWidth, nFrames] = size(croppedVideo);
+[imHeight, ~, ~] = size(croppedVideo);
 
 %% --- Track the Mouse in the Cropped Video ---
 [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, meanPosturalHeight,stdPosturalHeight, ...
@@ -196,9 +211,13 @@ mouseCentroids(:, 2) = mouseCentroids(:,2) - barYCoordTopCrop; % shift so bar is
 
 %% --- Define "Under the Bar" Region ---
 % We'll examine slip movements in a band below the bar region, e.g., barY + half bar thickness
-underBarStart = round(barYCoordTopCrop + barThickness/2);
-underBarEnd   = round(barYCoordTopCrop + barThickness*2);
+underBarStart = round(barYCoordTopCrop + barThickness/2)+5;
+underBarEnd   = round(barYCoordTopCrop + barThickness*2)+5;
 underBarCroppedVideo = trackedVideo( underBarStart:underBarEnd, :, : );
+
+if SHOWUNDERBARVIDEO
+    displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo');
+end
 
 %% --- Probability Mask for Mouse Columns ---
 % we weight them by how much of "mouse" each column has. So tail will not

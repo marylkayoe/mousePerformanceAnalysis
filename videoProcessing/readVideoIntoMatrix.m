@@ -1,4 +1,4 @@
-function [videoMatrix frameRate] = readVideoIntoMatrix(filePath, varargin)
+function [videoMatrix, frameRate] = readVideoIntoMatrix(filePath, varargin)
     % reads a .mp4 file in and returns it as an uint matrix (grayscale)
     % filePath: path to the video file
 
@@ -6,6 +6,9 @@ function [videoMatrix frameRate] = readVideoIntoMatrix(filePath, varargin)
     %  'scaleFactor': a scalar value to scale the video by. Default is 1. scaleFactor < 1 will reduce the video size
     %  'enhanceContrast': a boolean value to enhance the contrast of the video. Default is false
     % 'removeGlove': a boolean value to remove the blue color channel from the video. Default is false
+
+    % if the reading of the video fails, it will return an empty matrix
+    % and a warning message
 
     % parse the input arguments
     p = inputParser;
