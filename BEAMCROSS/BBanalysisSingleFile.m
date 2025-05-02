@@ -19,6 +19,10 @@ function R = BBanalysisSingleFile(dataPath, fileName, varargin)
 %                     movement trace. [2]
 %   'LOCOTHRESHOLD' : (numeric) Threshold for stopping detection in pixels/sec. [100]
 %   'MOUSESIZETHRESHOLD' : (numeric) Minimum fraction of frame area (0-100) for mouse, used for tracking. [5] 
+%   'BARPOSITION'   : (numeric) Vertical position of the bar in pixels. If empty, it will be detected. []
+%   'BARWIDTH'      : (numeric) Width of the bar in pixels. If empty, it will be detected. []
+%   'mouseStartPosition' : "L" or "R", indicating the mouse's starting position on the beam. 
+%                   if not given, we will assume that trials with CAM1 it's L, and CAM2 it's R.
 %
 % OUTPUT:
 %   R : A structure with fields:
@@ -74,6 +78,8 @@ addParameter(p, 'MOUSESIZETHRESHOLD', 5, @isnumeric);
 addParameter(p, 'BARPOSITION', [], @isnumeric); % vertical position of the bar, if empty, it will be detected
 addParameter(p, 'BARWIDTH', 20, @isnumeric); % thickness of the bar, if empty, it will be detected
 % Note: both BARPOSITION and BARTHICKNESS must be provided if one is provided
+addParameter(p, 'mouseStartPosition', [], @(x) ischar(x) || isempty(x)); % "L" or "R", if empty, it will be detected
+
 
 parse(p, dataPath, fileName, varargin{:});
 
@@ -86,7 +92,8 @@ SLIPTHRESHOLD = p.Results.SLIPTHRESHOLD;
 LOCOTHRESHOLD = p.Results.LOCOTHRESHOLD;
 MOUSESIZETH   = p.Results.MOUSESIZETHRESHOLD;
 BARPOSITION   = p.Results.BARPOSITION;
-BARWIDTH = p.Results.BARWIDTH;
+BARWIDTH      = p.Results.BARWIDTH;
+mouseStartPosition = p.Results.mouseStartPosition;
 
 %% --- Check File Existence & Validity ---
 fullFilePath = fullfile(dataPath, fileName);
@@ -114,6 +121,19 @@ if isempty(frameRate) || (frameRate <= 0)
     frameRate = FRAMERATE;
 end
 FRAMERATE = floor(frameRate);
+
+% if mouseStartPosition is not given, we will assume that trials with CAM1 it's L, and CAM2 it's R.
+if isempty(mouseStartPosition)
+    if contains(fileName, 'CAM1')
+        mouseStartPosition = 'L';
+    elseif contains(fileName, 'CAM2')
+        mouseStartPosition = 'R';
+    else
+        mouseStartPosition = ''; % default to L if not specified
+    end
+end
+
+
 %% ===========================================================
 %   CROPPING & LAYOUT DETECTION (where we expect the beam and mouse to be)
 %   1) Compute a mean frame to see the static background.
@@ -147,7 +167,7 @@ meanFrameCroppedHoriz = meanFrame(:, leftCropIndex:rightCropIndex);
 if isempty(BARPOSITION)
 
 %[barTopCoord, barThickness] = detectBar(meanFrameCroppedHoriz);
-[barTopCoord, barThickness] = detectBar(meanFrame, 'MAKEDEBUGPLOT', true, 'USENEWVER', true);
+[barTopCoord, barThickness] = detectBar(meanFrame, mouseStartPosition, 'MAKEDEBUGPLOT', true, 'USENEWVER', true);
 
 else
     barTopCoord = BARPOSITION;
