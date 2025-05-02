@@ -1,9 +1,13 @@
-function [barYCoord, barWidth] = detectBar(barImage)
+function [barYCoord, barWidth] = detectBar(barImage, varargin)
     % Detect the top edge of the balance bar in an image.
     %
     %   [barYCoord, barWidth] = detectBar(barImage)
     %   INPUT:
     %       barImage - Grayscale (uint8) image containing the balance bar and cameras.
+    %       varargin - Optional parameters:
+    %           'MAKEDEBUGPLOT' - Enable debugging plots (default: false).
+    %           'USENEWVER' - Use the new detection method (default: true).
+    %           'barTapeWidth' - Percentage of image width for bar tape width (default: 5%).
     %
     %   OUTPUT:
     %       barYCoord - The row index of the bar’s top edge.
@@ -17,8 +21,139 @@ function [barYCoord, barWidth] = detectBar(barImage)
 %     4) Identify the top-most horizontal structure spanning most of the width.
 %     5) If the structure is not found, default to an estimated position based on changes in image brightness.
 
-    MAKEDEBUGPLOT = 1; % Enable debugging plots
+% 
+
+  % parse input arguments
+    p = inputParser;
+    addParameter(p, 'MAKEDEBUGPLOT', false, @(x) islogical(x));
+    addParameter(p, 'USENEWVER', true, @(x) islogical(x));
+    addParameter(p, 'barTapeWidth', 5, @(x) isnumeric(x) && x > 0 && x <= 10);
+    parse(p, varargin{:});
+    MAKEDEBUGPLOT = p.Results.MAKEDEBUGPLOT;
+    USENEWVER = p.Results.USENEWVER;
+    barTapeWidth = p.Results.barTapeWidth;
     
+
+    if USENEWVER
+        % in this version we detect the bar using a different method, based on the position of black
+        % tape marks at the beginning and end of bar. The tape marks are expected to be less than 5% 
+        % of the image width. 
+        % Logic is as follows:
+        % - defined windows at the beginning and end of the image where the tape marks are expected to be
+        % find peak of low intensity (should be center of black tape marks)
+        % find the top and bottom of the low intensity region, which should be the top and bottom of the bar
+        % also define the bar width as the width of the tape mark
+        % do this for both sides of the image and take the average
+        % of the two
+        % - if no tape marks are found, use the old method to detect the bar
+        % note: this method needs to receive the image without cropping the tape marks!
+
+        % 1. Define the tape-mark-window size and the regions for both sides
+
+        [imHeight, imWidth] = size(barImage);
+        tapeMarkWindowSize = round(imWidth * (barTapeWidth / 100));
+        
+        % Define left and right tape mark regions (horizontal)
+        leftTapeMarkRegion = 1:tapeMarkWindowSize;
+        rightTapeMarkRegion = imWidth-tapeMarkWindowSize+1:imWidth;
+
+        % calculate sum of rows in the left and right regions
+        leftRegionSum = sum(barImage(:, leftTapeMarkRegion), 2);
+        rightRegionSum = sum(barImage(:, rightTapeMarkRegion), 2);
+        % find the minimum value in the left and right regions
+        [minTapeValueLeft, leftMinIdx] = min(leftRegionSum);
+        [minTapeValueRight, rightMinIdx] = min(rightRegionSum);
+        % check that the minimum is lower than a threshold...
+ 
+        tapeIntensityThreshold = 100 * tapeMarkWindowSize;
+
+        if minTapeValueLeft > tapeIntensityThreshold && minTapeValueRight > tapeIntensityThreshold
+            % no tape mark found in the left region, use the old method
+            USENEWVER = false;
+            warning('No tape marks found in the left region, using old method to detect bar.');
+
+        else
+            % top of bar is the coordinate above the MinIdx at which the sum of the region is rapidly increasing
+            % bottom of bar is the coordinate below the MinIdx at which the sum of the region is rapidly increasing 
+            % (background is white behind the tape mark)
+            
+            %% left side
+
+            % find top of the bar
+            aboveBarSum = leftRegionSum(1:leftMinIdx);
+            leftRegionSumDiff = diff(aboveBarSum);
+            leftRegionSumDiff = medfilt1(leftRegionSumDiff, 5); % Apply median filtering
+            leftEdgeThreshold = std(leftRegionSumDiff) * 3;
+            % Identify top of the bar
+            [~, locsTopLeft, ~, ~] = findpeaks(-leftRegionSumDiff, 'MinPeakHeight', leftEdgeThreshold);
+            if isempty(locsTopLeft)
+                USENEWVER = false; % if no peaks are found, use the old method
+                warning('No peaks found in the top left region, using old method to detect bar.');
+            end
+            % find bottom of the bar; note that the bottom of the image is white, we need to look in the region below the that is not more than 10% of the image height
+            cropBelowBarHeight = round(imHeight * 0.1);
+            belowBarSum = leftRegionSum(leftMinIdx+1:min(leftMinIdx+cropBelowBarHeight, imHeight));
+            leftRegionSumDiff = diff(belowBarSum);
+            leftRegionSumDiff = medfilt1(leftRegionSumDiff, 5); % Apply median filtering
+            leftEdgeThreshold = std(leftRegionSumDiff) * 3;
+            % Identify bottom of the bar
+            [~, locsBottomLeft, ~, ~] = findpeaks(leftRegionSumDiff, 'MinPeakHeight', leftEdgeThreshold);
+            locsBottomLeft = locsBottomLeft + leftMinIdx;
+            if isempty(locsBottomLeft)
+                USENEWVER = false; % if no peaks are found, use the old method
+                warning('No peaks found in the bottom left region, using old method to detect bar.');
+            end
+
+
+            %% right side
+            % find top of the bar
+            aboveBarSum = rightRegionSum(1:rightMinIdx);
+            rightRegionSumDiff = diff(aboveBarSum);
+            rightRegionSumDiff = medfilt1(rightRegionSumDiff, 5); % Apply median filtering
+            rightEdgeThreshold = std(rightRegionSumDiff) * 3;
+            % Identify top of the bar
+            [~, locsTopRight, ~, ~] = findpeaks(-rightRegionSumDiff, 'MinPeakHeight', rightEdgeThreshold);
+            if isempty(locsTopRight)
+                USENEWVER = false; % if no peaks are found, use the old method
+                warning('No peaks found in the top right region, using old method to detect bar.');
+            end
+            % find bottom of the bar; note that the bottom of the image is white, we need to look in the region below the that is not more than 10% of the image height
+            cropBelowBarHeight = round(imHeight * 0.1);
+            belowBarSum = rightRegionSum(rightMinIdx+1:min(rightMinIdx+cropBelowBarHeight, imHeight));
+            rightRegionSumDiff = diff(belowBarSum);
+            rightRegionSumDiff = medfilt1(rightRegionSumDiff, 5); % Apply median filtering
+            rightEdgeThreshold = std(rightRegionSumDiff) * 3;
+            % Identify bottom of the bar
+            [~, locsBottomRight, ~, ~] = findpeaks(rightRegionSumDiff, 'MinPeakHeight', rightEdgeThreshold);
+              locsBottomRight = locsBottomRight + rightMinIdx;
+            if isempty(locsBottomRight)
+                USENEWVER = false; % if no peaks are found, use the old method
+                warning('No peaks found in the bottom right region, using old method to detect bar.');
+            end
+          
+            % calculate averages for the top and bottom of the bar
+            barTopYCoord = round((locsTopLeft(1) + locsTopRight(1)) / 2);
+        
+            barBottomYCoord = round((locsBottomLeft(end) + locsBottomRight(end)) / 2);
+            % add a buffer to the top and bottom of the bar
+            barBottomYCoord = barBottomYCoord + 5; % add 5 pixels 
+            barTopYCoord = barTopYCoord - 5; % subtract 5 pixels
+            
+            % calculate the bar width as the average of the two tape marks
+            barWidth = round((barBottomYCoord - barTopYCoord));
+            % check that the bar width is not more than 10% of the image height
+            if barWidth > imHeight * 0.1
+                USENEWVER = false; % if the bar width is too large, use the old method
+                warning('Bar width is too large, using old method to detect bar.');
+            end
+        end
+
+
+        cropBarImage = barImage(:, leftTapeMarkRegion);
+    end
+
+
+    if ~USENEWVER
     % Define bar width estimate as 5% of total image height
     BARWIDTHPERC = 5;
     [imHeight, imWidth] = size(barImage);
@@ -81,15 +216,25 @@ function [barYCoord, barWidth] = detectBar(barImage)
         barYCoord = round(validBars(1, 2)) + topCameraEdgeY; % Select topmost structure
     end
     
+    end % USEOLDVERSION
+
     %% Debugging Plot
     if MAKEDEBUGPLOT
         figure; imshow(cropBarImage, []);
         hold on;
+        if USENEWVER
+            plot([1, size(cropBarImage, 2)], [barTopYCoord, barTopYCoord], 'r', 'LineWidth', 2);
+            title(['Detected Bar TOP Position (based on tapes):', num2str(barTopYCoord)]);
+            barYCoord = barTopYCoord;
+        else
         plot([1, size(cropBarImage, 2)], [barYCoord-topCameraEdgeY, barYCoord-topCameraEdgeY], 'r', 'LineWidth', 2);
+        title(['Detected Bar TOP Position (old method):', num2str(barYCoord)]);
+        end
         hold off;
-        title(['Detected Bar TOP Position:', num2str(barYCoord)]);
+        
         drawnow;
     end
     
+
     end
     

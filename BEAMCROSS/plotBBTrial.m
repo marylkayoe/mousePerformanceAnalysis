@@ -57,7 +57,7 @@ end
 
     [stoppingFrames, stoppingPeriods] = detectStoppingOnBeam(forwardSpeeds, LOCOTHRESHOLD);
     
-    % =========== SUBPLOT #1: Movement Trace ===========================
+    % =========== SUBPLOT #1: Movement Under Bar Trace ===========================
     subplot(NROWS,NCOLS,1);  % top subplot
     hold on;
     % Plot the movement trace vs time (or vs frame #)
@@ -83,11 +83,11 @@ end
     ylabel('Movement (pixels)');
     grid on;
 
-    % =========== SUBPLOT #2: Mouse 2D Position ========================
+    % =========== SUBPLOT #2: Mouse 2D Position with speed ========================
     subplot(NROWS,NCOLS,2);  
     hold on;
-    
-    % Plot the mouse XY path
+
+    % Plot the mouse XY path, note y is with respect to bar
     plot(mouseCentroids(:,1), mouseCentroids(:,2), 'LineWidth',2, ...
          'Color',[0.3 0.3 0.3], 'HandleVisibility','off');
     
@@ -105,17 +105,18 @@ end
                  slipEventAreas*20, 'ko', 'filled');
     end
 
+    
     % Some axis labeling
     xlabel('Position along bar (px)');
     ylabel('Height above bar (px)');
-    ylim([0, 40]);  
+    ylim([(max(mouseCentroids(:, 2))/2), max(mouseCentroids(:, 2))]);  
 
     % Adjust color limits to highlight speed range
     caxis([0, max(forwardSpeeds)]);
 
     % legend for the markers
     if ~isempty(slipEventStarts)
-    legend('Slip events (size indicates magnitude)', 'Location', 'best');
+    legend({'Slip events (size indicates magnitude)'}, 'Location', 'best');
     end
 
  

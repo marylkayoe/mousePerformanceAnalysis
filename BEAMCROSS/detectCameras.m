@@ -97,11 +97,24 @@ end
     
     % Identify bottom of the top camera
     [~, locs, ~, ~] = findpeaks(verticalProfileDiff, 'MinPeakHeight', edgeDetectThreshold);
+    if isempty(locs)
+        % define fallback value
+        topCameraEdgeY = 1;
+    else
+
     topCameraEdgeY = locs(1);
+    end
     
     % Identify top of the bottom camera
     [~, locs, ~, ~] = findpeaks(-verticalProfileDiff, 'MinPeakHeight', edgeDetectThreshold);
-    bottomCameraEdgeY = locs(end);
+    if isempty (locs)
+  
+        bottomCameraEdgeY = length(verticalProfileDiff);
+        
+    else
+
+        bottomCameraEdgeY = locs(end);
     
+    end
     end
     

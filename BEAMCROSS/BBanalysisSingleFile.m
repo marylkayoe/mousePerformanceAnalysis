@@ -140,12 +140,15 @@ meanFrameCroppedHoriz = meanFrame(:, leftCropIndex:rightCropIndex);
 
 % 3) Identify the camera rectangles (top & bottom)
 [topCameraEdgeY, bottomCameraEdgeY] = detectCameras(meanFrameCroppedHoriz);
+
 % These should define the black camera boxes at the top & bottom of the image.
 
 % 4) Locate the balance bar in this horizontally cropped mean frame if not provided
 if isempty(BARPOSITION)
 
-[barTopCoord, barThickness] = detectBar(meanFrameCroppedHoriz);
+%[barTopCoord, barThickness] = detectBar(meanFrameCroppedHoriz);
+[barTopCoord, barThickness] = detectBar(meanFrame, 'MAKEDEBUGPLOT', true, 'USENEWVER', true);
+
 else
     barTopCoord = BARPOSITION;
     barThickness = BARWIDTH;
