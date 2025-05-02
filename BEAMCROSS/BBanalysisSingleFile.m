@@ -176,8 +176,8 @@ mouseCentroids(:, 2) = mouseCentroids(:,2) - barYCoordTopCrop; % shift so bar is
 
 %% --- Define "Under the Bar" Region ---
 % We'll examine slip movements in a band below the bar region, e.g., barY + half bar thickness
-underBarStart = barYCoordTopCrop + barThickness/2;
-underBarEnd   = barYCoordTopCrop + barThickness*2;
+underBarStart = round(barYCoordTopCrop + barThickness/2);
+underBarEnd   = round(barYCoordTopCrop + barThickness*2);
 underBarCroppedVideo = trackedVideo( underBarStart:underBarEnd, :, : );
 
 %% --- Probability Mask for Mouse Columns ---
