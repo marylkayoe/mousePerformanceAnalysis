@@ -130,8 +130,8 @@ videoMatrix = videoMatrix( round(size(videoMatrix, 1) * 0.15):end, :, :);
 
 
 % 1) Compute mean frame (optionally from the 5 first frames)
-%meanFrame = getMeanFrame(videoMatrix(:, :, 1:5));
-meanFrame = getMeanFrame(videoMatrix);
+meanFrame = getMeanFrame(videoMatrix(:, :, 1:5));
+%meanFrame = getMeanFrame(videoMatrix);
 
 % 2) Crop horizontally by 5%
 leftCropIndex  = round(size(meanFrame, 2) * 0.05);

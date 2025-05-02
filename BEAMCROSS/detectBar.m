@@ -83,7 +83,7 @@ function [barYCoord, barWidth] = detectBar(barImage, varargin)
             aboveBarSum = leftRegionSum(1:leftMinIdx);
             leftRegionSumDiff = diff(aboveBarSum);
             leftRegionSumDiff = medfilt1(leftRegionSumDiff, 5); % Apply median filtering
-            leftEdgeThreshold = std(leftRegionSumDiff) * 3;
+            leftEdgeThreshold = std(leftRegionSumDiff) * 2;
             % Identify top of the bar
             [~, locsTopLeft, ~, ~] = findpeaks(-leftRegionSumDiff, 'MinPeakHeight', leftEdgeThreshold);
             if isempty(locsTopLeft)
@@ -95,7 +95,7 @@ function [barYCoord, barWidth] = detectBar(barImage, varargin)
             belowBarSum = leftRegionSum(leftMinIdx+1:min(leftMinIdx+cropBelowBarHeight, imHeight));
             leftRegionSumDiff = diff(belowBarSum);
             leftRegionSumDiff = medfilt1(leftRegionSumDiff, 5); % Apply median filtering
-            leftEdgeThreshold = std(leftRegionSumDiff) * 3;
+            leftEdgeThreshold = std(leftRegionSumDiff) * 2;
             % Identify bottom of the bar
             [~, locsBottomLeft, ~, ~] = findpeaks(leftRegionSumDiff, 'MinPeakHeight', leftEdgeThreshold);
             locsBottomLeft = locsBottomLeft + leftMinIdx;
@@ -110,7 +110,7 @@ function [barYCoord, barWidth] = detectBar(barImage, varargin)
             aboveBarSum = rightRegionSum(1:rightMinIdx);
             rightRegionSumDiff = diff(aboveBarSum);
             rightRegionSumDiff = medfilt1(rightRegionSumDiff, 5); % Apply median filtering
-            rightEdgeThreshold = std(rightRegionSumDiff) * 3;
+            rightEdgeThreshold = std(rightRegionSumDiff) * 2;
             % Identify top of the bar
             [~, locsTopRight, ~, ~] = findpeaks(-rightRegionSumDiff, 'MinPeakHeight', rightEdgeThreshold);
             if isempty(locsTopRight)
@@ -122,7 +122,7 @@ function [barYCoord, barWidth] = detectBar(barImage, varargin)
             belowBarSum = rightRegionSum(rightMinIdx+1:min(rightMinIdx+cropBelowBarHeight, imHeight));
             rightRegionSumDiff = diff(belowBarSum);
             rightRegionSumDiff = medfilt1(rightRegionSumDiff, 5); % Apply median filtering
-            rightEdgeThreshold = std(rightRegionSumDiff) * 3;
+            rightEdgeThreshold = std(rightRegionSumDiff) * 2;
             % Identify bottom of the bar
             [~, locsBottomRight, ~, ~] = findpeaks(rightRegionSumDiff, 'MinPeakHeight', rightEdgeThreshold);
               locsBottomRight = locsBottomRight + rightMinIdx;
