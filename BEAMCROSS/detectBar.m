@@ -85,11 +85,11 @@ if USENEWVER
     aboveBarSumDiff = medfilt1(aboveBarSumDiff, 5); % Apply median filtering
     edgeThreshold = std(aboveBarSumDiff) * 2;
 
-    % Identify top of the bar
     [~, barTopLoc, ~, ~] = findpeaks(-aboveBarSumDiff, 'MinPeakHeight', edgeThreshold);
     if isempty(barTopLoc)
-        USENEWVER = false; % if no peaks are found, use the old method
-        warning('No peaks found in the top left region, using old method to detect bar.');
+       
+        warning('No peaks found in the top region, defaulting to fixed value (10 px above min).');
+        barTopLoc = tapeMinIndex - 10; % default to 10 pixels above the min index
     end
     % find bottom of the bar; note that the bottom of the image is white, we need to look in the region below the that is not more than 10% of the image height
     cropBelowBarHeight = round(imHeight * 0.1);
@@ -102,8 +102,9 @@ if USENEWVER
     [~, barBottomLoc, ~, ~] = findpeaks(belowBarSumDiff, 'MinPeakHeight', edgeThreshold);
     barBottomLoc = barBottomLoc + tapeMinIndex;
     if isempty(barBottomLoc)
-        USENEWVER = false; % if no peaks are found, use the old method
-        warning('No peaks found in the bottom left region, using old method to detect bar.');
+
+        warning('No peaks found in the bottom left region, defaulting to fixed value (10 px below min).');
+        barBottomLoc = tapeMinIndex + 10; % default to 10 pixels below the min index
     end
 
     % calculate averages for the top and bottom of the bar
@@ -118,12 +119,10 @@ if USENEWVER
     barWidth = round((barBottomYCoord - barTopYCoord));
     % check that the bar width is not more than 10% of the image height
     if barWidth > imHeight * 0.1
-        USENEWVER = false; % if the bar width is too large, use the old method
-        warning('Bar width is too large, using old method to detect bar.');
+
+        warning('Bar width is too large, defaulting to 20 px.');
+        barWidth = 20; % default to 20 pixels
     end
-
-
-
     cropBarImage = barImage(:, tapeMarkRegion);
 end
 

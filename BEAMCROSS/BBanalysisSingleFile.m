@@ -55,9 +55,6 @@ function R = BBanalysisSingleFile(dataPath, fileName, varargin)
 %   BBtrackingMouse, getMouseProbOnBeam, quantifyWeightedMovement,
 %   detectSlipsFromMovement, annotateVideoMatrix, plotBBtrial,
 %   displayBehaviorVideoMatrix, ...
-
-% TODO: add option to give the vertical position of the bar as an input
-% parameter
 %
 % -------------------------------------------------------------------------
 
@@ -73,7 +70,7 @@ addRequired(p, 'dataPath', @ischar);
 addRequired(p, 'fileName', @ischar);
 
 addParameter(p, 'MAKEPLOT', true, @islogical);
-addParameter(p, 'FRAMERATE', 160, @isnumeric);
+addParameter(p, 'FRAMERATE', 160, @isnumeric); % used only if readVideoIntoMatrix fails to find it
 addParameter(p, 'PIXELSIZE', 1,  @isnumeric);
 addParameter(p, 'SLIPTHRESHOLD', 2, @isnumeric);
 addParameter(p, 'LOCOTHRESHOLD', 100, @isnumeric);
@@ -137,6 +134,7 @@ end
 FRAMERATE = floor(frameRate);
 
 % if mouseStartPosition is not given, we will assume that trials with CAM1 it's L, and CAM2 it's R.
+% so, in CAM1 view the mouse goes from left to right, and in CAM2 view it goes from right to left.
 if isempty(mouseStartPosition)
     if contains(fileName, 'CAM1')
         mouseStartPosition = 'L';
@@ -151,33 +149,22 @@ end
 %% ===========================================================
 %   CROPPING & LAYOUT DETECTION (where we expect the beam and mouse to be)
 %   1) Compute a mean frame to see the static background.
-%   2) Crop horizontally by ~5% on left & right to remove black edges (for beam detection).
-%   3) Identify top & bottom camera edges in that horizontally cropped frame.
-%   4) Find the bar's vertical position (top Y) & width in that same frame.
-%   5) Finally, crop the original video in vertical dimension to isolate the region
-%      between topCameraEdgeY and bottomCameraEdgeY.
+%   2) Find the bar's vertical position (top Y) & width in that same frame.
+%   5) Crop the original video to 3x the bar thickness above and below the bar.
+%   6) Track the mouse in the cropped video, detecting its centroid and speed.
+%   7) Define the "under the bar" region for slip detection.
+%   8) Movement is computed in this region, weighted by the mouse's position above the movement
+
 %% ===========================================================
 
 % 0 crop top 15%
-% this is because of a shadow sometimes seen at the top of the image
+% this is because of a shadow sometimes seen at the top of the image (shadow of the hand)
 videoMatrix = videoMatrix(round(size(videoMatrix, 1) * 0.15):end, :, :);
 
 
-% 1) Compute mean frame (optionally from the frames specified in meanImageFrames (default: 1:5))
+% 1) Compute mean frame from the frames specified in meanImageFrames (default: 1:5)
 % if there's a lot of movement at the beginning of the video, it might be better to use a different set of frames, eg last 5 frames.
 meanFrame = getMeanFrame(videoMatrix(:, :, meanImageFrames));
-
-
-% 2) Crop horizontally by 5% - this removes the black tape marks that 
-% confuse camera detection
-leftCropIndex  = round(size(meanFrame, 2) * 0.05);
-rightCropIndex = round(size(meanFrame, 2) * 0.95);
-meanFrameCroppedHoriz = meanFrame(:, leftCropIndex:rightCropIndex);
-
-% 3) Identify the camera rectangles (top & bottom)
-%[topCameraEdgeY, bottomCameraEdgeY] = detectCameras(meanFrameCroppedHoriz);
-
-% These should define the edges black camera boxes at the top & bottom of the image.
 
 % 4) Locate the balance bar in this horizontally cropped mean frame if not provided
 if isempty(BARPOSITION)
@@ -190,9 +177,7 @@ end
 % and barWidth is its estimated thickness.
 
 % 5) Crop the original video vertically
-% the bar thickness is the metric. 4x bar thickness above the bartop, 4x below
-%croppedVideo = videoMatrix(topCameraEdgeY : bottomCameraEdgeY, :, :);
-%croppedVideo = videoMatrix(topCameraEdgeY : barTopCoord + barThickness*4, :, :);
+
 croppedVideo = videoMatrix(barTopCoord-barThickness*3 : barTopCoord + barThickness*3, :, :);
 
 % The bar's top coordinate in this newly cropped system is offset:
@@ -210,7 +195,9 @@ mouseCentroids(:, 2) = imHeight - mouseCentroids(:, 2) + 1; % invert vertically
 mouseCentroids(:, 2) = mouseCentroids(:,2) - barYCoordTopCrop; % shift so bar is at ~0
 
 %% --- Define "Under the Bar" Region ---
-% We'll examine slip movements in a band below the bar region, e.g., barY + half bar thickness
+% We'll examine slip movements in a band below the bar region
+% start: a bit below the midpoint of the bar
+% end: 2x the bar thickness below the bar (+5 pixels)
 underBarStart = round(barYCoordTopCrop + barThickness/2)+5;
 underBarEnd   = round(barYCoordTopCrop + barThickness*2)+5;
 underBarCroppedVideo = trackedVideo( underBarStart:underBarEnd, :, : );
@@ -224,7 +211,7 @@ end
 % count so much. 
 [normMouseProbVals, ~] = computeMouseProbabilityMap(mouseMaskMatrix);
 
-%% --- Quantify Weighted Movement  under the bar (Slip Indicator) ---
+%% --- Quantify Weighted Movement  under the bar ---
 movementTrace = computeWeightedMovement(underBarCroppedVideo, normMouseProbVals);
 
 %% --- Detect Slips from Movement Trace ---
@@ -240,8 +227,8 @@ R.mouseCentroids       = mouseCentroids;
 R.forwardSpeeds        = forwardSpeeds;
 R.traverseDuration     = traverseDuration;
 R.meanSpeed            = meanSpeed;
-R.meanSpeedLoco = meanSpeedLoco;
-R.stdSpeedLoco = stdSpeedLoco;
+R.meanSpeedLoco        = meanSpeedLoco;
+R.stdSpeedLoco         = stdSpeedLoco;
 R.BBvideo              = trackedVideo;
 
 R.slipEventStarts      = slipEventStarts;
