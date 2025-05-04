@@ -7,8 +7,9 @@ function R = BBanalysisSingleFile(dataPath, fileName, varargin)
 % the mp4 video is expected to contain a black mouse walking on a white-ish balance beam.
 % The background is expected to be static and white-ish.
 % The function will identify the position of the bar, and quanttify amount of movement seen under the bar.
-% The under-bar movement indicates slips. Importantly, in order to avoid confounding movement of the tail,
-% the movement is weighted by the position of the mouse above the bar.
+% Movement under the bar indicates slips. Importantly, in order to avoid confounding movement of the tail,
+% the movement is weighted by the position of the mouse above the bar, so that only slips that are seen
+%  UNDER the mouse count.
 %
 % REQUIRED INPUTS:
 %   dataPath  : (char) Directory containing the video file.
@@ -45,7 +46,6 @@ function R = BBanalysisSingleFile(dataPath, fileName, varargin)
 %       .nSlips              : Total slip count in this trial.
 %       .totalSlipMagnitude  : Sum of slipEventAreas for all slips.
 %       .meanSlipAmplitude   : Mean slipEventAreas across all slips.
-%       .annotatedVideo      : Annotated video with shapes in slip frames.
 %
 %   Negative or error returns:
 %       R = -1 if the file does not exist or is not an .mp4.
@@ -108,7 +108,6 @@ CROPVIDEOSCALE = p.Results.CROPVIDEOSCALE; % this is the scale factor for the vi
 
 %% --- Check File Existence & Validity ---
 fullFilePath = fullfile(dataPath, fileName);
-
 if ~exist(fullFilePath, 'file')
     warning('File does not exist: %s\nAborting...', fullFilePath);
     R = -1;
@@ -152,30 +151,15 @@ if isempty(mouseStartPosition)
     end
 end
 
-
-%% ===========================================================
-%   CROPPING & LAYOUT DETECTION (where we expect the beam and mouse to be)
-%   1) Compute a mean frame to see the static background.
-%   2) Find the bar's vertical position (top Y) & width in that same frame.
-%   3) Crop the original video to 3x the bar thickness above and below the bar.
-%   6) Track the mouse in the cropped video, detecting its centroid and speed.
-%   7) Define the "under the bar" region for slip detection.
-%   8) Movement is computed in this region, weighted by the mouse's position above the movement
-
-%% ===========================================================
-
-
-% 1) Compute mean frame from the frames specified in meanImageFrames (default: 1:5)
-
-
+%% real work starts here
+% 1) --- Compute mean frame from the frames specified in meanImageFrames (default: 1:5)
 meanFrame = getMeanFrame(videoMatrix(:, :, meanImageFrames));
 
-% 4) Locate the balance bar in this horizontally cropped mean frame if not provided
+% 2) --- Locate the balance bar in this horizontally cropped mean frame if not provided
 if isempty(BARPOSITION)
     [barTopCoord, barThickness] = detectBar(meanFrame, mouseStartPosition, 'MAKEDEBUGPLOT',true);
     if isempty(barTopCoord)
-        warningmsg = sprintf('Bar position not detected in file %s. Aborting...', fileName);
-        warning(warningmsg);
+        warning('Bar position not detected in file %s. Aborting...', fileName);
         R = -1;
         return;
     end
@@ -184,7 +168,7 @@ else
     barThickness = BARWIDTH;
 end
 
-% 5) Crop the original video vertically
+%% 3) --- Crop the original video vertically ---
 topCropPosition = barTopCoord - barThickness*CROPVIDEOSCALE;
 bottomCropPosition = barTopCoord + barThickness*CROPVIDEOSCALE;
 % make sure we don't go out of bounds
@@ -196,31 +180,26 @@ if bottomCropPosition > size(videoMatrix, 1)
 end
 % crop the video
 croppedVideo = videoMatrix(topCropPosition:bottomCropPosition, :, :);
-
-% The bar's top coordinate in this newly cropped system is offset:
+% so now the bar coordinate in this cropped video is just.
 barTopCoord = barThickness*CROPVIDEOSCALE;
-% new size of the final cropped video
 [imHeight, ~, ~] = size(croppedVideo);
 
-%% --- Track the Mouse in the Cropped Video ---
+%% 4)  --- Track the Mouse in the Cropped Video ---
 [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, ...
     meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, trimmedVideo] = ...
     trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE );
-% NOTE: trackedVideo has the mouse overlaid with centroid marker,
-% trimmedVideo is just the original video cropped/trimmed to the same
-% frames. mouseMaskMatrix is the mask image video
+% NOTE: trackedVideo has the mouse overlaid with centroid marker, mouseMaskMatrix is the mask image video
+% trimmedVideo is the original video trimmed/cropped 
 
-% Flip mouseCentroids' Y so that top=0 => bar is near zero, easier to
-% visualize
+% Flip mouseCentroids' Y so that top=0 => bar is near zero
 mouseCentroids(:, 2) = imHeight - mouseCentroids(:, 2) + 1; % invert vertically
 mouseCentroids(:, 2) = mouseCentroids(:,2) - barTopCoord; % shift to be relative to bar
 
-%% --- Detect Slips from using the tracked video (mouse is enhanced in it) ---
+%% 5 --- Detect Slips from using the tracked video (mouse is enhanced in it) ---
 [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = ...
     detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, SLIPTHRESHOLD);
 
-
-%% --- Store Results in Output Structure ---
+%% 6 --- Store Results in Output Structure ---
 R.mouseCentroids       = mouseCentroids;
 R.forwardSpeeds        = forwardSpeeds;
 R.traverseDuration     = traverseDuration;
@@ -244,37 +223,21 @@ R.nStops = length(stoppingPeriods);
 R.stoppingPeriods = stoppingPeriods;
 R.stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);
 
-
-%R.annotatedVideo       = annotatedVideo;
-
-%% --- Generate Plots if Requested ---
+%% --- Generate Plots & Show Videos if Requested ---
 if MAKEPLOT
     plotBBtrial(movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
         mouseCentroids, forwardSpeeds, meanSpeedLoco, ...
         R.meanPosturalHeight, fileName, LOCOTHRESHOLD, ...
         SLIPTHRESHOLD);
 end
-
 if SHOWVIDEOS
-    %% --- Annotate the tracked Video with Slip Intervals ---
+    % Annotate the tracked Video with Slip Intervals 
     annotatedVideo = annotateVideoMatrix(trackedVideo, slipEventStarts, slipEventDurations, ...
         'ShapeType','FilledRectangle','ShapeColor','red');
-    % 1) Plot the movement trace with slip events
-
-
-    % 2) Display annotated video
     displayBehaviorVideoMatrix(annotatedVideo, cleanUnderscores(fileName), movementTrace);
-
     displayBehaviorVideoMatrix(mouseMaskMatrix, 'Binary mask');
-
-
     displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo');
-
-
     displayBehaviorVideoMatrix(trimmedVideo, 'Frame-trimmed , cropped video');
-
-
-
 end
 
 end
