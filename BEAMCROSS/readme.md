@@ -14,16 +14,10 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
 2. **`trackMouseOnBeam.m`**  
    Tracks the mouse position on the beam across frames. Typically returns mouse centroids, speeds, and a tracked/cropped version of the video.
 
-3. **`detectCameras.m`**  
-   Identifies the top and bottom camera rectangles (black regions) in a mean or reference frame, returning their vertical boundaries.
-
 4. **`detectBar.m`**  
    Locates the horizontal bar by analyzing the image (e.g., a mean frame). Returns the bar’s top coordinate and thickness.
 
-5. **`cropVideoBelowBar.m`**  
-   Crops out the portion of the video below the bar. Useful for focusing on slip events that happen under the beam.
-
-6. **`computeMouseProbabilityMap.m`**  
+5. **`computeMouseProbabilityMap.m`**  
    Computes a per-column (and optionally per-pixel) “probability” or fraction of the mouse occupying that column. Helps weight movement by how fully the trunk is present vs. just the tail.
 
 7. **`computeWeightedMovement.m`**  

@@ -12,16 +12,16 @@ function R = BBanalysisSingleFile(dataPath, fileName, varargin)
 %   fileName  : (char) Name of the .mp4 video file to analyze.
 %
 % OPTIONAL PARAMETERS (Name-Value pairs via varargin):
-%   'MAKEPLOT'      : (logical) Whether to produce diagnostic plots. [true]
+%   'MAKEPLOT'      : (logical) Whether to produce plots. [true]
 %   'FRAMERATE'     : (numeric) Frame rate used if not detected from file. [160]
 %   'PIXELSIZE'     : (numeric) Spatial scaling factor (pixels to mm, etc.). [1]
 %   'SLIPTHRESHOLD' : (numeric) Threshold for slip detection in z-scored
 %                     movement trace. [2]
 %   'LOCOTHRESHOLD' : (numeric) Threshold for stopping detection in pixels/sec. [100]
-%   'MOUSESIZETHRESHOLD' : (numeric) Minimum fraction of frame area (0-100) for mouse, used for tracking. [5] 
+%   'MOUSESIZETHRESHOLD' : (numeric) Minimum fraction of frame area (0-100) for mouse, used for tracking. [5]
 %   'BARPOSITION'   : (numeric) Vertical position of the bar in pixels. If empty, it will be detected. []
 %   'BARWIDTH'      : (numeric) Width of the bar in pixels. If empty, it will be detected. []
-%   'mouseStartPosition' : "L" or "R", indicating the mouse's starting position on the beam. 
+%   'mouseStartPosition' : "L" or "R", indicating the mouse's starting position on the beam.
 %                   if not given, we will assume that trials with CAM1 it's L, and CAM2 it's R.
 %   'meanImageFrames' : array of frame indices to use for mean image calculation. default: [1:5]. In case there's a lot of movement at the beginning of the video, it might be better to use a different set of frames, eg last 5 frames.
 %   'SHOWUNDERBARVIDEO' : show the video of movement under bar, if you want
@@ -81,6 +81,7 @@ addParameter(p, 'BARWIDTH', 20, @isnumeric); % thickness of the bar, if empty, i
 addParameter(p, 'mouseStartPosition', [], @(x) ischar(x) || isempty(x)); % "L" or "R", if empty, it will be detected
 addParameter(p, 'meanImageFrames', 1:5, @(x) isnumeric(x) && all(x > 0)); % frames to use for mean image calculation
 addParameter(p, 'SHOWUNDERBARVIDEO', false, @islogical); % show the video of movement under bar
+addParameter(p, 'CROPVIDEOSCALE', 3, @isnumeric); % how much to crop above and below the bar
 
 
 parse(p, dataPath, fileName, varargin{:});
@@ -98,6 +99,9 @@ BARWIDTH      = p.Results.BARWIDTH;
 mouseStartPosition = p.Results.mouseStartPosition;
 meanImageFrames = p.Results.meanImageFrames;
 SHOWUNDERBARVIDEO = p.Results.SHOWUNDERBARVIDEO;
+
+CROPVIDEOSCALE = p.Results.CROPVIDEOSCALE; % this is the scale factor for the video cropping, so we will crop 3x the bar thickness above and below the bar
+% if the bar is 20 pixels thick, we will crop 60 pixels above and below the top edge bar for tracking and slip detection
 
 %% --- Check File Existence & Validity ---
 fullFilePath = fullfile(dataPath, fileName);
@@ -127,7 +131,7 @@ if isempty(videoMatrix)
     return;
 end
 
-% If readVideoIntoMatrix fails to detect, we fallback on user param:
+% If readVideoIntoMatrix fails to detect, we fallback on user param: (defaults to 160)
 if isempty(frameRate) || (frameRate <= 0)
     frameRate = FRAMERATE;
 end
@@ -150,7 +154,7 @@ end
 %   CROPPING & LAYOUT DETECTION (where we expect the beam and mouse to be)
 %   1) Compute a mean frame to see the static background.
 %   2) Find the bar's vertical position (top Y) & width in that same frame.
-%   5) Crop the original video to 3x the bar thickness above and below the bar.
+%   3) Crop the original video to 3x the bar thickness above and below the bar.
 %   6) Track the mouse in the cropped video, detecting its centroid and speed.
 %   7) Define the "under the bar" region for slip detection.
 %   8) Movement is computed in this region, weighted by the mouse's position above the movement
@@ -159,7 +163,7 @@ end
 
 % 0 crop top 15%
 % this is because of a shadow sometimes seen at the top of the image (shadow of the hand)
-videoMatrix = videoMatrix(round(size(videoMatrix, 1) * 0.15):end, :, :);
+%videoMatrix = videoMatrix(round(size(videoMatrix, 1) * 0.15):end, :, :);
 
 
 % 1) Compute mean frame from the frames specified in meanImageFrames (default: 1:5)
@@ -168,26 +172,32 @@ meanFrame = getMeanFrame(videoMatrix(:, :, meanImageFrames));
 
 % 4) Locate the balance bar in this horizontally cropped mean frame if not provided
 if isempty(BARPOSITION)
-    [barTopCoord, barThickness] = detectBar(meanFrame, mouseStartPosition, 'MAKEDEBUGPLOT', true, 'USENEWVER', true);
+    [barTopCoord, barThickness] = detectBar(meanFrame, mouseStartPosition, 'MAKEDEBUGPLOT',true);
+    if isempty(barTopCoord)
+        warningmsg = sprintf('Bar position not detected in file %s. Aborting...', fileName);
+        warning(warningmsg);
+        R = -1;
+        return;
+    end
 else
     barTopCoord = BARPOSITION;
     barThickness = BARWIDTH;
 end
-% barYCoordTop is the vertical coordinate of the bar's top edge,
-% and barWidth is its estimated thickness.
 
 % 5) Crop the original video vertically
+% the limits are defined based on the bar width
+% barTopCoord is the top of the bar, so we want to crop CROPVIDEOSCALE x the bar thickness above and below
 
-croppedVideo = videoMatrix(barTopCoord-barThickness*3 : barTopCoord + barThickness*3, :, :);
+croppedVideo = videoMatrix(barTopCoord-barThickness*CROPVIDEOSCALE : barTopCoord + barThickness*CROPVIDEOSCALE, :, :);
 
 % The bar's top coordinate in this newly cropped system is offset:
-barYCoordTopCrop = barThickness*3;
+barYCoordTopCrop = barThickness*CROPVIDEOSCALE;
 % new size of the final cropped video
 [imHeight, ~, ~] = size(croppedVideo);
 
 %% --- Track the Mouse in the Cropped Video ---
 [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, meanPosturalHeight,stdPosturalHeight, ...
-    mouseMaskMatrix, trackedVideo, croppedOriginalVideo, meanSpeedLoco, stdSpeedLoco] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE, barYCoordTopCrop );
+    mouseMaskMatrix, trackedVideo, trimmedVideo, meanSpeedLoco, stdSpeedLoco] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE, barYCoordTopCrop );
 
 % Flip mouseCentroids' Y so that top=0 => bar is near zero, easier to
 % visualize
@@ -202,21 +212,19 @@ underBarStart = round(barYCoordTopCrop + barThickness/2)+5;
 underBarEnd   = round(barYCoordTopCrop + barThickness*2)+5;
 underBarCroppedVideo = trackedVideo( underBarStart:underBarEnd, :, : );
 
-if SHOWUNDERBARVIDEO
-    displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo');
-end
 
 %% --- Probability Mask for Mouse Columns ---
 % we weight them by how much of "mouse" each column has. So tail will not
-% count so much. 
+% count so much.
 [normMouseProbVals, ~] = computeMouseProbabilityMap(mouseMaskMatrix);
 
 %% --- Quantify Weighted Movement  under the bar ---
 movementTrace = computeWeightedMovement(underBarCroppedVideo, normMouseProbVals);
 
 %% --- Detect Slips from Movement Trace ---
+DETRENDWINDOW  = 64;
 [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations] = ...
-    detectSlips(movementTrace, SLIPTHRESHOLD);
+    detectSlips(movementTrace, SLIPTHRESHOLD, DETRENDWINDOW);
 
 %% --- Annotate the Original (Tracked) Video with Slip Intervals ---
 annotatedVideo = annotateVideoMatrix(trackedVideo, slipEventStarts, slipEventDurations, ...
@@ -253,11 +261,18 @@ R.annotatedVideo       = annotatedVideo;
 if MAKEPLOT
     % 1) Plot the movement trace with slip events
     plotBBtrial(movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
-        mouseCentroids, forwardSpeeds, meanSpeedLoco, traverseDuration, ...
-        meanPosturalHeight, fileName, LOCOTHRESHOLD);
+        mouseCentroids, forwardSpeeds, meanSpeedLoco, ...
+        meanPosturalHeight, fileName, LOCOTHRESHOLD, ...
+        SLIPTHRESHOLD);
 
     % 2) Display annotated video with an interactive UI
     displayBehaviorVideoMatrix(annotatedVideo, cleanUnderscores(fileName), movementTrace);
+
+    if SHOWUNDERBARVIDEO
+        displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo');
+    end
+
+    displayBehaviorVideoMatrix(trimmedVideo, 'Frame-trimmed , cropped video');
 end
 
 end

@@ -1,5 +1,5 @@
 function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
-    mouseCentroids, forwardSpeeds,meanSpeed, traverseDuration, meanPosturalHeight,fileName, LOCOTHRESHOLD)
+    mouseCentroids, forwardSpeeds,meanSpeed, meanPosturalHeight,fileName, LOCOTHRESHOLD, SLIPTHRESHOLD)
 % PLOTBBTRIAL  Creates a figure with subplots for:
 %   1) Movement trace + slip events
 %   2) Mouse 2D position, color-coded by forward speed, slip events indicated
@@ -20,9 +20,10 @@ function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas,
 %   mouseCentroids    : (nFrames x 2), each row = [xCoord, yCoord] of the mouse
 %   forwardSpeeds     : (nFrames x 1), speed in e.g. pixels/s
 %   meanSpeed         : scalar, average speed across the trial
-%   traverseDuration  : scalar, how long the mouse took to cross the beam (s)
 %   meanPosturalHeight: scalar, average height (pixels) above the bar
 %   fileName          : string, name of the video/file (for labeling)
+%   LOCOTHRESHOLD     : (optional) threshold for stopping, in pixels/sec, will default to 100
+%   SLIPTHRESHOLD     : (optional) threshold for slip detection, in pixels (will default to 2)
 %
 
 if ~exist('LOCOTHRESHOLD', 'var')
@@ -42,7 +43,7 @@ figure('Name', figTitle, 'Color', 'w');
 NROWS = 3;
 NCOLS = 1;
 
-% LOCOTHRESHOLD = 200; % threshold for stopping; in pixels/sec
+traverseDuration = nFrames / FRAMERATE;  % in seconds
 
 % define periods of stopping, as continuous segments below LOCOTHRESHOLD
 stoppingFrames= forwardSpeeds < LOCOTHRESHOLD;
@@ -62,6 +63,9 @@ subplot(NROWS,NCOLS,1);  % top subplot
 hold on;
 % Plot the movement trace vs time (or vs frame #)
 plot(timeAxis, movementTrace, 'LineWidth',1.2, 'Color',[0 0.45 0.74], 'HandleVisibility','off');
+% add dashed line to indicate SLIPTHRESHOLD
+yline(SLIPTHRESHOLD, '--', 'Color', [0.5 0.5 0.5], 'LineWidth', 1.2, ...
+    'Label', 'Slip threshold', 'LabelHorizontalAlignment','left', 'HandleVisibility', 'off');
 
 
 % Overlay slip events (if any)

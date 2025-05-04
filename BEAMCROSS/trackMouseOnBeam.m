@@ -170,9 +170,6 @@ forwardSpeeds(1:length(winDisplacements)) = ...
 
 meanSpeed = nanmean(forwardSpeeds);
 
-
-
-
 [stoppingFrames, stoppingPeriods] = detectStoppingOnBeam(forwardSpeeds, LOCOTHRESHOLD);
 
 
