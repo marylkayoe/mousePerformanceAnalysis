@@ -62,8 +62,6 @@ xArrowYpos =  0.6;
 xLimits = xlim;
 
 
-
-
 figure; hold on;
 coordData = coordData * XYSCALE; % scaling in xy
 coordData(:, 2) = -coordData(:, 2);

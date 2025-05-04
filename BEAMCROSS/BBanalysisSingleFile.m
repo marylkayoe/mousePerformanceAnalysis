@@ -81,7 +81,7 @@ addParameter(p, 'BARWIDTH', 20, @isnumeric); % thickness of the bar, if empty, i
 addParameter(p, 'mouseStartPosition', [], @(x) ischar(x) || isempty(x)); % "L" or "R", if empty, it will be detected
 addParameter(p, 'meanImageFrames', 1:5, @(x) isnumeric(x) && all(x > 0)); % frames to use for mean image calculation
 addParameter(p, 'SHOWUNDERBARVIDEO', false, @islogical); % show the video of movement under bar
-addParameter(p, 'CROPVIDEOSCALE', 3, @isnumeric); % how much to crop above and below the bar
+addParameter(p, 'CROPVIDEOSCALE', 4, @isnumeric); % how much to crop above and below the bar
 
 
 parse(p, dataPath, fileName, varargin{:});
@@ -196,8 +196,8 @@ barYCoordTopCrop = barThickness*CROPVIDEOSCALE;
 [imHeight, ~, ~] = size(croppedVideo);
 
 %% --- Track the Mouse in the Cropped Video ---
-[mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, meanPosturalHeight,stdPosturalHeight, ...
-    mouseMaskMatrix, trackedVideo, trimmedVideo, meanSpeedLoco, stdSpeedLoco] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE, barYCoordTopCrop );
+[mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, trimmedVideo] =...
+    trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE );
 
 % Flip mouseCentroids' Y so that top=0 => bar is near zero, easier to
 % visualize
@@ -247,8 +247,8 @@ R.nSlips               = length(slipEventStarts);
 R.totalSlipMagnitude   = sum(slipEventAreas);
 R.meanSlipAmplitude    = mean(slipEventAreas);
 
-R.meanPosturalHeight = meanPosturalHeight;
-R.stdPosturalHeight = stdPosturalHeight;
+R.meanPosturalHeight = mean(mouseCentroids(:, 2), 'omitnan');
+R.stdPosturalHeight = std(mouseCentroids(:, 2), 'omitnan');
 
 R.nStops = length(stoppingPeriods);
 R.stoppingPeriods = stoppingPeriods;
@@ -262,11 +262,13 @@ if MAKEPLOT
     % 1) Plot the movement trace with slip events
     plotBBtrial(movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
         mouseCentroids, forwardSpeeds, meanSpeedLoco, ...
-        meanPosturalHeight, fileName, LOCOTHRESHOLD, ...
+        R.meanPosturalHeight, fileName, LOCOTHRESHOLD, ...
         SLIPTHRESHOLD);
 
     % 2) Display annotated video with an interactive UI
     displayBehaviorVideoMatrix(annotatedVideo, cleanUnderscores(fileName), movementTrace);
+
+    displayBehaviorVideoMatrix(mouseMaskMatrix, 'Binary mask');
 
     if SHOWUNDERBARVIDEO
         displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo');

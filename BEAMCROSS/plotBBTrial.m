@@ -106,9 +106,8 @@ c.Label.String = 'Forward speed (pixels/s)';
 if ~isempty(slipEventStarts)
     scatter( mouseCentroids(slipEventStarts,1), ...
         mouseCentroids(slipEventStarts,2), ...
-        slipEventAreas*20, 'ko', 'filled');
+        slipEventAreas*20, 'ro', 'filled');
 end
-
 
 % Some axis labeling
 xlabel('Position along bar (px)');
@@ -123,6 +122,12 @@ if ~isempty(slipEventStarts)
     legend({'Slip events (size indicates magnitude)'}, 'Location', 'best');
 end
 
+% label x-axis 0 as LEFT, and max(x) as RIGHT
+xTicks = get(gca, 'XTick');
+xTickLabels = arrayfun(@(x) sprintf('%.0f', x), xTicks, 'UniformOutput', false);
+xTickLabels{1} = 'LEFT';
+xTickLabels{end} = 'RIGHT';
+set(gca, 'XTickLabel', xTickLabels);
 
 % =========== Add Directional Arro to title ===============
 % Check initial vs final x, decide arrow direction
