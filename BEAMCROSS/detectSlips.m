@@ -1,4 +1,4 @@
-function [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations] = detectSlips(movementTrace, SLIPTHRESHOLD, DETRENDWINDOW)
+function [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, SLIPTHRESHOLD, DETRENDWINDOW)
 %   Identify slip intervals in a 1D movement trace using:
 %   1) threshold, default 2
 %   2) morphological "closing" to merge tiny gaps
@@ -18,7 +18,7 @@ if ~exist('SLIPTHRESHOLD', 'var')
 end
 
 if ~exist('DETRENDWINDOW', 'var')
-    DETRENDWINDOW = 16; % rolling window, with 160 fps this is around 100ms
+    DETRENDWINDOW = 64; % rolling window, with 160 fps this is around 100ms
 end
 
 % default output values
@@ -26,21 +26,26 @@ slipEventStarts = [];
 slipEventPeaks = [];
 slipEventAreas = [];
 slipEventDurations = [];
-%% VALIDATIONS
-% check that the movementTrace is not empty
-if isempty(movementTrace)
-    warning('Input movementTrace is empty. No slip events detected.');
-    return;
-end
-% check that the movementTrace is a 1D array
-if ~isvector(movementTrace)
-    warning('Input movementTrace is not a 1D array. No slip events detected.');
-    return;
-end
-% check that the movementTrace is a column vector, if not, transpose it
-if isrow(movementTrace)
-    movementTrace = movementTrace';
-end
+
+
+
+
+%% --- Define "Under the Bar" Region ---
+% We'll examine slip movements in a band below the bar region
+% start: a bit below the midpoint of the bar
+% end: 2x the bar thickness below the bar (+5 pixels)
+underBarStart = round(barTopCoord + barThickness/2)+5;
+underBarEnd   = round(barTopCoord + barThickness*2)+5;
+underBarCroppedVideo = trackedVideo( underBarStart:underBarEnd, :, : );
+
+
+%% --- Probability Mask for Mouse Columns ---
+% we weight them by how much of "mouse" each column has. So tail will not
+% count so much.
+[normMouseProbVals, ~] = computeMouseProbabilityMap(mouseMaskMatrix);
+
+%% --- Quantify Weighted Movement  under the bar ---
+movementTrace = computeWeightedMovement(underBarCroppedVideo, normMouseProbVals);
 
 %% DETRENDING
 % detrending the movement, so we look at big movements on top of ongoing
