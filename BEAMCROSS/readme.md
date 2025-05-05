@@ -19,18 +19,23 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
    Tracks the mouse position on the beam across frames. Returns mouse centroids, speeds, stops, and a tracked/cropped version of the video.
 
 3. **`detectBar.m`**  
-   Locates the horizontal bar by analyzing the image (e.g., a mean frame). Returns the bar’s top coordinate and thickness.
+   Locates the horizontal bar by analyzing the edges of the mean image. Pixels in the region where the tapes are are summed horizontally, and points of fast darkening and brightening are taken as the bar edges (i.e. peaks in the differential of the sum). Returns the bar’s top coordinate and thickness. 
+   Points to note: 
+   - To avoid getting confused by cases where the recording starts too late and mouse is already on the bar in first frames, we look at the side opposite to mouse starting position. The starting position is currently expected to be L for CAM1 and R for CAM2.
+   - However, as the bar is never completely straight, the value will not be exactly correct (maybe 5 - 8 pixels difference between left and right sides). If we could be sure that there are some frames without a mouse, we could take both sides and average (or project a straight line between them).
+   - This means also that the posture of the mouse most likely will be seen to shift gradually from one to another edge, as it's calculated relative to bar position.
+  ![Diagram](barposition.png)
 
-4. **`computeMouseProbabilityMap.m`**  
+1. **`computeMouseProbabilityMap.m`**  
    Computes a per-column “probability” or fraction of the mouse occupying that column. Helps weight movement by how fully the trunk is present vs. just the tail.
 
-5. **`computeWeightedMovement.m`**  
+2. **`computeWeightedMovement.m`**  
    Given a video region of interest (e.g., under the bar) and the column probabilities, calculates a movement trace that weighs each column’s differences by how likely the mouse is there.
 
-6. **`detectSlips.m`**  
+3. **`detectSlips.m`**  
    Generates the weighted movement trace to find slip intervals (above a certain threshold). Returns the start frames, duration, peak values, and area (severity) of each slip event.
 
-7. **`plotBBtrial.m`**  
+4. **`plotBBtrial.m`**  
    Creates diagnostic plots: a movement trace vs. time (with slip markers) and a 2D mouse centroid trajectory, color-coded by speed. Also places arrow annotations and summary text on the figure.
 
 ## Additional Helpers and Subfolders

@@ -32,7 +32,7 @@ function [barTopYCoord, barWidth] = detectBar(barImage, mouseStartPosition, vara
 % parse input arguments
 p = inputParser;
 addParameter(p, 'MAKEDEBUGPLOT', false, @(x) islogical(x)); % to show some extra visualization
-addParameter(p, 'barTapeWidth', 2, @(x) isnumeric(x) && x > 0 && x <= 10);
+addParameter(p, 'barTapeWidth', 1, @(x) isnumeric(x) && x > 0 && x <= 10);
 
 parse(p, varargin{:});
 MAKEDEBUGPLOT = p.Results.MAKEDEBUGPLOT;
