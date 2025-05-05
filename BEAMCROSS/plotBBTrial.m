@@ -58,6 +58,7 @@ stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);
 
 [stoppingFrames, stoppingPeriods] = detectStoppingOnBeam(forwardSpeeds, LOCOTHRESHOLD);
 
+
 % =========== SUBPLOT #1: Movement Under Bar Trace ===========================
 subplot(NROWS,NCOLS,1);  % top subplot
 hold on;
@@ -66,6 +67,8 @@ plot(timeAxis, movementTrace, 'LineWidth',1.2, 'Color',[0 0.45 0.74], 'HandleVis
 % add dashed line to indicate SLIPTHRESHOLD
 yline(SLIPTHRESHOLD, '--', 'Color', [0.5 0.5 0.5], 'LineWidth', 1.2, ...
     'Label', 'Slip threshold', 'LabelHorizontalAlignment','left', 'HandleVisibility', 'off');
+
+
 
 
 % Overlay slip events (if any)

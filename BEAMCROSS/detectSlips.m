@@ -42,6 +42,8 @@ underBarCroppedVideo = trackedVideo( underBarStart:underBarEnd, :, : );
 %% --- Probability Mask for Mouse Columns ---
 % we weight them by how much of "mouse" each column has. So tail will not
 % count so much.
+% also: only use the pixels above the bar, so crop the video below the bar
+mouseMaskMatrix = mouseMaskMatrix(1: barTopCoord, :, :); % crop the mask to the bar region
 [normMouseProbVals, ~] = computeMouseProbabilityMap(mouseMaskMatrix);
 
 %% --- Quantify Weighted Movement  under the bar ---
@@ -60,7 +62,7 @@ slipMask = movementTrace > SLIPTHRESHOLD;  % 1D array; 1 means "potential slip i
 % -- 2) Cleaning up the slip mask --
 %  'closing' merges small gaps up to 2 frames wide
 % so that two slips separted by 2 frames of non-slip are merged into one
-se = ones(1, 3);  % structuring element of length=3
+se = ones(3,1);  % structuring element of length=3
 slipMask = imclose(slipMask, se);
 
 % remove slips shorter than 3 frames:
