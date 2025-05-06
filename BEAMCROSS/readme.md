@@ -164,7 +164,7 @@ underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, 
    totalMovement = sum(abs(currentFrame - previousFrame)); 
 ```
 However, sometimes the tail of the mouse swings below the bar and might be detcted as a slip:
- ![Diagram](underbartail.png)
+ ![Diagram](IMAGES/underbartail.png)
 
  To avoid this, we want to only consider movement below the bar in positions that are under the mouse. As the mouse is not a rectangle, calculate "mouse probability distribution" above the bar using local function
  -  **`LF_computeMouseProbabilityMap.m`**  
