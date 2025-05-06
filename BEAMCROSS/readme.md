@@ -13,8 +13,11 @@ This repository contains a set of **MATLAB** functions and scripts for analyzing
     - [**`detectBar.m`**](#detectbarm)
     - [**`detectSlips.m`**](#detectslipsm)
     - [**`plotBBtrial.m`**](#plotbbtrialm)
+    - [**`detectStoppingOnBeam.m`**](#detectstoppingonbeamm)
+    - [**`readBBVideoIntoMatrix.m`**](#readbbvideointomatrixm)
+    - [**`displayBehaviorVideoMatrix.m`**](#displaybehaviorvideomatrixm)
+    - [**`annotateVideoMatrix.m`**](#annotatevideomatrixm)
   - [Additional Helpers and Subfolders](#additional-helpers-and-subfolders)
-  - [Basic Workflow](#basic-workflow)
   - [Dependencies](#dependencies)
 
 

@@ -1,0 +1,447 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>detectSlips</title>
+<meta name="generator" content="MATLAB 24.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-05-06">
+<meta name="DC.source" content="detectSlips.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#3">--- Define "Under the Bar" Region ---</a>
+</li>
+<li>
+<a href="#4">--- Probability Mask for Mouse Columns ---</a>
+</li>
+<li>
+<a href="#5">--- Quantify Weighted Movement under the bar ---</a>
+</li>
+<li>
+<a href="#6">DETRENDING</a>
+</li>
+<li>
+<a href="#7">SLIP DETECTION</a>
+</li>
+</ul>
+</div>
+<pre class="codeinput">
+<span class="keyword">function</span> [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, SLIPTHRESHOLD, UNDERBARSCALE, DETRENDWINDOW)
+</pre>
+<pre class="codeinput">
+<span class="comment">%   Identify slip intervals in a 1D movement trace using:</span>
+<span class="comment">%   1) threshold, default 2</span>
+<span class="comment">%   2) morphological "closing" to merge tiny gaps</span>
+<span class="comment">%   3) removal of short spurious slip bursts</span>
+<span class="comment">%   4) contiguous-region analysis to measure slip area, etc.</span>
+<span class="comment">%</span>
+<span class="comment">%   slipEvents = detectSlipsWithMorph(movementTrace, threshold)</span>
+<span class="comment">%</span>
+<span class="comment">%   OUTPUT (slipEvents struct array):</span>
+<span class="comment">%     .startFrame, .endFrame : indices bounding the slip episode</span>
+<span class="comment">%     .peakValue             : max movementTrace value in that slip</span>
+<span class="comment">%     .area                  : sum of (movementTrace - threshold) above threshold</span>
+<span class="comment">%     .duration              : number of frames in the slip</span>
+
+<span class="keyword">if</span> ~exist(<span class="string">'SLIPTHRESHOLD'</span>, <span class="string">'var'</span>)
+    SLIPTHRESHOLD = 2; <span class="comment">% for detecting smaller events, decrease this value</span>
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> ~exist(<span class="string">'DETRENDWINDOW'</span>, <span class="string">'var'</span>)
+    DETRENDWINDOW = 64; <span class="comment">% rolling window, with 160 fps this is 0.4 sec</span>
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> ~exist(<span class="string">'UNDERBARSCALE'</span>, <span class="string">'var'</span>)
+    UNDERBARSCALE = 2; <span class="comment">% scale factor for the under-bar region (related to bar thickness)</span>
+<span class="keyword">end</span>
+<span class="comment">% default output values</span>
+slipEventStarts = [];
+slipEventPeaks = [];
+slipEventAreas = [];
+slipEventDurations = [];
+
+disp(<span class="string">'Detecting slips...'</span>);
+</pre>
+<pre class="codeoutput">Detecting slips...
+</pre>
+<h2 id="3">--- Define "Under the Bar" Region ---</h2>
+<p>We'll examine slip movements in a band below the bar region start: 5 px below midpoint of the bar end: UNDERBARSCALE x the bar thickness below the bar (+5 pixels)</p>
+<pre class="codeinput">underBarStart = round(barTopCoord + barThickness/2)+5;
+underBarEnd   = round(barTopCoord + barThickness*UNDERBARSCALE)+5;
+underBarCroppedVideo = trackedVideo( underBarStart:underBarEnd, :, : );
+</pre>
+<pre class="codeoutput error">Not enough input arguments.
+
+Error in detectSlips (line 39)
+underBarStart = round(barTopCoord + barThickness/2)+5;
+                      ^^^^^^^^^^^</pre>
+<h2 id="4">--- Probability Mask for Mouse Columns ---</h2>
+<p>we weight them by how much of "mouse" each column has. So tail will not count so much. we only use the pixels above the bar</p>
+<pre class="codeinput">mouseMaskMatrix = mouseMaskMatrix(1: barTopCoord, :, :);
+[normMouseProbVals, ~] = LF_computeMouseProbabilityMap(mouseMaskMatrix);
+</pre>
+<h2 id="5">--- Quantify Weighted Movement under the bar ---</h2>
+<pre class="codeinput">movementTrace = LF_computeWeightedMovement(underBarCroppedVideo, normMouseProbVals);
+</pre>
+<h2 id="6">DETRENDING</h2>
+<p>detrending the movement</p>
+<pre class="codeinput">localMovementTrace = movmedian(movementTrace, DETRENDWINDOW);
+movementTrace = movementTrace - localMovementTrace;
+</pre>
+<h2 id="7">SLIP DETECTION</h2>
+<p>-- 1) Create a logical mask of slip frames --</p>
+<pre class="codeinput">slipMask = movementTrace &gt; SLIPTHRESHOLD;  <span class="comment">% 1D array; 1 means "potential slip in this frame"</span>
+
+<span class="comment">% -- 2) Cleaning up the slip mask --</span>
+<span class="comment">%  'closing' merges small gaps up to 2 frames wide</span>
+<span class="comment">% (two slips separted by &gt;3 frames of non-slip are merged into one)</span>
+se = ones(3,1);  <span class="comment">% structuring element of length=3</span>
+slipMask = imclose(slipMask, se);
+
+<span class="comment">% remove slips shorter than 3 frames:</span>
+slipMask = bwareaopen(slipMask, 3);
+
+<span class="comment">% -- 3) Find contiguous slipping periods --</span>
+cc = bwconncomp(slipMask);  <span class="comment">% returns connected-component info</span>
+nSLIPS = cc.NumObjects;  <span class="comment">% number of slip events</span>
+<span class="keyword">if</span> nSLIPS == 0
+    warning(<span class="string">'No slip events detected.'</span>);
+    <span class="keyword">return</span>;
+<span class="keyword">end</span>
+
+<span class="comment">% -- 5) Loop through each slip event and calculate properties --</span>
+<span class="keyword">for</span> slip = 1 : nSLIPS
+    slipFrames = cc.PixelIdxList{slip};  <span class="comment">% frame indices for the s-th slip</span>
+    startSlipFrame = min(slipFrames);
+    endSlipFrame   = max(slipFrames);
+
+    slipMagnitudes = movementTrace(slipFrames);
+    peakSlipValue  = max(slipMagnitudes);
+
+    <span class="comment">% "Area above threshold" =&gt; sum( (value - threshold) )</span>
+    areaVal = sum(slipMagnitudes - SLIPTHRESHOLD);
+
+    <span class="comment">% collect the results into the output arrays</span>
+    slipEventStarts(slip) = startSlipFrame;
+    slipEventPeaks(slip)  = peakSlipValue;
+    slipEventAreas(slip)  = areaVal;
+    slipEventDurations(slip) = endSlipFrame - startSlipFrame + 1;
+
+<span class="keyword">end</span>
+</pre>
+<pre class="codeinput">
+<span class="keyword">end</span>
+
+
+
+<span class="keyword">function</span> [normMouseProbVals, mouseProbMatrix] = LF_computeMouseProbabilityMap(mouseMaskMatrix)
+<span class="comment">% COMPUTEMOUSEPROBABILITYMAP Efficiently computes mouse pixel fraction per column per frame.</span>
+<span class="comment">%</span>
+<span class="comment">% INPUT:</span>
+<span class="comment">%   mouseMaskMatrix: logical array (height x width x nFrames), indicating mouse pixels.</span>
+<span class="comment">%</span>
+<span class="comment">% OUTPUTS:</span>
+<span class="comment">%   normMouseProbVals : (width x nFrames), fraction of mouse pixels per column.</span>
+<span class="comment">%   mouseProbMatrix   : (height x width x nFrames), replicated probability images.</span>
+
+[imHeight, imWidth, nFrames] = size(mouseMaskMatrix);
+
+<span class="comment">% 1. Sum mouse-pixels along rows for all frames simultaneously</span>
+colSumAllFrames = squeeze(sum(mouseMaskMatrix, 1)); <span class="comment">% size: [imWidth x nFrames]</span>
+
+<span class="comment">% 2. Convert column-sums to fractions (dividing by height)</span>
+normMouseProbVals = colSumAllFrames / imHeight; <span class="comment">% [imWidth x nFrames]</span>
+
+<span class="comment">% 3. Replicate fractions down the rows to create mouse probability matrix</span>
+mouseProbMatrix = repmat(reshape(normMouseProbVals, [1, imWidth, nFrames]), imHeight, 1, 1);
+
+<span class="keyword">end</span>
+
+
+
+<span class="keyword">function</span> normMovementTrace = LF_computeWeightedMovement(videoMatrix, normMouseProbVals, SMOOTHFACTOR)
+<span class="comment">% COMPUTEWEIGHTEDMOVEMENT Computes weighted frame-to-frame motion efficiently.</span>
+
+<span class="keyword">if</span> nargin &lt; 3
+    SMOOTHFACTOR = 5;
+<span class="keyword">end</span>
+
+[~, width, nFrames] = size(videoMatrix);
+
+<span class="comment">% Convert video to double once</span>
+videoDouble = im2double(videoMatrix);
+
+<span class="comment">% Compute absolute difference across frames in one operation</span>
+videoDiff = abs(diff(videoDouble, 1, 3));  <span class="comment">% size: [height x width x (nFrames-1)]</span>
+
+<span class="comment">% Sum pixel differences column-wise (collapse rows)</span>
+colDiffSum = squeeze(sum(videoDiff, 1));   <span class="comment">% size: [width x (nFrames-1)]</span>
+
+<span class="comment">% Square the normMouseProbVals to enhance differences</span>
+weightedProbs = normMouseProbVals(:, 2:end).^2;  <span class="comment">% size: [width x (nFrames-1)]</span>
+
+<span class="comment">% Element-wise multiplication and sum columns for each frame (vectorized)</span>
+movementTrace = sum(colDiffSum .* weightedProbs, 1)'; <span class="comment">% size: [(nFrames-1) x 1]</span>
+
+<span class="comment">% Insert 0 at first frame since no prior frame</span>
+movementTrace = [0; movementTrace];
+
+<span class="comment">% Robust normalization using Median Absolute Deviation (MAD)</span>
+medVal = median(movementTrace);
+madVal = median(abs(movementTrace - medVal));
+sigma_base = 1.4826 * madVal;
+normMovementTrace = (movementTrace - medVal) / sigma_base;
+
+<span class="comment">% Smooth the trace</span>
+normMovementTrace = smooth(normMovementTrace, SMOOTHFACTOR);
+
+<span class="keyword">end</span>
+</pre>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+function [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, SLIPTHRESHOLD, UNDERBARSCALE, DETRENDWINDOW)
+%   Identify slip intervals in a 1D movement trace using:
+%   1) threshold, default 2
+%   2) morphological "closing" to merge tiny gaps
+%   3) removal of short spurious slip bursts
+%   4) contiguous-region analysis to measure slip area, etc.
+%
+%   slipEvents = detectSlipsWithMorph(movementTrace, threshold)
+%
+%   OUTPUT (slipEvents struct array):
+%     .startFrame, .endFrame : indices bounding the slip episode
+%     .peakValue             : max movementTrace value in that slip
+%     .area                  : sum of (movementTrace - threshold) above threshold
+%     .duration              : number of frames in the slip
+
+if ~exist('SLIPTHRESHOLD', 'var')
+    SLIPTHRESHOLD = 2; % for detecting smaller events, decrease this value
+end
+
+if ~exist('DETRENDWINDOW', 'var')
+    DETRENDWINDOW = 64; % rolling window, with 160 fps this is 0.4 sec
+end
+
+if ~exist('UNDERBARSCALE', 'var')
+    UNDERBARSCALE = 2; % scale factor for the under-bar region (related to bar thickness)
+end
+% default output values
+slipEventStarts = [];
+slipEventPeaks = [];
+slipEventAreas = [];
+slipEventDurations = [];
+
+disp('Detecting slips...');
+
+%% REPLACE_WITH_DASH_DASH- Define "Under the Bar" Region REPLACE_WITH_DASH_DASH-
+% We'll examine slip movements in a band below the bar region
+% start: 5 px below midpoint of the bar
+% end: UNDERBARSCALE x the bar thickness below the bar (+5 pixels)
+underBarStart = round(barTopCoord + barThickness/2)+5;
+underBarEnd   = round(barTopCoord + barThickness*UNDERBARSCALE)+5;
+underBarCroppedVideo = trackedVideo( underBarStart:underBarEnd, :, : );
+
+
+%% REPLACE_WITH_DASH_DASH- Probability Mask for Mouse Columns REPLACE_WITH_DASH_DASH-
+% we weight them by how much of "mouse" each column has. So tail will not
+% count so much.
+% we only use the pixels above the bar
+mouseMaskMatrix = mouseMaskMatrix(1: barTopCoord, :, :);
+[normMouseProbVals, ~] = LF_computeMouseProbabilityMap(mouseMaskMatrix);
+
+%% REPLACE_WITH_DASH_DASH- Quantify Weighted Movement  under the bar REPLACE_WITH_DASH_DASH-
+movementTrace = LF_computeWeightedMovement(underBarCroppedVideo, normMouseProbVals);
+
+%% DETRENDING
+% detrending the movement
+localMovementTrace = movmedian(movementTrace, DETRENDWINDOW);
+movementTrace = movementTrace - localMovementTrace;
+
+%% SLIP DETECTION
+% REPLACE_WITH_DASH_DASH 1) Create a logical mask of slip frames REPLACE_WITH_DASH_DASH
+slipMask = movementTrace > SLIPTHRESHOLD;  % 1D array; 1 means "potential slip in this frame"
+
+% REPLACE_WITH_DASH_DASH 2) Cleaning up the slip mask REPLACE_WITH_DASH_DASH
+%  'closing' merges small gaps up to 2 frames wide
+% (two slips separted by >3 frames of non-slip are merged into one)
+se = ones(3,1);  % structuring element of length=3
+slipMask = imclose(slipMask, se);
+
+% remove slips shorter than 3 frames:
+slipMask = bwareaopen(slipMask, 3);
+
+% REPLACE_WITH_DASH_DASH 3) Find contiguous slipping periods REPLACE_WITH_DASH_DASH
+cc = bwconncomp(slipMask);  % returns connected-component info
+nSLIPS = cc.NumObjects;  % number of slip events
+if nSLIPS == 0
+    warning('No slip events detected.');
+    return;
+end
+
+% REPLACE_WITH_DASH_DASH 5) Loop through each slip event and calculate properties REPLACE_WITH_DASH_DASH
+for slip = 1 : nSLIPS
+    slipFrames = cc.PixelIdxList{slip};  % frame indices for the s-th slip
+    startSlipFrame = min(slipFrames);
+    endSlipFrame   = max(slipFrames);
+
+    slipMagnitudes = movementTrace(slipFrames);
+    peakSlipValue  = max(slipMagnitudes);
+
+    % "Area above threshold" => sum( (value - threshold) )
+    areaVal = sum(slipMagnitudes - SLIPTHRESHOLD);
+
+    % collect the results into the output arrays
+    slipEventStarts(slip) = startSlipFrame;
+    slipEventPeaks(slip)  = peakSlipValue;
+    slipEventAreas(slip)  = areaVal;
+    slipEventDurations(slip) = endSlipFrame - startSlipFrame + 1;
+
+end
+end
+
+
+
+function [normMouseProbVals, mouseProbMatrix] = LF_computeMouseProbabilityMap(mouseMaskMatrix)
+% COMPUTEMOUSEPROBABILITYMAP Efficiently computes mouse pixel fraction per column per frame.
+%
+% INPUT:
+%   mouseMaskMatrix: logical array (height x width x nFrames), indicating mouse pixels.
+%
+% OUTPUTS:
+%   normMouseProbVals : (width x nFrames), fraction of mouse pixels per column.
+%   mouseProbMatrix   : (height x width x nFrames), replicated probability images.
+
+[imHeight, imWidth, nFrames] = size(mouseMaskMatrix);
+
+% 1. Sum mouse-pixels along rows for all frames simultaneously
+colSumAllFrames = squeeze(sum(mouseMaskMatrix, 1)); % size: [imWidth x nFrames]
+
+% 2. Convert column-sums to fractions (dividing by height)
+normMouseProbVals = colSumAllFrames / imHeight; % [imWidth x nFrames]
+
+% 3. Replicate fractions down the rows to create mouse probability matrix
+mouseProbMatrix = repmat(reshape(normMouseProbVals, [1, imWidth, nFrames]), imHeight, 1, 1);
+
+end
+
+
+
+function normMovementTrace = LF_computeWeightedMovement(videoMatrix, normMouseProbVals, SMOOTHFACTOR)
+% COMPUTEWEIGHTEDMOVEMENT Computes weighted frame-to-frame motion efficiently.
+
+if nargin < 3
+    SMOOTHFACTOR = 5;
+end
+
+[~, width, nFrames] = size(videoMatrix);
+
+% Convert video to double once
+videoDouble = im2double(videoMatrix);
+
+% Compute absolute difference across frames in one operation
+videoDiff = abs(diff(videoDouble, 1, 3));  % size: [height x width x (nFrames-1)]
+
+% Sum pixel differences column-wise (collapse rows)
+colDiffSum = squeeze(sum(videoDiff, 1));   % size: [width x (nFrames-1)]
+
+% Square the normMouseProbVals to enhance differences
+weightedProbs = normMouseProbVals(:, 2:end).^2;  % size: [width x (nFrames-1)]
+
+% Element-wise multiplication and sum columns for each frame (vectorized)
+movementTrace = sum(colDiffSum .* weightedProbs, 1)'; % size: [(nFrames-1) x 1]
+
+% Insert 0 at first frame since no prior frame
+movementTrace = [0; movementTrace];
+
+% Robust normalization using Median Absolute Deviation (MAD)
+medVal = median(movementTrace);
+madVal = median(abs(movementTrace - medVal));
+sigma_base = 1.4826 * madVal;
+normMovementTrace = (movementTrace - medVal) / sigma_base;
+
+% Smooth the trace
+normMovementTrace = smooth(normMovementTrace, SMOOTHFACTOR);
+
+end
+
+##### SOURCE END #####
+-->
+</body>
+</html>

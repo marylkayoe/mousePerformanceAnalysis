@@ -1,0 +1,488 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>plotBBtrial</title>
+<meta name="generator" content="MATLAB 24.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-05-06">
+<meta name="DC.source" content="plotBBtrial.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<pre class="codeinput">
+<span class="keyword">function</span> plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, <span class="keyword">...</span>
+    mouseCentroids, forwardSpeeds,meanSpeed, meanPosturalHeight,trialName, LOCOTHRESHOLD, SLIPTHRESHOLD)
+<span class="comment">% PLOTBBTRIAL  Creates a figure with subplots for:</span>
+<span class="comment">%   1) Movement trace + slip events</span>
+<span class="comment">%   2) Mouse 2D position, color-coded by forward speed, slip events indicated</span>
+<span class="comment">%</span>
+<span class="comment">% SYNTAX:</span>
+<span class="comment">%   plotBBtrial(movementTrace, FRAMERATE, ...</span>
+<span class="comment">%               slipEventStarts, slipEventAreas, ...</span>
+<span class="comment">%               mouseCentroids, forwardSpeeds, ...</span>
+<span class="comment">%               meanSpeed, traverseDuration, meanPosturalHeight, fileName);</span>
+<span class="comment">%</span>
+<span class="comment">% INPUTS:</span>
+<span class="comment">%   movementTrace     : 1D array of movement values (e.g. detrended + z-scored),</span>
+<span class="comment">%                       length = nFrames</span>
+<span class="comment">%   FRAMERATE         : frames per second (numeric)</span>
+<span class="comment">%   slipEventStarts   : array of frame indices at which slip events start</span>
+<span class="comment">%   slipEventAreas    : array of slip areas (same length as slipEventStarts),</span>
+<span class="comment">%                       used to scale the scatter circles</span>
+<span class="comment">%   mouseCentroids    : (nFrames x 2), each row = [xCoord, yCoord] of the mouse</span>
+<span class="comment">%   forwardSpeeds     : (nFrames x 1), speed in e.g. pixels/s</span>
+<span class="comment">%   meanSpeed         : scalar, average speed across the trial</span>
+<span class="comment">%   meanPosturalHeight: scalar, average height (pixels) above the bar</span>
+<span class="comment">%   fileName          : string, name of the video/file (for labeling)</span>
+<span class="comment">%   LOCOTHRESHOLD     : (optional) threshold for stopping, in pixels/sec, will default to 100</span>
+<span class="comment">%   SLIPTHRESHOLD     : (optional) threshold for slip detection, in pixels (will default to 2)</span>
+<span class="comment">%</span>
+
+<span class="keyword">if</span> ~exist(<span class="string">'LOCOTHRESHOLD'</span>, <span class="string">'var'</span>)
+    LOCOTHRESHOLD = 100;   <span class="comment">% default: 100 pixels/sec</span>
+<span class="keyword">end</span>
+
+<span class="comment">% -- Create a time axis from frames if desired --</span>
+nFrames = length(movementTrace);
+timeAxis = (0 : nFrames-1) / FRAMERATE;  <span class="comment">% in seconds</span>
+
+<span class="comment">% -- Create figure and subplots --</span>
+<span class="comment">% figure name should be the file name cleaned up from underscores</span>
+figTitle = cleanUnderscores(trialName);
+figure(<span class="string">'Name'</span>, figTitle, <span class="string">'Color'</span>, <span class="string">'w'</span>);
+
+<span class="comment">% shape of subplot panels</span>
+NROWS = 3;
+NCOLS = 1;
+
+traverseDuration = nFrames / FRAMERATE;  <span class="comment">% in seconds</span>
+
+<span class="comment">% define periods of stopping, as continuous segments below LOCOTHRESHOLD</span>
+stoppingFrames= forwardSpeeds &lt; LOCOTHRESHOLD;
+<span class="comment">% morphological closing to connect small gaps, exclude too short periods</span>
+stoppingFrames = bwareaopen(imclose(stoppingFrames, strel(<span class="string">'line'</span>, 5, 0)), 10);
+<span class="comment">% find contiguous regions of stopping</span>
+cc = bwconncomp(stoppingFrames);
+<span class="comment">% get the start and end frames of each stopping period</span>
+<span class="comment">%stoppingPeriods = cellfun(@(x) [x(1), x(end)], cc.PixelIdxList, 'UniformOutput', false);</span>
+<span class="comment">% get the duration of each stopping period</span>
+<span class="comment">%stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);</span>
+
+[stoppingFrames, stoppingStartStops] = detectStoppingOnBeam(forwardSpeeds, LOCOTHRESHOLD);
+
+
+<span class="comment">% =========== SUBPLOT #1: Movement Under Bar Trace ===========================</span>
+subplot(NROWS,NCOLS,1);  <span class="comment">% top subplot</span>
+hold <span class="string">on</span>;
+<span class="comment">% Plot the movement trace vs time (or vs frame #)</span>
+plot(timeAxis, movementTrace, <span class="string">'LineWidth'</span>,1.2, <span class="string">'Color'</span>,[0 0.45 0.74], <span class="string">'HandleVisibility'</span>,<span class="string">'off'</span>);
+<span class="comment">% add dashed line to indicate SLIPTHRESHOLD</span>
+yline(SLIPTHRESHOLD, <span class="string">'--'</span>, <span class="string">'Color'</span>, [0.5 0.5 0.5], <span class="string">'LineWidth'</span>, 1.2, <span class="keyword">...</span>
+    <span class="string">'Label'</span>, <span class="string">'Slip threshold'</span>, <span class="string">'LabelHorizontalAlignment'</span>,<span class="string">'left'</span>, <span class="string">'HandleVisibility'</span>, <span class="string">'off'</span>);
+
+
+
+
+<span class="comment">% Overlay slip events (if any)</span>
+<span class="keyword">if</span> ~isempty(slipEventStarts)
+    <span class="comment">% Convert slipEventStarts from frames to time if desired</span>
+    slipTimes = (slipEventStarts - 1) / FRAMERATE;  <span class="comment">% minus 1 for zero-based</span>
+    <span class="comment">% Scale marker size by slipEventAreas</span>
+    markerSizes = slipEventAreas * 20;
+    scatter(slipTimes, movementTrace(slipEventStarts), <span class="keyword">...</span>
+        markerSizes, <span class="string">'o'</span>, <span class="string">'filled'</span>, <span class="string">'MarkerFaceColor'</span>,<span class="string">'r'</span>);
+<span class="keyword">end</span>
+<span class="comment">% legend for the markers</span>
+<span class="keyword">if</span> ~isempty(slipEventStarts)
+    legend(<span class="string">'Slip events (size indicates magnitude)'</span>, <span class="string">'Location'</span>, <span class="string">'best'</span>);
+<span class="keyword">end</span>
+
+title(<span class="string">'Movement detected under bar, with detected slips'</span>,<span class="string">'FontSize'</span>,12);
+xlabel(<span class="string">'Time (s)'</span>);
+ylabel(<span class="string">'Movement (pixels)'</span>);
+grid <span class="string">on</span>;
+
+<span class="comment">% =========== SUBPLOT #2: Mouse 2D Position with speed ========================</span>
+subplot(NROWS,NCOLS,2);
+hold <span class="string">on</span>;
+
+<span class="comment">% Plot the mouse XY path, note y is with respect to bar</span>
+plot(mouseCentroids(:,1), mouseCentroids(:,2), <span class="string">'LineWidth'</span>,2, <span class="keyword">...</span>
+    <span class="string">'Color'</span>,[0.3 0.3 0.3], <span class="string">'HandleVisibility'</span>,<span class="string">'off'</span>);
+
+<span class="comment">% Color-scatter the centroid positions by forwardSpeeds</span>
+scatter(mouseCentroids(:,1), mouseCentroids(:,2), <span class="keyword">...</span>
+    50, forwardSpeeds, <span class="string">'filled'</span>, <span class="string">'HandleVisibility'</span>,<span class="string">'off'</span>);
+colormap(<span class="string">'cool'</span>);
+c = colorbar;
+c.Label.String = <span class="string">'Forward speed (pixels/s)'</span>;
+
+<span class="comment">% Indicate slip events on the 2D path</span>
+<span class="keyword">if</span> ~isempty(slipEventStarts)
+    scatter( mouseCentroids(slipEventStarts,1), <span class="keyword">...</span>
+        mouseCentroids(slipEventStarts,2), <span class="keyword">...</span>
+        slipEventAreas*20, <span class="string">'ro'</span>, <span class="string">'filled'</span>);
+<span class="keyword">end</span>
+
+<span class="comment">% Some axis labeling</span>
+xlabel(<span class="string">'Position along bar (px)'</span>);
+ylabel(<span class="string">'Height above bar (px)'</span>);
+ylim([0, max(mouseCentroids(:, 2))+5]);
+
+<span class="comment">% Adjust color limits to highlight speed range</span>
+caxis([0, max(forwardSpeeds)]);
+
+<span class="comment">% legend for the markers</span>
+<span class="keyword">if</span> ~isempty(slipEventStarts)
+    legend({<span class="string">'Slip events (size indicates magnitude)'</span>}, <span class="string">'Location'</span>, <span class="string">'best'</span>);
+<span class="keyword">end</span>
+
+<span class="comment">% label x-axis 0 as LEFT, and max(x) as RIGHT</span>
+xTicks = get(gca, <span class="string">'XTick'</span>);
+xTickLabels = arrayfun(@(x) sprintf(<span class="string">'%.0f'</span>, x), xTicks, <span class="string">'UniformOutput'</span>, false);
+xTickLabels{1} = <span class="string">'LEFT'</span>;
+xTickLabels{end} = <span class="string">'RIGHT'</span>;
+set(gca, <span class="string">'XTickLabel'</span>, xTickLabels);
+
+<span class="comment">% =========== Add Directional Arro to title ===============</span>
+<span class="comment">% Check initial vs final x, decide arrow direction</span>
+
+<span class="keyword">if</span> mouseCentroids(1,1) &lt; mouseCentroids(end,1)
+    <span class="comment">% Left-to-right</span>
+    titleString = <span class="string">'Forward \rightarrow'</span>;
+<span class="keyword">else</span>
+    titleString = <span class="string">'\leftarrow Forward'</span>;
+<span class="keyword">end</span>
+
+title ([<span class="string">'Mouse centroid trajectory,  '</span> titleString], <span class="string">'FontSize'</span>, 12);
+<span class="comment">% =========== Add Some Text Info (Trial Stats) =====================</span>
+
+text(0.02, 0.25, sprintf(<span class="string">'Mean speed: %.1f px/s'</span>, meanSpeed), <span class="keyword">...</span>
+    <span class="string">'Units'</span>,<span class="string">'normalized'</span>,<span class="string">'FontSize'</span>,10);
+text(0.02, 0.19, sprintf(<span class="string">'Traverse duration: %.2f s'</span>, traverseDuration), <span class="keyword">...</span>
+    <span class="string">'Units'</span>,<span class="string">'normalized'</span>,<span class="string">'FontSize'</span>,10);
+text(0.02, 0.13, sprintf(<span class="string">'Mean posture: %.1f px'</span>, meanPosturalHeight), <span class="keyword">...</span>
+    <span class="string">'Units'</span>,<span class="string">'normalized'</span>,<span class="string">'FontSize'</span>,10);
+text(0.02, 0.07, [<span class="string">'Total slip magnitude: '</span>, num2str(sum(slipEventAreas))], <span class="string">'Units'</span>, <span class="string">'normalized'</span>, <span class="string">'FontSize'</span>, 10);
+
+<span class="comment">% Done</span>
+hold <span class="string">off</span>;
+
+<span class="comment">% =========== SUBPLOT #3: instantaneous speed profile plot ===============</span>
+subplot(NROWS,NCOLS,3);  <span class="comment">% bottom subplot</span>
+hold <span class="string">on</span>;
+<span class="comment">% add gray transparent rectangles for stopping periods if any are found</span>
+<span class="keyword">for</span> i = 1:length(stoppingStartStops(:, 1))
+    <span class="comment">% get the start and end times of the stopping period</span>
+    startFrame = stoppingStartStops(i, 1);
+    endFrame = stoppingStartStops(i, 2);
+    startTime = (startFrame - 1) / FRAMERATE;
+    endTime = (endFrame - 1) / FRAMERATE;
+    <span class="comment">% plot a gray rectangle for the stopping period</span>
+    rectangle(<span class="string">'Position'</span>, [startTime, 0, endTime-startTime, max(forwardSpeeds)], <span class="keyword">...</span>
+        <span class="string">'FaceColor'</span>, [0.7, 0.7, 0.7, 0.1], <span class="string">'FaceAlpha'</span>, 0.5, <span class="string">'EdgeColor'</span>, <span class="string">'k'</span>);
+<span class="keyword">end</span>
+
+<span class="comment">% Plot the forward speed vs time (or vs frame #)</span>
+plot(timeAxis, forwardSpeeds, <span class="string">'LineWidth'</span>,1.2, <span class="string">'Color'</span>,[0.85 0.33 0.1], <span class="string">'HandleVisibility'</span>,<span class="string">'off'</span>);
+
+<span class="comment">% dummy plot for legend for gray rectangles</span>
+plot(NaN, NaN, <span class="string">'Color'</span>, [0.7, 0.7, 0.7], <span class="string">'LineWidth'</span>, 10);
+
+legend(<span class="string">'Stops'</span>, <span class="string">'Location'</span>, <span class="string">'best'</span>);
+<span class="comment">% Some axis labeling</span>
+xlabel(<span class="string">'Time (s)'</span>);
+ylabel(<span class="string">'Forward speed (pixels/s)'</span>);
+title(<span class="string">'Forward speed profile'</span>,<span class="string">'FontSize'</span>,12);
+<span class="comment">% add text about number and total duration of stops</span>
+text(0.02, 0.3, sprintf(<span class="string">'Number of stops: %d'</span>, length(stoppingStartStops(:, 1))), <span class="keyword">...</span>
+    <span class="string">'Units'</span>,<span class="string">'normalized'</span>,<span class="string">'FontSize'</span>,10);
+text(0.02, 0.15, sprintf(<span class="string">'Total stop duration: %.2f s'</span>, sum(stoppingFrames)/FRAMERATE), <span class="keyword">...</span>
+    <span class="string">'Units'</span>,<span class="string">'normalized'</span>,<span class="string">'FontSize'</span>,10);
+
+grid <span class="string">on</span>;
+hold <span class="string">off</span>;
+
+
+<span class="keyword">end</span>
+</pre>
+<pre class="codeoutput error">Not enough input arguments.
+
+Error in plotBBtrial (line 34)
+nFrames = length(movementTrace);
+                 ^^^^^^^^^^^^^</pre>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
+    mouseCentroids, forwardSpeeds,meanSpeed, meanPosturalHeight,trialName, LOCOTHRESHOLD, SLIPTHRESHOLD)
+% PLOTBBTRIAL  Creates a figure with subplots for:
+%   1) Movement trace + slip events
+%   2) Mouse 2D position, color-coded by forward speed, slip events indicated
+%
+% SYNTAX:
+%   plotBBtrial(movementTrace, FRAMERATE, ...
+%               slipEventStarts, slipEventAreas, ...
+%               mouseCentroids, forwardSpeeds, ...
+%               meanSpeed, traverseDuration, meanPosturalHeight, fileName);
+%
+% INPUTS:
+%   movementTrace     : 1D array of movement values (e.g. detrended + z-scored),
+%                       length = nFrames
+%   FRAMERATE         : frames per second (numeric)
+%   slipEventStarts   : array of frame indices at which slip events start
+%   slipEventAreas    : array of slip areas (same length as slipEventStarts),
+%                       used to scale the scatter circles
+%   mouseCentroids    : (nFrames x 2), each row = [xCoord, yCoord] of the mouse
+%   forwardSpeeds     : (nFrames x 1), speed in e.g. pixels/s
+%   meanSpeed         : scalar, average speed across the trial
+%   meanPosturalHeight: scalar, average height (pixels) above the bar
+%   fileName          : string, name of the video/file (for labeling)
+%   LOCOTHRESHOLD     : (optional) threshold for stopping, in pixels/sec, will default to 100
+%   SLIPTHRESHOLD     : (optional) threshold for slip detection, in pixels (will default to 2)
+%
+
+if ~exist('LOCOTHRESHOLD', 'var')
+    LOCOTHRESHOLD = 100;   % default: 100 pixels/sec
+end
+
+% REPLACE_WITH_DASH_DASH Create a time axis from frames if desired REPLACE_WITH_DASH_DASH
+nFrames = length(movementTrace);
+timeAxis = (0 : nFrames-1) / FRAMERATE;  % in seconds
+
+% REPLACE_WITH_DASH_DASH Create figure and subplots REPLACE_WITH_DASH_DASH
+% figure name should be the file name cleaned up from underscores
+figTitle = cleanUnderscores(trialName);
+figure('Name', figTitle, 'Color', 'w');
+
+% shape of subplot panels
+NROWS = 3;
+NCOLS = 1;
+
+traverseDuration = nFrames / FRAMERATE;  % in seconds
+
+% define periods of stopping, as continuous segments below LOCOTHRESHOLD
+stoppingFrames= forwardSpeeds < LOCOTHRESHOLD;
+% morphological closing to connect small gaps, exclude too short periods
+stoppingFrames = bwareaopen(imclose(stoppingFrames, strel('line', 5, 0)), 10);
+% find contiguous regions of stopping
+cc = bwconncomp(stoppingFrames);
+% get the start and end frames of each stopping period
+%stoppingPeriods = cellfun(@(x) [x(1), x(end)], cc.PixelIdxList, 'UniformOutput', false);
+% get the duration of each stopping period
+%stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);
+
+[stoppingFrames, stoppingStartStops] = detectStoppingOnBeam(forwardSpeeds, LOCOTHRESHOLD);
+
+
+% =========== SUBPLOT #1: Movement Under Bar Trace ===========================
+subplot(NROWS,NCOLS,1);  % top subplot
+hold on;
+% Plot the movement trace vs time (or vs frame #)
+plot(timeAxis, movementTrace, 'LineWidth',1.2, 'Color',[0 0.45 0.74], 'HandleVisibility','off');
+% add dashed line to indicate SLIPTHRESHOLD
+yline(SLIPTHRESHOLD, 'REPLACE_WITH_DASH_DASH', 'Color', [0.5 0.5 0.5], 'LineWidth', 1.2, ...
+    'Label', 'Slip threshold', 'LabelHorizontalAlignment','left', 'HandleVisibility', 'off');
+
+
+
+
+% Overlay slip events (if any)
+if ~isempty(slipEventStarts)
+    % Convert slipEventStarts from frames to time if desired
+    slipTimes = (slipEventStarts - 1) / FRAMERATE;  % minus 1 for zero-based
+    % Scale marker size by slipEventAreas
+    markerSizes = slipEventAreas * 20;
+    scatter(slipTimes, movementTrace(slipEventStarts), ...
+        markerSizes, 'o', 'filled', 'MarkerFaceColor','r');
+end
+% legend for the markers
+if ~isempty(slipEventStarts)
+    legend('Slip events (size indicates magnitude)', 'Location', 'best');
+end
+
+title('Movement detected under bar, with detected slips','FontSize',12);
+xlabel('Time (s)');
+ylabel('Movement (pixels)');
+grid on;
+
+% =========== SUBPLOT #2: Mouse 2D Position with speed ========================
+subplot(NROWS,NCOLS,2);
+hold on;
+
+% Plot the mouse XY path, note y is with respect to bar
+plot(mouseCentroids(:,1), mouseCentroids(:,2), 'LineWidth',2, ...
+    'Color',[0.3 0.3 0.3], 'HandleVisibility','off');
+
+% Color-scatter the centroid positions by forwardSpeeds
+scatter(mouseCentroids(:,1), mouseCentroids(:,2), ...
+    50, forwardSpeeds, 'filled', 'HandleVisibility','off');
+colormap('cool');
+c = colorbar;
+c.Label.String = 'Forward speed (pixels/s)';
+
+% Indicate slip events on the 2D path
+if ~isempty(slipEventStarts)
+    scatter( mouseCentroids(slipEventStarts,1), ...
+        mouseCentroids(slipEventStarts,2), ...
+        slipEventAreas*20, 'ro', 'filled');
+end
+
+% Some axis labeling
+xlabel('Position along bar (px)');
+ylabel('Height above bar (px)');
+ylim([0, max(mouseCentroids(:, 2))+5]);
+
+% Adjust color limits to highlight speed range
+caxis([0, max(forwardSpeeds)]);
+
+% legend for the markers
+if ~isempty(slipEventStarts)
+    legend({'Slip events (size indicates magnitude)'}, 'Location', 'best');
+end
+
+% label x-axis 0 as LEFT, and max(x) as RIGHT
+xTicks = get(gca, 'XTick');
+xTickLabels = arrayfun(@(x) sprintf('%.0f', x), xTicks, 'UniformOutput', false);
+xTickLabels{1} = 'LEFT';
+xTickLabels{end} = 'RIGHT';
+set(gca, 'XTickLabel', xTickLabels);
+
+% =========== Add Directional Arro to title ===============
+% Check initial vs final x, decide arrow direction
+
+if mouseCentroids(1,1) < mouseCentroids(end,1)
+    % Left-to-right
+    titleString = 'Forward \rightarrow';
+else
+    titleString = '\leftarrow Forward';
+end
+
+title (['Mouse centroid trajectory,  ' titleString], 'FontSize', 12);
+% =========== Add Some Text Info (Trial Stats) =====================
+
+text(0.02, 0.25, sprintf('Mean speed: %.1f px/s', meanSpeed), ...
+    'Units','normalized','FontSize',10);
+text(0.02, 0.19, sprintf('Traverse duration: %.2f s', traverseDuration), ...
+    'Units','normalized','FontSize',10);
+text(0.02, 0.13, sprintf('Mean posture: %.1f px', meanPosturalHeight), ...
+    'Units','normalized','FontSize',10);
+text(0.02, 0.07, ['Total slip magnitude: ', num2str(sum(slipEventAreas))], 'Units', 'normalized', 'FontSize', 10);
+
+% Done
+hold off;
+
+% =========== SUBPLOT #3: instantaneous speed profile plot ===============
+subplot(NROWS,NCOLS,3);  % bottom subplot
+hold on;
+% add gray transparent rectangles for stopping periods if any are found
+for i = 1:length(stoppingStartStops(:, 1))
+    % get the start and end times of the stopping period
+    startFrame = stoppingStartStops(i, 1);
+    endFrame = stoppingStartStops(i, 2);
+    startTime = (startFrame - 1) / FRAMERATE;
+    endTime = (endFrame - 1) / FRAMERATE;
+    % plot a gray rectangle for the stopping period
+    rectangle('Position', [startTime, 0, endTime-startTime, max(forwardSpeeds)], ...
+        'FaceColor', [0.7, 0.7, 0.7, 0.1], 'FaceAlpha', 0.5, 'EdgeColor', 'k');
+end
+
+% Plot the forward speed vs time (or vs frame #)
+plot(timeAxis, forwardSpeeds, 'LineWidth',1.2, 'Color',[0.85 0.33 0.1], 'HandleVisibility','off');
+
+% dummy plot for legend for gray rectangles
+plot(NaN, NaN, 'Color', [0.7, 0.7, 0.7], 'LineWidth', 10);
+
+legend('Stops', 'Location', 'best');
+% Some axis labeling
+xlabel('Time (s)');
+ylabel('Forward speed (pixels/s)');
+title('Forward speed profile','FontSize',12);
+% add text about number and total duration of stops
+text(0.02, 0.3, sprintf('Number of stops: %d', length(stoppingStartStops(:, 1))), ...
+    'Units','normalized','FontSize',10);
+text(0.02, 0.15, sprintf('Total stop duration: %.2f s', sum(stoppingFrames)/FRAMERATE), ...
+    'Units','normalized','FontSize',10);
+
+grid on;
+hold off;
+
+
+end
+
+##### SOURCE END #####
+-->
+</body>
+</html>
