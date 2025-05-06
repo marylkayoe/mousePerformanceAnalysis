@@ -42,8 +42,7 @@ Due to the simplicity of the algorithm, it is also easy to modify or expand - fo
 
 If you use this code or algorithm in your research, please cite it as:
 
-Uusisaari, MY, (2025). BeamCross: A MATLAB Tool for Balance Beam Video Analysis. Retrieved from https://github.com/YourRepoLinkHere.
-
+Uusisaari, MY, (2025). BeamCross: A MATLAB Tool for Balance Beam Video Analysis. Retrieved from [gitHub](https://github.com/marylkayoe/mousePerformanceAnalysis/tree/main/BEAMCROSS)
 
 
 ### References
