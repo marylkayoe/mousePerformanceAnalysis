@@ -183,7 +183,7 @@ However, sometimes the tail of the mouse swings below the bar and might be detct
    -  **`LF_computeWeightedMovement.m`**  
    Given a video region of interest (e.g., under the bar) and the column probabilities, calculates a movement trace that weighs each column’s differences by how likely the mouse is there.
 
-   The combining the results of these two functions, we can get a weighted movement trace that is robust to noise and tail movements. Slips are detected by thresholding this trace, and the results are returned in the following output variables: 
+   Combining the results of these two local functions, we can get a weighted movement trace that is robust to noise and tail movements. Slips are detected by thresholding this trace, and the results are returned in the following output variables: 
    - slipEventStarts: the frame numbers where slips start
    - slipEventPeaks: the peak values of the weighted movement trace during slips
    - slipEventAreas: the area under the weighted movement trace during slips
@@ -191,7 +191,7 @@ However, sometimes the tail of the mouse swings below the bar and might be detct
    - movementTrace: the full weighted movement trace for the entire video
    - underBarCroppedVideo: the cropped video of the region below the bar, used for visualization
 
- **`plotBBtrial.m`**  
+### **`plotBBtrial.m`**  
    Creates diagnostic plots: a movement trace vs. time (with slip markers) and a 2D mouse centroid trajectory, color-coded by speed. Also places arrow annotations and summary text on the figure.
 ```matlab
 plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
@@ -209,6 +209,7 @@ plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
    - trialName: the name of the trial (used for plot titles)
    - LOCOTHRESHOLD: the threshold for determining if the mouse is moving or stopped (in px/sec, default:100)
    - SLIPTHRESHOLD: the threshold for determining if a slip has occurred (in a.u., default:2.5)
+   
    The function generates a figure with the following panels:
       ![Diagram](IMAGES/slipDetectionResults.png)
 
