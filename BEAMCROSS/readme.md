@@ -49,7 +49,7 @@ Tracks the mouse position on the beam across frames. Returns mouse centroids, sp
 ### **`detectSlips.m`**  
    Generates the weighted movement trace to find slip intervals (above a threshold). The slips are only counted if they happen "under the mouse". Returns the start frames, duration, peak values, and area (severity) of each slip event.
 
-     ```matlab
+```matlab
 [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, ...
 underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, ...
  barThickness, SLIPTHRESHOLD, UNDERBARSCALE, DETRENDWINDOW)
