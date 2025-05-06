@@ -121,14 +121,13 @@ if ~strcmpi(ext, '.mp4')
     return;
 end
 
-disp('reading video into matrix...');
-tic
+
+
 %% --- Load the Video into a Matrix ---
 % readVideoIntoMatrix is assumed to return (videoMatrix, frameRate).
 % frameRate is automatically detected from the file if possible.
 [videoMatrix, frameRate] = readBBVideoIntoMatrix(fullFilePath);
 
-toc
 % if videoMatrix is empty, it means the video could not be read
 if isempty(videoMatrix)
     warning('Failed to read video file: %s\nAborting...', fullFilePath);
@@ -181,25 +180,11 @@ croppedVideo = videoMatrix(cropRange(1):cropRange(2), :, :);
 barTopCoord = barThickness * CROPVIDEOSCALE;
 
 
-
-%topCropPosition = barTopCoord - barThickness*CROPVIDEOSCALE;
-%ottomCropPosition = barTopCoord + barThickness*CROPVIDEOSCALE;
-% make sure we don't go out of bounds
-%if topCropPosition < 1
-%    topCropPosition = 1;
-%end
-%if bottomCropPosition > size(videoMatrix, 1)
- %   bottomCropPosition = size(videoMatrix, 1);
-%end
-% crop the video
-%croppedVideo = videoMatrix(topCropPosition:bottomCropPosition, :, :);
-% so now the bar coordinate in this cropped video is just.
-%barTopCoord = barThickness*CROPVIDEOSCALE;
 [imHeight, ~, ~] = size(croppedVideo);
 
 
 %% 4)  --- Track the Mouse in the Cropped Video ---
-[mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, ...
+[mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingStartStops, stoppingFrames, ...
     meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, trimmedVideo] = ...
     trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE );
 % NOTE: trackedVideo has the mouse overlaid with centroid marker, mouseMaskMatrix is the mask image video
@@ -233,9 +218,10 @@ R.meanSlipAmplitude    = mean(slipEventAreas);
 R.meanPosturalHeight = mean(mouseCentroids(:, 2), 'omitnan');
 R.stdPosturalHeight = std(mouseCentroids(:, 2), 'omitnan');
 
-R.nStops = length(stoppingPeriods);
-R.stoppingPeriods = stoppingPeriods;
-R.stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);
+R.nStops = length(stoppingStartStops);
+R.stoppingStartStops = stoppingStartStops;
+R.stoppingDurations = length(stoppingFrames);
+%R.stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);
 
 %% --- Generate Plots & Show Videos if Requested ---
 if MAKEPLOT

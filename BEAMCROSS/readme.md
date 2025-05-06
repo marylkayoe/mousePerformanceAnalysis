@@ -231,9 +231,31 @@ plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
    The function generates a figure with the following panels:
       ![Diagram](IMAGES/slipDetectionResults.png)
 
-## Additional Helpers and Subfolders
+## Additional Helper functions
 
-Some functions and scripts reside in separate subfolders for organization:
+### **`detectStoppingOnBeam.m`**
+
+Identifies stopping periods of the mouse on the beam from a computed speed trace. The function applies thresholding, morphological operations, and smoothing to robustly detect intervals of low speed ("stopping"). The result is a binary frame-level mask indicating stopping frames, and a list of start-end indices for each detected stopping period.
+
+**Algorithm summary**:
+
+* Threshold speed array to identify candidate stopping frames.
+* Apply morphological closing to merge brief gaps.
+* Remove stopping periods shorter than a specified minimum duration.
+* Smooth transitions into and out of stopping periods using convolution to handle gradual changes in speed.
+* Extract contiguous stopping periods as start-end frame intervals.
+
+### **`readBBVideoIntoMatrix.m`**
+
+Reads a balance beam video file (`.mp4`) into a MATLAB 3D matrix (height × width × frames). It automatically detects and converts RGB videos into grayscale, supports optional spatial downscaling (via a user-defined scale factor), and returns the video frame rate. 
+
+```matlab
+[videoMatrix, frameRate] = readBBVideoIntoMatrix('mouse_trial.mp4', 'scaleFactor', 0.5);
+```
+
+### **`displayBehaviorVideoMatrix.m`**
+
+
 
 - **`visualization/`** may contain GUIs or interactive display tools like **`displayBehaviorVideoMatrix`** (a function that plays back frames, provides a slider and “play/pause” button, etc.).
 - **`videoProcessing/`, `videoImageAnalysis/`, `helperFunctions/`** may hold smaller utility scripts (`readVideoIntoMatrix.m`, `getMeanFrame.m`, etc.) that perform image I/O, frame differencing, or morphological operations needed by the main pipeline.

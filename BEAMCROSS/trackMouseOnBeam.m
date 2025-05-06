@@ -1,6 +1,6 @@
-function [mouseCentroids, instForwardSpeed, meanSpeed, traverseDuration, stoppingPeriods, ...
-meanSpeedLoco, stdSpeedLoco, ...
-    mouseMaskMatrix, trackedVideo, croppedVideo] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, mouseContrastThreshold, FRAMERATE)
+function [mouseCentroids, instForwardSpeed, meanSpeed, traverseDuration, stoppingStartStops, ...
+stoppingFrames, meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, croppedVideo] = ...
+trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, mouseContrastThreshold, FRAMERATE)
 % TRACKMOUSEONBEAM  Detect and track the mouse in a cropped grayscale video of a balance beam.
 %
 %   [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, meanPosturalHeight, ...
@@ -100,7 +100,7 @@ markerSize = 10;    % radius of the centroid marker in video(in pixels)
 
 %% Preallocate output arrays
 mouseCentroids = nan(nFrames, 2);
-stoppingPeriods = cell(0);
+stoppingStartStops = cell(0);
 
 % 1) Compute ratio image to enhance mouse as darker region
 meanFrame = getMeanFrame(croppedVideo);
@@ -164,7 +164,6 @@ end
 
 toc
 %% Identify the longest continuous segment of frames with a valid centroid
-
 mouseFoundFrames = ~isnan(mouseCentroids(:,1));
 % Morphological closing to fill gaps (discontinuities) smaller than ~5 frames
 mouseFoundFrames = imclose(mouseFoundFrames, strel('disk', 5));
@@ -200,7 +199,7 @@ meanSpeed = mean(instForwardSpeed, 'omitnan');
 
 %% find periods when mouse has stopped
 % stoppingFrames are frame indices, stoppingPeriods contain starts&stops
-[stoppingFrames, stoppingPeriods] = detectStoppingOnBeam(instForwardSpeed, LOCOTHRESHOLD, FRAMERATE);
+[stoppingFrames, stoppingStartStops] = detectStoppingOnBeam(instForwardSpeed, LOCOTHRESHOLD, FRAMERATE);
 
 %% calculate speed of locomotion outside stopping periods
 locoFrameList = find(~stoppingFrames);
