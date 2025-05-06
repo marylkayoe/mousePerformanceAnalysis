@@ -48,7 +48,7 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
 ### **`detectSlips.m`**  
    Generates the weighted movement trace to find slip intervals (above a threshold). The slips are only counted if they happen "under the mouse". Returns the start frames, duration, peak values, and area (severity) of each slip event.
 
-```matlab
+     ```matlab
 [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, ...
 underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, ...
  barThickness, SLIPTHRESHOLD, UNDERBARSCALE, DETRENDWINDOW)
@@ -66,7 +66,7 @@ underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, 
    Principle is simple: look at how much between-frames changes happen below the bar:
  ```matlab
    totalMovement = sum(abs(currentFrame - previousFrame)); 
-     ```
+   ```
 
 
    Makes use of these procedures;
