@@ -38,7 +38,8 @@ $$
 W_n = \sum_{w=1}^{W} S_{w,n}\,(C_{w,n})^2,\quad n=2,\dots,N
 $$
 
-This weighted metric $W_n$ robustly captures mouse-specific movement, allowing precise identification of slips and other balance-related behaviors.
+This weighted metric $W_n$ robustly captures mouse-specific movement, that can be further normalized or smoothed as needed, and is used to identify slip events based on a user-defined threshold.
+The algorithm is implemented in the `detectSlips.m` function, which processes the video data and mouse mask to identify slip events based on the computed weighted movement trace. See details below.
 
 
 ## Overview of the code
