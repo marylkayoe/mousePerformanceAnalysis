@@ -15,15 +15,14 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
    The main entry point for analyzing a single `.mp4` video file. Loads and preprocesses the video, detects the bar, tracks the mouse, computes slips, and optionally produces plots and annotated videos. Returns all relevant measurements in a structured output.
 
 ### **`trackMouseOnBeam.m`**  
-   Tracks the mouse position on the beam across frames. Returns mouse centroids, speed information, stops, and three versions of the video: binary mask, a background-subtracted video with the centroid of the mouse indicated, and the original video cropped and trimmed to match the tracked ones.
-   
+Tracks the mouse position on the beam across frames. Returns mouse centroids, speed information, stops, and three versions of the video: binary mask, a background-subtracted video with the centroid of the mouse indicated, and the original video cropped and trimmed to match the tracked ones.
 
-      ```matlab
-   [mouseCentroids, instForwardSpeed, meanSpeed, traverseDuration, stoppingPeriods,...
-   meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, croppedVideo] = ...
-   trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, ...
-   mouseContrastThreshold, FRAMERATE)
-   ```
+```matlab
+[mouseCentroids, instForwardSpeed, meanSpeed, traverseDuration, stoppingPeriods,...
+ meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, croppedVideo] = ...
+ trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, ...
+ mouseContrastThreshold, FRAMERATE)
+```
 
    _Notes_:
    - The mouse is presumed to be black (or much darker than anything else in the image). 
