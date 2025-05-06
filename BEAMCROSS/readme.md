@@ -65,18 +65,19 @@ underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, 
    -DETRENDWINDOW (optional): temporal window for detrending the movement trace to sharpen slip detection. Currend default 64 frames (0.4s)
 
    Principle is simple: look at how much between-frames changes happen below the bar:
- ```matlab
+```matlab
    totalMovement = sum(abs(currentFrame - previousFrame)); 
-   ```
+```
+However, sometimes the tail of the mouse swings below the bar and might be detcted as a slip:
+ ![Diagram](underbartail.png)
 
-
-   Makes use of these procedures;
-   -  **`computeMouseProbabilityMap.m`**  
-   Computes a per-column “probability” or fraction of the mouse occupying that column. Helps weight movement by how fully the trunk is present vs. just the tail.
+ To avoid this, we want to only consider movement below the bar in positions that are under the mouse. As the mouse is not a rectangle, calculate "mouse probability distribution" above the bar:
+ -  **`computeMouseProbabilityMap.m`**  
+   Computes a per-column “probability” or fraction of the mouse mask occupying that column above the bar. Helps weight movement by how fully the trunk is present vs. just the tail. 
    -  **`computeWeightedMovement.m`**  
    Given a video region of interest (e.g., under the bar) and the column probabilities, calculates a movement trace that weighs each column’s differences by how likely the mouse is there.
 
-2. **`plotBBtrial.m`**  
+1. **`plotBBtrial.m`**  
    Creates diagnostic plots: a movement trace vs. time (with slip markers) and a 2D mouse centroid trajectory, color-coded by speed. Also places arrow annotations and summary text on the figure.
 
 ## Additional Helpers and Subfolders
