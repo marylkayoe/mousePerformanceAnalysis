@@ -4,7 +4,7 @@ This repository contains a set of **MATLAB** functions and scripts for analyzing
 
 ## Table of Contents
 - [BeamCross: A MATLAB Tool for Balance Beam Video Analysis]
-  - [Background - why not use deep learning?](#background---why-not-use-deep-learning)
+  - [Background](#background)
   - [Formal description of the algorithm](#formal-description-of-the-algorithm)
     - [Formal Definition of Slip Events and Magnitudes](#formal-definition-of-slip-events-and-magnitudes)
   - [Description of functions](#description-of-functions)
@@ -21,9 +21,31 @@ This repository contains a set of **MATLAB** functions and scripts for analyzing
   - [Dependencies](#dependencies)
 
 
-## Background - why not use deep learning?
+## Background and motivation for the work
 
 Assessing mouse performance on a balance beam is one of the gold classics of systems neurobiology, as balance perturbations are a common symptom of numerous malfunctions of the central nervous system as well as the periferal sensory mechanisms. Experiments where a mouse is tasked by traversal of a narrow beam have been conducted for decades, and the assessment has been, until recently, based entirely on manual scoring - i.e. by a researcher observing either the animals or recorded videos and counting the number of slipping occurrences. 
+
+While this approach is reasonably robust when used by experienced personnel, it has limitations. First, it doesn't easily scale to large numbers of trials to be examined. Second, it inherently lacks resolution: unless the bar is very narrow, healthy mice rarely slip and revealing subtle differences will need numerous repetitions, risking confounding factors related to habituation and motor learning even when combined with another simple metric such as duration of the traverse.
+
+In this context, machine learning-based, markerless tracking tools such as DeepLabCut (Mathis et al, 2018) have recently been used to analyze mouse behavior on balance beams (Wahl et al, 2023; Bidgood et al, 2024). In this approach, positions of mouse body parts such as paws are estimated using a deep learning model trained on annotated videos, and their trajectories are then examined to identify slips. 
+
+Without engaging in the broader discussion regarding increasing reliance on machine learning tools in experimental neuroscience, we simply note that instanciating a complex deep learning model is a massive overkill for a simple task of detecing slips, as the importance of green computing practises is increasingly recognized (Lannelongue et al, 2021).
+ Here, we demonstrate that the problem can be formulated using simple, discrete vector algebra, and that the task can be accomplished using a straightforward algorithm that is efficient, elegant and easy to modify. 
+
+The algorithm is based on the idea that all we need to do is to observe how much movement is seen under the bar, assuming that the mouse is attempting to stay above the bar. Thus, we can simply calculate the frame-to-frame difference in pixel intensities below the bar, and identify slips as periods of movement above a certain threshold. The confounding factors are the mouse's tail and the fact that the mouse is not a rectangle, so we need to take into account the probability of the mouse being present in each column of the image. This is done by calculating a "mouse mask" that indicates which pixels belong to the mouse in each frame using a simple thresholding operation, and this mask is used to adjust the movement metric.
+
+The code presented here not only calculates slip events, but also provides a number of additional (if trivial) features such as the severity of slips, duration of stops, and advancing speed during locomotion, that are useful for analyzing balance beam behavior.
+
+It is beyond our means or interest to compare the performance of our algorithm with the deep learning-based approaches, but we note that the algorithm as implemented in Matlab (v2024b) is very fast. On a Macbook Air (M3, MacOS 14.6, 24GB RAM), a 10-second video (160 fps, 640x480 pixels, 9-12MB lossless .mp4 file) is processed in less than 10 seconds (excluding file IO) without any particular attempts at improving speed. 
+
+Due to the simplicity of the algorithm, it is also easy to modify or expand - for example, in the context of balance beams with decreasing diameter. We hope that this work will not only speed up your analysis of balance beam videos, but also serve as an inspiration for considering simple, elegant solutions to problems that tend to be solved using unnecessarily complex deep learning models.
+
+### References
+- Bidgood, Raphaëlle, et al. [Automated procedure to detect subtle motor alterations in the balance beam test in a mouse model of early Parkinson’s disease.](https://doi.org/10.1038/s41598-024-51225-1) Scientific reports 14.1 (2024): 862. 
+- Lannelongue, Loïc, Jason Grealey, and Michael Inouye. [Green algorithms: quantifying the carbon footprint of computation](https://doi.org/10.1002/advs.202100707) Advanced science 8.12 (2021): 2100707. 
+- Mathis, Alexander, et al. "DeepLabCut: markerless pose estimation of user-defined body parts with deep learning." Nature neuroscience 21.9 (2018): 1281-1289.
+- Narayanan, Arvind, and Sayash Kapoor. [Why an overreliance on AI-driven modelling is bad for science.](https://doi.org/10.1038/d41586-025-01067-2) Nature 640.8058 (2025): 312-314.
+- Wahl, Lucas, et al. [Detecting ataxia using an automated analysis of motor coordination and balance of mice on the balance beam.](https://doi.org/10.1101/2023.07.03.547476) bioRxiv (2023): 2023-07.
 
 
 ## Formal description of the algorithm

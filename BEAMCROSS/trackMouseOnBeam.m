@@ -117,7 +117,7 @@ if USEMORPHOCLEAN
 end
 
 disp('Tracking mouse position...');
-tic
+
 [xGrid, yGrid] = meshgrid(1:imWidth, 1:imHeight); % for centroid marker calculation
 
 %% Loop through frames: find largest blob & mark its centroid
@@ -162,7 +162,6 @@ for frameIndex = 1:nFrames
     mouseEnhancedFrames(:,:,frameIndex) = enhancedFrame;
 end
 
-toc
 %% Identify the longest continuous segment of frames with a valid centroid
 mouseFoundFrames = ~isnan(mouseCentroids(:,1));
 % Morphological closing to fill gaps (discontinuities) smaller than ~5 frames
