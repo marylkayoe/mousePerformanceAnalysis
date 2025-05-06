@@ -19,6 +19,7 @@ end
 
 if ~exist('DETRENDWINDOW', 'var')
     DETRENDWINDOW = 64; % rolling window, with 160 fps this is 0.4 sec
+end
 
 if ~exist('UNDERBARSCALE', 'var')
     UNDERBARSCALE = 2; % scale factor for the under-bar region (related to bar thickness)
@@ -45,10 +46,10 @@ underBarCroppedVideo = trackedVideo( underBarStart:underBarEnd, :, : );
 % count so much.
 % we only use the pixels above the bar
 mouseMaskMatrix = mouseMaskMatrix(1: barTopCoord, :, :);
-[normMouseProbVals, ~] = computeMouseProbabilityMap(mouseMaskMatrix);
+[normMouseProbVals, ~] = LF_computeMouseProbabilityMap(mouseMaskMatrix);
 
 %% --- Quantify Weighted Movement  under the bar ---
-movementTrace = computeWeightedMovement(underBarCroppedVideo, normMouseProbVals);
+movementTrace = LF_computeWeightedMovement(underBarCroppedVideo, normMouseProbVals);
 
 %% DETRENDING
 % detrending the movement
@@ -60,7 +61,7 @@ movementTrace = movementTrace - localMovementTrace;
 slipMask = movementTrace > SLIPTHRESHOLD;  % 1D array; 1 means "potential slip in this frame"
 
 % -- 2) Cleaning up the slip mask --
-%  'closing' merges small gaps up to 2 frames wide 
+%  'closing' merges small gaps up to 2 frames wide
 % (two slips separted by >3 frames of non-slip are merged into one)
 se = ones(3,1);  % structuring element of length=3
 slipMask = imclose(slipMask, se);
@@ -95,4 +96,69 @@ for slip = 1 : nSLIPS
     slipEventDurations(slip) = endSlipFrame - startSlipFrame + 1;
 
 end
+end
+
+
+
+function [normMouseProbVals, mouseProbMatrix] = LF_computeMouseProbabilityMap(mouseMaskMatrix)
+% COMPUTEMOUSEPROBABILITYMAP Efficiently computes mouse pixel fraction per column per frame.
+%
+% INPUT:
+%   mouseMaskMatrix: logical array (height x width x nFrames), indicating mouse pixels.
+%
+% OUTPUTS:
+%   normMouseProbVals : (width x nFrames), fraction of mouse pixels per column.
+%   mouseProbMatrix   : (height x width x nFrames), replicated probability images.
+
+[imHeight, imWidth, nFrames] = size(mouseMaskMatrix);
+
+% 1. Sum mouse-pixels along rows for all frames simultaneously
+colSumAllFrames = squeeze(sum(mouseMaskMatrix, 1)); % size: [imWidth x nFrames]
+
+% 2. Convert column-sums to fractions (dividing by height)
+normMouseProbVals = colSumAllFrames / imHeight; % [imWidth x nFrames]
+
+% 3. Replicate fractions down the rows to create mouse probability matrix
+mouseProbMatrix = repmat(reshape(normMouseProbVals, [1, imWidth, nFrames]), imHeight, 1, 1);
+
+end
+
+
+
+function normMovementTrace = LF_computeWeightedMovement(videoMatrix, normMouseProbVals, SMOOTHFACTOR)
+% COMPUTEWEIGHTEDMOVEMENT Computes weighted frame-to-frame motion efficiently.
+
+if nargin < 3
+    SMOOTHFACTOR = 5;
+end
+
+[~, width, nFrames] = size(videoMatrix);
+
+% Convert video to double once
+videoDouble = im2double(videoMatrix);
+
+% Compute absolute difference across frames in one operation
+videoDiff = abs(diff(videoDouble, 1, 3));  % size: [height x width x (nFrames-1)]
+
+% Sum pixel differences column-wise (collapse rows)
+colDiffSum = squeeze(sum(videoDiff, 1));   % size: [width x (nFrames-1)]
+
+% Square the normMouseProbVals to enhance differences
+weightedProbs = normMouseProbVals(:, 2:end).^2;  % size: [width x (nFrames-1)]
+
+% Element-wise multiplication and sum columns for each frame (vectorized)
+movementTrace = sum(colDiffSum .* weightedProbs, 1)'; % size: [(nFrames-1) x 1]
+
+% Insert 0 at first frame since no prior frame
+movementTrace = [0; movementTrace];
+
+% Robust normalization using Median Absolute Deviation (MAD)
+medVal = median(movementTrace);
+madVal = median(abs(movementTrace - medVal));
+sigma_base = 1.4826 * madVal;
+normMovementTrace = (movementTrace - medVal) / sigma_base;
+
+% Smooth the trace
+normMovementTrace = smooth(normMovementTrace, SMOOTHFACTOR);
+
 end

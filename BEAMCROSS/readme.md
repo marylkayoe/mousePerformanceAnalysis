@@ -138,6 +138,7 @@ Tracks the mouse position on the beam across frames. Returns mouse centroids, sp
    - To avoid getting confused by cases where the recording starts too late and mouse is already on the bar in first frames, we look at the side opposite to mouse starting position. The starting position is currently expected to be L for CAM1 and R for CAM2.
    - However, as the bar is never completely straight, the value will not be exactly correct (maybe 5 - 8 pixels difference between left and right sides). If we could be sure that there are some frames without a mouse, we could take both sides and average (or project a straight line between them).
    - This means also that the posture of the mouse most likely will be seen to shift gradually from one to another edge, as it's calculated relative to bar position.
+   - Note that the top-level function `BBanalysisSingleFile` can also receive bar position and thickness as input arguments, in which case it will not be recalculated. This helps if the bar in your images is not easily detectable (e.g. there are no black tapes on) or you want to speed up the code by skipping the bar detection step.
   
 
 ### **`detectSlips.m`**  
@@ -165,13 +166,13 @@ underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, 
 However, sometimes the tail of the mouse swings below the bar and might be detcted as a slip:
  ![Diagram](underbartail.png)
 
- To avoid this, we want to only consider movement below the bar in positions that are under the mouse. As the mouse is not a rectangle, calculate "mouse probability distribution" above the bar:
- -  **`computeMouseProbabilityMap.m`**  
+ To avoid this, we want to only consider movement below the bar in positions that are under the mouse. As the mouse is not a rectangle, calculate "mouse probability distribution" above the bar using local function
+ -  **`LF_computeMouseProbabilityMap.m`**  
    Computes a per-column “probability” or fraction of the mouse mask occupying that column above the bar. Helps weight movement by how fully the trunk is present vs. just the tail. 
-   -  **`computeWeightedMovement.m`**  
+   -  **`LF_computeWeightedMovement.m`**  
    Given a video region of interest (e.g., under the bar) and the column probabilities, calculates a movement trace that weighs each column’s differences by how likely the mouse is there.
 
-1. **`plotBBtrial.m`**  
+ **`plotBBtrial.m`**  
    Creates diagnostic plots: a movement trace vs. time (with slip markers) and a 2D mouse centroid trajectory, color-coded by speed. Also places arrow annotations and summary text on the figure.
 
 ## Additional Helpers and Subfolders
