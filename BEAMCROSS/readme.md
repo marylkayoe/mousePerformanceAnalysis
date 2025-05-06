@@ -16,6 +16,7 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
 
 ### **`trackMouseOnBeam.m`**  
    Tracks the mouse position on the beam across frames. Returns mouse centroids, speed information, stops, and three versions of the video: binary mask, a background-subtracted video with the centroid of the mouse indicated, and the original video cropped and trimmed to match the tracked ones.
+   
 
       ```matlab
    [mouseCentroids, instForwardSpeed, meanSpeed, traverseDuration, stoppingPeriods,...
@@ -23,6 +24,7 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
    trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, ...
    mouseContrastThreshold, FRAMERATE)
    ```
+
    _Notes_:
    - The mouse is presumed to be black (or much darker than anything else in the image). 
    - MOUSESIZETH defines the minimal area (in percentage of the cropped image) that need to be black to be considered mouse. Current default is 5%. Note that since the mouse walks into the frame at the beginning, the tracking only starts when there's "enough" of a mouse in the frame. You can decrease this to get more frames at the beginning (and end), but best not to go too low or you can get noise.
