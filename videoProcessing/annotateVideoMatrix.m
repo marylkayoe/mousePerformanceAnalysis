@@ -12,7 +12,7 @@ function annotatedVideo = annotateVideoMatrix(videoMatrix, eventStarts1, eventDu
 
     % Optional parameters (event type 1)
     addParameter(p, 'ShapeType',    'filled-rectangle',  @ischar);
-    addParameter(p, 'ShapePosition',[20 20 50 30],@isnumeric);
+    addParameter(p, 'ShapePosition',[20 10 20 10],@isnumeric);
     addParameter(p, 'ShapeColor',   'red');
     addParameter(p, 'LineWidth',    3, @isnumeric);
     addParameter(p, 'Opacity',      1, @isnumeric);
@@ -21,7 +21,7 @@ function annotatedVideo = annotateVideoMatrix(videoMatrix, eventStarts1, eventDu
     % Optional parameters for second event type
     addParameter(p, 'EventStarts2', [], @isnumeric);
     addParameter(p, 'EventDurations2', [], @isnumeric);
-    addParameter(p, 'ShapePosition2', [80 20 50 30], @isnumeric);
+    addParameter(p, 'ShapePosition2', [50 10 20 10], @isnumeric);
     addParameter(p, 'ShapeColor2', 'blue');
     addParameter(p, 'EventLabel2',  'EVENT2', @ischar);
 
@@ -79,7 +79,7 @@ function annotatedVideo = annotateVideoMatrix(videoMatrix, eventStarts1, eventDu
 
             if ~isempty(eventLabel1)
                 rgbFrame = insertText(rgbFrame, labelPos1, eventLabel1, ...
-                    'FontSize',12, 'BoxColor','black', 'TextColor',shapeColor1, 'BoxOpacity',0.6);
+                    'FontSize',12,  'TextColor',shapeColor1);
             end
         end
 

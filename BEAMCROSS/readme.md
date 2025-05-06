@@ -268,7 +268,7 @@ annotatedVideo = annotateVideoMatrix(videoMatrix, slipStarts, slipDurations, ...
     'ShapePosition1',[10 10 40 30], 'ShapeColor1','red', 'eventLabel1','Slip', ...
     'ShapePosition2',[60 10 40 30], 'ShapeColor2','blue','eventLabel2','Stop');
 ```
-
+   
 **Inputs:**
 
 * `videoMatrix`: (H×W×nFrames) grayscale video frames.
@@ -284,32 +284,15 @@ annotatedVideo = annotateVideoMatrix(videoMatrix, slipStarts, slipDurations, ...
 **Output:**
 
 * Annotated RGB video matrix suitable for playback with `implay()`.
+  
+  ![Diagram](IMAGES/annotateSlipStopVideo.png)
 
 
 
-- **`videoProcessing/`, `videoImageAnalysis/`, `helperFunctions/`** may hold smaller utility scripts (`readVideoIntoMatrix.m`, `getMeanFrame.m`, etc.) that perform image I/O, frame differencing, or morphological operations needed by the main pipeline.
-
-## Basic Workflow
-
-1. **Run** `BBanalysisSingleFile.m`, pointing it to a `.mp4` file and specifying optional parameters:
-   ```matlab
-   R = BBanalysisSingleFile('path/to/data', 'mouse_trialA.mp4', ...
-       'MAKEPLOT', true, 'SLIPTHRESHOLD', 2.5);
-
-2. **Inspect results** in R, which includes
-  - mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration - info on the general traversing
-  - slipEventStarts, slipEventDurations, slipEventAreas, etc. - info on detected slips
-  - slipFrames, slipFrameDurations - the frames where slips occurred
-  - slipPeakValues - the peak movement values during slips
-3. **Visualize** the results with `plotBBtrial.m`:
-   ```matlab
-   plotBBtrial(R, 'mouse_trialA.mp4');
-   ```
-    This will show a movement trace, a 2D trajectory, and annotated slip events.
-4. **Inspect** the annotated video (if requested) or other diagnostic plots to verify the analysis.
+- **`videoProcessing/`, `videoImageAnalysis/`, `helperFunctions/`** may hold smaller utility scripts ()`getMeanFrame.m`, etc.) 
 
 ## Dependencies
 - MATLAB (tested on R2024b).
 - Image Processing Toolbox (for insertShape, morphological ops, etc.).
-- Videos in .mp4 format, requires ffmpeg installation and presence on path.    
+- Videos in .mp4 format, requires ffmpeg installation and presence on path to run convertAVItoMP4.m.    
   
