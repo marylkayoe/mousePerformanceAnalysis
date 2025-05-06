@@ -22,13 +22,14 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
 
       ```matlab
    [mouseCentroids, instForwardSpeed, meanSpeed, traverseDuration, stoppingPeriods,meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, croppedVideo] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE)
-
+   ```
    _Notes_:
    - The mouse is presumed to be black (or much darker than anything else in the image). 
    - MOUSESIZETH defines the minimal area (in percentage of the cropped image) that need to be black to be considered mouse. Current default is 5%. Note that since the mouse walks into the frame at the beginning, the tracking only starts when there's "enough" of a mouse in the frame. You can decrease this to get more frames at the beginning (and end), but best not to go too low or you can get noise.
    - LOCOTHRESHOLD indicates the threshold horizontal speed (in px/sec) below which we consider the mouse has stopped. 
    - Experimenter's hand is not usually a problem as long as it stays away from the mouse tracking area (indicated in the diagram above).
    - The resulting data and videos are given only for the (longest) period in the trial in which a mouse is deemed present.
+
 
    ![Diagram](originalTrimmedImage.png)
    ![Diagram](mouseMaskImage.png)
