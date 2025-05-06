@@ -61,9 +61,9 @@ $$
 * **Removal of Brief Slip Events**:
   We discard slip events shorter than 3 frames, ensuring each detected slip event $S_j$ (a contiguous set of slip frames) satisfies:
 
-  $$
+$$
   |S_j| \geq 3 \text{ frames}
-  $$
+$$
 
 Lastly, we identify contiguous slipping periods as connected components in $B_n^{\text{closed}}$. Each contiguous set of slip frames defines a distinct slip event for further analysis.
 
