@@ -180,7 +180,7 @@ croppedVideo = videoMatrix(cropRange(1):cropRange(2), :, :);
 barTopCoord = barThickness * CROPVIDEOSCALE;
 
 
-[imHeight, ~, ~] = size(croppedVideo);
+[imHeight, ~, nFrames] = size(croppedVideo);
 
 
 %% 4)  --- Track the Mouse in the Cropped Video ---
@@ -237,10 +237,11 @@ if SHOWVIDEOS
         'ShapeType','FilledRectangle','ShapeColor','red', ...
         'EventStarts2',stoppingStartStops(:,1), ...
         'EventDurations2',R.stoppingDurations, 'EventLabel1', 'slip', 'EventLabel2','Stop');
-    displayBehaviorVideoMatrix(annotatedVideo, cleanUnderscores(fileName), movementTrace);
+
+    displayBehaviorVideoMatrix(annotatedVideo, cleanUnderscores(fileName), (1:nFrames) ./FRAMERATE);
     displayBehaviorVideoMatrix(mouseMaskMatrix, 'Binary mask');
-    displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo');
-    displayBehaviorVideoMatrix(trimmedVideo, 'Frame-trimmed , cropped video');
+    displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo', movementTrace);
+    displayBehaviorVideoMatrix(trimmedVideo, 'Frame-trimmed , cropped video', forwardSpeeds);
 end
 
 end

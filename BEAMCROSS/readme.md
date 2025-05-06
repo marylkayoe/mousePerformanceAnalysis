@@ -253,7 +253,20 @@ Reads a balance beam video file (`.mp4`) into a MATLAB 3D matrix (height × widt
 [videoMatrix, frameRate] = readBBVideoIntoMatrix('mouse_trial.mp4', 'scaleFactor', 0.5);
 ```
 
-### **`displayBehaviorVideoMatrix.m`**
+### **`visualization/displayBehaviorVideoMatrix.m`**
+ Displays a grayscale or RGB video with a slider and play button. Simplified version of MATLAB's built-in `VideoPlayer` function. It allows for frame-by-frame navigation and playback at a specified frame rate. Also, it can display a symbol denoting frames when an event is present (e.g., slip or stop).
+```matlab
+displayBehaviorVideoMatrix(videoMatrix, titleString, dispData, logicalData, NORMHISTO);
+```
+
+**Inputs:**
+* `videoMatrix`: (H×W×nFrames) grayscale or RGB video frames.
+* `titleString`: Title for the video display.
+* `dispData`: Numeric to display on the video (e.g., mouse position, speed). If nothing given, the function will display the frame number.
+* `logicalData`: Logical array indicating frames with events (e.g., slips, stops). If empty, no symbols are displayed.
+* `NORMHISTO`: Normalization flag for histogram display (default: false).
+  
+![Diagram](IMAGES/displayBehaviorMatrixImage.png)
 
 
 ### annotateVideoMatrix
@@ -283,7 +296,7 @@ annotatedVideo = annotateVideoMatrix(videoMatrix, slipStarts, slipDurations, ...
 
 **Output:**
 
-* Annotated RGB video matrix suitable for playback with `implay()`.
+* Annotated RGB video matrix suitable for playback with displayBehaviorVideoMatrix.m.
   
   ![Diagram](IMAGES/annotateSlipStopVideo.png)
 
