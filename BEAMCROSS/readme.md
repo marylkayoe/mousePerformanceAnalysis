@@ -21,7 +21,7 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
 3. **`detectBar.m`**  
    Locates the horizontal bar by analyzing the edges of the mean image. Pixels in the region where the tapes are are summed horizontally, and points of fast darkening and brightening are taken as the bar edges (i.e. peaks in the differential of the sum). Returns the bar’s top coordinate and thickness. 
     
- <img src="barposition.png" alt="Diagram" width="500" height="300">
+ <img src="barposition.png" alt="Diagram" width="300" height="300">
 
    Points to note: 
    - To avoid getting confused by cases where the recording starts too late and mouse is already on the bar in first frames, we look at the side opposite to mouse starting position. The starting position is currently expected to be L for CAM1 and R for CAM2.
