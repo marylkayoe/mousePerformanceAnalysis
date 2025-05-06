@@ -16,10 +16,25 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
    The main entry point for analyzing a single `.mp4` video file. Loads and preprocesses the video, detects the bar, tracks the mouse, computes slips, and optionally produces plots and annotated videos. Returns all relevant measurements in a structured output.
 
 2. **`trackMouseOnBeam.m`**  
-   Tracks the mouse position on the beam across frames. Returns mouse centroids, speeds, stops, and a tracked/cropped version of the video.
-   ![Diagram](mouseMaskImage.png)
 
-3. **`detectBar.m`**  
+
+   Tracks the mouse position on the beam across frames. Returns mouse centroids, speed information, stops, and three versions of the video: binary mask, a background-subtracted video with the centroid of the mouse indicated, and the original video cropped and trimmed to match the tracked ones.
+
+      ```matlab
+   [mouseCentroids, instForwardSpeed, meanSpeed, traverseDuration, stoppingPeriods,meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, croppedVideo] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE)
+
+   _Notes_:
+   - The mouse is presumed to be black (or much darker than anything else in the image). 
+   - MOUSESIZETH defines the minimal area (in percentage of the cropped image) that need to be black to be considered mouse. Current default is 5%. Note that since the mouse walks into the frame at the beginning, the tracking only starts when there's "enough" of a mouse in the frame. You can decrease this to get more frames at the beginning (and end), but best not to go too low or you can get noise.
+   - LOCOTHRESHOLD indicates the threshold horizontal speed (in px/sec) below which we consider the mouse has stopped. 
+   - Experimenter's hand is not usually a problem as long as it stays away from the mouse tracking area (indicated in the diagram above).
+   - The resulting data and videos are given only for the (longest) period in the trial in which a mouse is deemed present.
+
+   ![Diagram](originalTrimmedImage.png)
+   ![Diagram](mouseMaskImage.png)
+   ![Diagram](trackedMouseImage.png)
+
+1. **`detectBar.m`**  
    Locates the horizontal bar by analyzing the edges of the mean image. Pixels in the region where the tapes are are summed horizontally, and points of fast darkening and brightening are taken as the bar edges (i.e. peaks in the differential of the sum). Returns the bar’s top coordinate and thickness. <img src="barposition.png" alt="Diagram" width="300" height="300">
    Points to note: 
    - To avoid getting confused by cases where the recording starts too late and mouse is already on the bar in first frames, we look at the side opposite to mouse starting position. The starting position is currently expected to be L for CAM1 and R for CAM2.
