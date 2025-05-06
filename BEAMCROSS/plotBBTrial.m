@@ -1,5 +1,5 @@
 function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
-    mouseCentroids, forwardSpeeds,meanSpeed, meanPosturalHeight,fileName, LOCOTHRESHOLD, SLIPTHRESHOLD)
+    mouseCentroids, forwardSpeeds,meanSpeed, meanPosturalHeight,trialName, LOCOTHRESHOLD, SLIPTHRESHOLD)
 % PLOTBBTRIAL  Creates a figure with subplots for:
 %   1) Movement trace + slip events
 %   2) Mouse 2D position, color-coded by forward speed, slip events indicated
@@ -36,7 +36,7 @@ timeAxis = (0 : nFrames-1) / FRAMERATE;  % in seconds
 
 % -- Create figure and subplots --
 % figure name should be the file name cleaned up from underscores
-figTitle = cleanUnderscores(fileName);
+figTitle = cleanUnderscores(trialName);
 figure('Name', figTitle, 'Color', 'w');
 
 % shape of subplot panels

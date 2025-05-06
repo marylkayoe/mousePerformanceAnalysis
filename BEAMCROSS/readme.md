@@ -177,14 +177,40 @@ underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, 
 However, sometimes the tail of the mouse swings below the bar and might be detcted as a slip:
  ![Diagram](IMAGES/underbartail.png)
 
- To avoid this, we want to only consider movement below the bar in positions that are under the mouse. As the mouse is not a rectangle, calculate "mouse probability distribution" above the bar using local function
+ To avoid this, we want to only consider movement below the bar in positions that are under the mouse. As the mouse is not a rectangle, calculate "mouse probability distribution" above the bar using local functions:
  -  **`LF_computeMouseProbabilityMap.m`**  
    Computes a per-column “probability” or fraction of the mouse mask occupying that column above the bar. Helps weight movement by how fully the trunk is present vs. just the tail. 
    -  **`LF_computeWeightedMovement.m`**  
    Given a video region of interest (e.g., under the bar) and the column probabilities, calculates a movement trace that weighs each column’s differences by how likely the mouse is there.
 
+   The combining the results of these two functions, we can get a weighted movement trace that is robust to noise and tail movements. Slips are detected by thresholding this trace, and the results are returned in the following output variables: 
+   - slipEventStarts: the frame numbers where slips start
+   - slipEventPeaks: the peak values of the weighted movement trace during slips
+   - slipEventAreas: the area under the weighted movement trace during slips
+   - slipEventDurations: the duration of each slip event in frames
+   - movementTrace: the full weighted movement trace for the entire video
+   - underBarCroppedVideo: the cropped video of the region below the bar, used for visualization
+
  **`plotBBtrial.m`**  
    Creates diagnostic plots: a movement trace vs. time (with slip markers) and a 2D mouse centroid trajectory, color-coded by speed. Also places arrow annotations and summary text on the figure.
+```matlab
+plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
+    mouseCentroids, forwardSpeeds,meanSpeed, meanPosturalHeight,trialName, LOCOTHRESHOLD, SLIPTHRESHOLD)
+```
+   _Notes on input arguments_:
+   - movementTrace: the full weighted movement trace for the entire video
+   - FRAMERATE: the frame rate of the video
+   - slipEventStarts: the frame numbers where slips start
+   - slipEventAreas: the area under the weighted movement trace during slips
+   - mouseCentroids: the x and y coordinates of the mouse centroid in each frame
+   - forwardSpeeds: the forward speed of the mouse in each frame
+   - meanSpeed: the mean speed of the mouse in each frame
+   - meanPosturalHeight: the mean height of the mouse above the bar in each frame
+   - trialName: the name of the trial (used for plot titles)
+   - LOCOTHRESHOLD: the threshold for determining if the mouse is moving or stopped (in px/sec, default:100)
+   - SLIPTHRESHOLD: the threshold for determining if a slip has occurred (in a.u., default:2.5)
+   The function generates a figure with the following panels:
+      ![Diagram](IMAGES/slipDetectionResults.png)
 
 ## Additional Helpers and Subfolders
 
