@@ -11,7 +11,7 @@ Certainly! Here's a clear, formal yet concise description utilizing the mathemat
 
 ---
 
-### Formal Algorithm for Weighted Movement Quantification
+### Formal Algorithm for quantifying mouse slips
 
 We quantify mouse-related movement from video data using a weighted, pixel-level difference metric.
 Given a binary mouse-mask matrix $M \in \{0,1\}^{H \times W \times N}$, where $M_{h,w,n}=1$ indicates that pixel $(h,w)$ belongs to the mouse in frame $n$, and an under-bar grayscale video matrix $V \in [0,1]^{H\times W\times N}$, we first calculate the fraction of mouse pixels per column as:
@@ -39,6 +39,69 @@ W_n = \sum_{w=1}^{W} S_{w,n}\,(C_{w,n})^2,\quad n=2,\dots,N
 $$
 
 This weighted metric $W_n$ robustly captures mouse-specific movement, that can be further normalized or smoothed as needed, and is used to identify slip events based on a user-defined threshold.
+
+Certainly! Here is an expanded version of the previous formal description that includes the thresholding and the morphological cleanup, clearly described with mathematical precision:
+
+---
+
+### Formal Algorithm for Weighted Movement Quantification and Slip Detection
+
+We quantify mouse-related movement from video data using a weighted, pixel-level difference metric. Given a binary mouse-mask matrix $M \in \{0,1\}^{H \times W \times N}$, where $M_{h,w,n}=1$ indicates that pixel $(h,w)$ belongs to the mouse in frame $n$, and an under-bar grayscale video matrix $V \in [0,1]^{H\times W\times N}$, we first calculate the fraction of mouse pixels per column:
+
+$$
+C_{w,n} = \frac{1}{H}\sum_{h=1}^{H} M_{h,w,n}, \quad w=1,\dots,W,\quad n=1,\dots,N
+$$
+
+Next, we compute the absolute frame-to-frame difference in pixel intensity:
+
+$$
+D_{h,w,n} = |V_{h,w,n} - V_{h,w,n-1}|, \quad n=2,\dots,N
+$$
+
+Summing vertically along columns, we obtain a column-wise measure of pixel intensity change:
+
+$$
+S_{w,n} = \sum_{h=1}^{H} D_{h,w,n}
+$$
+
+These differences are then weighted by the squared mouse occupancy fractions, emphasizing columns predominantly occupied by the mouse, yielding our weighted movement measure per frame:
+
+$$
+W_n = \sum_{w=1}^{W} S_{w,n}\,(C_{w,n})^2,\quad n=2,\dots,N
+$$
+
+To detect slip events, we apply a threshold $\tau$ to obtain a binary slip mask $B_n$:
+
+$$
+B_n = 
+\begin{cases}
+  1, & W_n \geq \tau \\[5pt]
+  0, & W_n < \tau
+\end{cases}
+,\quad n=2,\dots,N
+$$
+
+We then refine this slip mask with morphological operations to ensure robust event detection:
+
+* **Morphological Closing**:
+  We close small gaps (up to 2 frames wide) to merge temporally close slip detections. Given a linear structuring element $E$ of length 3:
+
+$$
+B_n^{\text{closed}} = (B_n \oplus E) \ominus E
+$$
+
+where $\oplus$ and $\ominus$ represent morphological dilation and erosion, respectively.
+
+* **Removal of Brief Slip Events**:
+  We discard slip events shorter than 3 frames, ensuring each detected slip $G$ satisfies:
+
+$$
+|G| \geq 3 \text{ frames}
+$$
+
+Lastly, we identify contiguous slipping periods as connected components in $B_n^{\text{closed}}$. Each contiguous set of slip frames defines a distinct slip event for further analysis.
+
+
 The algorithm is implemented in the `detectSlips.m` function, which processes the video data and mouse mask to identify slip events based on the computed weighted movement trace. See details below.
 
 
