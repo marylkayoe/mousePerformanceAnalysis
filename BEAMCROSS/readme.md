@@ -133,7 +133,18 @@ Tracks the mouse position on the beam across frames. Returns mouse centroids, sp
    ![Diagram](IMAGES/trackedMouseImage.png)
 
 ### **`detectBar.m`**  
-   Locates the horizontal bar by analyzing the edges of the mean image. Pixels in the region where the tapes are are summed horizontally, and points of fast darkening and brightening are taken as the bar edges (i.e. peaks in the differential of the sum). Returns the bar’s top coordinate and thickness. <img src="IMAGES/barposition.png" alt="Diagram" width="300" height="300">
+   Locates the horizontal bar by analyzing the edges of the mean image. Pixels in the region where the tapes are are summed horizontally, and points of fast darkening and brightening are taken as the bar edges (i.e. peaks in the differential of the sum). Returns the bar’s top coordinate and thickness in pixels.
+
+```matlab
+[barTopYCoord, barWidth] = detectBar(barImage, mouseStartPosition, varargin)
+```
+   _Notes on input arguments_:
+   - barImage: the mean image of the cropped video (or a single frame) where the bar is visible
+   - mouseStartPosition: the side of the bar where the mouse starts (L or R). This is used to determine which side of the bar to look at for the edge detection.
+   - 'MAKEDEBUGPLOT' - Enable debugging plots (default: false).
+%  - 'barTapeWidth' - Percentage of image width for bar tape width (default:2%).
+
+    <img src="IMAGES/barposition.png" alt="Diagram" width="300" height="300">
    Points to note: 
    - To avoid getting confused by cases where the recording starts too late and mouse is already on the bar in first frames, we look at the side opposite to mouse starting position. The starting position is currently expected to be L for CAM1 and R for CAM2.
    - However, as the bar is never completely straight, the value will not be exactly correct (maybe 5 - 8 pixels difference between left and right sides). If we could be sure that there are some frames without a mouse, we could take both sides and average (or project a straight line between them).
