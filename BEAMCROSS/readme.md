@@ -52,18 +52,18 @@ We refine this slip mask with morphological operations to ensure robust event de
 * **Morphological Closing**:
   Small gaps (up to 2 frames wide) are closed to merge temporally close slip detections. Given a linear structuring element $E$ of length 3, morphological closing (dilation followed by erosion) is defined as:
 
-  $$
+$$
   B_n^{\text{closed}} = (B_n \oplus E) \ominus E
-  $$
+$$
 
   where $\oplus$ and $\ominus$ represent dilation and erosion, respectively.
 
 * **Removal of Brief Slip Events**:
   We discard slip events shorter than 3 frames, ensuring each detected slip $G$ (a contiguous set of slip frames) satisfies:
 
-  $$
+$$
   |G| \geq 3 \text{ frames}
-  $$
+$$
 
 Lastly, we identify contiguous slipping periods as connected components in $B_n^{\text{closed}}$. Each contiguous set of slip frames defines a distinct slip event for further analysis.
 
