@@ -102,7 +102,6 @@ markerSize = 10;    % radius of the centroid marker in video(in pixels)
 mouseCentroids = nan(nFrames, 2);
 stoppingPeriods = cell(0);
 
-
 % 1) Compute ratio image to enhance mouse as darker region
 meanFrame = getMeanFrame(croppedVideo);
 croppedVideoDouble = im2double(croppedVideo) + eps;  % small eps to avoid /0

@@ -3,8 +3,7 @@
 This repository contains a set of **MATLAB** functions and scripts for analyzing mouse locomotion and slip events on a balance beam. The core workflow includes detecting camera edges, locating the bar, tracking the mouse, computing weighted movement metrics, and identifying slip events.
 
 ## Table of Contents
-- [BeamCross: A MATLAB Tool for Balance Beam Video Analysis](#beamcross-a-matlab-tool-for-balance-beam-video-analysis)
-  - [Table of Contents](#table-of-contents)
+- [BeamCross: A MATLAB Tool for Balance Beam Video Analysis]
   - [Background - why not use deep learning?](#background---why-not-use-deep-learning)
   - [Formal description of the algorithm](#formal-description-of-the-algorithm)
     - [Formal Definition of Slip Events and Magnitudes](#formal-definition-of-slip-events-and-magnitudes)
@@ -124,7 +123,7 @@ The algorithm is implemented in the `detectSlips.m` function, which processes th
 The camera view of a balance beam setup typically includes a horizontal bar and a mouse traversing the beam. The bar and camera edges are detected to establish a region of interest (ROI) for tracking the mouse. The mouse’s centroid is tracked across frames, and a weighted movement metric is computed to emphasize the mouse’s presence. Slip events are detected based on this metric, and their severity is quantified.
 ![Diagram](IMAGES/BeamcrossFrameStructure.png)
 
-### **`BBanalysisSingleFile.m`**  
+### `BBanalysisSingleFile.m` 
    The main entry point for analyzing a single `.mp4` video file. Loads and preprocesses the video, detects the bar, tracks the mouse, computes slips, and optionally produces plots and annotated videos. Returns all relevant measurements in a structured output.
 
 ### **`trackMouseOnBeam.m`**  
