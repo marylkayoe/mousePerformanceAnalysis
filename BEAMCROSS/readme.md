@@ -6,6 +6,41 @@ This repository contains a set of **MATLAB** functions and scripts for analyzing
 
 Assessing mouse performance on a balance beam is one of the gold classics of systems neurobiology, as balance perturbations are a common symptom of numerous malfunctions of the central nervous system as well as the periferal sensory mechanisms. Experiments where a mouse is tasked by traversal of a narrow beam have been conducted for decades, and the assessment has been, until recently, based entirely on manual scoring - i.e. by a researcher observing either the animals or recorded videos and counting the number of slipping occurrences. 
 
+## Detecting slips - formal description
+Certainly! Here's a clear, formal yet concise description utilizing the mathematical notation we defined, suitable to include in your README:
+
+---
+
+### Formal Algorithm for Weighted Movement Quantification
+
+We quantify mouse-related movement from video data using a weighted, pixel-level difference metric.
+Given a binary mouse-mask matrix $M \in \{0,1\}^{H \times W \times N}$, where $M_{h,w,n}=1$ indicates that pixel $(h,w)$ belongs to the mouse in frame $n$, and an under-bar grayscale video matrix $V \in [0,1]^{H\times W\times N}$, we first calculate the fraction of mouse pixels per column as:
+
+$$
+C_{w,n} = \frac{1}{H}\sum_{h=1}^{H} M_{h,w,n}, \quad w=1,\dots,W,\quad n=1,\dots,N
+$$
+
+Next, we compute the absolute frame-to-frame difference in pixel intensity:
+
+$$
+D_{h,w,n} = |V_{h,w,n} - V_{h,w,n-1}|, \quad n=2,\dots,N
+$$
+
+Summing vertically along columns, we obtain a column-wise measure of pixel intensity change:
+
+$$
+S_{w,n} = \sum_{h=1}^{H} D_{h,w,n}
+$$
+
+Finally, these differences are weighted by the squared mouse fractions to emphasize areas with high mouse occupancy, yielding our weighted movement measure per frame:
+
+$$
+W_n = \sum_{w=1}^{W} S_{w,n}\,(C_{w,n})^2,\quad n=2,\dots,N
+$$
+
+This weighted metric $W_n$ robustly captures mouse-specific movement, allowing precise identification of slips and other balance-related behaviors.
+
+
 ## Overview of the code
 
 The camera view of a balance beam setup typically includes a horizontal bar and a mouse traversing the beam. The bar and camera edges are detected to establish a region of interest (ROI) for tracking the mouse. The mouse’s centroid is tracked across frames, and a weighted movement metric is computed to emphasize the mouse’s presence. Slip events are detected based on this metric, and their severity is quantified.
