@@ -103,7 +103,7 @@ The algorithm is implemented in the `detectSlips.m` function, which processes th
 ## Overview of the code
 
 The camera view of a balance beam setup typically includes a horizontal bar and a mouse traversing the beam. The bar and camera edges are detected to establish a region of interest (ROI) for tracking the mouse. The mouse’s centroid is tracked across frames, and a weighted movement metric is computed to emphasize the mouse’s presence. Slip events are detected based on this metric, and their severity is quantified.
-![Diagram](BeamcrossFrameStructure.png)
+![Diagram](IMAGES/BeamcrossFrameStructure.png)
 
 ### **`BBanalysisSingleFile.m`**  
    The main entry point for analyzing a single `.mp4` video file. Loads and preprocesses the video, detects the bar, tracks the mouse, computes slips, and optionally produces plots and annotated videos. Returns all relevant measurements in a structured output.
@@ -128,12 +128,12 @@ Tracks the mouse position on the beam across frames. Returns mouse centroids, sp
    - The resulting data and videos are given only for the (longest) period in the trial in which a mouse is deemed present.
 
 
-   ![Diagram](originalTrimmedImage.png)
-   ![Diagram](mouseMaskImage.png)
-   ![Diagram](trackedMouseImage.png)
+   ![Diagram](IMAGES/originalTrimmedImage.png)
+   ![Diagram](IMAGES/mouseMaskImage.png)
+   ![Diagram](IMAGES/trackedMouseImage.png)
 
 ### **`detectBar.m`**  
-   Locates the horizontal bar by analyzing the edges of the mean image. Pixels in the region where the tapes are are summed horizontally, and points of fast darkening and brightening are taken as the bar edges (i.e. peaks in the differential of the sum). Returns the bar’s top coordinate and thickness. <img src="barposition.png" alt="Diagram" width="300" height="300">
+   Locates the horizontal bar by analyzing the edges of the mean image. Pixels in the region where the tapes are are summed horizontally, and points of fast darkening and brightening are taken as the bar edges (i.e. peaks in the differential of the sum). Returns the bar’s top coordinate and thickness. <img src="IMAGES/barposition.png" alt="Diagram" width="300" height="300">
    Points to note: 
    - To avoid getting confused by cases where the recording starts too late and mouse is already on the bar in first frames, we look at the side opposite to mouse starting position. The starting position is currently expected to be L for CAM1 and R for CAM2.
    - However, as the bar is never completely straight, the value will not be exactly correct (maybe 5 - 8 pixels difference between left and right sides). If we could be sure that there are some frames without a mouse, we could take both sides and average (or project a straight line between them).
