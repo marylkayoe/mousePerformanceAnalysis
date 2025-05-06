@@ -6,7 +6,8 @@ This repository contains a set of **MATLAB** functions and scripts for analyzing
 
 Assessing mouse performance on a balance beam is one of the gold classics of systems neurobiology, as balance perturbations are a common symptom of numerous malfunctions of the central nervous system as well as the periferal sensory mechanisms. Experiments where a mouse is tasked by traversal of a narrow beam have been conducted for decades, and the assessment has been, until recently, based entirely on manual scoring - i.e. by a researcher observing either the animals or recorded videos and counting the number of slipping occurrences. 
 
-### Formal Algorithms for detecting and quantifying mouse slips
+
+## Quantifying Mouse Movement and Detecting Slips
 
 We quantify mouse-related movement from video data using a weighted, pixel-level difference metric.
 Given a binary mouse-mask matrix $M \in \{0,1\}^{H \times W \times N}$, where $M_{h,w,n}=1$ indicates that pixel $(h,w)$ belongs to the mouse in frame $n$, and an under-bar grayscale video matrix $V \in [0,1]^{H\times W\times N}$, we first calculate the fraction of mouse pixels per column as:
@@ -15,16 +16,16 @@ $$
 C_{w,n} = \frac{1}{H}\sum_{h=1}^{H} M_{h,w,n}, \quad w=1,\dots,W,\quad n=1,\dots,N
 $$
 
-Next, we compute the absolute frame-to-frame difference in pixel intensity:
+Next, we compute the absolute frame-to-frame difference in pixel intensity (with $D_{h,w,1}=0$):
 
 $$
-D_{h,w,n} = |V_{h,w,n} - V_{h,w,n-1}|, \quad n=2,\dots,N
+D_{h,w,n} = |V_{h,w,n} - V_{h,w,n-1}|,\quad n=2,\dots,N
 $$
 
 Summing vertically along columns, we obtain a column-wise measure of pixel intensity change:
 
 $$
-S_{w,n} = \sum_{h=1}^{H} D_{h,w,n}
+S_{w,n} = \sum_{h=1}^{H} D_{h,w,n}, \quad n=2,\dots,N
 $$
 
 Finally, these differences are weighted by the squared mouse fractions to emphasize areas with high mouse occupancy, yielding our weighted movement measure per frame:
@@ -33,7 +34,7 @@ $$
 W_n = \sum_{w=1}^{W} S_{w,n}\,(C_{w,n})^2,\quad n=2,\dots,N
 $$
 
-This weighted metric $W_n$ robustly captures mouse-specific movement, that can be further normalized or smoothed as needed, and is used to identify slip events based on a user-defined threshold.
+This weighted metric $W_n$ robustly captures mouse-specific movement, which can be further normalized or smoothed as needed, and is used to identify slip events based on a user-defined threshold.
 
 To detect slip events, we apply a threshold $\tau$ to obtain a binary slip mask $B_n$:
 
@@ -46,32 +47,34 @@ B_n =
 ,\quad n=2,\dots,N
 $$
 
-We then refine this slip mask with morphological operations to ensure robust event detection:
+We refine this slip mask with morphological operations to ensure robust event detection:
 
 * **Morphological Closing**:
-  We close small gaps (up to 2 frames wide) to merge temporally close slip detections. Given a linear structuring element $E$ of length 3:
+  Small gaps (up to 2 frames wide) are closed to merge temporally close slip detections. Given a linear structuring element $E$ of length 3, morphological closing (dilation followed by erosion) is defined as:
 
-$$
-B_n^{\text{closed}} = (B_n \oplus E) \ominus E
-$$
+  $$
+  B_n^{\text{closed}} = (B_n \oplus E) \ominus E
+  $$
 
-where $\oplus$ and $\ominus$ represent morphological dilation and erosion, respectively.
+  where $\oplus$ and $\ominus$ represent dilation and erosion, respectively.
 
 * **Removal of Brief Slip Events**:
-  We discard slip events shorter than 3 frames, ensuring each detected slip $G$ satisfies:
+  We discard slip events shorter than 3 frames, ensuring each detected slip $G$ (a contiguous set of slip frames) satisfies:
 
-$$
-|G| \geq 3 \text{ frames}
-$$
+  $$
+  |G| \geq 3 \text{ frames}
+  $$
 
 Lastly, we identify contiguous slipping periods as connected components in $B_n^{\text{closed}}$. Each contiguous set of slip frames defines a distinct slip event for further analysis.
 
+---
+
 ### Formal Definition of Slip Events and Magnitudes
 
-Given the previously defined binary slip mask $B_n$, we identify contiguous slip events as connected components within $B_n$. Each contiguous slip event $S_j$ (where $j = 1,\dots,n_{\text{slips}}$) is defined by a set of frame indices:
+Given the previously defined binary slip mask $B_n^{\text{closed}}$, we identify contiguous slip events as connected components within it. Each contiguous slip event $S_j$ (where $j = 1,\dots,n_{\text{slips}}$) is defined by a set of frame indices:
 
 $$
-S_j = \{ n \mid B_n = 1 \text{ and } n_{\text{start}, j} \leq n \leq n_{\text{end}, j} \}
+S_j = \{ n \mid B_n^{\text{closed}} = 1 \text{ and } n_{\text{start}, j} \leq n \leq n_{\text{end}, j} \}
 $$
 
 where $n_{\text{start}, j}$ and $n_{\text{end}, j}$ are the first and last frames of the $j$-th slip event, respectively.
@@ -96,10 +99,7 @@ $$
 
 The total number of detected slips in a trial is then given by $n_{\text{slips}}$.
 
-
-
-The algorithm is implemented in the `detectSlips.m` function, which processes the video data and mouse mask to identify slip events based on the computed weighted movement trace. See details below.
-
+The algorithm is implemented in the `detectSlips.m` function, which processes the video data and mouse mask to identify slip events based on the computed weighted movement trace. See details in the documentation below.
 
 ## Overview of the code
 
