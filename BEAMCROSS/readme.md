@@ -12,18 +12,17 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
 ![Diagram](BeamcrossFrameStructure.png)
 
 
-1. **`BBanalysisSingleFile.m`**  
+1.### **`BBanalysisSingleFile.m`**  
    The main entry point for analyzing a single `.mp4` video file. Loads and preprocesses the video, detects the bar, tracks the mouse, computes slips, and optionally produces plots and annotated videos. Returns all relevant measurements in a structured output.
 
-2. **`trackMouseOnBeam.m`**  
-
-
+2. ### **`trackMouseOnBeam.m`**  
    Tracks the mouse position on the beam across frames. Returns mouse centroids, speed information, stops, and three versions of the video: binary mask, a background-subtracted video with the centroid of the mouse indicated, and the original video cropped and trimmed to match the tracked ones.
 
       ```matlab
    [mouseCentroids, instForwardSpeed, meanSpeed, traverseDuration, stoppingPeriods,...
    meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, croppedVideo] = ...
-   trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, ...mouseContrastThreshold, FRAMERATE)
+   trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, ...
+   mouseContrastThreshold, FRAMERATE)
    ```
    _Notes_:
    - The mouse is presumed to be black (or much darker than anything else in the image). 
@@ -48,7 +47,29 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
   
 
 1. **`detectSlips.m`**  
-   Generates the weighted movement trace to find slip intervals (above a certain threshold). Returns the start frames, duration, peak values, and area (severity) of each slip event.
+   Generates the weighted movement trace to find slip intervals (above a threshold). The slips are only counted if they happen "under the mouse". Returns the start frames, duration, peak values, and area (severity) of each slip event.
+
+      ```matlab
+[slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, ...
+underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, ...
+ barThickness, SLIPTHRESHOLD, UNDERBARSCALE, DETRENDWINDOW)
+   ```
+
+   _Notes on input arguments_:
+   - tracked video: grayscale, background-removed, mouse-enhanced video cropped and trimmed to the same dimensions as the binarized video
+   - mouseMaskMatrix: the binarized mouse mask video
+   - bardTopCoord: the y-coordinate of the top edge of the bar, as obtained by detectBar-function; used to define the "above-bar" region note that the coordinate matches bar position in the cropped (rather than original) video
+   - barThickness: thickness of bar in pixels, used to define the "below-bar" region for detecting slipping
+   - SLIPTHRESHOLD: a threshold value (a.u.) describing how large a below-bar movement should be to be considered a slip. If you worry about false slips detected with normal paw motion, increase this value. Current default: 2.
+   -UNDERBARSCALE (optional): how much below the bar we look for movement (multiplies of bar width). Current default: 2
+   -DETRENDWINDOW (optional): temporal window for detrending the movement trace to sharpen slip detection. Currend default 64 frames (0.4s)
+
+   Principle is simple: look at how much between-frames changes happen below the bar:
+ ```matlab
+   totalMovement = sum(abs(currentFrame - previousFrame)); 
+     ```
+
+
    Makes use of these procedures;
    -  **`computeMouseProbabilityMap.m`**  
    Computes a per-column “probability” or fraction of the mouse occupying that column. Helps weight movement by how fully the trunk is present vs. just the tail.
