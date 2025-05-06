@@ -2,6 +2,23 @@
 
 This repository contains a set of **MATLAB** functions and scripts for analyzing mouse locomotion and slip events on a balance beam. The core workflow includes detecting camera edges, locating the bar, tracking the mouse, computing weighted movement metrics, and identifying slip events.
 
+## Table of Contents
+- [BeamCross: A MATLAB Tool for Balance Beam Video Analysis](#beamcross-a-matlab-tool-for-balance-beam-video-analysis)
+  - [Table of Contents](#table-of-contents)
+  - [Background - why not use deep learning?](#background---why-not-use-deep-learning)
+  - [Formal description of the algorithm](#formal-description-of-the-algorithm)
+    - [Formal Definition of Slip Events and Magnitudes](#formal-definition-of-slip-events-and-magnitudes)
+  - [Description of functions](#description-of-functions)
+    - [**`BBanalysisSingleFile.m`**](#bbanalysissinglefilem)
+    - [**`trackMouseOnBeam.m`**](#trackmouseonbeamm)
+    - [**`detectBar.m`**](#detectbarm)
+    - [**`detectSlips.m`**](#detectslipsm)
+    - [**`plotBBtrial.m`**](#plotbbtrialm)
+  - [Additional Helpers and Subfolders](#additional-helpers-and-subfolders)
+  - [Basic Workflow](#basic-workflow)
+  - [Dependencies](#dependencies)
+
+
 ## Background - why not use deep learning?
 
 Assessing mouse performance on a balance beam is one of the gold classics of systems neurobiology, as balance perturbations are a common symptom of numerous malfunctions of the central nervous system as well as the periferal sensory mechanisms. Experiments where a mouse is tasked by traversal of a narrow beam have been conducted for decades, and the assessment has been, until recently, based entirely on manual scoring - i.e. by a researcher observing either the animals or recorded videos and counting the number of slipping occurrences. 
