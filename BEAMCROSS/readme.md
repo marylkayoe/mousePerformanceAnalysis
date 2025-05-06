@@ -40,10 +40,16 @@ It is beyond our means or interest to compare the performance of our algorithm w
 
 Due to the simplicity of the algorithm, it is also easy to modify or expand - for example, in the context of balance beams with decreasing diameter. We hope that this work will not only speed up your analysis of balance beam videos, but also serve as an inspiration for considering simple, elegant solutions to problems that tend to be solved using unnecessarily complex deep learning models.
 
+If you use this code or algorithm in your research, please cite it as:
+
+Uusisaari, MY, (2025). BeamCross: A MATLAB Tool for Balance Beam Video Analysis. Retrieved from https://github.com/YourRepoLinkHere.
+
+
+
 ### References
 - Bidgood, Raphaëlle, et al. [Automated procedure to detect subtle motor alterations in the balance beam test in a mouse model of early Parkinson’s disease.](https://doi.org/10.1038/s41598-024-51225-1) Scientific reports 14.1 (2024): 862. 
 - Lannelongue, Loïc, Jason Grealey, and Michael Inouye. [Green algorithms: quantifying the carbon footprint of computation](https://doi.org/10.1002/advs.202100707) Advanced science 8.12 (2021): 2100707. 
-- Mathis, Alexander, et al. "DeepLabCut: markerless pose estimation of user-defined body parts with deep learning." Nature neuroscience 21.9 (2018): 1281-1289.
+- Mathis, Alexander, et al. [DeepLabCut: markerless pose estimation of user-defined body parts with deep learning.](https://doi.org/10.1038/s41593-018-0209-y) Nature neuroscience 21.9 (2018): 1281-1289.
 - Narayanan, Arvind, and Sayash Kapoor. [Why an overreliance on AI-driven modelling is bad for science.](https://doi.org/10.1038/d41586-025-01067-2) Nature 640.8058 (2025): 312-314.
 - Wahl, Lucas, et al. [Detecting ataxia using an automated analysis of motor coordination and balance of mice on the balance beam.](https://doi.org/10.1101/2023.07.03.547476) bioRxiv (2023): 2023-07.
 
