@@ -117,7 +117,7 @@ if USEMORPHOCLEAN
 end
 
 disp('Tracking mouse position...');
-
+tic
 [xGrid, yGrid] = meshgrid(1:imWidth, 1:imHeight); % for centroid marker calculation
 
 %% Loop through frames: find largest blob & mark its centroid
@@ -130,8 +130,6 @@ for frameIndex = 1:nFrames
     % Find all connected components in the mask
     % regionprops() returns a structure array with properties of each blob
     % 'Area' is the number of pixels in the blob, 'Centroid' is its center
-
-
     props = regionprops(maskFrame, 'Area', 'Centroid');
     if isempty(props)
         % No blobs => skip (NaNs remain in mouseCentroids).
@@ -164,7 +162,7 @@ for frameIndex = 1:nFrames
     mouseEnhancedFrames(:,:,frameIndex) = enhancedFrame;
 end
 
-
+toc
 %% Identify the longest continuous segment of frames with a valid centroid
 
 mouseFoundFrames = ~isnan(mouseCentroids(:,1));

@@ -10,6 +10,7 @@ function [videoMatrix, frameRate] = readVideoIntoMatrix(filePath, varargin)
     % if the reading of the video fails, it will return an empty matrix
     % and a warning message
 
+
     % parse the input arguments
     p = inputParser;
     addRequired(p, 'filePath', @ischar);

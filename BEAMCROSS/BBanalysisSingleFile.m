@@ -121,11 +121,14 @@ if ~strcmpi(ext, '.mp4')
     return;
 end
 
+disp('reading video into matrix...');
+tic
 %% --- Load the Video into a Matrix ---
 % readVideoIntoMatrix is assumed to return (videoMatrix, frameRate).
 % frameRate is automatically detected from the file if possible.
-[videoMatrix, frameRate] = readVideoIntoMatrix(fullFilePath, 'enhanceContrast', false);
+[videoMatrix, frameRate] = readBBVideoIntoMatrix(fullFilePath);
 
+toc
 % if videoMatrix is empty, it means the video could not be read
 if isempty(videoMatrix)
     warning('Failed to read video file: %s\nAborting...', fullFilePath);
@@ -151,6 +154,7 @@ if isempty(mouseStartPosition)
     end
 end
 
+
 %% real work starts here
 % 1) --- Compute mean frame from the frames specified in meanImageFrames (default: 1:5)
 meanFrame = getMeanFrame(videoMatrix(:, :, meanImageFrames));
@@ -169,20 +173,30 @@ else
 end
 
 %% 3) --- Crop the original video vertically ---
-topCropPosition = barTopCoord - barThickness*CROPVIDEOSCALE;
-bottomCropPosition = barTopCoord + barThickness*CROPVIDEOSCALE;
+
+[imHeight, ~, ~] = size(videoMatrix);
+cropRange = round(barTopCoord + barThickness * CROPVIDEOSCALE * [-1,1]);
+cropRange = max(min(cropRange, imHeight), 1); % efficient bounding
+croppedVideo = videoMatrix(cropRange(1):cropRange(2), :, :);
+barTopCoord = barThickness * CROPVIDEOSCALE;
+
+
+
+%topCropPosition = barTopCoord - barThickness*CROPVIDEOSCALE;
+%ottomCropPosition = barTopCoord + barThickness*CROPVIDEOSCALE;
 % make sure we don't go out of bounds
-if topCropPosition < 1
-    topCropPosition = 1;
-end
-if bottomCropPosition > size(videoMatrix, 1)
-    bottomCropPosition = size(videoMatrix, 1);
-end
+%if topCropPosition < 1
+%    topCropPosition = 1;
+%end
+%if bottomCropPosition > size(videoMatrix, 1)
+ %   bottomCropPosition = size(videoMatrix, 1);
+%end
 % crop the video
-croppedVideo = videoMatrix(topCropPosition:bottomCropPosition, :, :);
+%croppedVideo = videoMatrix(topCropPosition:bottomCropPosition, :, :);
 % so now the bar coordinate in this cropped video is just.
-barTopCoord = barThickness*CROPVIDEOSCALE;
+%barTopCoord = barThickness*CROPVIDEOSCALE;
 [imHeight, ~, ~] = size(croppedVideo);
+
 
 %% 4)  --- Track the Mouse in the Cropped Video ---
 [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingPeriods, ...
