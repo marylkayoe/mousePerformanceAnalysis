@@ -45,7 +45,7 @@ To detect slip events, we apply a threshold $\tau$ to obtain a binary slip mask 
 $$
 B_n = 
 \begin{cases}
-  1, & W_n \geq \tau \\[5pt]
+  1, & W_n \geq \tau \\
   0, & W_n < \tau
 \end{cases}
 ,\quad n=2,\dots,N
