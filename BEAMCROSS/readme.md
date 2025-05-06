@@ -7,7 +7,9 @@ This repository contains a set of **MATLAB** functions and scripts for analyzing
 Assessing mouse performance on a balance beam is one of the gold classics of systems neurobiology, as balance perturbations are a common symptom of numerous malfunctions of the central nervous system as well as the periferal sensory mechanisms. Experiments where a mouse is tasked by traversal of a narrow beam have been conducted for decades, and the assessment has been, until recently, based entirely on manual scoring - i.e. by a researcher observing either the animals or recorded videos and counting the number of slipping occurrences. 
 
 
-## Quantifying Mouse Movement and Detecting Slips
+## Formal description of the algorithm
+
+After loading and preprocessing the video, detecting the bar, and tracking the mouse, we compute a weighted movement metric to quantify mouse-related movement. This metric is used to identify slip events based on a user-defined threshold. The algorithm consists of the following steps:
 
 We quantify mouse-related movement from video data using a weighted, pixel-level difference metric.
 Given a binary mouse-mask matrix $M \in \{0,1\}^{H \times W \times N}$, where $M_{h,w,n}=1$ indicates that pixel $(h,w)$ belongs to the mouse in frame $n$, and an under-bar grayscale video matrix $V \in [0,1]^{H\times W\times N}$, we first calculate the fraction of mouse pixels per column as:
@@ -100,7 +102,7 @@ The total number of detected slips in a trial is then given by $n_{\text{slips}}
 
 The algorithm is implemented in the `detectSlips.m` function, which processes the video data and mouse mask to identify slip events based on the computed weighted movement trace. See details in the documentation below.
 
-## Overview of the code
+## Description of functions
 
 The camera view of a balance beam setup typically includes a horizontal bar and a mouse traversing the beam. The bar and camera edges are detected to establish a region of interest (ROI) for tracking the mouse. The mouse’s centroid is tracked across frames, and a weighted movement metric is computed to emphasize the mouse’s presence. Slip events are detected based on this metric, and their severity is quantified.
 ![Diagram](IMAGES/BeamcrossFrameStructure.png)
