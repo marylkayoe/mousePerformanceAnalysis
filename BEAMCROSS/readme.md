@@ -20,11 +20,14 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
 
 3. **`detectBar.m`**  
    Locates the horizontal bar by analyzing the edges of the mean image. Pixels in the region where the tapes are are summed horizontally, and points of fast darkening and brightening are taken as the bar edges (i.e. peaks in the differential of the sum). Returns the bar’s top coordinate and thickness. 
+    
+ <img src="barposition.png" alt="Diagram" width="500" height="300">
+
    Points to note: 
    - To avoid getting confused by cases where the recording starts too late and mouse is already on the bar in first frames, we look at the side opposite to mouse starting position. The starting position is currently expected to be L for CAM1 and R for CAM2.
    - However, as the bar is never completely straight, the value will not be exactly correct (maybe 5 - 8 pixels difference between left and right sides). If we could be sure that there are some frames without a mouse, we could take both sides and average (or project a straight line between them).
    - This means also that the posture of the mouse most likely will be seen to shift gradually from one to another edge, as it's calculated relative to bar position.
-  ![Diagram](barposition.png)
+ 
 
 1. **`computeMouseProbabilityMap.m`**  
    Computes a per-column “probability” or fraction of the mouse occupying that column. Helps weight movement by how fully the trunk is present vs. just the tail.

@@ -32,7 +32,7 @@ function [barTopYCoord, barWidth] = detectBar(barImage, mouseStartPosition, vara
 % parse input arguments
 p = inputParser;
 addParameter(p, 'MAKEDEBUGPLOT', false, @(x) islogical(x)); % to show some extra visualization
-addParameter(p, 'barTapeWidth', 1, @(x) isnumeric(x) && x > 0 && x <= 10);
+addParameter(p, 'barTapeWidth', 2, @(x) isnumeric(x) && x > 0 && x <= 10);
 
 parse(p, varargin{:});
 MAKEDEBUGPLOT = p.Results.MAKEDEBUGPLOT;
@@ -50,7 +50,7 @@ end
 % 1. Define the tape-mark-window size 
 [imHeight, imWidth] = size(barImage);
 tapeMarkWindowSize = round(imWidth * (barTapeWidth / 100));
-MAXTAPEWIDTH = 0.05*imHeight; % maximum tape width (percentage of image height)
+MAXTAPEWIDTH = 0.1*imHeight; % maximum tape width (percentage of image height)
 
 % Define horizontal regions in the image where we look for tape marks regions  - will be opposite to mouseStartPosition
 if strcmp(mouseStartPosition, 'R')
