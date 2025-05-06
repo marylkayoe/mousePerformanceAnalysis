@@ -40,7 +40,7 @@ minDuration = 10; % frames
 stoppingFrames = bwareaopen(stoppingFrames, minDuration);
 
 % Step 4: Smooth transitions
-expansionSize = floor(FRAMERATE/4); % e.g., 0.25 sec window
+expansionSize = floor(FRAMERATE/5); % e.g., 0.25 sec window
 if mod(expansionSize, 2) == 0
     expansionSize = expansionSize + 1; % ensure odd-sized kernel
 end

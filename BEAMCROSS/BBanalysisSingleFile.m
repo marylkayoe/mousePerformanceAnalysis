@@ -218,10 +218,10 @@ R.meanSlipAmplitude    = mean(slipEventAreas);
 R.meanPosturalHeight = mean(mouseCentroids(:, 2), 'omitnan');
 R.stdPosturalHeight = std(mouseCentroids(:, 2), 'omitnan');
 
-R.nStops = length(stoppingStartStops);
+R.nStops = length(stoppingStartStops(:, 1));
 R.stoppingStartStops = stoppingStartStops;
-R.stoppingDurations = length(stoppingFrames);
-%R.stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);
+R.stoppingDurationTotal = length(stoppingFrames);
+R.stoppingDurations = stoppingStartStops(:, 2) - stoppingStartStops(:, 1) + 1;
 
 %% --- Generate Plots & Show Videos if Requested ---
 if MAKEPLOT
@@ -231,9 +231,12 @@ if MAKEPLOT
         SLIPTHRESHOLD);
 end
 if SHOWVIDEOS
+
     % Annotate the tracked Video with Slip Intervals 
     annotatedVideo = annotateVideoMatrix(trackedVideo, slipEventStarts, slipEventDurations, ...
-        'ShapeType','FilledRectangle','ShapeColor','red');
+        'ShapeType','FilledRectangle','ShapeColor','red', ...
+        'EventStarts2',stoppingStartStops(:,1), ...
+        'EventDurations2',R.stoppingDurations, 'EventLabel1', 'slip', 'EventLabel2','Stop');
     displayBehaviorVideoMatrix(annotatedVideo, cleanUnderscores(fileName), movementTrace);
     displayBehaviorVideoMatrix(mouseMaskMatrix, 'Binary mask');
     displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo');

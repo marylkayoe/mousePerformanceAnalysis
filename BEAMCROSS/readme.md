@@ -256,8 +256,37 @@ Reads a balance beam video file (`.mp4`) into a MATLAB 3D matrix (height × widt
 ### **`displayBehaviorVideoMatrix.m`**
 
 
+### annotateVideoMatrix
 
-- **`visualization/`** may contain GUIs or interactive display tools like **`displayBehaviorVideoMatrix`** (a function that plays back frames, provides a slider and “play/pause” button, etc.).
+Generates an annotated RGB video from a grayscale input, highlighting events (e.g., mouse slips, stops, or movements) with colored indicators and labels.
+
+**Usage Example:**
+
+```matlab
+annotatedVideo = annotateVideoMatrix(videoMatrix, slipStarts, slipDurations, ...
+    stopStarts, stopDurations, ...
+    'ShapePosition1',[10 10 40 30], 'ShapeColor1','red', 'eventLabel1','Slip', ...
+    'ShapePosition2',[60 10 40 30], 'ShapeColor2','blue','eventLabel2','Stop');
+```
+
+**Inputs:**
+
+* `videoMatrix`: (H×W×nFrames) grayscale video frames.
+* `eventStarts` / `eventDurations`: frame indices and durations for events.
+
+**Optional Parameters (examples):**
+
+* `'ShapeType1'`, `'ShapeType2'`: Shape types (`'FilledRectangle'`, default).
+* `'ShapeColor1'`, `'ShapeColor2'`: Shape colors (`'red'`, `'blue'`, etc.).
+* `'eventLabel1'`, `'eventLabel2'`: Text labels under event shapes.
+* `'Opacity'`, `'LineWidth'`: Visual customization of annotations.
+
+**Output:**
+
+* Annotated RGB video matrix suitable for playback with `implay()`.
+
+
+
 - **`videoProcessing/`, `videoImageAnalysis/`, `helperFunctions/`** may hold smaller utility scripts (`readVideoIntoMatrix.m`, `getMeanFrame.m`, etc.) that perform image I/O, frame differencing, or morphological operations needed by the main pipeline.
 
 ## Basic Workflow

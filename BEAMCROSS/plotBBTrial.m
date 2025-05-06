@@ -52,11 +52,11 @@ stoppingFrames = bwareaopen(imclose(stoppingFrames, strel('line', 5, 0)), 10);
 % find contiguous regions of stopping
 cc = bwconncomp(stoppingFrames);
 % get the start and end frames of each stopping period
-stoppingPeriods = cellfun(@(x) [x(1), x(end)], cc.PixelIdxList, 'UniformOutput', false);
+%stoppingPeriods = cellfun(@(x) [x(1), x(end)], cc.PixelIdxList, 'UniformOutput', false);
 % get the duration of each stopping period
-stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);
+%stoppingDurations = cellfun(@(x) diff(x)+1, stoppingPeriods);
 
-[stoppingFrames, stoppingPeriods] = detectStoppingOnBeam(forwardSpeeds, LOCOTHRESHOLD);
+[stoppingFrames, stoppingStartStops] = detectStoppingOnBeam(forwardSpeeds, LOCOTHRESHOLD);
 
 
 % =========== SUBPLOT #1: Movement Under Bar Trace ===========================
@@ -160,10 +160,10 @@ hold off;
 subplot(NROWS,NCOLS,3);  % bottom subplot
 hold on;
 % add gray transparent rectangles for stopping periods if any are found
-for i = 1:length(stoppingPeriods)
+for i = 1:length(stoppingStartStops(:, 1))
     % get the start and end times of the stopping period
-    startFrame = stoppingPeriods{i}(1);
-    endFrame = stoppingPeriods{i}(2);
+    startFrame = stoppingStartStops(i, 1);
+    endFrame = stoppingStartStops(i, 2);
     startTime = (startFrame - 1) / FRAMERATE;
     endTime = (endFrame - 1) / FRAMERATE;
     % plot a gray rectangle for the stopping period
@@ -183,9 +183,9 @@ xlabel('Time (s)');
 ylabel('Forward speed (pixels/s)');
 title('Forward speed profile','FontSize',12);
 % add text about number and total duration of stops
-text(0.02, 0.3, sprintf('Number of stops: %d', length(stoppingPeriods)), ...
+text(0.02, 0.3, sprintf('Number of stops: %d', length(stoppingStartStops(:, 1))), ...
     'Units','normalized','FontSize',10);
-text(0.02, 0.15, sprintf('Total stop duration: %.2f s', sum(stoppingDurations)/FRAMERATE), ...
+text(0.02, 0.15, sprintf('Total stop duration: %.2f s', sum(stoppingFrames)/FRAMERATE), ...
     'Units','normalized','FontSize',10);
 
 grid on;

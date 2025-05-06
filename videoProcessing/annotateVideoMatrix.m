@@ -1,117 +1,100 @@
-function annotatedVideo = annotateVideoMatrix(videoMatrix, eventStarts, eventDurations, varargin)
-    % ANNOTATEVIDEOMATRIX  Overlays a shape in frames where events occur.
-    %   Creates an RGB video from a grayscale input, drawing shapes on frames
-    %   for each specified event interval.
-    %
-    % SYNTAX:
-    %   annotatedVideo = annotateVideoMatrix(...
-    %       videoMatrix, eventStarts, eventDurations, ...
-    %       'Name', value, ... );
-    %
-    % REQUIRED INPUTS:
-    %   videoMatrix   : (H x W x nFrames) grayscale array
-    %   eventStarts   : vector of frame indices where events begin
-    %   eventDurations: vector, same length as eventStarts, how many frames each event lasts
-    %
-    % OPTIONAL PARAMETERS (Name-Value pairs):
-    %   'ShapeType'    : (char) 'Rectangle', 'FilledRectangle', 'Circle', etc.
-    %                    Default = 'Rectangle'
-    %   'ShapePosition': (1x4 or 1x3 numeric) e.g. [x y width height] for rectangle
-    %                    Default = [20 20  50 30]
-    %   'ShapeColor'   : (char or 1x3 numeric) e.g. 'red' or [255 0 0]
-    %                    Default = 'red'
-    %   'LineWidth'    : (scalar) thickness of the outline (if not filled)
-    %                    Default = 3
-    %   'Opacity'      : (0..1) how opaque the shape is
-    %                    Default = 1 (fully opaque)
-    %
-    % OUTPUT:
-    %   annotatedVideo : (H x W x 3 x nFrames) RGB annotated video
-    %
-    % EXAMPLE:
-    %   videoMatrix = rand(240,320,100,'single');  % dummy grayscale
-    %   eventStarts = [10, 30, 70];
-    %   eventDurations = [5, 10, 8];
-    %
-    %   annotatedVid = annotateVideoMatrix(...
-    %       videoMatrix, eventStarts, eventDurations, ...
-    %       'ShapeType','FilledRectangle',...
-    %       'ShapePosition',[50,50,40,40],...
-    %       'ShapeColor','cyan',...
-    %       'LineWidth',4,...
-    %       'Opacity',0.7);
-    %
-    %   implay(annotatedVid);
-    
-        %------------- Set up inputParser -------------
-        p = inputParser;
-        p.FunctionName = mfilename;
-    
-        % Required arguments
-        addRequired(p, 'videoMatrix', ...
-            @(x) ( isnumeric(x) && ndims(x)==3 ) );
-        addRequired(p, 'eventStarts', @isnumeric);
-        addRequired(p, 'eventDurations', @isnumeric);
-    
-        % Optional parameter-value pairs
-        addParameter(p, 'ShapeType',    'filled-rectangle',  @ischar);
-        addParameter(p, 'ShapePosition',[20 20  50 30],@isnumeric);
-        addParameter(p, 'ShapeColor',   'red'); % could be char or numeric
-        addParameter(p, 'LineWidth',    3,       @isnumeric);
-        addParameter(p, 'Opacity',      1,       @isnumeric);
-    
-        % Parse
-        parse(p, videoMatrix, eventStarts, eventDurations, varargin{:});
-    
-        % Extract parsed results (for readability)
-        shapeType     = p.Results.ShapeType;
-        shapePosition = p.Results.ShapePosition;
-        shapeColor    = p.Results.ShapeColor;
-        lineWidth     = p.Results.LineWidth;
-        opacity       = p.Results.Opacity;
-    
-        % Validate that eventStarts & eventDurations match in length
-        if numel(eventStarts) ~= numel(eventDurations)
-            error('eventStarts and eventDurations must have the same length.');
-        end
-    
-        %------------- Main Logic -------------
-        [H, W, nFrames] = size(videoMatrix);
-    
-        % Output is an RGB video
-        annotatedVideo = zeros(H, W, 3, nFrames, 'like', videoMatrix);
-    
-        % We'll mark frames in which events occur
-        eventMask = false(1, nFrames);  % 1D for nFrames
-    
-        for i = 1:numel(eventStarts)
-            startF = eventStarts(i);
-            endF   = startF + eventDurations(i) - 1; 
-            endF   = min(endF, nFrames);  % clamp if beyond last frame
-            if startF <= nFrames
-                eventMask(startF : endF) = true;
-            end
-        end
-    
-        % Loop over frames
-        for f = 1:nFrames
-            % Extract grayscale frame
-            grayFrame = videoMatrix(:,:,f);
-    
-            % Convert to RGB
-            rgbFrame = repmat(grayFrame, [1,1,3]);
-    
-            % If this frame is in an event, overlay shape
-            if eventMask(f)
-                rgbFrame = insertShape(rgbFrame, shapeType, shapePosition, ...
-                    'Color',     shapeColor, ...
-                    'LineWidth', lineWidth, ...
-                    'Opacity',   opacity );
-            end
-    
-            % Store in output
-            annotatedVideo(:,:,:,f) = rgbFrame;
-        end
-    
+function annotatedVideo = annotateVideoMatrix(videoMatrix, eventStarts1, eventDurations1, varargin)
+    % ANNOTATEVIDEOMATRIX overlays shapes and labels for two event types on video frames.
+
+    % Input parser setup
+    p = inputParser;
+    p.FunctionName = mfilename;
+
+    % Required arguments
+    addRequired(p, 'videoMatrix', @(x) isnumeric(x) && ndims(x)==3);
+    addRequired(p, 'eventStarts1', @isnumeric);
+    addRequired(p, 'eventDurations1', @isnumeric);
+
+    % Optional parameters (event type 1)
+    addParameter(p, 'ShapeType',    'filled-rectangle',  @ischar);
+    addParameter(p, 'ShapePosition',[20 20 50 30],@isnumeric);
+    addParameter(p, 'ShapeColor',   'red');
+    addParameter(p, 'LineWidth',    3, @isnumeric);
+    addParameter(p, 'Opacity',      1, @isnumeric);
+    addParameter(p, 'EventLabel1',  'EVENT1', @ischar);
+
+    % Optional parameters for second event type
+    addParameter(p, 'EventStarts2', [], @isnumeric);
+    addParameter(p, 'EventDurations2', [], @isnumeric);
+    addParameter(p, 'ShapePosition2', [80 20 50 30], @isnumeric);
+    addParameter(p, 'ShapeColor2', 'blue');
+    addParameter(p, 'EventLabel2',  'EVENT2', @ischar);
+
+    % Parse input arguments
+    parse(p, videoMatrix, eventStarts1, eventDurations1, varargin{:});
+
+    % Extract parameters
+    shapeType1     = p.Results.ShapeType;
+    shapePosition1 = p.Results.ShapePosition;
+    shapeColor1    = p.Results.ShapeColor;
+    lineWidth      = p.Results.LineWidth;
+    opacity        = p.Results.Opacity;
+    eventLabel1    = p.Results.EventLabel1;
+
+    % Second event parameters
+    eventStarts2     = p.Results.EventStarts2;
+    eventDurations2  = p.Results.EventDurations2;
+    shapePosition2   = p.Results.ShapePosition2;
+    shapeColor2      = p.Results.ShapeColor2;
+    eventLabel2      = p.Results.EventLabel2;
+
+    % Dimensions
+    [H, W, nFrames] = size(videoMatrix);
+    annotatedVideo = zeros(H, W, 3, nFrames, 'like', videoMatrix);
+
+    % Create event masks
+    eventMask1 = false(1, nFrames);
+    for i = 1:numel(eventStarts1)
+        idxRange = eventStarts1(i):min(eventStarts1(i)+eventDurations1(i)-1, nFrames);
+        eventMask1(idxRange) = true;
     end
-    
+
+    eventMask2 = false(1, nFrames);
+    if ~isempty(eventStarts2)
+        for i = 1:numel(eventStarts2)
+            idxRange = eventStarts2(i):min(eventStarts2(i)+eventDurations2(i)-1, nFrames);
+            eventMask2(idxRange) = true;
+        end
+    end
+
+    % Calculate label positions (just below shapes)
+    labelOffsetY = 5; % pixels below shape
+    labelPos1 = [shapePosition1(1), shapePosition1(2)+shapePosition1(4)+labelOffsetY];
+    labelPos2 = [shapePosition2(1), shapePosition2(2)+shapePosition2(4)+labelOffsetY];
+
+    % Loop frames and draw shapes & labels
+    for f = 1:nFrames
+        % Grayscale to RGB
+        rgbFrame = repmat(videoMatrix(:,:,f), [1,1,3]);
+
+        % Overlay event 1 shape & label
+        if eventMask1(f)
+            rgbFrame = insertShape(rgbFrame, shapeType1, shapePosition1, ...
+                'Color', shapeColor1, 'LineWidth', lineWidth, 'Opacity', opacity);
+
+            if ~isempty(eventLabel1)
+                rgbFrame = insertText(rgbFrame, labelPos1, eventLabel1, ...
+                    'FontSize',12, 'BoxColor','black', 'TextColor',shapeColor1, 'BoxOpacity',0.6);
+            end
+        end
+
+        % Overlay event 2 shape & label
+        if eventMask2(f)
+            rgbFrame = insertShape(rgbFrame, shapeType1, shapePosition2, ...
+                'Color', shapeColor2, 'LineWidth', lineWidth, 'Opacity', opacity);
+
+            if ~isempty(eventLabel2)
+                rgbFrame = insertText(rgbFrame, labelPos2, eventLabel2, ...
+                    'FontSize',12, 'BoxColor','black', 'TextColor',shapeColor2, 'BoxOpacity',0.6);
+            end
+        end
+
+        % Store frame
+        annotatedVideo(:,:,:,f) = rgbFrame;
+    end
+end
