@@ -66,6 +66,37 @@ $$
 
 Lastly, we identify contiguous slipping periods as connected components in $B_n^{\text{closed}}$. Each contiguous set of slip frames defines a distinct slip event for further analysis.
 
+### Formal Definition of Slip Events and Magnitudes
+
+Given the previously defined binary slip mask $B_n$, we identify contiguous slip events as connected components within $B_n$. Each contiguous slip event $S_j$ (where $j = 1,\dots,n_{\text{slips}}$) is defined by a set of frame indices:
+
+$$
+S_j = \{ n \mid B_n = 1 \text{ and } n_{\text{start}, j} \leq n \leq n_{\text{end}, j} \}
+$$
+
+where $n_{\text{start}, j}$ and $n_{\text{end}, j}$ are the first and last frames of the $j$-th slip event, respectively.
+
+For each slip event, the **slip magnitude** ($A_j$) is computed as the area under the weighted movement trace $W_n$, above the slip threshold $\tau$:
+
+$$
+A_j = \sum_{n \in S_j}(W_n - \tau), \quad j = 1,\dots,n_{\text{slips}}
+$$
+
+The **peak slip magnitude** ($P_j$) is defined as the maximum weighted movement during the slip event:
+
+$$
+P_j = \max_{n \in S_j}(W_n), \quad j = 1,\dots,n_{\text{slips}}
+$$
+
+Finally, the **slip duration** ($D_j$) for the $j$-th slip is simply the number of frames within the slip event:
+
+$$
+D_j = n_{\text{end}, j} - n_{\text{start}, j} + 1, \quad j = 1,\dots,n_{\text{slips}}
+$$
+
+The total number of detected slips in a trial is then given by $n_{\text{slips}}$.
+
+
 
 The algorithm is implemented in the `detectSlips.m` function, which processes the video data and mouse mask to identify slip events based on the computed weighted movement trace. See details below.
 
