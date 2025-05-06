@@ -40,36 +40,6 @@ $$
 
 This weighted metric $W_n$ robustly captures mouse-specific movement, that can be further normalized or smoothed as needed, and is used to identify slip events based on a user-defined threshold.
 
-Certainly! Here is an expanded version of the previous formal description that includes the thresholding and the morphological cleanup, clearly described with mathematical precision:
-
----
-
-### Formal Algorithm for Weighted Movement Quantification and Slip Detection
-
-We quantify mouse-related movement from video data using a weighted, pixel-level difference metric. Given a binary mouse-mask matrix $M \in \{0,1\}^{H \times W \times N}$, where $M_{h,w,n}=1$ indicates that pixel $(h,w)$ belongs to the mouse in frame $n$, and an under-bar grayscale video matrix $V \in [0,1]^{H\times W\times N}$, we first calculate the fraction of mouse pixels per column:
-
-$$
-C_{w,n} = \frac{1}{H}\sum_{h=1}^{H} M_{h,w,n}, \quad w=1,\dots,W,\quad n=1,\dots,N
-$$
-
-Next, we compute the absolute frame-to-frame difference in pixel intensity:
-
-$$
-D_{h,w,n} = |V_{h,w,n} - V_{h,w,n-1}|, \quad n=2,\dots,N
-$$
-
-Summing vertically along columns, we obtain a column-wise measure of pixel intensity change:
-
-$$
-S_{w,n} = \sum_{h=1}^{H} D_{h,w,n}
-$$
-
-These differences are then weighted by the squared mouse occupancy fractions, emphasizing columns predominantly occupied by the mouse, yielding our weighted movement measure per frame:
-
-$$
-W_n = \sum_{w=1}^{W} S_{w,n}\,(C_{w,n})^2,\quad n=2,\dots,N
-$$
-
 To detect slip events, we apply a threshold $\tau$ to obtain a binary slip mask $B_n$:
 
 $$
