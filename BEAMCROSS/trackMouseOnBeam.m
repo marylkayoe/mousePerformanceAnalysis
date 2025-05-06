@@ -1,6 +1,6 @@
 function [mouseCentroids, instForwardSpeed, meanSpeed, traverseDuration, stoppingPeriods, ...
 meanSpeedLoco, stdSpeedLoco, ...
-    mouseMaskMatrix, trackedVideo, croppedVideo] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE)
+    mouseMaskMatrix, trackedVideo, croppedVideo] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, mouseContrastThreshold, FRAMERATE)
 % TRACKMOUSEONBEAM  Detect and track the mouse in a cropped grayscale video of a balance beam.
 %
 %   [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, meanPosturalHeight, ...
@@ -19,6 +19,11 @@ meanSpeedLoco, stdSpeedLoco, ...
 %       FRAMERATE    : (Optional) Video frame rate (frames/sec). Default is 160.
 %                      Used for converting frame-based displacements to speeds.
 %       LOCOTHRESHOLD: (Optional) Speed threshold (pixels/sec) below which the mouse
+%                      is considered to be "stopped". Default is 100.
+%       USEMORPHOCLEAN: (Optional) Logical flag to apply morphological cleanup
+%                      to the binary mask. Default is false. Should not be needed.
+%       mouseContrastThreshold: (Optional) Threshold for the ratio image to
+%                      identify the mouse. Default is 0.6.
 %
 %   OUTPUTS:
 %       mouseCentroids   : (nFrames x 2) array of mouse [x, y] centroids (in pixels).
@@ -36,21 +41,24 @@ meanSpeedLoco, stdSpeedLoco, ...
 %       croppedVideo     : (height x width x nFrames) subset of the input video,
 %                          further trimmed to only the frames during which the mouse
 %                          was actually present. (Frames before/after are removed.)
+%       trackedVideo     : (height x width x nFrames) enhanced video with background 
+%                           removed  and the centroid marker added.
 %
 %   ALGORITHM OVERVIEW:
-%   1) Compute a mean frame and take the ratio (frame / meanFrame) for each frame
-%      to highlight darker mouse pixels vs. background.
-%   2) Threshold the ratio image (< 0.6) to create a binary mask of candidate
-%      mouse regions (mouseMaskMatrix).
-%   3) OPTIONALLY: Morphologically close and remove small blobs from the mask to reduce noise. note that this causes significant computational overhead, so don't use it if the image is clear. (variable USEMORPHOCLEAN switches it on or off)
-%   4) For each frame, find all connected components >= MOUSESIZETH of the frame area,
-%      pick the largest blob as “the mouse,” and record its centroid.
-%   5) Insert a small white circle (the centroid) into trackedVideo for visualization.
-%   6) Identify the longest continuous span of frames in which the mouse is detected
-%      (i.e., ignore large segments of NaNs), then crop all outputs to that timespan.
-%   7) Compute forwardSpeeds from centroid displacement in the x-direction, smoothed
-%      over a short window (~FRAMERATE/10). The meanSpeed is the average of these.
-%   8) The traverseDuration is the length of the final valid frame segment in seconds.
+%       1) Compute a "mean frame" from the input video.
+%       2) Compute a "ratio image" for each frame, where each pixel is the ratio
+%          of the pixel value in that frame to the mean frame. This enhances the
+%          mouse silhouette as a darker region.
+%       3) Threshold the ratio image to create a binary mask of the mouse.
+%       4) Use regionprops to find connected components in the mask, and
+%          identify the largest blob as the mouse.
+%       5) Calculate the centroid of the largest blob and store it in mouseCentroids.
+%       6) Calculate the instantaneous forward speed of the mouse based on
+%          the displacement of the centroid over time (in horizontal direction only).
+%       7) Identify periods of stopping based on the forward speed.
+%       8) Return the mouse centroids, forward speeds, mean speed, and
+%          traverse duration, along with the cropped video and mouse mask matrix.
+
 %
 %   EXAMPLE:
 %       % Suppose we have a cropped video and we know the mouse is at least 5% of the frame
@@ -77,22 +85,23 @@ end
 if ~exist('FRAMERATE', 'var')
     FRAMERATE = 160;   % default: 160 fps
 end
-
-USEMORPHOCLEAN = false;  % whether to use morphological cleanup; not necessary if image is clear
-mouseContrastThreshold = 0.6;  % threshold for the ratio image
+if ~exist('USEMORPHOCLEAN', 'var')
+    USEMORPHOCLEAN = false;   % default: no morphological cleanup
+end
+if ~exist('mouseContrastThreshold', 'var')
+    mouseContrastThreshold = 0.6;   % default: no morphological cleanup
+end
 
 % Basic video info
 [imHeight, imWidth, nFrames] = size(croppedVideo);
 frameArea = imHeight * imWidth;
 minMouseArea = (MOUSESIZETH / 100) * frameArea;  % e.g. 5% => min area threshold
+markerSize = 10;    % radius of the centroid marker in video(in pixels)
 
 %% Preallocate output arrays
 mouseCentroids = nan(nFrames, 2);
 stoppingPeriods = cell(0);
-mouseMaskMatrix = false(imHeight, imWidth, nFrames);  % binary mask of mouse
-%trackedVideo = uint8(zeros(imHeight, imWidth, nFrames));  % video with centroids
 
-markerSize = 10;    % radius of the centroid marker in video(in pixels)
 
 % 1) Compute ratio image to enhance mouse as darker region
 meanFrame = getMeanFrame(croppedVideo);
