@@ -1,6 +1,6 @@
 # BeamCross: A MATLAB Tool for Balance Beam Video Analysis
 
-This repository contains a set of **MATLAB** functions and scripts for analyzing mouse locomotion and slip events on a balance beam. The core workflow includes detecting camera edges, locating the bar, tracking the mouse, computing weighted movement metrics, and identifying slip events.
+This repository contains a set of **MATLAB** functions and scripts for analyzing mouse locomotion and slip events on a balance beam.
 
 ## Table of Contents
 - [BeamCross: A MATLAB Tool for Balance Beam Video Analysis]
