@@ -6,12 +6,7 @@ This repository contains a set of **MATLAB** functions and scripts for analyzing
 
 Assessing mouse performance on a balance beam is one of the gold classics of systems neurobiology, as balance perturbations are a common symptom of numerous malfunctions of the central nervous system as well as the periferal sensory mechanisms. Experiments where a mouse is tasked by traversal of a narrow beam have been conducted for decades, and the assessment has been, until recently, based entirely on manual scoring - i.e. by a researcher observing either the animals or recorded videos and counting the number of slipping occurrences. 
 
-## Detecting slips - formal description
-Certainly! Here's a clear, formal yet concise description utilizing the mathematical notation we defined, suitable to include in your README:
-
----
-
-### Formal Algorithm for quantifying mouse slips
+### Formal Algorithms for detecting and quantifying mouse slips
 
 We quantify mouse-related movement from video data using a weighted, pixel-level difference metric.
 Given a binary mouse-mask matrix $M \in \{0,1\}^{H \times W \times N}$, where $M_{h,w,n}=1$ indicates that pixel $(h,w)$ belongs to the mouse in frame $n$, and an under-bar grayscale video matrix $V \in [0,1]^{H\times W\times N}$, we first calculate the fraction of mouse pixels per column as:
