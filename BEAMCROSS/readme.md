@@ -11,11 +11,10 @@ Assessing mouse performance on a balance beam is one of the gold classics of sys
 The camera view of a balance beam setup typically includes a horizontal bar and a mouse traversing the beam. The bar and camera edges are detected to establish a region of interest (ROI) for tracking the mouse. The mouse’s centroid is tracked across frames, and a weighted movement metric is computed to emphasize the mouse’s presence. Slip events are detected based on this metric, and their severity is quantified.
 ![Diagram](BeamcrossFrameStructure.png)
 
-
-1.### **`BBanalysisSingleFile.m`**  
+### **`BBanalysisSingleFile.m`**  
    The main entry point for analyzing a single `.mp4` video file. Loads and preprocesses the video, detects the bar, tracks the mouse, computes slips, and optionally produces plots and annotated videos. Returns all relevant measurements in a structured output.
 
-2. ### **`trackMouseOnBeam.m`**  
+### **`trackMouseOnBeam.m`**  
    Tracks the mouse position on the beam across frames. Returns mouse centroids, speed information, stops, and three versions of the video: binary mask, a background-subtracted video with the centroid of the mouse indicated, and the original video cropped and trimmed to match the tracked ones.
 
       ```matlab
@@ -38,7 +37,7 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
    ![Diagram](mouseMaskImage.png)
    ![Diagram](trackedMouseImage.png)
 
-1. **`detectBar.m`**  
+### **`detectBar.m`**  
    Locates the horizontal bar by analyzing the edges of the mean image. Pixels in the region where the tapes are are summed horizontally, and points of fast darkening and brightening are taken as the bar edges (i.e. peaks in the differential of the sum). Returns the bar’s top coordinate and thickness. <img src="barposition.png" alt="Diagram" width="300" height="300">
    Points to note: 
    - To avoid getting confused by cases where the recording starts too late and mouse is already on the bar in first frames, we look at the side opposite to mouse starting position. The starting position is currently expected to be L for CAM1 and R for CAM2.
@@ -46,14 +45,14 @@ The camera view of a balance beam setup typically includes a horizontal bar and 
    - This means also that the posture of the mouse most likely will be seen to shift gradually from one to another edge, as it's calculated relative to bar position.
   
 
-1. **`detectSlips.m`**  
+### **`detectSlips.m`**  
    Generates the weighted movement trace to find slip intervals (above a threshold). The slips are only counted if they happen "under the mouse". Returns the start frames, duration, peak values, and area (severity) of each slip event.
 
-      ```matlab
+```matlab
 [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, ...
 underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, ...
  barThickness, SLIPTHRESHOLD, UNDERBARSCALE, DETRENDWINDOW)
-   ```
+ ```
 
    _Notes on input arguments_:
    - tracked video: grayscale, background-removed, mouse-enhanced video cropped and trimmed to the same dimensions as the binarized video
