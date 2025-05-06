@@ -269,7 +269,7 @@ displayBehaviorVideoMatrix(videoMatrix, titleString, dispData, logicalData, NORM
 ![Diagram](IMAGES/displayBehaviorMatrixImage.png)
 
 
-### annotateVideoMatrix
+### `videoProcessing/annotateVideoMatrix.m`
 
 Generates an annotated RGB video from a grayscale input, highlighting events (e.g., mouse slips, stops, or movements) with colored indicators and labels.
 
@@ -307,5 +307,8 @@ annotatedVideo = annotateVideoMatrix(videoMatrix, slipStarts, slipDurations, ...
 ## Dependencies
 - MATLAB (tested on R2024b).
 - Image Processing Toolbox (for insertShape, morphological ops, etc.).
+- Signal Processing Toolbox (for smoothing)
+- Curve Fitting Toolbox (for smoothing)
+- Computer Vision Toolbox (for video reading and writing)
 - Videos in .mp4 format, requires ffmpeg installation and presence on path to run convertAVItoMP4.m.    
   
