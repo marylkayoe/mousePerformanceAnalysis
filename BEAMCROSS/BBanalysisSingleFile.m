@@ -188,7 +188,7 @@ barTopCoord = barThickness * CROPVIDEOSCALE;
     meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, trimmedVideo] = ...
     trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE );
 % NOTE: trackedVideo has the mouse overlaid with centroid marker, mouseMaskMatrix is the mask image video
-% trimmedVideo is the original video trimmed/cropped 
+% trimmedVideo is the original video trimmed/cropped
 
 % Flip mouseCentroids' Y so that top=0 => bar is near zero
 mouseCentroids(:, 2) = imHeight - mouseCentroids(:, 2) + 1; % invert vertically
@@ -218,11 +218,18 @@ R.meanSlipAmplitude    = mean(slipEventAreas);
 R.meanPosturalHeight = mean(mouseCentroids(:, 2), 'omitnan');
 R.stdPosturalHeight = std(mouseCentroids(:, 2), 'omitnan');
 
-R.nStops = length(stoppingStartStops(:, 1));
-R.stoppingStartStops = stoppingStartStops;
-R.stoppingDurationTotal = length(stoppingFrames);
-R.stoppingDurations = stoppingStartStops(:, 2) - stoppingStartStops(:, 1) + 1;
+if isempty(stoppingStartStops)
+    R.nStops = 0;
+    R.stoppingStarStops = [nan nan];
+    R.stoppingDurationsTotal = 0;
+    R.stoppingDurations = 0;
+else
+    R.nStops = length(stoppingStartStops(:, 1));
+    R.stoppingStartStops = stoppingStartStops;
+    R.stoppingDurationTotal = length(stoppingFrames);
+    R.stoppingDurations = stoppingStartStops(:, 2) - stoppingStartStops(:, 1) + 1;
 
+end
 %% --- Generate Plots & Show Videos if Requested ---
 if MAKEPLOT
     plotBBtrial(movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
@@ -232,7 +239,7 @@ if MAKEPLOT
 end
 if SHOWVIDEOS
 
-    % Annotate the tracked Video with Slip Intervals 
+    % Annotate the tracked Video with Slip Intervals
     annotatedVideo = annotateVideoMatrix(trackedVideo, slipEventStarts, slipEventDurations, ...
         'ShapeType','FilledRectangle','ShapeColor','red', ...
         'EventStarts2',stoppingStartStops(:,1), ...
