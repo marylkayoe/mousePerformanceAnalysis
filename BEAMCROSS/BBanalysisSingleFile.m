@@ -220,7 +220,7 @@ R.stdPosturalHeight = std(mouseCentroids(:, 2), 'omitnan');
 
 if isempty(stoppingStartStops)
     R.nStops = 0;
-    R.stoppingStarStops = [nan nan];
+    R.stoppingStartStops = [nan nan];
     R.stoppingDurationsTotal = 0;
     R.stoppingDurations = 0;
 else
