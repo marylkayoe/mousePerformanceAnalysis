@@ -266,6 +266,18 @@ plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
 ### **`detectStoppingOnBeam.m`**
 
 Identifies stopping periods of the mouse on the beam from a computed speed trace. The function applies thresholding, morphological operations, and smoothing to robustly detect intervals of low speed ("stopping"). The result is a binary frame-level mask indicating stopping frames, and a list of start-end indices for each detected stopping period.
+```matlab
+[stoppingFrames, stoppingStartStops] = detectStoppingOnBeam(speedArray, LOCOTHRESHOLD, FRAMERATE)
+```
+
+Notes on input arguments:
+* `speedArray`: Array of instantaneous speeds (in px/sec) for each frame.
+* `LOCOTHRESHOLD`: Speed threshold (in px/sec) below which the mouse is considered to be stopped. Default: 100 px/sec.
+* `FRAMERATE`: Frame rate of the video (in Hz). Used to convert frame indices to time in seconds. Default: 160 fps
+
+Outputs:
+* `stoppingFrames`: Logical array indicating frames where the mouse is stopped (1) or moving (0).
+* `stoppingStartStops`: Matrix (nStops rows, 2 columns) of start and end frame indices for each detected stopping period. So, start frames are in column 1 and end frames in column 2. Note that his will be empty if no stopping periods are detected.
 
 **Algorithm summary**:
 

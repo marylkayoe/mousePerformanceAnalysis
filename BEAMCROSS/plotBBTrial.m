@@ -160,15 +160,17 @@ hold off;
 subplot(NROWS,NCOLS,3);  % bottom subplot
 hold on;
 % add gray transparent rectangles for stopping periods if any are found
-for i = 1:length(stoppingStartStops(:, 1))
-    % get the start and end times of the stopping period
-    startFrame = stoppingStartStops(i, 1);
-    endFrame = stoppingStartStops(i, 2);
-    startTime = (startFrame - 1) / FRAMERATE;
-    endTime = (endFrame - 1) / FRAMERATE;
-    % plot a gray rectangle for the stopping period
-    rectangle('Position', [startTime, 0, endTime-startTime, max(forwardSpeeds)], ...
-        'FaceColor', [0.7, 0.7, 0.7, 0.1], 'FaceAlpha', 0.5, 'EdgeColor', 'k');
+if ~isempty(stoppingStartStops)
+    for i = 1:length(stoppingStartStops(:, 1))
+        % get the start and end times of the stopping period
+        startFrame = stoppingStartStops(i, 1);
+        endFrame = stoppingStartStops(i, 2);
+        startTime = (startFrame - 1) / FRAMERATE;
+        endTime = (endFrame - 1) / FRAMERATE;
+        % plot a gray rectangle for the stopping period
+        rectangle('Position', [startTime, 0, endTime-startTime, max(forwardSpeeds)], ...
+            'FaceColor', [0.7, 0.7, 0.7, 0.1], 'FaceAlpha', 0.5, 'EdgeColor', 'k');
+    end
 end
 
 % Plot the forward speed vs time (or vs frame #)
@@ -183,11 +185,12 @@ xlabel('Time (s)');
 ylabel('Forward speed (pixels/s)');
 title('Forward speed profile','FontSize',12);
 % add text about number and total duration of stops
-text(0.02, 0.3, sprintf('Number of stops: %d', length(stoppingStartStops(:, 1))), ...
-    'Units','normalized','FontSize',10);
-text(0.02, 0.15, sprintf('Total stop duration: %.2f s', sum(stoppingFrames)/FRAMERATE), ...
-    'Units','normalized','FontSize',10);
-
+if ~isempty(stoppingStartStops)
+    text(0.02, 0.3, sprintf('Number of stops: %d', length(stoppingStartStops(:, 1))), ...
+        'Units','normalized','FontSize',10);
+    text(0.02, 0.15, sprintf('Total stop duration: %.2f s', sum(stoppingFrames)/FRAMERATE), ...
+        'Units','normalized','FontSize',10);
+end
 grid on;
 hold off;
 
