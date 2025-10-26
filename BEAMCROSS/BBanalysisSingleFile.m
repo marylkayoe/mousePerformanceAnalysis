@@ -97,7 +97,7 @@ FRAMERATE     = p.Results.FRAMERATE;      % might be used if readVideoIntoMatrix
 PIXELSIZE     = p.Results.PIXELSIZE;      % potential future use for distance scaling
 SLIPTHRESHOLD = p.Results.SLIPTHRESHOLD;
 LOCOTHRESHOLD = p.Results.LOCOTHRESHOLD;
-MOUSESIZETH   = p.Results.MOUSESIZETHRESHOLD;
+MOUSESIZETH   = p.Results.MOUSESIZETHRESHOLD; % on short beam, 5; long beam, 2
 BARPOSITION   = p.Results.BARPOSITION;
 BARWIDTH      = p.Results.BARWIDTH;
 mouseStartPosition = p.Results.mouseStartPosition;
@@ -160,7 +160,7 @@ meanFrame = getMeanFrame(videoMatrix(:, :, meanImageFrames));
 
 % 2) --- Locate the balance bar in this horizontally cropped mean frame if not provided
 if isempty(BARPOSITION)
-    [barTopCoord, barThickness] = detectBar(meanFrame, mouseStartPosition, 'MAKEDEBUGPLOT',true);
+    [barTopCoord, barThickness, barCenter] = detectBar(meanFrame, 'mouseStartPosition', mouseStartPosition, 'MAKEDEBUGPLOT',false);
     if isempty(barTopCoord)
         warning('Bar position not detected in file %s. Aborting...', fileName);
         R = -1;
@@ -181,12 +181,15 @@ barTopCoord = barThickness * CROPVIDEOSCALE;
 
 
 [imHeight, ~, nFrames] = size(croppedVideo);
-
+USEMORPHOCLEAN = false;
+UNDERBARWINDOW = 3;
+mouseContrastThreshold = 0.6;
 
 %% 4)  --- Track the Mouse in the Cropped Video ---
 [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingStartStops, stoppingFrames, ...
     meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, trimmedVideo] = ...
-    trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, FRAMERATE );
+    trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, mouseContrastThreshold, FRAMERATE );
+
 % NOTE: trackedVideo has the mouse overlaid with centroid marker, mouseMaskMatrix is the mask image video
 % trimmedVideo is the original video trimmed/cropped
 
@@ -196,7 +199,7 @@ mouseCentroids(:, 2) = mouseCentroids(:,2) - barTopCoord; % shift to be relative
 
 %% 5 --- Detect Slips from using the tracked video (mouse is enhanced in it) ---
 [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = ...
-    detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, SLIPTHRESHOLD);
+    detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, SLIPTHRESHOLD, UNDERBARWINDOW);
 
 %% 6 --- Store Results in Output Structure ---
 R.mouseCentroids       = mouseCentroids;
@@ -232,7 +235,7 @@ else
 end
 %% --- Generate Plots & Show Videos if Requested ---
 if MAKEPLOT
-    plotBBtrial(movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
+    plotBBTrial(movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
         mouseCentroids, forwardSpeeds, meanSpeedLoco, ...
         R.meanPosturalHeight, fileName, LOCOTHRESHOLD, ...
         SLIPTHRESHOLD);

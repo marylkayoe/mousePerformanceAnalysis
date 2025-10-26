@@ -33,6 +33,7 @@ end
 % -- Create a time axis from frames if desired --
 nFrames = length(movementTrace);
 timeAxis = (0 : nFrames-1) / FRAMERATE;  % in seconds
+frameAxis = 1:nFrames;
 
 % -- Create figure and subplots --
 % figure name should be the file name cleaned up from underscores
@@ -63,7 +64,7 @@ cc = bwconncomp(stoppingFrames);
 subplot(NROWS,NCOLS,1);  % top subplot
 hold on;
 % Plot the movement trace vs time (or vs frame #)
-plot(timeAxis, movementTrace, 'LineWidth',1.2, 'Color',[0 0.45 0.74], 'HandleVisibility','off');
+plot(frameAxis, movementTrace, 'LineWidth',1.2, 'Color',[0 0.45 0.74], 'HandleVisibility','off');
 % add dashed line to indicate SLIPTHRESHOLD
 yline(SLIPTHRESHOLD, '--', 'Color', [0.5 0.5 0.5], 'LineWidth', 1.2, ...
     'Label', 'Slip threshold', 'LabelHorizontalAlignment','left', 'HandleVisibility', 'off');
@@ -74,7 +75,7 @@ yline(SLIPTHRESHOLD, '--', 'Color', [0.5 0.5 0.5], 'LineWidth', 1.2, ...
 % Overlay slip events (if any)
 if ~isempty(slipEventStarts)
     % Convert slipEventStarts from frames to time if desired
-    slipTimes = (slipEventStarts - 1) / FRAMERATE;  % minus 1 for zero-based
+    slipTimes = (slipEventStarts - 1);  % minus 1 for zero-based
     % Scale marker size by slipEventAreas
     markerSizes = slipEventAreas * 20;
     scatter(slipTimes, movementTrace(slipEventStarts), ...

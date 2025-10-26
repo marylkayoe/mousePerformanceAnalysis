@@ -1,4 +1,5 @@
-function [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, SLIPTHRESHOLD, UNDERBARSCALE, DETRENDWINDOW)
+function [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = ...
+    detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, SLIPTHRESHOLD, UNDERBARSCALE, DETRENDWINDOW)
 %   Identify slip intervals in a 1D movement trace using:
 %   1) threshold, default 2
 %   2) morphological "closing" to merge tiny gaps
@@ -24,6 +25,9 @@ end
 if ~exist('UNDERBARSCALE', 'var')
     UNDERBARSCALE = 2; % scale factor for the under-bar region (related to bar thickness)
 end
+
+BARADJUSTVALUE = 0; % this shifts the position where slips are detected downwards... use if bar detection fails
+
 % default output values
 slipEventStarts = [];
 slipEventPeaks = [];
@@ -36,8 +40,8 @@ disp('Detecting slips...');
 % We'll examine slip movements in a band below the bar region
 % start: 5 px below midpoint of the bar
 % end: UNDERBARSCALE x the bar thickness below the bar (+5 pixels)
-underBarStart = round(barTopCoord + barThickness/2)+5;
-underBarEnd   = round(barTopCoord + barThickness*UNDERBARSCALE)+5;
+underBarStart = round(barTopCoord + barThickness/2)+BARADJUSTVALUE;
+underBarEnd   = round(barTopCoord + barThickness*UNDERBARSCALE)+BARADJUSTVALUE;
 underBarCroppedVideo = trackedVideo( underBarStart:underBarEnd, :, : );
 
 
