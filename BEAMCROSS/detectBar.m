@@ -38,6 +38,11 @@ parse(p, varargin{:});
 MAKEDEBUGPLOT = p.Results.MAKEDEBUGPLOT;
 barTapeWidth = p.Results.barTapeWidth;
 
+% if no mouse start position is given, make it ''
+if ~exist('mouseStartPosition', 'var')
+    mouseStartPosition = ''; %  If empty, we take average of LR
+end
+
 
 % check that the image is not empty and has some size
 if isempty(barImage) || isempty(mouseStartPosition)
@@ -66,7 +71,7 @@ tapeRegionSum = sum(barImage(:, tapeMarkRegion), 2);
 [~, tapeMinIndex] = min(tapeRegionSum);
 
 % top of bar is the coordinate above the MinIdx at which the sum of the region is rapidly increasing
-% bottom of bar is the coordinate below the MinIdx at which the sum of the region is rapidly increasing
+% bottom of bar is the coordinate below the MinIdx atim which the sum of the region is rapidly increasing
 % (background is white behind the tape mark)
 
 % find top of the bar
