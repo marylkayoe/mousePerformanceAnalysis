@@ -62,9 +62,11 @@ function convertedFileName = convertAVIToGray(aviFileName, dataPath, savePath, v
 
     %% FFMPEG COMMAND:
     % we use mp4 codec, with some compression (-crf 18), grayscale pixel format, no audio, veryslow setting for best quality
-    ffmpegCmd = sprintf('ffmpeg -i "%s" -vf "format=gray%s" -c:v libx264 -crf 18 -preset veryslow -y "%s"', ...
-        fullAviFilePath, scaleFilter, convertedFileName);
-    
+   ffmpegCmd = sprintf(['ffmpeg -i "%s" -vf "format=gray%s" ', ...
+    '-pix_fmt gray -c:v libx264 -crf 18 -preset veryslow ', ...
+    '-tune grain -g 24 -an -y "%s"'], ...
+    fullAviFilePath, scaleFilter, convertedFileName);
+
         disp(['Converting AVI to grayscale MP4: ', convertedFileName]);
 
     % execute ffmpeg command
