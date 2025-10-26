@@ -2,7 +2,8 @@
 This folder contains functions that are used to process video files in the Mouse Performance Analysis toolbox. 
 
 ## Functions
-- **convertAviToMP4**: Converts an AVI video file to an MP4 video file using FFmpeg. Optional arguments relate to scaling and cropping the video.
+- **convertAviToGray**: Converts an AVI video file to a grayscale MKV video file using FFmpeg. Optional arguments relate to scaling the video and overwriting existing files. The output video uses lossless compression and is best suited for further processing.
+- **convertAviToMP4**: Converts an AVI video file to an MP4 video file using FFmpeg. Optional arguments relate to scaling and cropping the video. Some data loss may occur due to compression, but the file size is significantly reduced.
 - **saveVideoMatrixMP4**: Saves a video matrix as an MP4 video file using FFmpeg. 
 - **readVideoIntoMatrix**: Reads a video file into a 3D matrix. If the video is RGB, it is converted to grayscale. Optional arguments relate to scaling the video and removing blue elements (glove) from the video and replacing them with white.
 - **removeBlueGloveFromFrame**: Removes blue elements (glove) from a frame and replaces them with white (default, works if the mouse is black)
