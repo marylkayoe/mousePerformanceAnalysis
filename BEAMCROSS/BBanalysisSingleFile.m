@@ -160,7 +160,7 @@ meanFrame = getMeanFrame(videoMatrix(:, :, meanImageFrames));
 
 % 2) --- Locate the balance bar in this horizontally cropped mean frame if not provided
 if isempty(BARPOSITION)
-    [barTopCoord, barThickness, barCenter] = detectBar(meanFrame, 'mouseStartPosition', mouseStartPosition, 'MAKEDEBUGPLOT',false);
+    [barTopCoord, barThickness, barCenter] = detectBar(meanFrame, 'mouseStartPosition', mouseStartPosition, 'MAKEDEBUGPLOT',true);
     if isempty(barTopCoord)
         warning('Bar position not detected in file %s. Aborting...', fileName);
         R = -1;
@@ -245,7 +245,7 @@ if SHOWVIDEOS
     % Annotate the tracked Video with Slip Intervals
     annotatedVideo = annotateVideoMatrix(trackedVideo, slipEventStarts, slipEventDurations, ...
         'ShapeType','FilledRectangle','ShapeColor','red', ...
-        'EventStarts2',stoppingStartStops(:,1), ...
+        'EventStarts2',R.stoppingStartStops(:,1), ...
         'EventDurations2',R.stoppingDurations, 'EventLabel1', 'slip', 'EventLabel2','Stop');
 
     displayBehaviorVideoMatrix(annotatedVideo, cleanUnderscores(fileName), (1:nFrames) ./FRAMERATE);

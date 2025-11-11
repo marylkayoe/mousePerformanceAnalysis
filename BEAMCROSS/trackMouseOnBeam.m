@@ -174,6 +174,17 @@ mouseFoundPeriods = regionprops(mouseFoundFrames, 'Area', 'PixelIdxList');
 if isempty(mouseFoundPeriods)
     % No valid frames => return NaNs
     warning('No valid mouse frames found. Returning NaNs.');
+    mouseCentroids  = nan(0, 2);
+    instForwardSpeed = nan(0, 1);
+    meanSpeed = nan;
+    traverseDuration = nan;
+    stoppingStartStops = cell(0);
+    stoppingFrames = false(0, 1);
+    meanSpeedLoco = nan;
+    stdSpeedLoco = nan;
+    mouseMaskMatrix = false(imHeight, imWidth, 0);
+    trackedVideo = zeros(imHeight, imWidth, 0);
+    croppedVideo = zeros(imHeight, imWidth, 0);
     return;
 end
 [~, longestPeriodIndex] = max([mouseFoundPeriods.Area]);

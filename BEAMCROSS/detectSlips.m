@@ -23,7 +23,7 @@ if ~exist('DETRENDWINDOW', 'var')
 end
 
 if ~exist('UNDERBARSCALE', 'var')
-    UNDERBARSCALE = 2; % scale factor for the under-bar region (related to bar thickness)
+    UNDERBARSCALE = 3; % scale factor for the under-bar region (related to bar thickness)
 end
 
 BARADJUSTVALUE = 0; % this shifts the position where slips are detected downwards... use if bar detection fails

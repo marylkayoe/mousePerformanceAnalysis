@@ -51,6 +51,9 @@ if isempty(barImage)
     return;
 end
 
+% 0 crop 10 pixels from left and right edges to avoid edge effects
+barImage = barImage(:, 11:end-10);
+
 
 % 1. Define the tape-mark-window size
 % this should be a small fraction of the image width but still contain the entire tape region
@@ -58,17 +61,61 @@ end
 [imHeight, imWidth] = size(barImage);
 tapeMarkWindowSize = round(imWidth * tapeWindowFraction);
 
-% Define horizontal regions in the image where we look for tape marks regions  - will be opposite to mouseStartPosition
-if strcmp(mouseStartPosition, 'R')
-    tapeMarkRegion = 10:tapeMarkWindowSize;
+% Define horizontal regions in the image where we look for tape marks
+% first horizontally: make a sum and find the positions of dark dips
+
+barHorizontalSum = sum(barImage, 1);
+barHorizontalDiff = diff(barHorizontalSum);
+edgeThreshold = std(barHorizontalDiff) * 4; % threshold for edge detection
+
+% sudden decrease in brightness (negative peak in diff) indicates left edge of tape mark
+% sudden increase in brightness (positive peak in diff) indicates right edge of tape mark
+% tape centers are between these edges
+
+[~, leftEdgeLocs] = findpeaks(-barHorizontalDiff, "MinPeakHeight", edgeThreshold, "MinPeakDistance", tapeMarkWindowSize/2);
+[~, rightEdgeLocs]  = findpeaks(barHorizontalDiff, "MinPeakHeight", edgeThreshold, "MinPeakDistance", tapeMarkWindowSize/2);
+
+% if we find more or less than 2 right or left edges, we issue a warning and default to fixed positions 1:tapeMarkWindowSize and imWidth-tapeMarkWindowSize+1:imWidth
+if length(leftEdgeLocs) < 2 || length(rightEdgeLocs) < 2
+    warning('Could not find two left and right edges of tape marks, defaulting to fixed positions.');
+    leftEdgeL = 1;
+    rightEdgeL = tapeMarkWindowSize;
+    leftEdgeR = imWidth - tapeMarkWindowSize + 1;
+    rightEdgeR = imWidth;
 else
-    tapeMarkRegion = imWidth-tapeMarkWindowSize+1:imWidth-10;
+    leftEdgeL = leftEdgeLocs(1);
+    rightEdgeL = rightEdgeLocs(1);
+    leftEdgeR = leftEdgeLocs(end);
+    rightEdgeR = rightEdgeLocs(end);
 end
 
-barTipImageL = barImage(:, 1:tapeMarkWindowSize); % crop to tape mark region on the LEFT
+% we crop the two bartip images so that they start 10 pixels before left edges and end 10 pixels after right edges
+% this way we ensure that we capture the tape marks fully in the cropped images with minimal background
+
+tapeRegionLeft = max(leftEdgeL - 10, 1):min(rightEdgeL + 10, imWidth);
+tapeRegionRight = max(leftEdgeR - 10, 1):min(rightEdgeR + 10, imWidth);
+
+% if mousestartposition was given, we use the old version of code here:
+if ~isempty(mouseStartPosition)
+    if strcmp(mouseStartPosition, 'R')
+        tapeMarkRegion = tapeRegionLeft;
+    else
+        tapeMarkRegion = tapeRegionRight;
+    end
+    barTipImage = barImage(:, tapeRegionLeft);
+    [barTopCoord, barBottomCoord, barWidth, tapeCenterIndex] = LF_detectBarEdges(barTipImage, 'edgeContrastThreshold', 1.5, 'edgeBufferSize', 2, 'maxBarHeightFraction', maxBarHeightFraction);
+else
+    % if no mousestartposition given
+    barTipImageL = barImage(:, tapeRegionLeft);
+    barTipImageR = barImage(:, tapeRegionRight);
+    tapeMarkRegion = [tapeRegionLeft, tapeRegionRight];
+end
+
+
+%barTipImageL = barImage(:, 1:tapeMarkWindowSize); % crop to tape mark region on the LEFT
 [barTopCoordL, barBottomCoordL, barWidthL, tapeCenterIndexL] = LF_detectBarEdges(barTipImageL, 'edgeContrastThreshold', 1.5, 'edgeBufferSize', 2, 'maxBarHeightFraction', maxBarHeightFraction);
-barTipImageR = barImage(:, imWidth-tapeMarkWindowSize+1:imWidth); % crop to tape mark region on the RIGHT
-[barTopCoordR, barBottomCoordR, barWidthR, tapeCenterIndexR] = LF_detectBarEdges(barTipImageR, 'edgeContrastThreshold', 2, 'edgeBufferSize', 2, 'maxBarHeightFraction', maxBarHeightFraction);
+%barTipImageR = barImage(:, imWidth-tapeMarkWindowSize+1:imWidth); % crop to tape mark region on the RIGHT
+[barTopCoordR, barBottomCoordR, barWidthR, tapeCenterIndexR] = LF_detectBarEdges(barTipImageR, 'edgeContrastThreshold', 1.5, 'edgeBufferSize', 2, 'maxBarHeightFraction', maxBarHeightFraction);
 
 % if no mouse start position was given, we use the average of the two sides; otherwise we use the side opposite to the mouse start position
 if isempty(mouseStartPosition)
@@ -152,19 +199,22 @@ tapeRegionSum = sum(barImage, 2);
 tapeRegionDiff = diff(tapeRegionSum);
 edgeThreshold = std(tapeRegionDiff)* edgeContrastThreshold;
 
-[~, locs, ~, ~] = findpeaks(-tapeRegionDiff, 'MinPeakHeight', edgeThreshold);
+% new idea: tape is the region where absolute difference is high
+absTapeRegionDiff = abs(tapeRegionDiff);
+% let's smooth it a bit
+smoothedAbsDiff = movmean(absTapeRegionDiff, 5);
+% find region where smoothed abs diff is above threshold
+candidateRegions = smoothedAbsDiff > std(smoothedAbsDiff);
+barTopLoc = find(candidateRegions, 1, 'first');
+barBottomLoc = find(candidateRegions, 1, "last");
 
-% if we found no peaks or less than 2 peaks:
-if isempty(locs) || length(locs) < 2
-    warning('No peaks found in the top region, defaulting to fixed value (10 px above min).');
-    barTopLoc = tapeCenterIndex - floor(MAXTAPEWIDTH/2); % default to half of tape width
-    barBottomLoc = tapeCenterIndex + floor(MAXTAPEWIDTH/2); % default to 10 pixels below the min index
-else
-    % we should at least have two peaks, first is top of bar, second is bottom of bar
-    barTopLoc = locs(1);
-    barBottomLoc = locs(end);
-    % adjusting since the bottom peak is slightly shifted due to diff operation
-    barBottomLoc = barBottomLoc + edgeBufferSize;
+% check that we found valid positions
+if isempty(barTopLoc) || isempty(barBottomLoc)
+    warning('Could not detect bar edges based on tape mark. Setting to default values.');
+    barTopCoord = tapeCenterIndex - round(MAXTAPEWIDTH / 2);;
+    barBottomCoord = tapeCenterIndex + round(MAXTAPEWIDTH / 2);;
+    barWidth = barBottomCoord - barTopCoord;
+    return;
 end
 
 % make sure the coordinates are within image bounds
