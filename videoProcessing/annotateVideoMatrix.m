@@ -55,7 +55,7 @@ function annotatedVideo = annotateVideoMatrix(videoMatrix, eventStarts1, eventDu
     end
 
     eventMask2 = false(1, nFrames);
-    if ~isempty(eventStarts2)
+    if ~isempty(eventStarts2) && all(~isnan(eventStarts2))
         for i = 1:numel(eventStarts2)
             idxRange = eventStarts2(i):min(eventStarts2(i)+eventDurations2(i)-1, nFrames);
             eventMask2(idxRange) = true;

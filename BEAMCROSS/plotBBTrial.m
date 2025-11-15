@@ -73,7 +73,7 @@ yline(SLIPTHRESHOLD, '--', 'Color', [0.5 0.5 0.5], 'LineWidth', 1.2, ...
 
 
 % Overlay slip events (if any)
-if ~isempty(slipEventStarts)
+if ~isempty(slipEventStarts) 
     % Convert slipEventStarts from frames to time if desired
     slipTimes = (slipEventStarts - 1);  % minus 1 for zero-based
     % Scale marker size by slipEventAreas

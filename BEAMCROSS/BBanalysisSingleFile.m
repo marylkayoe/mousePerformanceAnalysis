@@ -199,7 +199,7 @@ mouseCentroids(:, 2) = mouseCentroids(:,2) - barTopCoord; % shift to be relative
 
 %% 5 --- Detect Slips from using the tracked video (mouse is enhanced in it) ---
 [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = ...
-    detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, SLIPTHRESHOLD, UNDERBARWINDOW);
+    detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, forwardSpeeds, SLIPTHRESHOLD, UNDERBARWINDOW);
 
 %% 6 --- Store Results in Output Structure ---
 R.mouseCentroids       = mouseCentroids;

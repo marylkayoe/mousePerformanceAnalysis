@@ -1,5 +1,5 @@
 function [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = ...
-    detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, SLIPTHRESHOLD, UNDERBARSCALE, DETRENDWINDOW)
+    detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, forwardSpeeds, SLIPTHRESHOLD, UNDERBARSCALE, DETRENDWINDOW)
 %   Identify slip intervals in a 1D movement trace using:
 %   1) threshold, default 2
 %   2) morphological "closing" to merge tiny gaps
@@ -26,7 +26,10 @@ if ~exist('UNDERBARSCALE', 'var')
     UNDERBARSCALE = 3; % scale factor for the under-bar region (related to bar thickness)
 end
 
-BARADJUSTVALUE = 0; % this shifts the position where slips are detected downwards... use if bar detection fails
+BARADJUSTVALUE = 3; % this shifts the position where slips are detected downwards... use if bar detection fails
+SLIPSIZEFACTOR = 3; % minimum slip duration in frames
+underBarSmoothFactor = 5; % smoothing for under-bar movement trace
+normalizeMovementSpeed = true; % normalize by forward speed
 
 % default output values
 slipEventStarts = [];
@@ -53,7 +56,8 @@ mouseMaskMatrix = mouseMaskMatrix(1: barTopCoord, :, :);
 [normMouseProbVals, ~] = LF_computeMouseProbabilityMap(mouseMaskMatrix);
 
 %% --- Quantify Weighted Movement  under the bar ---
-movementTrace = LF_computeWeightedMovement(underBarCroppedVideo, normMouseProbVals);
+
+movementTrace = LF_computeWeightedMovement(underBarCroppedVideo, normMouseProbVals, forwardSpeeds, underBarSmoothFactor, normalizeMovementSpeed);
 
 %% DETRENDING
 % detrending the movement
@@ -66,12 +70,12 @@ slipMask = movementTrace > SLIPTHRESHOLD;  % 1D array; 1 means "potential slip i
 
 % -- 2) Cleaning up the slip mask --
 %  'closing' merges small gaps up to 2 frames wide
-% (two slips separted by >3 frames of non-slip are merged into one)
-se = ones(3,1);  % structuring element of length=3
+% (two slips separted by >SLIPSIZEFACTOR frames of non-slip are merged into one)
+se = ones(SLIPSIZEFACTOR,1);  % structuring element of length=3
 slipMask = imclose(slipMask, se);
 
 % remove slips shorter than 3 frames:
-slipMask = bwareaopen(slipMask, 3);
+slipMask = bwareaopen(slipMask, SLIPSIZEFACTOR);
 
 % -- 3) Find contiguous slipping periods --
 cc = bwconncomp(slipMask);  % returns connected-component info
@@ -129,14 +133,20 @@ end
 
 
 
-function normMovementTrace = LF_computeWeightedMovement(videoMatrix, normMouseProbVals, SMOOTHFACTOR)
+function normMovementTrace = LF_computeWeightedMovement(videoMatrix, normMouseProbVals,forwardSpeeds,  SMOOTHFACTOR, NORMALIZESPEED, SPEEDWINDOW)
 % COMPUTEWEIGHTEDMOVEMENT Computes weighted frame-to-frame motion efficiently.
 
-if nargin < 3
+if nargin < 4
     SMOOTHFACTOR = 5;
 end
 
-[~, width, nFrames] = size(videoMatrix);
+if nargin < 5
+    NORMALIZESPEED = true;
+end
+
+if nargin < 6
+    SPEEDWINDOW = 160;
+end
 
 % Convert video to double once
 videoDouble = im2double(videoMatrix);
@@ -157,12 +167,22 @@ movementTrace = sum(colDiffSum .* weightedProbs, 1)'; % size: [(nFrames-1) x 1]
 movementTrace = [0; movementTrace];
 
 % Robust normalization using Median Absolute Deviation (MAD)
-medVal = median(movementTrace);
-madVal = median(abs(movementTrace - medVal));
+medVal = median(movementTrace, "omitnan");
+madVal = median(abs(movementTrace - medVal), "omitnan");
 sigma_base = 1.4826 * madVal;
 normMovementTrace = (movementTrace - medVal) / sigma_base;
 
 % Smooth the trace
 normMovementTrace = smooth(normMovementTrace, SMOOTHFACTOR);
+
+% speed-adjusted movement trace
+if NORMALIZESPEED
+normMovementTrace = normMovementTrace*SPEEDWINDOW ./ forwardSpeeds;
+end
+
+% make negative values zero
+normMovementTrace(normMovementTrace < 0) = 0;
+
+%normMovementTrace = movementTrace;
 
 end
