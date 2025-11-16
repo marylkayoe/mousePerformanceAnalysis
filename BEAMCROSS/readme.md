@@ -205,33 +205,37 @@ Tracks the mouse position on the beam across frames. Returns mouse centroids, sp
 
 ```matlab
 [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, ...
-underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, ...
- barThickness, SLIPTHRESHOLD, UNDERBARSCALE, DETRENDWINDOW)
- ```
+ underBarCroppedVideo] = detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, ...
+ barThickness, forwardSpeeds, stoppingFrames, SLIPTHRESHOLD, UNDERBARSCALE, ...
+ underBarSmoothFactor, LOCOTHRESHOLD)
+```
 
    _Notes on input arguments_:
    - tracked video: grayscale, background-removed, mouse-enhanced video cropped and trimmed to the same dimensions as the binarized video
    - mouseMaskMatrix: the binarized mouse mask video
    - bardTopCoord: the y-coordinate of the top edge of the bar, as obtained by detectBar-function; used to define the "above-bar" region note that the coordinate matches bar position in the cropped (rather than original) video
    - barThickness: thickness of bar in pixels, used to define the "below-bar" region for detecting slipping
-   - SLIPTHRESHOLD: a threshold value (a.u.) describing how large a below-bar movement should be to be considered a slip. If you worry about false slips detected with normal paw motion, increase this value. Current default: 2.
-   -UNDERBARSCALE (optional): how much below the bar we look for movement (multiplies of bar width). Current default: 2
-   -DETRENDWINDOW (optional): temporal window for detrending the movement trace to sharpen slip detection. Currend default 64 frames (0.4s)
+   - forwardSpeeds: instantaneous horizontal speeds (px/sec) from `trackMouseOnBeam`. Motion below the bar is scaled by these speeds so that fast locomotion produces proportionally smaller slip magnitudes than paws that suddenly stop and drop.
+   - stoppingFrames: logical mask (same length as `forwardSpeeds`) denoting frames that belong to pauses. When true, movement is suppressed so that hesitations do not create slip detections.
+   - SLIPTHRESHOLD: a threshold value (a.u.) describing how large the normalized, weighted movement should be to be considered a slip. Increase this value if normal paw motion triggers slips. Current default: 2.
+   - UNDERBARSCALE (optional): how much below the bar we look for movement (multiples of bar width). Current default: 2.
+   - underBarSmoothFactor (optional): temporal smoothing window (frames) for the movement trace; helps clean up jitter before thresholding. Default ≈0.4 s worth of frames (5 at 160 fps).
+   - LOCOTHRESHOLD (optional): locomotion threshold used internally when normalizing by speed; match it to the value passed to `trackMouseOnBeam`.
 
-   Principle is simple: look at how much between-frames changes happen below the bar:
+   Principle is simple: look at how much between-frame change happens in the band underneath the bar:
 ```matlab
    totalMovement = sum(abs(currentFrame - previousFrame)); 
 ```
-However, sometimes the tail of the mouse swings below the bar and might be detcted as a slip:
+However, sometimes the tail of the mouse swings below the bar and might be detected as a slip:
  ![Diagram](IMAGES/underbartail.png)
 
- To avoid this, we want to only consider movement below the bar in positions that are under the mouse. As the mouse is not a rectangle, calculate "mouse probability distribution" above the bar using local functions:
+ To avoid this, we only consider movement below the bar in positions that are under the mouse and weight pixels by their distance from the bar. As the mouse is not a rectangle, calculate "mouse probability distribution" above the bar using local functions:
  -  **`LF_computeMouseProbabilityMap.m`**  
    Computes a per-column “probability” or fraction of the mouse mask occupying that column above the bar. Helps weight movement by how fully the trunk is present vs. just the tail. 
    -  **`LF_computeWeightedMovement.m`**  
-   Given a video region of interest (e.g., under the bar) and the column probabilities, calculates a movement trace that weighs each column’s differences by how likely the mouse is there.
+   Given a video region of interest (e.g., under the bar) and the column probabilities, calculates a movement trace that weighs each column’s differences by how likely the mouse is there. The routine additionally applies a sigmoid depth weighting (`normalizeByDistanceFromBar`) so that motion farther below the bar has a stronger influence than motion right at the edge, and scales the trace by `forwardSpeeds` (and optionally zeroes `stoppingFrames`). The idea behind this is that sometimes mice run very fast across the beam with their paws slightly reaching under the bar, which should not be considered a slip. Also, during stopping, the mice lowers their bodies that creates moving shadows under the bar that should not be considered slips. Hence it's best to exclude stopping periods or treat them differentially.
 
-   Combining the results of these two local functions, we can get a weighted movement trace that is robust to noise and tail movements. Slips are detected by thresholding this trace, and the results are returned in the following output variables: 
+   Combining the results of these two local functions, we obtain a weighted movement trace that depends on both the locomotor speed of the mouse and the distance from the bar, making the slip detection robust to tail swings and locomotor jitter. Slips are detected by thresholding this trace, and the results are returned in the following output variables: 
    - slipEventStarts: the frame numbers where slips start
    - slipEventPeaks: the peak values of the weighted movement trace during slips
    - slipEventAreas: the area under the weighted movement trace during slips
