@@ -30,6 +30,8 @@ if ~exist('LOCOTHRESHOLD', 'var')
     LOCOTHRESHOLD = 100;   % default: 100 pixels/sec
 end
 
+SLIPMARKERSIZE =1;
+
 % -- Create a time axis from frames if desired --
 nFrames = length(movementTrace);
 timeAxis = (0 : nFrames-1) / FRAMERATE;  % in seconds
@@ -73,11 +75,11 @@ yline(SLIPTHRESHOLD, '--', 'Color', [0.5 0.5 0.5], 'LineWidth', 1.2, ...
 
 
 % Overlay slip events (if any)
-if ~isempty(slipEventStarts) 
+if ~isempty(slipEventStarts) && all(~isnan(slipEventStarts))
     % Convert slipEventStarts from frames to time if desired
     slipTimes = (slipEventStarts - 1);  % minus 1 for zero-based
     % Scale marker size by slipEventAreas
-    markerSizes = slipEventAreas * 20;
+    markerSizes = slipEventAreas*SLIPMARKERSIZE;
     scatter(slipTimes, movementTrace(slipEventStarts), ...
         markerSizes, 'o', 'filled', 'MarkerFaceColor','r');
 end
@@ -110,7 +112,7 @@ c.Label.String = 'Forward speed (pixels/s)';
 if ~isempty(slipEventStarts)
     scatter( mouseCentroids(slipEventStarts,1), ...
         mouseCentroids(slipEventStarts,2), ...
-        slipEventAreas*20, 'ro', 'filled');
+        slipEventAreas*SLIPMARKERSIZE, 'ro', 'filled');
 end
 
 % Some axis labeling
@@ -175,7 +177,7 @@ if ~isempty(stoppingStartStops)
 end
 
 % Plot the forward speed vs time (or vs frame #)
-plot(timeAxis, forwardSpeeds, 'LineWidth',1.2, 'Color',[0.85 0.33 0.1], 'HandleVisibility','off');
+plot(timeAxis(1:length(forwardSpeeds)), forwardSpeeds, 'LineWidth',1.2, 'Color',[0.85 0.33 0.1], 'HandleVisibility','off');
 
 % dummy plot for legend for gray rectangles
 plot(NaN, NaN, 'Color', [0.7, 0.7, 0.7], 'LineWidth', 10);

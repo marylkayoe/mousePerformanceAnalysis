@@ -139,7 +139,7 @@ end
 if isempty(frameRate) || (frameRate <= 0)
     frameRate = FRAMERATE;
 end
-FRAMERATE = floor(frameRate);
+FRAMERATE = round(frameRate);
 
 % if mouseStartPosition is not given, we will assume that trials with CAM1 it's L, and CAM2 it's R.
 % so, in CAM1 view the mouse goes from left to right, and in CAM2 view it goes from right to left.
@@ -160,7 +160,7 @@ meanFrame = getMeanFrame(videoMatrix(:, :, meanImageFrames));
 
 % 2) --- Locate the balance bar in this horizontally cropped mean frame if not provided
 if isempty(BARPOSITION)
-    [barTopCoord, barThickness, barCenter] = detectBar(meanFrame, 'mouseStartPosition', mouseStartPosition, 'MAKEDEBUGPLOT',true);
+    [barTopCoord, barThickness, barCenter] = detectBar(meanFrame, 'mouseStartPosition', mouseStartPosition, 'MAKEDEBUGPLOT',false);
     if isempty(barTopCoord)
         warning('Bar position not detected in file %s. Aborting...', fileName);
         R = -1;
@@ -182,7 +182,7 @@ barTopCoord = barThickness * CROPVIDEOSCALE;
 
 [imHeight, ~, nFrames] = size(croppedVideo);
 USEMORPHOCLEAN = false;
-UNDERBARWINDOW = 3;
+UNDERBARWINDOW = 1.5;
 mouseContrastThreshold = 0.6;
 
 %% 4)  --- Track the Mouse in the Cropped Video ---
@@ -199,7 +199,7 @@ mouseCentroids(:, 2) = mouseCentroids(:,2) - barTopCoord; % shift to be relative
 
 %% 5 --- Detect Slips from using the tracked video (mouse is enhanced in it) ---
 [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = ...
-    detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, forwardSpeeds, SLIPTHRESHOLD, UNDERBARWINDOW);
+    detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, forwardSpeeds, stoppingFrames, SLIPTHRESHOLD, UNDERBARWINDOW, 10);
 
 %% 6 --- Store Results in Output Structure ---
 R.mouseCentroids       = mouseCentroids;
