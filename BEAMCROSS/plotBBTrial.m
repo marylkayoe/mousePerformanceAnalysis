@@ -30,7 +30,7 @@ if ~exist('LOCOTHRESHOLD', 'var')
     LOCOTHRESHOLD = 100;   % default: 100 pixels/sec
 end
 
-SLIPMARKERSIZE =1;
+SLIPMARKERSIZE =5;
 
 % -- Create a time axis from frames if desired --
 nFrames = length(movementTrace);
@@ -108,6 +108,14 @@ colormap('cool');
 c = colorbar;
 c.Label.String = 'Forward speed (pixels/s)';
 
+% gray colored markers for the stoppingframes
+if ~isempty(stoppingStartStops)
+    scatter( mouseCentroids(stoppingFrames,1), ...
+        mouseCentroids(stoppingFrames,2), ...
+        100, [0.2 0.2 0.2], 'filled', 'HandleVisibility','off');
+end
+
+
 % Indicate slip events on the 2D path
 if ~isempty(slipEventStarts)
     scatter( mouseCentroids(slipEventStarts,1), ...
@@ -121,7 +129,7 @@ ylabel('Height above bar (px)');
 ylim([0, max(mouseCentroids(:, 2))+5]);
 
 % Adjust color limits to highlight speed range
-caxis([0, max(forwardSpeeds)]);
+clim([0, max(forwardSpeeds)]);
 
 % legend for the markers
 if ~isempty(slipEventStarts)

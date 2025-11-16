@@ -3,32 +3,27 @@ stoppingFrames, meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, crop
 trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, mouseContrastThreshold, FRAMERATE)
 % TRACKMOUSEONBEAM  Detect and track the mouse in a cropped grayscale video of a balance beam.
 %
-%   [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, meanPosturalHeight, ...
-%    mouseMaskMatrix, trackedVideo, croppedVideo] = trackMouseOnBeam(croppedVideo, MOUSESIZETH, FRAMERATE)
+%   [mouseCentroids, instForwardSpeed, meanSpeed, traverseDuration, ...
+%    mouseMaskMatrix, trackedVideo, croppedVideo] = ...
+%       trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, mouseContrastThreshold, FRAMERATE)
 %
 %   This function identifies the mouse silhouette in each frame of a "croppedVideo"
 %   (where the beam and mouse are visible), calculates the mouse's centroid over time,
 %   and computes basic speed and duration statistics for the crossing.
 %
 %   INPUTS:
-%       croppedVideo : A 3D video array of size (height x width x nFrames), uint8.
-%                     Contains the portion of the original video where the mouse is.
-%       MOUSESIZETH  : (Optional) Minimum fraction (0..100) of the total frame area
-%                      that a connected blob must have to be considered the mouse.
-%                      For example, 5 => at least 5% of the frame. Default is 5.
-%       FRAMERATE    : (Optional) Video frame rate (frames/sec). Default is 160.
-%                      Used for converting frame-based displacements to speeds.
-%       LOCOTHRESHOLD: (Optional) Speed threshold (pixels/sec) below which the mouse
-%                      is considered to be "stopped". Default is 100.
-%       USEMORPHOCLEAN: (Optional) Logical flag to apply morphological cleanup
-%                      to the binary mask. Default is false. Should not be needed.
-%       mouseContrastThreshold: (Optional) Threshold for the ratio image to
-%                      identify the mouse. Default is 0.6.
+%       croppedVideo : 3D video array (height x width x nFrames), uint8, already cropped to the beam.
+%       MOUSESIZETH  : Minimum fraction (0..100) of frame area a blob must cover to be the mouse (default 5).
+%       LOCOTHRESHOLD: Speed threshold (pixels/sec) for defining "stopping" frames (default 100).
+%       USEMORPHOCLEAN: Logical flag to apply morphological cleanup to the mask (default false).
+%       mouseContrastThreshold: Ratio-image threshold used to identify the mouse (default 0.6).
+%       FRAMERATE    : Video frame rate in frames/sec (default 160) for converting displacements to speeds.
 %
 %   OUTPUTS:
 %       mouseCentroids   : (nFrames x 2) array of mouse [x, y] centroids (in pixels).
 %                          Frames where the mouse was not found are NaN.
-%       forwardSpeeds    : (nFrames x 1) instantaneous forward speeds (pixels/sec).
+%       instForwardSpeed : (nFrames x 1) instantaneous forward speeds (pixels/sec) using only
+%                          motion in the inferred traversal direction (backward slips ignored).
 %       meanSpeed        : (scalar) average speed (pixels/sec) across the detected frames.
 %       traverseDuration : (scalar) time in seconds from the first to last frame
 %                          where the mouse is detected continuously.
@@ -53,19 +48,19 @@ trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, mouse
 %       4) Use regionprops to find connected components in the mask, and
 %          identify the largest blob as the mouse.
 %       5) Calculate the centroid of the largest blob and store it in mouseCentroids.
-%       6) Calculate the instantaneous forward speed of the mouse based on
-%          the displacement of the centroid over time (in horizontal direction only).
+%       6) Calculate the instantaneous forward speed based on horizontal centroid motion,
+%          but only accumulate displacement along the inferred traversal direction.
 %       7) Identify periods of stopping based on the forward speed.
-%       8) Return the mouse centroids, forward speeds, mean speed, and
+%       8) Return the mouse centroids, forward-only speed trace, mean speed, and
 %          traverse duration, along with the cropped video and mouse mask matrix.
 
 %
 %   EXAMPLE:
 %       % Suppose we have a cropped video and we know the mouse is at least 5% of the frame
 %    %       % and the frame rate is 160 fps.
-%       [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, ...
+%       [mouseCentroids, instForwardSpeed, meanSpeed, traverseDuration, ...
 %        mouseMaskMatrix, trackedVideo, croppedVideo] = ...
-%           trackMouseOnBeam(croppedVideo, 5, 100, 160);
+%           trackMouseOnBeam(croppedVideo, 5, 100, false, 0.6, 160);
 
 %
 %       implay(uint8(tVid)); % visualize the trackedVideo frames
@@ -97,7 +92,7 @@ end
 frameArea = imHeight * imWidth;
 minMouseArea = (MOUSESIZETH / 100) * frameArea;  % e.g. 5% => min area threshold
 markerSize = 10;    % radius of the centroid marker in video(in pixels)
-
+velWin = max(1, floor(FRAMERATE / 10)); % window for speed calculation
 %% Preallocate output arrays
 mouseCentroids = nan(nFrames, 2);
 stoppingStartStops = cell(0);
@@ -200,10 +195,30 @@ croppedVideo    = croppedVideo(:, :, longestFrames);
 nValidFrames = size(mouseCentroids,1);
 instForwardSpeed = nan(nValidFrames,1);
 
-% We'll use a small window (velWin) ~ FRAMERATE/10 to measure displacement
-velWin = floor(FRAMERATE / 10);
-dx = diff(mouseCentroids(:,1));
-winDisplacements = movsum(abs(dx), velWin, 'omitnan');
+% Determine "forward" direction from centroid motion: +1 if mouse runs right,
+% -1 if it runs left. If net displacement is tiny, fall back to the overall drift.
+validX = mouseCentroids(:,1);
+validIdx = find(~isnan(validX));
+if numel(validIdx) >= 2
+    direction = sign(validX(validIdx(end)) - validX(validIdx(1)));
+    if direction == 0
+        direction = sign(nansum(diff(validX)));
+    end
+else
+    direction = 1;
+end
+if direction == 0
+    direction = 1; % last resort: assume +X forward so code keeps running
+end
+
+
+% we only consider forward displacements for speed calculation (ignoring slips backward)
+dx = diff(validX);
+forwardDx = dx * direction;          % flip sign so known forward direction is positive
+forwardDx(forwardDx < 0) = 0;        % ignore motion opposite to forward direction (slips)
+forwardDx(isnan(dx)) = NaN;          % keep gaps as NaN so movsum omits them
+
+winDisplacements = movsum(forwardDx, velWin, 'omitnan');
 instForwardSpeed(1:length(winDisplacements)) = winDisplacements / (velWin / FRAMERATE);
 meanSpeed = mean(instForwardSpeed, 'omitnan');
 

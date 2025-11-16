@@ -79,7 +79,8 @@ movementTrace = LF_computeWeightedMovement( ...
     underBarCroppedVideo, normMouseProbVals, forwardSpeeds, ...
     'stoppingFrames', stoppingFrames, ...
     'smoothFactor', underBarSmoothFactor, ...
-    'normalizeSpeed', normalizeMovementSpeed);
+    'normalizeSpeed', normalizeMovementSpeed, ...
+    'excludeStoppingFrames', true);
 
 
 %% SLIP DETECTION
@@ -271,7 +272,7 @@ if normalizeSpeed
 
 
     logSpeeds = log1p(forwardSpeeds); % log scale to compress high speeds, log1p handles zero safely
-    logSpeeds(logSpeeds < epsFloor) = epsFloor;
+    logSpeeds(logSpeeds < 0) = eps;
 
     movementTrace = movementTrace .* (speedWindow ./ logSpeeds);
 

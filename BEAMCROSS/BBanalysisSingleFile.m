@@ -249,9 +249,9 @@ if SHOWVIDEOS
         'EventDurations2',R.stoppingDurations, 'EventLabel1', 'slip', 'EventLabel2','Stop');
 
     displayBehaviorVideoMatrix(annotatedVideo, cleanUnderscores(fileName), (1:nFrames) ./FRAMERATE);
-    displayBehaviorVideoMatrix(mouseMaskMatrix, 'Binary mask');
+   % displayBehaviorVideoMatrix(mouseMaskMatrix, 'Binary mask');
     displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo', movementTrace);
-    displayBehaviorVideoMatrix(trimmedVideo, 'Frame-trimmed , cropped video', forwardSpeeds);
+    %displayBehaviorVideoMatrix(trimmedVideo, 'Frame-trimmed , cropped video', forwardSpeeds);
 end
 
 end

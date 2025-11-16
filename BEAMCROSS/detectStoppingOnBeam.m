@@ -20,7 +20,7 @@ function [stoppingFrames, stoppingStartStops] = detectStoppingOnBeam(speedArray,
 
 
 if ~exist('LOCOTHRESHOLD', 'var')
-    LOCOTHRESHOLD = 100; % Default threshold for stopping (in pixels/sec)
+    LOCOTHRESHOLD = 40; % Default threshold for stopping (in pixels/sec)
 end
 if ~exist('FRAMERATE', 'var')
     FRAMERATE = 160; % Default frame rate (in frames/sec)
@@ -40,7 +40,7 @@ minDuration = 10; % frames
 stoppingFrames = bwareaopen(stoppingFrames, minDuration);
 
 % Step 4: Smooth transitions
-expansionSize = floor(FRAMERATE/5); % e.g., 0.25 sec window
+expansionSize = floor(FRAMERATE/16); % e.g., 0.25 sec window
 if mod(expansionSize, 2) == 0
     expansionSize = expansionSize + 1; % ensure odd-sized kernel
 end
