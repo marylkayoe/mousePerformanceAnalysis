@@ -71,22 +71,61 @@ edgeThreshold = std(barHorizontalDiff) * 4; % threshold for edge detection
 % sudden decrease in brightness (negative peak in diff) indicates left edge of tape mark
 % sudden increase in brightness (positive peak in diff) indicates right edge of tape mark
 % tape centers are between these edges
+% these refer to the endges of the two tapes on both ends   of the bar
 
-[~, leftEdgeLocs] = findpeaks(-barHorizontalDiff, "MinPeakHeight", edgeThreshold, "MinPeakDistance", tapeMarkWindowSize/2);
-[~, rightEdgeLocs]  = findpeaks(barHorizontalDiff, "MinPeakHeight", edgeThreshold, "MinPeakDistance", tapeMarkWindowSize/2);
 
-% if we find more or less than 2 right or left edges, we issue a warning and default to fixed positions 1:tapeMarkWindowSize and imWidth-tapeMarkWindowSize+1:imWidth
+[leftEdgePeaks, leftEdgeLocs] = findpeaks(-barHorizontalDiff, "MinPeakHeight", edgeThreshold, "MinPeakDistance", tapeMarkWindowSize/2);
+[rightEdgePeaks, rightEdgeLocs]  = findpeaks(barHorizontalDiff, "MinPeakHeight", edgeThreshold, "MinPeakDistance", tapeMarkWindowSize/2);
+
+%now ledtEdgeLocs contains candidate locations of both tapes' left edges
+%rightEdgeLocs contains candidate locations of both tapes' right edges
+
+% Define the midpoint of the image
+imageMidpoint = imWidth / 2;
+
+% Categorize peaks into left and right tape candidates
+leftTapeLeftCandidateLocs = leftEdgeLocs(leftEdgeLocs < imageMidpoint);
+leftTapeLeftCandidatePeaks = leftEdgePeaks(leftEdgeLocs < imageMidpoint);
+
+rightTapeLeftCandidatesLocs = leftEdgeLocs(leftEdgeLocs > imageMidpoint);
+rightTapeLeftCandidatesPeaks = leftEdgePeaks(leftEdgeLocs > imageMidpoint);
+
+leftTapeRightCandidatesLocs = rightEdgeLocs(rightEdgeLocs < imageMidpoint);
+leftTapeRightCandidatesPeaks = rightEdgePeaks(rightEdgeLocs < imageMidpoint);
+
+rightTapeRightCandidatesLocs = rightEdgeLocs(rightEdgeLocs > imageMidpoint);
+rightTapeRightCandidatesPeaks = rightEdgePeaks(rightEdgeLocs > imageMidpoint);
+
+% Initialize default values
+leftEdgeL = 1;
+rightEdgeL = tapeMarkWindowSize;
+leftEdgeR = imWidth - tapeMarkWindowSize + 1;
+rightEdgeR = imWidth;
+
+% Select the largest peak for each edge, if available
+if ~isempty(leftTapeLeftCandidatePeaks)
+    [~, idx] = max(leftTapeLeftCandidatePeaks);
+    leftEdgeL = leftTapeLeftCandidateLocs(idx);
+end
+
+if ~isempty(leftTapeRightCandidatesPeaks)
+    [~, idx] = max(leftTapeRightCandidatesPeaks);
+    rightEdgeL = leftTapeRightCandidatesLocs(idx);
+end
+
+if ~isempty(rightTapeLeftCandidatesPeaks)
+    [~, idx] = max(rightTapeLeftCandidatesPeaks);
+    leftEdgeR = rightTapeLeftCandidatesLocs(idx);
+end
+
+if ~isempty(rightTapeRightCandidatesPeaks)
+    [~, idx] = max(rightTapeRightCandidatesPeaks);
+    rightEdgeR = rightTapeRightCandidatesLocs(idx);
+end
+
+% Issue a warning if fewer than 2 edges are detected
 if length(leftEdgeLocs) < 2 || length(rightEdgeLocs) < 2
-    warning('Could not find two left and right edges of tape marks, defaulting to fixed positions.');
-    leftEdgeL = 1;
-    rightEdgeL = tapeMarkWindowSize;
-    leftEdgeR = imWidth - tapeMarkWindowSize + 1;
-    rightEdgeR = imWidth;
-else
-    leftEdgeL = leftEdgeLocs(1);
-    rightEdgeL = rightEdgeLocs(1);
-    leftEdgeR = leftEdgeLocs(end);
-    rightEdgeR = rightEdgeLocs(end);
+    warning('Could not find two left and right edges of tape marks. Using default positions.');
 end
 
 % we crop the two bartip images so that they start 10 pixels before left edges and end 10 pixels after right edges

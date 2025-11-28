@@ -160,7 +160,7 @@ meanFrame = getMeanFrame(videoMatrix(:, :, meanImageFrames));
 
 % 2) --- Locate the balance bar in this horizontally cropped mean frame if not provided
 if isempty(BARPOSITION)
-    [barTopCoord, barThickness, barCenter] = detectBar(meanFrame, 'mouseStartPosition', mouseStartPosition, 'MAKEDEBUGPLOT',false);
+    [barTopCoord, barThickness, barCenter] = detectBar(meanFrame, 'mouseStartPosition', mouseStartPosition, 'MAKEDEBUGPLOT',true);
     if isempty(barTopCoord)
         warning('Bar position not detected in file %s. Aborting...', fileName);
         R = -1;
