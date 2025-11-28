@@ -78,7 +78,7 @@ addParameter(p, 'FRAMERATE', 160, @isnumeric); % used only if readVideoIntoMatri
 addParameter(p, 'PIXELSIZE', 1,  @isnumeric);
 addParameter(p, 'SLIPTHRESHOLD', 2, @isnumeric);
 addParameter(p, 'LOCOTHRESHOLD', 100, @isnumeric);
-addParameter(p, 'MOUSESIZETHRESHOLD', 5, @isnumeric);
+addParameter(p, 'MOUSESIZETHRESHOLD', 2, @isnumeric);
 addParameter(p, 'BARPOSITION', [], @isnumeric); % vertical position of the bar, if empty, it will be detected
 addParameter(p, 'BARWIDTH', 20, @isnumeric); % thickness of the bar, if empty, it will be detected
 % Note: both BARPOSITION and BARTHICKNESS must be provided if one is provided
@@ -249,9 +249,9 @@ if SHOWVIDEOS
         'EventDurations2',R.stoppingDurations, 'EventLabel1', 'slip', 'EventLabel2','Stop');
 
     displayBehaviorVideoMatrix(annotatedVideo, cleanUnderscores(fileName), (1:nFrames) ./FRAMERATE);
-   % displayBehaviorVideoMatrix(mouseMaskMatrix, 'Binary mask');
+    displayBehaviorVideoMatrix(mouseMaskMatrix, 'Binary mask');
     displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo', movementTrace);
-    %displayBehaviorVideoMatrix(trimmedVideo, 'Frame-trimmed , cropped video', forwardSpeeds);
+    displayBehaviorVideoMatrix(trimmedVideo, 'Frame-trimmed , cropped video', forwardSpeeds);
 end
 
 end
