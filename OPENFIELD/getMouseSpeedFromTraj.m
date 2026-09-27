@@ -29,6 +29,11 @@ function [instSpeeds] = getMouseSpeedFromTraj(traj, FRAMERATE, speedWindow)
         speedWindow = FRAMERATE;
     end
 
+    speedWindow = round(speedWindow);
+    if speedWindow < 1
+        speedWindow = 1;
+    end
+
     %  initialize output vector with nans
     [nFrames nDIMs] = size (traj);
     instSpeeds = nan(nFrames, 1);
@@ -67,5 +72,11 @@ function [instSpeeds] = getMouseSpeedFromTraj(traj, FRAMERATE, speedWindow)
         % Gap fill the trajectory where outliers were found
         instSpeeds = gapFillTrajectory(instSpeeds);
     end
+
+    % smoothing the speed trajectory:
+    % 1 remove "spikelets" that  deviations from a local rolling median (this is to remove small spikes that are not removed by the outlier detection)
+    instSpeeds = filloutliers(instSpeeds, 'previous', 'movmedian', 20);
+    % 2 smooth with a moving average filter with window size of 5 frames
+    instSpeeds = movmean(instSpeeds, 5);
 
 end
