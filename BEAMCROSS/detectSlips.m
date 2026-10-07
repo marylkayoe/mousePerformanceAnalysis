@@ -1,5 +1,5 @@
-function [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = ...
-    detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, forwardSpeeds, stoppingFrames, SLIPTHRESHOLD, UNDERBARSCALE, underBarSmoothFactor, LOCOTHRESHOLD)
+function [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo, tailMovementTrace] = ...
+    detectSlips(trackedVideo, mouseMaskMatrix, normMouseProbVals, barTopCoord, barThickness, forwardSpeeds, stoppingFrames, SLIPTHRESHOLD, UNDERBARSCALE, underBarSmoothFactor, LOCOTHRESHOLD)
 % DETECTSLIPS  Quantify under-bar movement and flag slip episodes.
 %
 %   [starts, peaks, areas, durations, movementTrace, underBarVideo] = detectSlips(...)
@@ -71,10 +71,10 @@ underBarCroppedVideo = trackedVideo( underBarStart:underBarEnd, :, : );
 % count so much.
 % we only use the pixels above the bar for this calculation
 mouseMaskMatrix = mouseMaskMatrix(1: barTopCoord, :, :);
-[normMouseProbVals, ~] = LF_computeMouseProbabilityMap(mouseMaskMatrix);
-
+%[normMouseProbVals, ~] = LF_computeMouseProbabilityMap(mouseMaskMatrix);
+%[normMouseProbVals, mouseProbMatrix] = computeMouseProbabilityMatrix(mouseMaskMatrix);
 %% --- Quantify Weighted Movement  under the bar ---
-
+noMouseProbVals = 1-normMouseProbVals;
 movementTrace = LF_computeWeightedMovement( ...
     underBarCroppedVideo, normMouseProbVals, forwardSpeeds, ...
     'stoppingFrames', stoppingFrames, ...
@@ -82,6 +82,13 @@ movementTrace = LF_computeWeightedMovement( ...
     'normalizeSpeed', normalizeMovementSpeed, ...
     'excludeStoppingFrames', true);
 
+
+tailMovementTrace = LF_computeWeightedMovement( ...
+    trackedVideo, noMouseProbVals, forwardSpeeds, ...
+    'stoppingFrames', stoppingFrames, ...
+    'smoothFactor', underBarSmoothFactor, ...
+    'normalizeSpeed', false, ...
+    'excludeStoppingFrames', true);
 
 %% SLIP DETECTION
 % -- 1) Create a logical mask of slip frames --
@@ -130,6 +137,7 @@ end
 
 
 function [normMouseProbVals, mouseProbMatrix] = LF_computeMouseProbabilityMap(mouseMaskMatrix)
+% REFACTORING this out of the function as a general function
 % COMPUTEMOUSEPROBABILITYMAP Efficiently computes mouse pixel fraction per column per frame.
 %
 % INPUT:

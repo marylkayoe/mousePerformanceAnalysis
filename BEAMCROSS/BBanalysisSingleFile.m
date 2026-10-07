@@ -197,9 +197,11 @@ mouseContrastThreshold = 0.6;
 mouseCentroids(:, 2) = imHeight - mouseCentroids(:, 2) + 1; % invert vertically
 mouseCentroids(:, 2) = mouseCentroids(:,2) - barTopCoord; % shift to be relative to bar
 
+[normMouseProbVals, mouseProbMatrix] = computeMouseProbabilityMatrix(mouseMaskMatrix);
+
 %% 5 --- Detect Slips from using the tracked video (mouse is enhanced in it) ---
-[slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = ...
-    detectSlips(trackedVideo, mouseMaskMatrix, barTopCoord, barThickness, forwardSpeeds, stoppingFrames, SLIPTHRESHOLD, UNDERBARWINDOW, 10);
+[slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo, tailMovementTrace] = ...
+    detectSlips(trackedVideo, mouseMaskMatrix, normMouseProbVals, barTopCoord, barThickness, forwardSpeeds, stoppingFrames, SLIPTHRESHOLD, UNDERBARWINDOW, 10);
 
 %% 6 --- Store Results in Output Structure ---
 R.mouseCentroids       = mouseCentroids;
@@ -238,7 +240,7 @@ if MAKEPLOT
     plotBBTrial(movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
         mouseCentroids, forwardSpeeds, meanSpeedLoco, ...
         R.meanPosturalHeight, fileName, LOCOTHRESHOLD, ...
-        SLIPTHRESHOLD);
+        SLIPTHRESHOLD, tailMovementTrace);
 end
 if SHOWVIDEOS
 

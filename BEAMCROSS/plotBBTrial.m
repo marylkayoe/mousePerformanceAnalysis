@@ -1,5 +1,5 @@
 function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
-    mouseCentroids, forwardSpeeds,meanSpeed, meanPosturalHeight,trialName, LOCOTHRESHOLD, SLIPTHRESHOLD)
+    mouseCentroids, forwardSpeeds,meanSpeed, meanPosturalHeight,trialName, LOCOTHRESHOLD, SLIPTHRESHOLD, tailMovementTrace)
 % PLOTBBTRIAL  Creates a figure with subplots for:
 %   1) Movement trace + slip events
 %   2) Mouse 2D position, color-coded by forward speed, slip events indicated
@@ -43,7 +43,7 @@ figTitle = cleanUnderscores(trialName);
 figure('Name', figTitle, 'Color', 'w');
 
 % shape of subplot panels
-NROWS = 3;
+NROWS = 4;
 NCOLS = 1;
 
 traverseDuration = nFrames / FRAMERATE;  % in seconds
@@ -61,9 +61,19 @@ cc = bwconncomp(stoppingFrames);
 
 [stoppingFrames, stoppingStartStops] = detectStoppingOnBeam(forwardSpeeds, LOCOTHRESHOLD);
 
+% =========== SUBPLOT #0: Movement outside mouse (tail) ===========================
+subplot(NROWS,NCOLS,1);  % top subplot
+hold on;
+% Plot the movement trace vs time (or vs frame #)
+plot(frameAxis, tailMovementTrace, 'LineWidth',1.2, 'Color',[0 0.45 0.74], 'HandleVisibility','off');
+title('Tail movement', 'FontSize',12);
+xlabel('Time (s)');
+ylabel('Movement (pixels)');
+grid on;
+
 
 % =========== SUBPLOT #1: Movement Under Bar Trace ===========================
-subplot(NROWS,NCOLS,1);  % top subplot
+subplot(NROWS,NCOLS, 2);  % top subplot
 hold on;
 % Plot the movement trace vs time (or vs frame #)
 plot(frameAxis, movementTrace, 'LineWidth',1.2, 'Color',[0 0.45 0.74], 'HandleVisibility','off');
@@ -94,7 +104,7 @@ ylabel('Movement (pixels)');
 grid on;
 
 % =========== SUBPLOT #2: Mouse 2D Position with speed ========================
-subplot(NROWS,NCOLS,2);
+subplot(NROWS,NCOLS,3);
 hold on;
 
 % Plot the mouse XY path, note y is with respect to bar
@@ -168,7 +178,7 @@ text(0.02, 0.07, ['Total slip magnitude: ', num2str(sum(slipEventAreas))], 'Unit
 hold off;
 
 % =========== SUBPLOT #3: instantaneous speed profile plot ===============
-subplot(NROWS,NCOLS,3);  % bottom subplot
+subplot(NROWS,NCOLS,4);  % bottom subplot
 hold on;
 % add gray transparent rectangles for stopping periods if any are found
 if ~isempty(stoppingStartStops)
