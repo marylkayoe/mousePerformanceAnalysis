@@ -197,7 +197,7 @@ mouseContrastThreshold = 0.6;
 % check from which side the mouse enters 
 % check if there are mouse pixels on left or right in first frame in mouseMaskMatrix
 firstFrameMouseMask = mouseMaskMatrix(:, :, 1);
-mouseEntersFromRight= sum(firstFrameMouseMask(:, 1)) < sum(firstFrameMouseMask(:, end));
+mouseEntersFromRight= sum(firstFrameMouseMask(:, 1:40), 'all') < sum(firstFrameMouseMask(:, end-40:end), 'all');
 mouseFrames = firstMouseFrame:lastMouseFrame;
 nMouseFrames = length(mouseFrames);
 
@@ -254,10 +254,14 @@ end
 croppedNoMouseProbValues = zeros(mousePixelLength+1,  nMouseFrames);
  
 
-for frameIdx = 1:nMouseFrames
-croppedNoMouseProbValues( :, frameIdx) = noMouseProbVals(cols(frameIdx,:), frameIdx);
-croppedMouseProbMatrix(:,:,frameIdx) = mouseProbMatrix(:, cols(frameIdx,:), frameIdx);
-end
+	for frameIdx = 1:nMouseFrames
+	croppedNoMouseProbValues( :, frameIdx) = noMouseProbVals(cols(frameIdx,:), frameIdx);
+	croppedMouseProbMatrix(:,:,frameIdx) = mouseProbMatrix(:, cols(frameIdx,:), frameIdx);
+	end
+
+	% cutoff so trunk-region columns contribute 0 weight
+	noMouseProbCutoff = 0.8;
+	croppedNoMouseProbValues(croppedNoMouseProbValues < noMouseProbCutoff) = 0;
 
 
 
@@ -277,6 +281,7 @@ R.meanSpeed            = meanSpeed;
 R.meanSpeedLoco        = meanSpeedLoco;
 R.stdSpeedLoco         = stdSpeedLoco;
 R.BBvideo              = trackedVideo;
+R.tailMotionTrace = tailMovementTrace;
 
 R.slipEventStarts      = slipEventStarts;
 R.slipEventAreas       = slipEventAreas;
@@ -285,6 +290,9 @@ R.slipEventPeaks       = slipEventPeaks;
 R.nSlips               = length(slipEventStarts);
 R.totalSlipMagnitude   = sum(slipEventAreas);
 R.meanSlipAmplitude    = mean(slipEventAreas);
+
+R.tailMotionSum = sum(tailMovementTrace, [], 'omitnan');
+R.tailMotionMean = mean(tailMovementTrace, 'omitnan');
 
 R.meanPosturalHeight = mean(mouseCentroids(:, 2), 'omitnan');
 R.stdPosturalHeight = std(mouseCentroids(:, 2), 'omitnan');
@@ -301,6 +309,7 @@ else
     R.stoppingDurations = stoppingStartStops(:, 2) - stoppingStartStops(:, 1) + 1;
 
 end
+
 %% --- Generate Plots & Show Videos if Requested ---
 if MAKEPLOT
     plotBBTrial(movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
@@ -324,4 +333,3 @@ if SHOWVIDEOS
 end
 
 end
-

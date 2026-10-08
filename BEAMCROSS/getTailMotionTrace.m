@@ -23,7 +23,7 @@ function normTailMovementTrace = getTailMotionTrace(videoMatrix, noMouseProbVals
 %parse inputs
 p = inputParser;
 addParameter(p, 'stoppingFrames', false(size(videoMatrix, 3), 1), @(x) islogical(x) && numel(x) == size(videoMatrix, 3));
-addParameter(p, 'smoothFactor', 1, @(x) isnumeric(x) && isscalar(x));
+addParameter(p, 'smoothFactor', 5, @(x) isnumeric(x) && isscalar(x));
 addParameter(p, 'speedWindow', 1, @(x) isnumeric(x) && isscalar(x));
 addParameter(p, 'excludeStoppingFrames', false, @(x) islogical(x) && isscalar(x));
 addParameter(p, 'verticalWeightPower', 3, @(x) isnumeric(x) && isscalar(x));
