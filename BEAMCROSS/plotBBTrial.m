@@ -99,7 +99,7 @@ if ~isempty(slipEventStarts)
 end
 
 title('Movement detected under bar, with detected slips','FontSize',12);
-xlabel('Time (s)');
+xlabel('Frame idx');
 ylabel('Movement (pixels)');
 grid on;
 

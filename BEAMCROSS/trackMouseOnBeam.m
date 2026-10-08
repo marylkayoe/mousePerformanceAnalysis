@@ -1,5 +1,5 @@
 function [mouseCentroids, instForwardSpeed, meanSpeed, traverseDuration, stoppingStartStops, ...
-stoppingFrames, meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, croppedVideo] = ...
+stoppingFrames, meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, croppedVideo, firstMouseFrame, lastMouseFrame] = ...
 trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, mouseContrastThreshold, FRAMERATE)
 % TRACKMOUSEONBEAM  Detect and track the mouse in a cropped grayscale video of a balance beam.
 %
@@ -180,10 +180,14 @@ if isempty(mouseFoundPeriods)
     mouseMaskMatrix = false(imHeight, imWidth, 0);
     trackedVideo = zeros(imHeight, imWidth, 0);
     croppedVideo = zeros(imHeight, imWidth, 0);
+    firstMouseFrame = nan;
+    lastMouseFrame = nan;
     return;
 end
 [~, longestPeriodIndex] = max([mouseFoundPeriods.Area]);
 longestFrames = mouseFoundPeriods(longestPeriodIndex).PixelIdxList;
+firstMouseFrame = longestFrames(1);
+lastMouseFrame = longestFrames(end);
 
 % Crop outputs to just the frames in that longest period
 mouseCentroids  = mouseCentroids(longestFrames, :);

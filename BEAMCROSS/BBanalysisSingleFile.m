@@ -84,7 +84,7 @@ addParameter(p, 'BARWIDTH', 20, @isnumeric); % thickness of the bar, if empty, i
 % Note: both BARPOSITION and BARTHICKNESS must be provided if one is provided
 addParameter(p, 'mouseStartPosition', [], @(x) ischar(x) || isempty(x)); % "L" or "R", if empty, it will be detected
 addParameter(p, 'meanImageFrames', 1:5, @(x) isnumeric(x) && all(x > 0)); % frames to use for mean image calculation
-addParameter(p, 'SHOWVIDEOS', false, @islogical); % show the video of movement under bar
+addParameter(p, 'SHOWVIDEOS', true, @islogical); % show the video of movement under bar
 addParameter(p, 'CROPVIDEOSCALE', 4, @isnumeric); % how much to crop above and below the bar (multiplies of bar width)
 
 
@@ -173,10 +173,11 @@ end
 
 %% 3) --- Crop the original video vertically ---
 
-[imHeight, ~, ~] = size(videoMatrix);
+[imHeight, imWidth, ~] = size(videoMatrix);
 cropRange = round(barTopCoord + barThickness * CROPVIDEOSCALE * [-1,1]);
 cropRange = max(min(cropRange, imHeight), 1); % efficient bounding
 croppedVideo = videoMatrix(cropRange(1):cropRange(2), :, :);
+croppedVideoLength = length(croppedVideo);
 barTopCoord = barThickness * CROPVIDEOSCALE;
 
 
@@ -187,21 +188,86 @@ mouseContrastThreshold = 0.6;
 
 %% 4)  --- Track the Mouse in the Cropped Video ---
 [mouseCentroids, forwardSpeeds, meanSpeed, traverseDuration, stoppingStartStops, stoppingFrames, ...
-    meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, trimmedVideo] = ...
+    meanSpeedLoco, stdSpeedLoco, mouseMaskMatrix, trackedVideo, trimmedVideo,  firstMouseFrame, lastMouseFrame] = ...
     trackMouseOnBeam(croppedVideo, MOUSESIZETH, LOCOTHRESHOLD, USEMORPHOCLEAN, mouseContrastThreshold, FRAMERATE );
 
 % NOTE: trackedVideo has the mouse overlaid with centroid marker, mouseMaskMatrix is the mask image video
 % trimmedVideo is the original video trimmed/cropped
 
+% check from which side the mouse enters 
+% check if there are mouse pixels on left or right in first frame in mouseMaskMatrix
+firstFrameMouseMask = mouseMaskMatrix(:, :, 1);
+mouseEntersFromRight= sum(firstFrameMouseMask(:, 1)) < sum(firstFrameMouseMask(:, end));
+mouseFrames = firstMouseFrame:lastMouseFrame;
+nMouseFrames = length(mouseFrames);
+
 % Flip mouseCentroids' Y so that top=0 => bar is near zero
 mouseCentroids(:, 2) = imHeight - mouseCentroids(:, 2) + 1; % invert vertically
 mouseCentroids(:, 2) = mouseCentroids(:,2) - barTopCoord; % shift to be relative to bar
 
+% we calculate where the mouse is most probably present in each frame
 [normMouseProbVals, mouseProbMatrix] = computeMouseProbabilityMatrix(mouseMaskMatrix);
+
+% ... and where it is not
+noMouseProbVals = 1-normMouseProbVals; % todo: make it so that we look at the region BEHIND mouse. 
 
 %% 5 --- Detect Slips from using the tracked video (mouse is enhanced in it) ---
 [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo, tailMovementTrace] = ...
     detectSlips(trackedVideo, mouseMaskMatrix, normMouseProbVals, barTopCoord, barThickness, forwardSpeeds, stoppingFrames, SLIPTHRESHOLD, UNDERBARWINDOW, 10);
+
+ %% 5b - tail motion.
+ % crop the video so that we only include the region behind the mouse for tail motion analysis
+ % calculate decestimate for mouse length from the mouseProbvals
+ % as median number of nonzero values in each row of normMouseProbVals across all frames
+
+ mousePixelLength = median(sum(normMouseProbVals > 0, 1), 'omitnan');
+
+mouseX  = round(mouseCentroids(:,1));     % nFrames x 1
+offsets = 0:mousePixelLength;             % 1 x L (you said off-by-one is fine)
+dirSign = 2*mouseEntersFromRight - 1;     % scalar -1 or +1
+
+ % use the tracked mouse centroid and take mousePixelLength pixels behind it for tail motion analysis,
+ % so towards the direction from where the mouse entered the frame
+
+colsRaw = mouseX + dirSign * offsets;     % nFrames x L (implicit expansion)
+
+
+badMask = colsRaw < 1 | colsRaw > imWidth;
+cols = colsRaw;
+cols(cols < 1) = 1;
+cols(cols > imWidth) = imWidth;
+
+ % now make a crop of the videoMatrix so that we only include the columns indicated by postMouseColumns. 
+ % note that we will need to pad the video matrix with zeros when postMouseColumns contains NaN values.
+
+ postMouseVideoMatrix = zeros(size(videoMatrix, 1), size(cols, 2), size(cols, 1), 'like', videoMatrix);
+
+ for frameIdx = mouseFrames
+     croppedFrameIdx = frameIdx-firstMouseFrame+1;
+    postMouseVideoMatrix(:, :, croppedFrameIdx) = videoMatrix(:, cols(croppedFrameIdx, :), frameIdx);
+end
+
+%% now reshape the noMouseProbVals to match the postMouseVideoMatrix in terms of column indices
+% Note: frames match already since they are both based on mouseFrames.
+% so we take the values from noMouseProbVals for columns mouseX + dirSign * offsets (i.e., colsRaw)
+
+croppedNoMouseProbValues = zeros(mousePixelLength+1,  nMouseFrames);
+ 
+
+for frameIdx = 1:nMouseFrames
+croppedNoMouseProbValues( :, frameIdx) = noMouseProbVals(cols(frameIdx,:), frameIdx);
+croppedMouseProbMatrix(:,:,frameIdx) = mouseProbMatrix(:, cols(frameIdx,:), frameIdx);
+end
+
+
+
+
+
+tailMovementTrace = getTailMotionTrace(postMouseVideoMatrix, croppedNoMouseProbValues);
+badFrames = mean(badMask, 2) > 0.2;
+
+tailMovementTrace(badFrames) = nan;
+
 
 %% 6 --- Store Results in Output Structure ---
 R.mouseCentroids       = mouseCentroids;
@@ -254,6 +320,7 @@ if SHOWVIDEOS
     displayBehaviorVideoMatrix(mouseMaskMatrix, 'Binary mask');
     displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo', movementTrace);
     displayBehaviorVideoMatrix(trimmedVideo, 'Frame-trimmed , cropped video', forwardSpeeds);
+    displayBehaviorVideoMatrixOverlay(postMouseVideoMatrix, 'tail', tailMovementTrace);
 end
 
 end
