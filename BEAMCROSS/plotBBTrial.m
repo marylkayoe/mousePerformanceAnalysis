@@ -67,7 +67,7 @@ hold on;
 % Plot the movement trace vs time (or vs frame #)
 plot(frameAxis, tailMovementTrace, 'LineWidth',1.2, 'Color',[0 0.45 0.74], 'HandleVisibility','off');
 title('Tail movement', 'FontSize',12);
-xlabel('Time (s)');
+xlabel('Frame idx');
 ylabel('Movement (pixels)');
 grid on;
 

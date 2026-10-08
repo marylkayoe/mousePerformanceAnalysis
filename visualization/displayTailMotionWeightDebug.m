@@ -37,9 +37,7 @@ function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovement
     end
 
     fig = figure('Name', titleString, 'NumberTitle', 'off');
-    axVid = axes('Parent', fig, 'Position', [0.05 0.45 0.9 0.49]);
-    axWgt = axes('Parent', fig, 'Position', [0.05 0.29 0.9 0.11]);
-    axMotion = axes('Parent', fig, 'Position', [0.05 0.13 0.9 0.11]);
+    axVid = axes('Parent', fig, 'Position', [0.05 0.12 0.9 0.80]);
 
     if nFrames > 1
         sliderStep = [1/(nFrames-1), 1/(nFrames-1)];
@@ -101,10 +99,10 @@ function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovement
     function showFrame(frameNum)
         frm = getFrame(videoMatrix, frameNum);
         imshow(frm, 'Parent', axVid);
-        alignDebugAxesToImage();
 
         tval = tailMovementTrace(frameNum);
-        title(axVid, sprintf('%s | Frame %d | tail=%g', titleString, frameNum, tval));
+        title(axVid, {sprintf('%s | Frame %d | tail=%g', titleString, frameNum, tval), ...
+            'Green: included weighted motion (after cutoff)'});
 
         prob = noMouseProbVals(:, frameNum);
         w = prob .^ 2;
@@ -115,29 +113,8 @@ function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovement
             contrib = colDiffSum(:, frameNum-1) .* w;
         end
 
-        cla(axWgt);
-        plot(axWgt, w, 'k', 'LineWidth', 1);
-        xlim(axWgt, [0.5 width+0.5]);
-        ylim(axWgt, [0 1]);
-        axWgt.YTick = [0 1];
-        axWgt.XTickLabel = [];
-        axWgt.Box = 'on';
-        ylabel(axWgt, 'Weight');
-
-        cla(axMotion);
-        plot(axMotion, contrib, 'Color', [0.75 0.75 0.75], 'LineWidth', 1);
-        hold(axMotion, 'on');
         includedContrib = contrib;
         includedContrib(w <= 0) = nan;
-        plot(axMotion, includedContrib, 'g', 'LineWidth', 1.5, ...
-            'Marker', '.', 'MarkerSize', 10);
-        hold(axMotion, 'off');
-        xlim(axMotion, [0.5 width+0.5]);
-        ylim(axMotion, [0 contribYMax]);
-        axMotion.Box = 'on';
-        xlabel(axMotion, 'Column');
-        ylabel(axMotion, 'Weighted pixel difference');
-        title(axMotion, 'Green = included by weight cutoff');
 
         % Overlay the included motion trace in a fixed-height band centered
         % vertically on the video. The global maximum spans 1/4 image height.
@@ -149,33 +126,6 @@ function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovement
         plot(axVid, 1:width, overlayY, 'g', 'LineWidth', 1.5, ...
             'Marker', '.', 'MarkerSize', 10);
         hold(axVid, 'off');
-    end
-
-    function alignDebugAxesToImage()
-        axVid.Units = 'pixels';
-        axWgt.Units = 'pixels';
-        axMotion.Units = 'pixels';
-        pos = axVid.Position;
-
-        xl = axVid.XLim;
-        yl = axVid.YLim;
-        dataAspect = abs(diff(xl) / diff(yl));
-
-        boxW = pos(3);
-        boxH = pos(4);
-        if boxW / boxH > dataAspect
-            plotH = boxH;
-            plotW = plotH * dataAspect;
-        else
-            plotW = boxW;
-            plotH = plotW / dataAspect;
-        end
-
-        plotX = pos(1) + (boxW - plotW) / 2;
-        wpos = axWgt.Position;
-        axWgt.Position = [plotX, wpos(2), plotW, wpos(4)];
-        mpos = axMotion.Position;
-        axMotion.Position = [plotX, mpos(2), plotW, mpos(4)];
     end
 
     function saveMovie(movieFile)
