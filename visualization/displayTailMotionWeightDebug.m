@@ -1,8 +1,11 @@
-function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovementTrace, titleString)
+function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovementTrace, titleString, outFile)
     % DISPLAYTAILMOTIONWEIGHTDEBUG  Debug view for tail motion weighting.
 
     if ~exist('titleString', 'var') || isempty(titleString)
         titleString = 'Tail motion weight debug';
+    end
+    if ~exist('outFile', 'var')
+        outFile = '';
     end
     if ~exist('tailMovementTrace', 'var') || isempty(tailMovementTrace)
         tailMovementTrace = (1 : getNumFrames(videoMatrix))';
@@ -45,9 +48,16 @@ function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovement
         'Callback', @slider_callback);
 
     playBtn = uicontrol('Style', 'pushbutton', 'Parent', fig, 'Units', 'normalized', ...
-        'Position', [0.7 0.03 0.2 0.05], 'String', 'Play', 'Callback', @play_callback);
+        'Position', [0.7 0.03 0.12 0.05], 'String', 'Play', 'Callback', @play_callback);
+
+    saveBtn = uicontrol('Style', 'pushbutton', 'Parent', fig, 'Units', 'normalized', ...
+        'Position', [0.83 0.03 0.12 0.05], 'String', 'Save MP4', 'Callback', @save_callback);
 
     showFrame(1);
+
+    if ~isempty(outFile)
+        saveMovie(outFile);
+    end
 
     function slider_callback(hObject, ~)
         frameNum = round(get(hObject, 'Value'));
@@ -69,6 +79,17 @@ function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovement
         else
             playBtn.String = 'Play';
         end
+    end
+
+    function save_callback(~, ~)
+        if isempty(outFile)
+            [fn, pn] = uiputfile('*.mp4', 'Save debug video as');
+            if isequal(fn, 0)
+                return;
+            end
+            outFile = fullfile(pn, fn);
+        end
+        saveMovie(outFile);
     end
 
     function showFrame(frameNum)
@@ -126,6 +147,43 @@ function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovement
         plotX = pos(1) + (boxW - plotW) / 2;
         wpos = axWgt.Position;
         axWgt.Position = [plotX, wpos(2), plotW, wpos(4)];
+    end
+
+    function saveMovie(movieFile)
+        try
+            vid = VideoWriter(movieFile, 'MPEG-4');
+        catch
+            vid = VideoWriter(movieFile);
+        end
+        vid.FrameRate = fps;
+        open(vid);
+
+        oldVal = sld.Value;
+        oldStr = playBtn.String;
+        playBtn.String = 'Play';
+
+        for k = 1:nFrames
+            sld.Value = k;
+            showFrame(k);
+            drawnow;
+
+            fr = getframe(fig);
+            img = fr.cdata;
+
+            h = size(img, 1);
+            w = size(img, 2);
+            h2 = 2 * floor(h / 2);
+            w2 = 2 * floor(w / 2);
+            img = img(1:h2, 1:w2, :);
+
+            writeVideo(vid, img);
+        end
+
+        playBtn.String = oldStr;
+        sld.Value = oldVal;
+        showFrame(round(oldVal));
+
+        close(vid);
     end
 end
 

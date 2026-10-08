@@ -260,7 +260,7 @@ croppedNoMouseProbValues = zeros(mousePixelLength+1,  nMouseFrames);
 	end
 
 	% cutoff so trunk-region columns contribute 0 weight
-	noMouseProbCutoff = 0.8;
+	noMouseProbCutoff = 0.85;
 	croppedNoMouseProbValues(croppedNoMouseProbValues < noMouseProbCutoff) = 0;
 
 
@@ -268,7 +268,7 @@ croppedNoMouseProbValues = zeros(mousePixelLength+1,  nMouseFrames);
 
 
 tailMovementTrace = getTailMotionTrace(postMouseVideoMatrix, croppedNoMouseProbValues);
-badFrames = mean(badMask, 2) > 0.2;
+badFrames = mean(badMask, 2) > 0.1;
 
 tailMovementTrace(badFrames) = nan;
 
@@ -330,6 +330,8 @@ if SHOWVIDEOS
     displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo', movementTrace);
     displayBehaviorVideoMatrix(trimmedVideo, 'Frame-trimmed , cropped video', forwardSpeeds);
     displayBehaviorVideoMatrixOverlay(postMouseVideoMatrix, 'tail', tailMovementTrace);
-end
+    displayTailMotionWeightDebug(postMouseVideoMatrix, croppedNoMouseProbValues, tailMovementTrace, 'tail debug');
 
+
+end
 end
