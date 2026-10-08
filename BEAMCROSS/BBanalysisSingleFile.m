@@ -160,7 +160,7 @@ meanFrame = getMeanFrame(videoMatrix(:, :, meanImageFrames));
 
 % 2) --- Locate the balance bar in this horizontally cropped mean frame if not provided
 if isempty(BARPOSITION)
-    [barTopCoord, barThickness, barCenter] = detectBar(meanFrame, 'mouseStartPosition', mouseStartPosition, 'MAKEDEBUGPLOT',true);
+    [barTopCoord, barThickness, ~] = detectBar(meanFrame, 'mouseStartPosition', mouseStartPosition, 'MAKEDEBUGPLOT',true);
     if isempty(barTopCoord)
         warning('Bar position not detected in file %s. Aborting...', fileName);
         R = -1;
@@ -173,7 +173,7 @@ end
 
 %% 3) --- Crop the original video vertically ---
 
-[imHeight, imWidth, ~] = size(videoMatrix);
+[imHeight, ~, ~] = size(videoMatrix);
 cropRange = round(barTopCoord + barThickness * CROPVIDEOSCALE * [-1,1]);
 cropRange = max(min(cropRange, imHeight), 1); % efficient bounding
 croppedVideo = videoMatrix(cropRange(1):cropRange(2), :, :);
@@ -212,7 +212,7 @@ mouseCentroids(:, 2) = mouseCentroids(:,2) - barTopCoord; % shift to be relative
 noMouseProbVals = 1-normMouseProbVals; % todo: make it so that we look at the region BEHIND mouse. 
 
 %% 5 --- Detect Slips from using the tracked video (mouse is enhanced in it) ---
-[slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo, tailMovementTrace] = ...
+[slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = ...
     detectSlips(trackedVideo, mouseMaskMatrix, normMouseProbVals, barTopCoord, barThickness, forwardSpeeds, stoppingFrames, SLIPTHRESHOLD, UNDERBARWINDOW, 10);
 
  %% 5b - tail motion.
@@ -220,57 +220,8 @@ noMouseProbVals = 1-normMouseProbVals; % todo: make it so that we look at the re
  % calculate decestimate for mouse length from the mouseProbvals
  % as median number of nonzero values in each row of normMouseProbVals across all frames
 
- mousePixelLength = median(sum(normMouseProbVals > 0, 1), 'omitnan');
-
-mouseX  = round(mouseCentroids(:,1));     % nFrames x 1
-offsets = 0:mousePixelLength;             % 1 x L (you said off-by-one is fine)
-dirSign = 2*mouseEntersFromRight - 1;     % scalar -1 or +1
-
- % use the tracked mouse centroid and take mousePixelLength pixels behind it for tail motion analysis,
- % so towards the direction from where the mouse entered the frame
-
-colsRaw = mouseX + dirSign * offsets;     % nFrames x L (implicit expansion)
-
-
-badMask = colsRaw < 1 | colsRaw > imWidth;
-cols = colsRaw;
-cols(cols < 1) = 1;
-cols(cols > imWidth) = imWidth;
-
- % now make a crop of the videoMatrix so that we only include the columns indicated by postMouseColumns. 
- % note that we will need to pad the video matrix with zeros when postMouseColumns contains NaN values.
-
- postMouseVideoMatrix = zeros(size(videoMatrix, 1), size(cols, 2), size(cols, 1), 'like', videoMatrix);
-
- for frameIdx = mouseFrames
-     croppedFrameIdx = frameIdx-firstMouseFrame+1;
-    postMouseVideoMatrix(:, :, croppedFrameIdx) = videoMatrix(:, cols(croppedFrameIdx, :), frameIdx);
-end
-
-%% now reshape the noMouseProbVals to match the postMouseVideoMatrix in terms of column indices
-% Note: frames match already since they are both based on mouseFrames.
-% so we take the values from noMouseProbVals for columns mouseX + dirSign * offsets (i.e., colsRaw)
-
-croppedNoMouseProbValues = zeros(mousePixelLength+1,  nMouseFrames);
- 
-
-	for frameIdx = 1:nMouseFrames
-	croppedNoMouseProbValues( :, frameIdx) = noMouseProbVals(cols(frameIdx,:), frameIdx);
-	croppedMouseProbMatrix(:,:,frameIdx) = mouseProbMatrix(:, cols(frameIdx,:), frameIdx);
-	end
-
-	% cutoff so trunk-region columns contribute 0 weight
-	noMouseProbCutoff = 0.85;
-	croppedNoMouseProbValues(croppedNoMouseProbValues < noMouseProbCutoff) = 0;
-
-
-
-
-
-tailMovementTrace = getTailMotionTrace(postMouseVideoMatrix, croppedNoMouseProbValues);
-badFrames = mean(badMask, 2) > 0.1;
-
-tailMovementTrace(badFrames) = nan;
+ T = getTailMotionMetrics(videoMatrix, mouseFrames, mouseCentroids, mouseEntersFromRight, ...
+     normMouseProbVals, 0.85, 0.1);
 
 
 %% 6 --- Store Results in Output Structure ---
@@ -281,7 +232,7 @@ R.meanSpeed            = meanSpeed;
 R.meanSpeedLoco        = meanSpeedLoco;
 R.stdSpeedLoco         = stdSpeedLoco;
 R.BBvideo              = trackedVideo;
-R.tailMotionTrace = tailMovementTrace;
+R.tailMotionTrace = T.tailMovementTrace;
 
 R.slipEventStarts      = slipEventStarts;
 R.slipEventAreas       = slipEventAreas;
@@ -291,8 +242,8 @@ R.nSlips               = length(slipEventStarts);
 R.totalSlipMagnitude   = sum(slipEventAreas);
 R.meanSlipAmplitude    = mean(slipEventAreas);
 
-R.tailMotionSum = sum(tailMovementTrace, [], 'omitnan');
-R.tailMotionMean = mean(tailMovementTrace, 'omitnan');
+R.tailMotionSum = sum(T.tailMovementTrace, [], 'omitnan');
+R.tailMotionMean = mean(T.tailMovementTrace, 'omitnan');
 
 R.meanPosturalHeight = mean(mouseCentroids(:, 2), 'omitnan');
 R.stdPosturalHeight = std(mouseCentroids(:, 2), 'omitnan');
@@ -315,10 +266,10 @@ if MAKEPLOT
     plotBBTrial(movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
         mouseCentroids, forwardSpeeds, meanSpeedLoco, ...
         R.meanPosturalHeight, fileName, LOCOTHRESHOLD, ...
-        SLIPTHRESHOLD, tailMovementTrace);
+        SLIPTHRESHOLD, T.tailMovementTrace);
 end
-if SHOWVIDEOS
 
+if SHOWVIDEOS
     % Annotate the tracked Video with Slip Intervals
     annotatedVideo = annotateVideoMatrix(trackedVideo, slipEventStarts, slipEventDurations, ...
         'ShapeType','FilledRectangle','ShapeColor','red', ...
@@ -329,9 +280,7 @@ if SHOWVIDEOS
     displayBehaviorVideoMatrix(mouseMaskMatrix, 'Binary mask');
     displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo', movementTrace);
     displayBehaviorVideoMatrix(trimmedVideo, 'Frame-trimmed , cropped video', forwardSpeeds);
-    displayBehaviorVideoMatrixOverlay(postMouseVideoMatrix, 'tail', tailMovementTrace);
-    displayTailMotionWeightDebug(postMouseVideoMatrix, croppedNoMouseProbValues, tailMovementTrace, 'tail debug');
-
-
+    displayBehaviorVideoMatrixOverlay(T.postMouseVideoMatrix, 'tail', T.tailMovementTrace);
+    displayTailMotionWeightDebug(T.postMouseVideoMatrix, T.croppedNoMouseProbValues, T.tailMovementTrace, 'tail debug');
 end
 end

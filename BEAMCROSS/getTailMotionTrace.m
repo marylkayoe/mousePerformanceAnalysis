@@ -96,7 +96,7 @@ sigma_base = 1.4826 * madVal;
 normTailMovementTrace = (tailMovementTrace - medVal) / sigma_base;
 
 % make negative values zero
-normTailMovementTrace(normTailMovementTrace < 0) = 0;
+%normTailMovementTrace(normTailMovementTrace < 0) = 0;
 
 % make nan values zero
 normTailMovementTrace(isnan(normTailMovementTrace)) = 0;
