@@ -60,6 +60,19 @@ function R = BBanalysisSingleFile(dataPath, fileName, varargin)
 %   computeWeightedMovement, getMouseProbOnBeam, displayBehaviorVideoMatrix,
 %   annotateVideoMatrix, plotBBtrial, cleanUnderscores
 %
+% TODO: Investigate cross-environment VideoReader differences across the
+%   analysis pipeline, starting in readBBVideoIntoMatrix. Different decoded
+%   geometry can affect bar detection, tracking, speed, slips, and tail motion.
+%   For byte-identical copies (matching SHA-256)
+%   of TMCS2_S07_T1_C03_BB_D07_20251029_THT_TRIAL1_gray.mp4, Mac runs reported
+%   356 x 1280 x 2943, while a Windows run reported 344 x 1280 x 2943 before
+%   analysis. Tracking intervals differed, and the Windows traversal included
+%   a NaN centroid at frame 794. MATLAB releases also differed, so the cause
+%   is not isolated to the OS. Compare exact releases, decoded frames, and
+%   encoded dimensions/cropping metadata; establish consistent video geometry
+%   before comparing measurements. Do not assume that avoiding the NaN crash
+%   resolves the discrepancy in tracking results.
+%
 % -------------------------------------------------------------------------
 
 %% --- Initialize Output Structure ---

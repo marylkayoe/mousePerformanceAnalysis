@@ -30,6 +30,17 @@ function T = getTailMotionMetrics(videoMatrix, mouseFrames, mouseCentroids, mous
 %       .croppedNoMouseProbValues
 %       .cols
 %       .badFrames
+%
+% TODO: Handle missing tracking positions safely before cropping.
+%   trackMouseOnBeam closes short gaps in its detection mask without filling
+%   the corresponding NaN centroids, so the selected traversal can contain
+%   missing positions. Guard nonfinite centroid X values before constructing
+%   or using crop indices; skip video/probability crops for those frames and
+%   mark their tail-motion measurements as NaN, preserving frame alignment.
+%   Include these frames in badFrames. Also invalidate any motion measurements
+%   that depend on a missing frame (check getTailMotionTrace's temporal
+%   dependencies), so placeholder crops cannot introduce artificial motion.
+%   Bounds clamping alone misses NaNs.
 
 %% Defaults
 if ~exist('noMouseProbCutoff', 'var') || isempty(noMouseProbCutoff)

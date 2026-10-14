@@ -11,6 +11,17 @@ function [videoMatrix, frameRate] = readBBVideoIntoMatrix(filePath, varargin)
     % OUTPUTS:
     %   videoMatrix: 3D uint8 matrix (height x width x nFrames).
     %   frameRate: Scalar, frame rate of the video.
+    %
+    % TODO: Investigate inconsistent VideoReader geometry across environments.
+    %   Byte-identical copies of
+    %   TMCS2_S07_T1_C03_BB_D07_20251029_THT_TRIAL1_gray.mp4 reported
+    %   356 x 1280 x 2943 on Mac and 344 x 1280 x 2943 on Windows, before
+    %   analysis. MATLAB releases also differed; the OS alone is not proven
+    %   to be the cause. Compare exact releases, actual decoded frame sizes
+    %   and content, and encoded dimensions/cropping metadata. Establish
+    %   consistent video geometry without blindly resizing or cropping to
+    %   match dimensions. This can affect every downstream analysis stage;
+    %   see the pipeline-level TODO in BBanalysisSingleFile.
     
     % Input parsing
     p = inputParser;
