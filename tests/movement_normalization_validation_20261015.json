@@ -1,0 +1,30 @@
+{
+  "results_root": "/Volumes/ShosaiData/DATA/Tara/RESULTS/movement_normalization_validation_20261015",
+  "source_root": "/Volumes/ShosaiData/DATA/Tara/DATA/BB/TMCS2-3_badRemoved_allTrials_aviToGray_exclMiceRemoved",
+  "matlab": "R2024b Update 10",
+  "parameters": {
+    "MOUSESIZETHRESHOLD": 2,
+    "SLIPTHRESHOLD": 2.5,
+    "LOCOTHRESHOLD": 150,
+    "EXCLUDE_STOPPING_FRAMES": false,
+    "MAKEPLOT": false,
+    "SHOWVIDEOS": false
+  },
+  "sampling": "Previous 12 paired-comparison videos, prior S10 NaN case, 27 additional random files; MATLAB twister seed 20261016. Exact filenames in CSV.",
+  "script": "tests/validateMovementNormalization.m",
+  "outcome": {
+    "completed": 40,
+    "errors": 0,
+    "nonfinite_slip_metrics": 0,
+    "baseline_fallback_warnings": 0,
+    "invalid_normalization_warnings": 0
+  },
+  "limitations": "Checks returned slip metrics and captured normalization warnings; does not inspect all intermediate trace samples or exercise recovery branches. Speed zero denominator remains unchanged. Run paused at 26 for swap >8 GiB and resumed pending files after resource recovery.",
+  "code_sha256": {
+    "BEAMCROSS/computeWeightedMovementTrace.m": "5ad283c60acd9e54f4296f47246bc23a313d6504091e510713eaa5036405d800",
+    "BEAMCROSS/detectSlips.m": "6eb000c56b1af9256ca4b5262a782263b94d46a54344b80085a272f333c09835",
+    "BEAMCROSS/BBanalysisSingleFile.m": "e6e6c2b196800167822d9103bc7be7f9431eef4845df6cfc687a2076afacc8e1",
+    "BEAMCROSS/getTailMotionMetrics.m": "bd7e14cd38c82621cfb2b3c98c7c761777a69d7daf6c29e8e1e705e158c2f848",
+    "tests/validateMovementNormalization.m": "c44e693fe895e53a6afbf66ee3500b7359fb4b806b23f3b2a181755979d14a96"
+  }
+}

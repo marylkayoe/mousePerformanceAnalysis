@@ -55,6 +55,27 @@ nMouseFrames = numel(mouseFrames);
 
 imHeight = size(videoMatrix, 1);
 imWidth = size(videoMatrix, 2);
+%% fix October 2026 - occasionally there are missing centroid values.
+%% that shoulf be fixed in the tracking function, but as a temporary fix, interpolate across nans
+%% up to 10 frames.
+
+mouseX = mouseCentroids(:, 1); %note we only use the x coordinate in the tail function
+% check if there are ANY nans in the mouseCentroids
+if any(isnan(mouseCentroids(:)))
+    warning('Mouse centroids contain NaNs. Interpolating across missing values.');
+    maxMissingFrames = 10;
+    
+    mouseX(~isfinite(mouseX)) = NaN;
+
+    [mouseX, interpolatedFrames] = fillmissing(mouseX, 'linear', ...
+        'MaxGap', maxMissingFrames + 1, 'EndValues', 'none');
+
+    mouseX = round(mouseX);
+
+end
+
+
+
 
 %% Input checks / orientation
 % keep convention as width x nFrames
@@ -84,7 +105,7 @@ end
 mousePixelLength = median(sum(normMouseProbVals(:, probIdx) > 0, 1), 'omitnan');
 
 %% Columns behind the mouse (towards entry direction)
-mouseX = round(mouseCentroids(:, 1));
+mouseX = round(mouseX);
 offsets = 0:mousePixelLength;
 dirSign = 2*mouseEntersFromRight - 1;
 

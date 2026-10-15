@@ -128,11 +128,42 @@ end
 movementTrace = smooth(movementTrace, smoothFactor);
 
 % Robust normalization using Median Absolute Deviation (MAD)
-medVal = median(movementTrace, "omitnan");
-madVal = median(abs(movementTrace - medVal), "omitnan");
-sigma_base = 1.4826 * madVal;
-normMovementTrace = (movementTrace - medVal) / sigma_base;
+%medVal = median(movementTrace, "omitnan");
+%madVal = median(abs(movementTrace - medVal), "omitnan");
+%sigma_base = 1.4826 * madVal;
+%normMovementTrace = (movementTrace - medVal) / sigma_base;
 
+
+% Estimate baseline from finite, non-stopping frames.
+finiteMask = isfinite(movementTrace);
+baseline = movementTrace(finiteMask & ~stoppingFrames);
+
+scaleTol = 1e-12 * max(1, ...
+    max(abs(movementTrace(finiteMask)), [], 'omitnan'));
+
+medVal = median(baseline);
+sigma_base = 1.4826 * median(abs(baseline - medVal));
+
+% Recovery: retry with all finite frames.
+if isempty(baseline) || ~isfinite(sigma_base) || sigma_base <= scaleTol
+    warning('computeWeightedMovementTrace:BaselineFallback', ...
+        'Locomotion baseline is insufficient; using all finite frames.');
+
+    baseline = movementTrace(finiteMask);
+    medVal = median(baseline);
+    sigma_base = 1.4826 * median(abs(baseline - medVal));
+end
+
+% No usable normalization: preserve an unavailable result.
+if isempty(baseline) || ~isfinite(sigma_base) || sigma_base <= scaleTol
+    warning('computeWeightedMovementTrace:InvalidNormalization', ...
+        'Cannot normalize movement reliably; returning NaN values.');
+
+    normMovementTrace = nan(size(movementTrace));
+    return
+end
+
+normMovementTrace = (movementTrace - medVal) / sigma_base;
 
 % make negative values zero
 normMovementTrace(normMovementTrace < 0) = 0;

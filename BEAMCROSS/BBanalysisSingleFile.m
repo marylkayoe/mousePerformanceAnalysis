@@ -31,6 +31,7 @@ function R = BBanalysisSingleFile(dataPath, fileName, varargin)
 %                       If there's a lot of movement at the beginning of the video, it might be better to
 %                       use a different set of frames, eg last 5 frames.
 %   'SHOWVIDEOS' : show the videos of movement under bar, if you want to check the limits [false]
+%   'EXCLUDE_STOPPING_FRAMES' : (logical) Whether to exclude stopping frames from slip detection. [false]
 %
 % OUTPUT:
 %   R : A structure with fields:
@@ -99,7 +100,7 @@ addParameter(p, 'mouseStartPosition', [], @(x) ischar(x) || isempty(x)); % "L" o
 addParameter(p, 'meanImageFrames', 1:5, @(x) isnumeric(x) && all(x > 0)); % frames to use for mean image calculation
 addParameter(p, 'SHOWVIDEOS', true, @islogical); % show the video of movement under bar
 addParameter(p, 'CROPVIDEOSCALE', 4, @isnumeric); % how much to crop above and below the bar (multiplies of bar width)
-
+addParameter(p, 'EXCLUDE_STOPPING_FRAMES', false, @islogical);
 
 parse(p, dataPath, fileName, varargin{:});
 
@@ -118,6 +119,7 @@ meanImageFrames = p.Results.meanImageFrames;
 SHOWVIDEOS = p.Results.SHOWVIDEOS;
 CROPVIDEOSCALE = p.Results.CROPVIDEOSCALE; % this is the scale factor for the video cropping, so we will crop 3x the bar thickness above and below the bar
 % if the bar is 20 pixels thick, we will crop 60 pixels above and below the top edge bar for tracking and slip detection
+EXCLUDE_STOPPING_FRAMES = p.Results.EXCLUDE_STOPPING_FRAMES;
 
 %% --- Check File Existence & Validity ---
 fullFilePath = fullfile(dataPath, fileName);
@@ -226,7 +228,8 @@ noMouseProbVals = 1-normMouseProbVals; % todo: make it so that we look at the re
 
 %% 5 --- Detect Slips from using the tracked video (mouse is enhanced in it) ---
 [slipEventStarts, slipEventPeaks, slipEventAreas, slipEventDurations, movementTrace, underBarCroppedVideo] = ...
-    detectSlips(trackedVideo, mouseMaskMatrix, normMouseProbVals, barTopCoord, barThickness, forwardSpeeds, stoppingFrames, SLIPTHRESHOLD, UNDERBARWINDOW, 10);
+    detectSlips(trackedVideo, mouseMaskMatrix, normMouseProbVals, barTopCoord, barThickness, forwardSpeeds, ...
+     stoppingFrames, SLIPTHRESHOLD, UNDERBARWINDOW, 10, LOCOTHRESHOLD, EXCLUDE_STOPPING_FRAMES);
 
  %% 5b - tail motion.
  % crop the video so that we only include the region behind the mouse for tail motion analysis
