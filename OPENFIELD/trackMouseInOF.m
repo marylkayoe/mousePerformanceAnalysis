@@ -1,7 +1,8 @@
 function [centroids mouseMaskMatrix] = trackMouseInOF(videoMatrix)
 % trackMouseInOF.m - Track the mouse in a open field video
 % videoMatrix is the video data converted into a 3D matrix
-minNmouseArea = 5000; % minimum area of the mouse in pixels, to filter out noise
+minNmouseArea = 1000; % minimum area of the mouse in pixels, to filter out noise
+% Lowered from 5000 to 1000 during open-field testing in November 2026.
 SKIPMISSIGFRAMES = true; % whether to skip frames where the mouse is not detected from the mouseMaskMatrix, if true the result will only contain frames where centroid is not NAN
 
 USEGLOBALTHRESH = false; % whether to use global thresholding or local thresholding for each frame, global thresholding is faster but less accurate, local thresholding is slower but more accurate
