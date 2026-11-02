@@ -1,34 +1,39 @@
 # Yang-Mia-2026: open-field analysis
 
-This package contains MATLAB code for tracking a mouse and measuring open-field
-locomotion from a video. Video conversion is a separate preparation step.
-
 **Maternal immune activation impairs development of cerebellar nuclei and motor coordination in offspring**
 
 Yang Mi, Masato Hirota, Salvatore Andrea Lacava, Tara Turkki, Mio Miyagi,
 Miho Tamai, Marylka Yoe Uusisaari\*, and Hiroki Ishikawa\*
 
+
+This package contains MATLAB code for tracking a mouse and measuring open-field
+locomotion from a video.   For this package, the code was reorganized and
+documented, plotting was updated, and video conversion was made a separate step for review and reproducibility purpose.
+Video conversion is a separate preparation step.
+Previous package commit: `8d4fb9d7957573c764ace5388dbff829c7f4bc6c`.
+
+
 ## Contents
 
-- `open-field/analysis/`: tracking and analysis functions.
-- `open-field/helpers/`: trajectory and frame-classification helpers.
-- `open-field/plotting/`: plots of speed and trajectory.
-- `open-field/video/`: MP4 reader and separate AVI-to-MP4 converter.
-- `open-field/examples/`: a short downsampled sali-group MP4 and its two plots.
+- `analysis/`: tracking and analysis functions.
+- `helpers/`: trajectory and frame-classification helpers.
+- `plotting/`: plots of speed and trajectory.
+- `video/`: MP4 reader and separate AVI-to-MP4 converter.
+- `examples/`: a short downsampled sali-group MP4 and its two plots.
 
 ## Requirements
 
 MATLAB R2024b Update 10, Image Processing Toolbox, and Statistics and Machine
 Learning Toolbox were used for the reanalysis. FFmpeg with `libx264`, available
-on the system path used by MATLAB, is needed only for video conversion.
+on the system path used by MATLAB, is needed only for video conversion. Analysis run on MacBook Air, Apple M3 chip, MacOS 27.0.1 (26A434)
 
 ## Example: analyze a recording
 
 In MATLAB, set the current folder to this `Yang-Mia-2026` folder, then run:
 
 ```matlab
-addpath(genpath(fullfile(pwd, 'open-field')));
-exampleFolder = fullfile(pwd, 'open-field', 'examples');
+addpath(genpath(pwd));
+exampleFolder = fullfile(pwd, 'examples');
 fileName = 'exampleVideo.mp4';
 
 % Pixel size in the downsampled video, plots enabled, 15% border, 40 mm/s threshold.
@@ -84,8 +89,7 @@ approximately 99.939 fps, so analysis used 99 fps.
 The tracker assumes a dark mouse is visible throughout a recording against a
 light background. Each grayscale frame is quantized using ten thresholds; the
 darkest class is hole-filled and closed, and its largest connected component
-provides the centroid. There is no minimum-area cutoff. Inspect tracking results
-before interpreting measurements.
+provides the centroid.
 
 Centroid positions are in mm. Speed is displacement over a one-second window
 by default, advanced one frame at a time, with moving-median outlier handling.
@@ -103,14 +107,7 @@ The returned `centerFraction` is a **rounded whole percentage** from 0 to 100.
 
 ## Analysis code and reproducibility
 
-This package implements the tracking and measurements used for the open-field
-reanalysis. The core tracking, speed, and trajectory-based center calculations
-follow the historical analysis. For this package, the code was reorganized and
-documented, plotting was updated, and video conversion was made a separate step.
-The pixel size and locomotion threshold can be supplied explicitly; the default
-pixel size is 2 mm/pixel for the 2x-downsampled recordings described above.
-
-Using MATLAB R2024b Update 10, the package was checked against the corrected
-reanalysis for one complete recording and against the saved trajectory for the
-included example excerpt. Their scalar measurements matched. The excerpt is
-provided to demonstrate the workflow, rather than to reproduce a full trial.
+The analysis code was reorganized and documented from the open-field workflow
+in [mousePerformanceAnalysis](https://github.com/marylkayoe/mousePerformanceAnalysis).
+Video conversion is provided as a separate preparation step. The included
+example can be run with the command above.

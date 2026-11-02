@@ -10,13 +10,13 @@ this excerpt. To create them in MATLAB, set the current folder to the
 `Yang-Mia-2026` package folder and run:
 
 ```matlab
-addpath(genpath(fullfile(pwd, 'open-field')));
-exampleFolder = fullfile(pwd, 'open-field', 'examples');
+addpath(genpath(pwd));
+exampleFolder = fullfile(pwd, 'examples');
 fileName = 'exampleVideo.mp4';
 
 % 2 mm/pixel, plots on, 15% border, 40 mm/s locomotion threshold.
 analyzeSingleOFfile(exampleFolder, fileName, 2, 1, 0.15, 40);
 ```
 
-This opens the two figures in MATLAB. See the [package README](../../README.md)
+This opens the two figures in MATLAB. See the [package README](../README.md)
 for video parameters and analysis details.
