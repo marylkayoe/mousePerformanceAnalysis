@@ -172,7 +172,8 @@ tailMovementTrace(badFrames) = nan;
 %% tail motion trace - above and under bar regions
 
 tailMovementTraceAboveBar = getTailMotionTrace(aboveBarVideoMatrix, croppedNoMouseProbValues);
-tailMovementTraceUnderBar = getTailMotionTrace(underBarVideoMatrix, croppedNoMouseProbValues);
+tailMovementTraceUnderBar = getTailMotionTrace(underBarVideoMatrix, croppedNoMouseProbValues, ...
+    'verticalWeightMaxAt', 0.5);
 tailMovementTraceAboveBar(badFrames) = nan;
 tailMovementTraceUnderBar(badFrames) = nan;
 
