@@ -1,5 +1,5 @@
 function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
-    mouseCentroids, forwardSpeeds,meanSpeed, meanPosturalHeight,trialName, LOCOTHRESHOLD, SLIPTHRESHOLD, tailMovementTrace)
+    mouseCentroids, forwardSpeeds,meanSpeed, meanPosturalHeight,trialName, LOCOTHRESHOLD, SLIPTHRESHOLD, tailMovementTrace, tailMovementTraceUnderBar)
 % PLOTBBTRIAL  Creates a figure with subplots for:
 %   1) Movement trace + slip events
 %   2) Mouse 2D position, color-coded by forward speed, slip events indicated
@@ -24,6 +24,8 @@ function plotBBtrial( movementTrace, FRAMERATE, slipEventStarts, slipEventAreas,
 %   fileName          : string, name of the video/file (for labeling)
 %   LOCOTHRESHOLD     : (optional) threshold for stopping, in pixels/sec, will default to 100
 %   SLIPTHRESHOLD     : (optional) threshold for slip detection, in pixels (will default to 2)
+%   tailMovementTrace  : normalized motion behind the mouse
+%   tailMovementTraceUnderBar : normalized motion behind the mouse below the bar
 %
 
 if ~exist('LOCOTHRESHOLD', 'var')
@@ -65,10 +67,14 @@ cc = bwconncomp(stoppingFrames);
 subplot(NROWS,NCOLS,1);  % top subplot
 hold on;
 % Plot the movement trace vs time (or vs frame #)
-plot(frameAxis, tailMovementTrace, 'LineWidth',1.2, 'Color',[0 0.45 0.74], 'HandleVisibility','off');
+plot(frameAxis, tailMovementTrace, 'LineWidth',1.2, 'Color',[0 0.45 0.74], 'DisplayName','Total');
+if exist('tailMovementTraceUnderBar', 'var') && ~isempty(tailMovementTraceUnderBar)
+    plot(frameAxis, tailMovementTraceUnderBar, 'LineWidth',1.2, 'Color',[0.85 0.33 0.1], 'DisplayName','Under bar');
+end
+legend('Location','best');
 title('Tail movement', 'FontSize',12);
 xlabel('Frame idx');
-ylabel('Movement (pixels)');
+ylabel('Normalized movement');
 grid on;
 
 

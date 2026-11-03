@@ -1,5 +1,11 @@
-function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovementTrace, titleString, outFile)
+function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovementTrace, titleString, outFile, barPosition, barWidth)
     % DISPLAYTAILMOTIONWEIGHTDEBUG  Debug view for tail motion weighting.
+    % Green and red show per-column motion above and below the bar, using
+    % the same spatial weights as the separate tail-motion calculations.
+    % Magenta shows per-row motion with a bar-relative weight gradient;
+    % it includes all columns in the cropped video, without mouse weighting.
+    % These profiles are before temporal smoothing and normalization.
+    % barPosition and barWidth use rows in the uncropped video.
 
     if ~exist('titleString', 'var') || isempty(titleString)
         titleString = 'Tail motion weight debug';
@@ -12,7 +18,13 @@ function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovement
     end
 
     nFrames = getNumFrames(videoMatrix);
-    width = size(getFrame(videoMatrix, 1), 2);
+    [height, width, ~] = size(videoMatrix);
+    if ~exist('barPosition', 'var') || isempty(barPosition)
+        barPosition = round(height / 2);
+    end
+    if ~exist('barWidth', 'var') || isempty(barWidth)
+        barWidth = 1;
+    end
 
     if size(noMouseProbVals, 1) == nFrames && size(noMouseProbVals, 2) == width
         noMouseProbVals = noMouseProbVals.';
@@ -29,9 +41,37 @@ function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovement
 
     videoDouble = im2double(videoMatrix);
     videoDiff = abs(diff(videoDouble, 1, 3));
-    colDiffSum = squeeze(sum(videoDiff, 1));
-    allContrib = colDiffSum .* (noMouseProbVals(:, 2:end) .^ 2);
-    contribYMax = max(allContrib(:), [], 'omitnan');
+
+    % Weight rises from 0 at the top to 1 at the bar and 2 at the bottom.
+    % All rows below the bar therefore carry more weight than rows above it.
+    rowGradient = ones(height, 1);
+    rowGradient(1:barPosition) = linspace(0, 1, barPosition)';
+    belowStart = barPosition + barWidth;
+    nBelow = height - belowStart + 1;
+    rowGradient(belowStart:end) = 1 + (1:nBelow)' / nBelow;
+    rowMotion = reshape(sum(videoDiff, 2), height, nFrames-1) .* rowGradient;
+    rowMotionMax = max(rowMotion(:), [], 'omitnan');
+    if isempty(rowMotionMax) || ~isfinite(rowMotionMax) || rowMotionMax <= 0
+        rowMotionMax = 1;
+    end
+
+    % Apply the same vertical weighting separately to the two regions as
+    % getTailMotionTrace, then sum each column for display.
+    aboveRows = 1:barPosition;
+    belowRows = barPosition+barWidth:height;
+    aboveWeights = ((0:numel(aboveRows)-1)' / (numel(aboveRows)-1) + eps).^3;
+    belowWeights = (min(2 * (0:numel(belowRows)-1)' / (numel(belowRows)-1), 1) + eps).^3;
+    aboveWeights = aboveWeights / max(aboveWeights);
+    belowWeights = belowWeights / max(belowWeights);
+    aboveDiff = reshape(videoDiff(aboveRows, :, :), numel(aboveRows), []);
+    belowDiff = reshape(videoDiff(belowRows, :, :), numel(belowRows), []);
+    aboveContrib = reshape(aboveWeights' * aboveDiff, width, nFrames-1);
+    belowContrib = reshape(belowWeights' * belowDiff, width, nFrames-1);
+    weights = noMouseProbVals(:, 2:end).^2;
+    aboveContrib = aboveContrib .* weights;
+    belowContrib = belowContrib .* weights;
+    contribYMax = max([aboveContrib(:); belowContrib(:)], [], 'omitnan');
+    clear videoDouble videoDiff aboveDiff belowDiff;
     if isempty(contribYMax) || ~isfinite(contribYMax) || contribYMax <= 0
         contribYMax = 1;
     end
@@ -102,29 +142,32 @@ function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovement
 
         tval = tailMovementTrace(frameNum);
         title(axVid, {sprintf('%s | Frame %d | tail=%g', titleString, frameNum, tval), ...
-            'Green: included weighted motion (after cutoff)'});
-
-        prob = noMouseProbVals(:, frameNum);
-        w = prob .^ 2;
+            'Green: above-bar | Red: below-bar | Magenta: row motion (bar-weighted)', ...
+            'Profiles shown before temporal smoothing and normalization'});
 
         if frameNum == 1
-            contrib = zeros(size(w));
+            above = zeros(width, 1);
+            below = zeros(width, 1);
+            rows = zeros(height, 1);
         else
-            contrib = colDiffSum(:, frameNum-1) .* w;
+            above = aboveContrib(:, frameNum-1);
+            below = belowContrib(:, frameNum-1);
+            rows = rowMotion(:, frameNum-1);
         end
 
-        includedContrib = contrib;
-        includedContrib(w <= 0) = nan;
-
-        % Overlay the included motion trace in a fixed-height band centered
-        % vertically on the video. The global maximum spans 1/4 image height.
-        imageHeight = size(frm, 1);
-        overlaySpan = imageHeight / 4;
-        overlayBaseline = imageHeight / 2 + overlaySpan / 2;
-        overlayY = overlayBaseline - (includedContrib / contribYMax) * overlaySpan;
+        % Plot both profiles away from the bar using the same fixed scale.
+        above(noMouseProbVals(:, frameNum) <= 0) = nan;
+        below(noMouseProbVals(:, frameNum) <= 0) = nan;
+        overlaySpan = height / 4;
+        overlayBaseline = barPosition + (barWidth - 1) / 2;
+        aboveY = overlayBaseline - (above / contribYMax) * overlaySpan;
+        belowY = overlayBaseline + (below / contribYMax) * overlaySpan;
         hold(axVid, 'on');
-        plot(axVid, 1:width, overlayY, 'g', 'LineWidth', 1.5, ...
-            'Marker', '.', 'MarkerSize', 10);
+        plot(axVid, 1:width, aboveY, 'g', 'LineWidth', 2.5);
+        plot(axVid, 1:width, belowY, 'r', 'LineWidth', 2.5);
+        % Horizontal deflection shows weighted motion in each image row.
+        rowX = width - (rows / rowMotionMax) * width / 2;
+        plot(axVid, rowX, 1:height, 'm', 'LineWidth', 2.5);
         hold(axVid, 'off');
     end
 

@@ -92,7 +92,7 @@ addParameter(p, 'FRAMERATE', 160, @isnumeric); % used only if readVideoIntoMatri
 addParameter(p, 'PIXELSIZE', 1,  @isnumeric);
 addParameter(p, 'SLIPTHRESHOLD', 2, @isnumeric);
 addParameter(p, 'LOCOTHRESHOLD', 100, @isnumeric);
-addParameter(p, 'MOUSESIZETHRESHOLD', 2, @isnumeric);
+addParameter(p, 'MOUSESIZETHRESHOLD', 2.5, @isnumeric);
 addParameter(p, 'BARPOSITION', [], @isnumeric); % vertical position of the bar, if empty, it will be detected
 addParameter(p, 'BARWIDTH', 20, @isnumeric); % thickness of the bar, if empty, it will be detected
 % Note: both BARPOSITION and BARTHICKNESS must be provided if one is provided
@@ -193,6 +193,7 @@ cropRange = round(barTopCoord + barThickness * CROPVIDEOSCALE * [-1,1]);
 cropRange = max(min(cropRange, imHeight), 1); % efficient bounding
 croppedVideo = videoMatrix(cropRange(1):cropRange(2), :, :);
 croppedVideoLength = length(croppedVideo);
+barTopCoordOriginal = barTopCoord;
 barTopCoord = barThickness * CROPVIDEOSCALE;
 
 
@@ -237,7 +238,7 @@ noMouseProbVals = 1-normMouseProbVals; % todo: make it so that we look at the re
  % as median number of nonzero values in each row of normMouseProbVals across all frames
 
  T = getTailMotionMetrics(videoMatrix, mouseFrames, mouseCentroids, mouseEntersFromRight, ...
-     normMouseProbVals, 0.85, 0.1);
+     normMouseProbVals, 0.85, 0.1, barTopCoordOriginal, barThickness);
 
 
 %% 6 --- Store Results in Output Structure ---
@@ -259,7 +260,19 @@ R.totalSlipMagnitude   = sum(slipEventAreas);
 R.meanSlipAmplitude    = mean(slipEventAreas);
 
 R.tailMotionSum = sum(T.tailMovementTrace, [], 'omitnan');
+R.tailMotionIndex = R.tailMotionSum / nMouseFrames; % normalized by number of frames
 R.tailMotionMean = mean(T.tailMovementTrace, 'omitnan');
+
+
+
+    R.tailMotionSumAboveBar = sum(T.tailMovementTraceAboveBar, [], 'omitnan');
+    R.tailMotionIndexAboveBar = R.tailMotionSumAboveBar / nMouseFrames;
+    R.tailMotionMeanAboveBar = mean(T.tailMovementTraceAboveBar, 'omitnan');
+
+    R.tailMotionSumUnderBar = sum(T.tailMovementTraceUnderBar, [], 'omitnan');
+    R.tailMotionIndexUnderBar = R.tailMotionSumUnderBar / nMouseFrames;
+    R.tailMotionMeanUnderBar = mean(T.tailMovementTraceUnderBar, 'omitnan');
+
 
 R.meanPosturalHeight = mean(mouseCentroids(:, 2), 'omitnan');
 R.stdPosturalHeight = std(mouseCentroids(:, 2), 'omitnan');
@@ -282,7 +295,7 @@ if MAKEPLOT
     plotBBTrial(movementTrace, FRAMERATE, slipEventStarts, slipEventAreas, ...
         mouseCentroids, forwardSpeeds, meanSpeedLoco, ...
         R.meanPosturalHeight, fileName, LOCOTHRESHOLD, ...
-        SLIPTHRESHOLD, T.tailMovementTrace);
+        SLIPTHRESHOLD, T.tailMovementTrace, T.tailMovementTraceUnderBar);
 end
 
 if SHOWVIDEOS
@@ -297,6 +310,6 @@ if SHOWVIDEOS
     displayBehaviorVideoMatrix(underBarCroppedVideo, 'UnderBarVideo', movementTrace);
     displayBehaviorVideoMatrix(trimmedVideo, 'Frame-trimmed , cropped video', forwardSpeeds);
     displayBehaviorVideoMatrixOverlay(T.postMouseVideoMatrix, 'tail', T.tailMovementTrace);
-    displayTailMotionWeightDebug(T.postMouseVideoMatrix, T.croppedNoMouseProbValues, T.tailMovementTrace, 'tail debug');
+    displayTailMotionWeightDebug(T.postMouseVideoMatrix, T.croppedNoMouseProbValues, T.tailMovementTrace, 'tail debug', [], barTopCoordOriginal, barThickness);
 end
 end

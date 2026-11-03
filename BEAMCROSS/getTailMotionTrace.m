@@ -1,11 +1,8 @@
 function normTailMovementTrace = getTailMotionTrace(videoMatrix, noMouseProbVals, varargin)
 %%  getTailMotionTrace
-%   Computes the tail movement trace from the video matrix, excluding
-%   stopping frames and without normalizing by forward speed.
+%   Computes the tail movement trace from the video matrix, without normalizing by forward speed.
 %   the noMouseProbVals input contains for each frame a vector of probabilities of how much mouse is there in each vertical column of the video.
 %   Obviously this assumes the mouse is going across the video horizontally. 
-%   TODO: make it so that we only look at pixels BEHIND the mouse
-%.  SPECIFICALLY: only show the frames from mouse centroid backwards to make it faster
 %   Inputs:
 %       videoMatrix      : 3D matrix of video frames (height x width x nFrames)
 %       noMouseProbVals  : matrix of probabilities indicating absence of mouse (width x nFrames)
@@ -15,7 +12,8 @@ function normTailMovementTrace = getTailMotionTrace(videoMatrix, noMouseProbVals
 %   smoothFactor            : temporal smoothing window for the movement trace
 %   speedWindow             : multiplicative constant applied during speed normalization
 %   excludeStoppingFrames   : zero out movement at stopping frames before/after speed scaling, default false for tail
-%   verticalWeightPower      : exponent applied to vertical weights, default 1
+%   verticalWeightPower      : exponent applied to vertical weights, default 3
+%   verticalWeightMaxAt      : fraction of image height where the weight reaches 1, default 1
 
 % OUTPUT:
 %       tailMovementTrace: vector of tail movement values (nFrames x 1)
@@ -27,11 +25,13 @@ addParameter(p, 'smoothFactor', 5, @(x) isnumeric(x) && isscalar(x));
 addParameter(p, 'speedWindow', 1, @(x) isnumeric(x) && isscalar(x));
 addParameter(p, 'excludeStoppingFrames', false, @(x) islogical(x) && isscalar(x));
 addParameter(p, 'verticalWeightPower', 3, @(x) isnumeric(x) && isscalar(x));
+addParameter(p, 'verticalWeightMaxAt', 1, @(x) isnumeric(x) && isscalar(x));
 parse(p, varargin{:});
 stoppingFrames = p.Results.stoppingFrames;
 smoothFactor = p.Results.smoothFactor;
 excludeStoppingFrames = p.Results.excludeStoppingFrames;
 verticalWeightPower = p.Results.verticalWeightPower;
+verticalWeightMaxAt = p.Results.verticalWeightMaxAt;
 
 
 nFramesVideo = size(videoMatrix, 3);
@@ -65,9 +65,9 @@ end
 
 height    = size(videoMatrix, 1);
 rowIdx    = (0:height-1)' / (height-1);      % 0 top → 1 bottom
-rowWeights = rowIdx + eps; % starting from nonzero
+rowWeights = min(rowIdx / verticalWeightMaxAt, 1) + eps; % starting from nonzero
 rowWeights = rowWeights .^ verticalWeightPower; % apply vertical weighting power, higher values emphasize lower rows more
-rowWeights = rowWeights / max(rowWeights);   % normalize so bottom = 1
+rowWeights = rowWeights / max(rowWeights);   % normalize maximum weight to 1
 
 % Convert video to double once
 videoDouble = im2double(videoMatrix);

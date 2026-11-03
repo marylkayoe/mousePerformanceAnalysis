@@ -1,5 +1,5 @@
 function T = getTailMotionMetrics(videoMatrix, mouseFrames, mouseCentroids, mouseEntersFromRight, ...
-    normMouseProbVals, noMouseProbCutoff, badFrameFracThresh)
+    normMouseProbVals, noMouseProbCutoff, badFrameFracThresh, barPosition, barWidth)
 %% getTailMotionMetrics
 %   Computes tail motion behind the mouse by cropping each frame to a set of
 %   columns extending from the mouse centroid backwards (towards the entry
@@ -11,6 +11,7 @@ function T = getTailMotionMetrics(videoMatrix, mouseFrames, mouseCentroids, mous
 % INPUTS:
 %   videoMatrix        : video (height x width x nFrames) or
 %                        (height x width x channels x nFrames)
+%   barPosition        : vertical position of the bar (scalar)
 %   mouseFrames        : frame indices (vector) of the mouse traversal
 %   mouseCentroids     : (nFrames x 2) centroid positions in pixel indices
 %   mouseEntersFromRight : logical scalar (true if entry from right edge)
@@ -55,6 +56,13 @@ nMouseFrames = numel(mouseFrames);
 
 imHeight = size(videoMatrix, 1);
 imWidth = size(videoMatrix, 2);
+
+% if we don't have bar position, presume half the image height
+if ~exist('barPosition', 'var') || isempty(barPosition)
+    barPosition = round(imHeight / 2);
+end
+
+
 %% fix October 2026 - occasionally there are missing centroid values.
 %% that shoulf be fixed in the tracking function, but as a temporary fix, interpolate across nans
 %% up to 10 frames.
@@ -64,7 +72,7 @@ mouseX = mouseCentroids(:, 1); %note we only use the x coordinate in the tail fu
 if any(isnan(mouseCentroids(:)))
     warning('Mouse centroids contain NaNs. Interpolating across missing values.');
     maxMissingFrames = 10;
-    
+
     mouseX(~isfinite(mouseX)) = NaN;
 
     [mouseX, interpolatedFrames] = fillmissing(mouseX, 'linear', ...
@@ -106,7 +114,7 @@ mousePixelLength = median(sum(normMouseProbVals(:, probIdx) > 0, 1), 'omitnan');
 
 %% Columns behind the mouse (towards entry direction)
 mouseX = round(mouseX);
-offsets = 0:mousePixelLength;
+offsets = 0:mousePixelLength + mousePixelLength*0.25;
 dirSign = 2*mouseEntersFromRight - 1;
 
 colsRaw = mouseX + dirSign * offsets;
@@ -146,10 +154,44 @@ end
 %% Cutoff so trunk-region columns contribute 0 weight
 croppedNoMouseProbValues(croppedNoMouseProbValues < noMouseProbCutoff) = 0;
 
-%% Tail motion trace
+
+aboveBarVideoMatrix = postMouseVideoMatrix(1:barPosition, :, :);
+underBarVideoMatrix = postMouseVideoMatrix(barPosition+barWidth:end, :, :);
+T.underBarVideoMatrix = underBarVideoMatrix;
+T.aboveBarVideoMatrix = aboveBarVideoMatrix;
+
+
+
+
+
+%% Tail motion trace - total post-mouse motion
 tailMovementTrace = getTailMotionTrace(postMouseVideoMatrix, croppedNoMouseProbValues);
 badFrames = mean(badMask, 2) > badFrameFracThresh;
 tailMovementTrace(badFrames) = nan;
+
+%% tail motion trace - above and under bar regions
+
+tailMovementTraceAboveBar = getTailMotionTrace(aboveBarVideoMatrix, croppedNoMouseProbValues);
+tailMovementTraceUnderBar = getTailMotionTrace(underBarVideoMatrix, croppedNoMouseProbValues);
+tailMovementTraceAboveBar(badFrames) = nan;
+tailMovementTraceUnderBar(badFrames) = nan;
+
+verticalVideo = permute(postMouseVideoMatrix, [2 1 3]);
+
+nRows = size(postMouseVideoMatrix, 1);
+nFrames = size(postMouseVideoMatrix, 3);
+
+rowWeights = sqrt(linspace(0, 1, nRows)');
+verticalWeights = repmat(rowWeights, 1, nFrames);
+
+verticalMotionTrace = getTailMotionTrace( ...
+    verticalVideo, verticalWeights, 'verticalWeightPower', 0);
+
+
+T.tailMovementTraceAboveBar = tailMovementTraceAboveBar;
+T.tailMovementTraceUnderBar = tailMovementTraceUnderBar;
+
+T.verticalMotionTrace = verticalMotionTrace;
 
 T.tailMovementTrace = tailMovementTrace;
 T.tailMotionSum = sum(tailMovementTrace, [], 'omitnan');
