@@ -189,8 +189,9 @@ function displayTailMotionWeightDebug(videoMatrix, noMouseProbVals, tailMovement
             showFrame(k);
             drawnow;
 
-            fr = getframe(fig);
-            img = fr.cdata;
+            % Capture the video axes and overlays without the figure controls.
+            fr = getframe(axVid);
+            img = imresize(fr.cdata, [height, width]);
 
             h = size(img, 1);
             w = size(img, 2);
