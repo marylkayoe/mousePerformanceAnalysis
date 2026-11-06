@@ -1,0 +1,4 @@
+Metric,D00 Overall p (raw),D00 SED-WALK p (raw),D00 SED-WALK p (Holm),D00 SED-RUN p (raw),D00 SED-RUN p (Holm),D00 WALK-RUN p (raw),D00 WALK-RUN p (Holm),D14 Overall p (raw),D14 SED-WALK p (raw),D14 SED-WALK p (Holm),D14 SED-RUN p (raw),D14 SED-RUN p (Holm),D14 WALK-RUN p (raw),D14 WALK-RUN p (Holm)
+"Locomoting speed, whole crossing",0.5224,0.1333,0.4000,0.3254,0.6508,0.7917,0.7917,0.0760,0.2333,0.4667,0.0238,0.0714,0.6726,0.6726
+"Crossing duration, three trials",0.1914,0.1333,0.4000,0.1349,0.4000,0.8750,0.8750,0.0322,0.3333,0.6667,0.0159,0.0476,0.4464,0.6667
+First-to-last locomoting speed change,0.8088,0.9667,1.0000,0.5873,1.0000,0.5536,1.0000,0.0375,0.8333,0.8333,0.0397,0.1190,0.0595,0.1190

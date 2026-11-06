@@ -1,0 +1,5 @@
+Metric,Unit,sedentary mean ± SEM; median; SD,sedentary cages / mice / trials,walk mean ± SEM; median; SD,walk cages / mice / trials,run mean ± SEM; median; SD,run cages / mice / trials,Overall group p (raw)
+"Crossing duration, three trials",s,24.22 ± 2.51; 20.58; 8.69,4 / 12 / 36,20.32 ± 1.31; 19.59; 4.52,4 / 12 / 36,20.84 ± 1.23; 20.73; 5.08,7 / 17 / 51,0.1914
+"Locomoting speed, whole crossing",pixels/s,189.19 ± 12.04; 197.36; 41.71,4 / 12 / 36,204.34 ± 9.16; 208.79; 31.75,4 / 12 / 36,201.68 ± 9.16; 203.80; 38.85,7 / 18 / 53,0.5224
+First-to-last locomoting speed change,% of first,-4.40 ± 6.10; -7.70; 21.14,4 / 12 / 24,-1.82 ± 7.08; -8.95; 24.52,4 / 12 / 24,1.53 ± 7.52; -3.90; 31.88,7 / 18 / 36,0.8088
+Mean centroid height,pixels,23.77 ± 0.47; 24.20; 1.63,4 / 12 / 36,24.36 ± 0.38; 24.34; 1.30,4 / 12 / 36,24.27 ± 0.25; 24.54; 1.08,7 / 18 / 53,0.5127
