@@ -1,0 +1,8 @@
+folder=fileparts(mfilename('fullpath')); t=readtable(fullfile(folder,'d0-pooled-tail-slips-stops-10mm.csv')); x=t.PositionMM;
+fig=figure('Color','w','Visible','off','Units','pixels','Position',[70 70 1500 1200]);lay=tiledlayout(fig,4,1,'TileSpacing','compact','Padding','compact');
+ax=nexttile(lay);bar(ax,x,t.tail_mean,1,'FaceColor',[.26 .44 .65],'EdgeColor','none');ylabel(ax,{'Mean above-bar tail','motion index (a.u.)'});title(ax,'Tail motion: all bins with valid data');grid(ax,'on');ax.GridAlpha=.15;xlim(ax,[0 700]);xticks(ax,0:100:700);yline(ax,0,':','HandleVisibility','off');
+ax=nexttile(lay);bar(ax,x,t.tail_n_mice,1,'FaceColor',[.55 .65 .75],'EdgeColor','none');ylabel(ax,{'Mice contributing','to tail mean'});ylim(ax,[0 45]);yticks(ax,[0 21 42]);grid(ax,'on');ax.GridAlpha=.15;xlim(ax,[0 700]);xticks(ax,0:100:700);
+ax=nexttile(lay);bar(ax,x,t.slip_count,1,'FaceColor',[.20 .30 .44],'EdgeColor','none');ylabel(ax,'Slip count');title(ax,sprintf('Slips (%d events)',sum(t.slip_count)));grid(ax,'on');ax.GridAlpha=.15;xlim(ax,[0 700]);xticks(ax,0:100:700);
+ax=nexttile(lay);bar(ax,x,t.stop_count,1,'FaceColor',[.53 .62 .68],'EdgeColor','none');ylabel(ax,'Stop count');title(ax,sprintf('Stops (%d events)',sum(t.stop_count)));grid(ax,'on');ax.GridAlpha=.15;xlim(ax,[0 700]);xticks(ax,0:100:700);xlabel(ax,'Position between tape marks (mm; exit 0, entry 700)');
+title(lay,{'D0 position profiles: tail motion, slips and stops | all groups pooled','10 mm bins; tail: mean across available mice; slips overlapping stops excluded'});
+base=fullfile(folder,'d0-pooled-tail-slips-stops-histograms-10mm-all-data');savefig(fig,[base '.fig']);exportgraphics(fig,[base '.png'],'Resolution',160);print(fig,[base '.svg'],'-dsvg');
