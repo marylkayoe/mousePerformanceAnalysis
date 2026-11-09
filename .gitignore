@@ -28,6 +28,8 @@ codegen/
 
 # Cache files
 *.slxc
+__pycache__/
+*.py[cod]
 
 # Cloud based storage dotfile
 .MATLABDriveTag

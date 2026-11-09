@@ -1,0 +1,237 @@
+{
+  "TARGET_01": [
+    "uncertain_small_paw_motion",
+    "Small front/head and beam-level paw adjustments while crouched; no clear hind-paw drop in sampled sequence. Tail above beam.",
+    "uncertain"
+  ],
+  "TARGET_02": [
+    "uncertain_small_paw_motion",
+    "Small head/front-paw adjustment and tail lowering above beam; hind-foot grip appears maintained. Separate trace burst, not a clearly distinct hind-paw slip.",
+    "uncertain"
+  ],
+  "TARGET_03": [
+    "other_head_paw_motion",
+    "Turns head toward camera and lowers nose toward forepaws/beam; crouched body remains in place. Tail changes posture above beam.",
+    "uncertain"
+  ],
+  "TARGET_04": [
+    "uncertain_small_paw_motion",
+    "Small repetitive nose/front-paw movements near beam; tail descends behind rump. No clear hind-foot release.",
+    "uncertain"
+  ],
+  "TARGET_05": [
+    "uncertain_small_paw_motion",
+    "Continuation of crouched nose/front-paw adjustments; separate short threshold burst without clearly distinct hind-foot excursion.",
+    "uncertain"
+  ],
+  "TARGET_06": [
+    "uncertain_small_paw_motion",
+    "Same crouched episode; subtle beam-level movement. Hind paw partly obscured; distinct slip not established.",
+    "uncertain"
+  ],
+  "TARGET_07": [
+    "uncertain_small_paw_motion",
+    "Small head/front-paw adjustments; tail now hangs below beam behind rump. No visible large hind-foot drop.",
+    "uncertain"
+  ],
+  "TARGET_08": [
+    "uncertain_small_paw_motion",
+    "Same stationary episode as preceding detection; trace separated by five frames. No confidently distinct paw-slip cycle.",
+    "uncertain"
+  ],
+  "TARGET_09": [
+    "uncertain_small_paw_motion",
+    "Subtle repeated beam-level front/head movement; tail hangs behind body. No clear isolated hind-paw slip.",
+    "uncertain"
+  ],
+  "TARGET_10": [
+    "uncertain_small_paw_motion",
+    "Short threshold crossing during ongoing crouched episode; distinct biological movement cannot be resolved confidently.",
+    "uncertain"
+  ],
+  "TARGET_11": [
+    "head_below_beam",
+    "Head/nose lowers visibly below beam, especially frames 1739-1753; substantial non-paw tissue enters detector region. Hind-paw slip not demonstrated.",
+    "no_clear_hind_slip"
+  ],
+  "TARGET_12": [
+    "head_below_beam",
+    "Continuation of head hanging/exploring below beam, then head returns upward by 1843-1860; tail also moves below beam. Not a second clearly independent hind-paw slip.",
+    "no_clear_hind_slip"
+  ],
+  "TARGET_13": [
+    "other_head_paw_motion",
+    "Head returns to left-facing posture and forepaw/beam grip adjusts; tail hangs below. Hind-paw slip not clearly resolved.",
+    "uncertain"
+  ],
+  "BLIND_01": [
+    "mixed_tail_paw",
+    "Tail sweeps from above to below beam at 898-911; hind foot already below/around beam before interval and remains there. Attribution to a new slip uncertain.",
+    "uncertain"
+  ],
+  "BLIND_02": [
+    "other_paw_motion",
+    "Body advances and feet reposition near beam surface; no conspicuous isolated hind-foot drop. Tail remains behind.",
+    "uncertain"
+  ],
+  "BLIND_03": [
+    "possible_hind_paw_slip",
+    "Small hind-foot projection appears below beam around 1445-1453 and recovers. Compatible with a shallow slip, but stepping/grip adjustment remains possible.",
+    "possible"
+  ],
+  "BLIND_04": [
+    "apparent_hind_paw_slip",
+    "Hind foot extends conspicuously downward around 1256 then returns toward beam by 1260-1264. Tail remains above beam during the drop.",
+    "apparent"
+  ],
+  "BLIND_05": [
+    "apparent_hind_paw_slip",
+    "Hind foot descends below beam from about 1024, persists through 1041, then recovers while body lowers. Distinct from elevated tail.",
+    "apparent"
+  ],
+  "BLIND_06": [
+    "other_paw_motion",
+    "Stepping/regripping near beam; small hind-foot movement is partly obscured. Tail hangs below beam. No definite loss of support.",
+    "uncertain"
+  ],
+  "BLIND_07": [
+    "other_paw_motion",
+    "Front/ventral paw shifts below beam near 1753-1756 as body crouches; no clear isolated hind-paw drop.",
+    "uncertain"
+  ],
+  "BLIND_08": [
+    "possible_hind_paw_slip",
+    "Hind foot moves briefly below beam around 1394-1396 during forward progression; shallow slip versus normal regripping uncertain.",
+    "possible"
+  ],
+  "BLIND_09": [
+    "tail_motion",
+    "Tail clearly descends below beam during 912-920 while rear foot stays near the dark beam marker; a new hind-foot slip is not evident.",
+    "no_clear_hind_slip"
+  ],
+  "BLIND_10": [
+    "tail_motion",
+    "Tail sweeps down across beam during 773-783; paw placement appears relatively stable while body turns/crouches.",
+    "no_clear_hind_slip"
+  ],
+  "BLIND_11": [
+    "possible_hind_paw_slip",
+    "Small rear/ventral foot drops just under beam around 927-932 and returns; shallow slip versus paw repositioning uncertain.",
+    "possible"
+  ],
+  "BLIND_12": [
+    "apparent_hind_paw_slip",
+    "Hind foot extends farther below beam around 1366-1373 while body remains supported. Excursion starts before/continues after saved interval, so detector interval is not full movement duration.",
+    "apparent"
+  ],
+  "BLIND_13": [
+    "other_paw_motion",
+    "Forepaw beneath head drops below beam around 813-820 and returns. Tail rises; movement is not specifically a hind-paw slip.",
+    "no_clear_hind_slip"
+  ],
+  "BLIND_14": [
+    "tail_motion",
+    "Tail swings from above to well below beam at 1012-1024 during body turning; no clear hind-foot release.",
+    "no_clear_hind_slip"
+  ],
+  "BLIND_15": [
+    "tail_motion",
+    "Tail drops below beam at 937-957 and sweeps behind body. Small paw adjustments coexist; isolated hind-paw slip not established.",
+    "no_clear_hind_slip"
+  ],
+  "BLIND_16": [
+    "mixed_tail_paw",
+    "Rear paw and thin tail both move near/below beam around 889-898; anatomical attribution to a slip is uncertain.",
+    "uncertain"
+  ],
+  "BLIND_17": [
+    "tail_motion",
+    "Large tail sweep beneath beam during 1297-1359 while feet stay around beam and body crouches then rises; distinct hind-slip cycle not evident.",
+    "no_clear_hind_slip"
+  ],
+  "BLIND_18": [
+    "possible_hind_paw_slip",
+    "Hind foot is visibly below beam already before 1242 and regrips by 1255-1261; interval may capture continuation/recovery of a paw excursion.",
+    "possible"
+  ],
+  "BLIND_19": [
+    "mixed_tail_paw",
+    "Small hind-foot downward motion near 1290 overlaps tail sweeping below beam by 1299-1303; more than one source of under-bar motion.",
+    "possible"
+  ],
+  "BLIND_20": [
+    "apparent_balance_loss",
+    "Forepaw drops at 1061 followed by substantial body rotation and hind/ventral tissue below beam at 1094-1119. Apparent balance disturbance, not merely a tail sweep; hind-paw contribution is mixed.",
+    "possible"
+  ],
+  "BLIND_21": [
+    "apparent_hind_paw_slip",
+    "Hind foot descends below beam around 1068-1081 and recovers around 1087-1093; tail also hangs behind. Visible paw excursion supports a slip interpretation.",
+    "apparent"
+  ],
+  "BLIND_22": [
+    "other_paw_motion",
+    "Small beam-level paw adjustments with head low; no conspicuous hind-foot drop. Tail remains above beam.",
+    "uncertain"
+  ],
+  "BLIND_23": [
+    "tail_motion",
+    "Tail swings downward through beam height at 861-900 and back up near 908; feet reposition slightly. Tail is prominent during the detection.",
+    "no_clear_hind_slip"
+  ],
+  "BLIND_24": [
+    "other_paw_motion",
+    "Small step/regrip at beam level; hind foot partly obscured near marker. Tail rises above beam. No definite isolated hind-foot drop.",
+    "uncertain"
+  ],
+  "CONTROL_01": [
+    "non_event",
+    "Slow forward head/body progression with paws near beam; no conspicuous downward excursion in central non-event window.",
+    "not_applicable"
+  ],
+  "CONTROL_02": [
+    "non_event",
+    "Paw stepping and raised tail, with handler fingers visible at right edge. No detected slip in central window; entry/handling exposure is not exclusive to event periods.",
+    "not_applicable"
+  ],
+  "CONTROL_03": [
+    "non_event",
+    "Body advances slightly and tail shifts above beam, with ordinary paw adjustments; trace stays below threshold in central window.",
+    "not_applicable"
+  ],
+  "CONTROL_04": [
+    "non_event",
+    "Same target animal entering before prolonged crouch; clear paw repositioning/forward progression without a saved detection in central interval.",
+    "not_applicable"
+  ],
+  "CONTROL_05": [
+    "non_event",
+    "Head and paws advance near entry; no clear large downward excursion. Tail/head partially outside fixed review crop at start.",
+    "not_applicable"
+  ],
+  "CONTROL_06": [
+    "non_event",
+    "Walking/regripping with elevated tail, without a detected event in central window. Small paw movements still visible.",
+    "not_applicable"
+  ],
+  "LOW_CONTROL_01": [
+    "non_event_low_speed",
+    "Head rises slightly while paws stay near beam; small tail/postural adjustment, no clear downward paw excursion in central interval.",
+    "not_applicable"
+  ],
+  "LOW_CONTROL_02": [
+    "non_event_low_speed",
+    "Paw regripping and body/head adjustment with tail above beam; no obvious isolated downward hind-paw excursion.",
+    "not_applicable"
+  ],
+  "LOW_CONTROL_03": [
+    "non_event_low_speed",
+    "Target remains crouched with small head movement and tail above beam; a low-speed interval without a detected event.",
+    "not_applicable"
+  ],
+  "LOW_CONTROL_04": [
+    "non_event_low_speed",
+    "Body stays low; tail moves above beam and paws make small grip changes; no clear large paw drop.",
+    "not_applicable"
+  ]
+}

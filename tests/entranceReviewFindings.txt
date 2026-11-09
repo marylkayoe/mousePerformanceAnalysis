@@ -1,0 +1,165 @@
+D0 ENTRY-REGION INVESTIGATION — FINDINGS, 2026-11-07
+
+The sedentary cluster is consistent with a combination of longer, slower entry
+behavior and a speed-sensitive detector, with a mixture of visible paw, tail and
+head movements. The evidence does not support treating every detection as a
+hind-paw slip, nor dismissing the entire cluster as artifact. Low-speed detector
+behavior is important across groups, not unique to sedentary mice.
+
+1. Exposure differs substantially across all eligible D0 trials.
+
+                         sedentary       walk          run
+Eligible crossings              36          36           52
+Mice / cages                  12/4        12/4         18/7
+Entry detections                 55          25           27
+Time in region (seconds)      30.31       20.59        27.66
+Detections / second            1.81        1.21         0.98
+Entry time at speed <=40       37.7%       22.1%        12.4%
+Entry time at speed <=5        15.8%        8.6%         2.6%
+
+These are pooled descriptive quantities. Event location uses midpoint centroid;
+speed <=40 is not identical to the temporally processed stop mask. The 0.90–0.95
+region was selected after inspecting the plot. No independent-animal hypothesis
+test was performed.
+
+TMCS3_S07 contributes 20 of the 55 detections. Its trial 4 contributes 13 detections,
+6.056 seconds in the bin and 4.850 seconds classified as stopped. Excluding this
+mouse leaves 35 detections / 21.50 seconds = 1.63 per second. Thus that mouse is
+influential, but it does not account for the whole descriptive difference.
+
+2. Within speed bands, sedentary frames are not consistently more likely to
+cross threshold. Exposure composition is an important explanation to consider.
+
+For speed (5,20] px/s, frame-exceedance fractions are 34.5%, 45.4%, 47.2% for
+sedentary/walk/run. At (20,40], they are 28.3%, 36.1%, 37.6%. At (0,5], they are
+37.5%, 59.6%, 25.9%; the run bin contains only 54 frames from five mice.
+
+Across all entry frames, >2.5 exceedance fractions are 20.0%, 15.1%, 11.5%.
+Reweighting each group's speed-specific fractions to the same pooled six-bin speed
+distribution gives 16.1%, 17.7%, 15.1%. This removes the sedentary ordering in this
+particular descriptive frame calculation. It is NOT an adjusted slip count, a
+causal estimate, or proof that biology is identical. Coarse speed bins, different
+movement types, temporal dependence, and trial-specific baselines remain.
+The reweighting and its bin weights are saved explicitly.
+
+3. Intermediate traces demonstrate two interacting detector effects.
+
+All 21 instrumented trial captures exactly match the original saved final traces,
+speeds, centroids, frame mappings and event intervals. RawUnweighted and RawWeighted
+are measured before speed adjustment; both come from the existing enhanced video,
+not unprocessed camera pixels. RawWeighted already includes row and column weights.
+
+The speed multiplier is 160/log1p(speed): about 230.8 at 1 px/s and 43.1 at 40 px/s.
+Identical weighted raw motion therefore receives 5.36 times the instantaneous
+amplification at 1 px/s, before smoothing. The final score additionally depends
+on each traversal's finite non-stopping baseline median and MAD.
+
+In the purposeful reviewed sample, pooled median weighted raw motion is 0.609,
+0.727, 0.853 for sedentary/walk/run; median speed is 22.8, 56.9, 68.8 px/s.
+Removing TMCS3_S07 from that sample changes the sedentary raw median to 0.879
+and speed median to 44.2. Consequently, the low pooled sedentary raw motion is
+strongly influenced by that long visit; other sedentary mice need separate review.
+The reviewed sedentary trials do not have a uniformly more permissive baseline:
+median trial MAD scale is 11.33 versus 9.66 (walk) and 9.55 (run). Median
+pre-normalization thresholds are 59.77, 51.86, 47.53 respectively. These selected
+trial summaries are not population estimates and are not weighted equally by mouse.
+
+Examples beyond TMCS3_S07 (full filenames and intervals in review_observations.csv):
+
+- BLIND_07 versus BLIND_11, TMCS2 walk S31 versus sedentary S15: similar raw peaks
+  2.154 versus 1.854; median speeds 24.10 versus 13.50; final peaks 3.38 versus
+  4.54. The lower-speed event has a higher normalized peak despite smaller raw
+  motion, with a somewhat smaller baseline scale as well.
+- BLIND_17 versus BLIND_23, TMCS2 run S17 versus walk S07: raw peaks 13.357 versus
+  12.826; median speeds 71.65 versus 4.67; final peaks 51.75 versus 109.23.
+  Strong amplification is plainly not restricted to the sedentary group. The
+  walk trial also has the smaller baseline scale. Both sequences include tail
+  motion; these are similar raw peaks, not identical biological movements.
+- BLIND_02 versus BLIND_06, TMCS2 sedentary S28 versus run S17: raw peaks 3.847
+  versus 4.190; speeds 99.12 versus 138.98; final peaks 4.03 versus 8.05. Here the
+  faster run event has the higher score; duration/waveform and the smaller run
+  baseline scale matter. Speed alone does not predict normalized event amplitude.
+- BLIND_01 versus BLIND_05, TMCS3 sedentary S13 versus walk S04: raw peaks 4.404
+  versus 3.960; speeds 46.89 versus 41.73; final peaks 9.76 versus 12.12.
+  This provides a second-cohort comparison with similar amplitude and speed but
+  different movement content and timing.
+
+4. Exactly zero speed has a separate numerical failure mode.
+
+In target trial 4, detections 11 and 12 span original frames 1728–1755 and
+1778–1848. The source sequence shows the head lowered below the beam through
+the intervening period. Actual weighted raw motion during frames 1756–1777 remains
+positive (1.303–4.385), but all 22 pre-clamp normalized samples are nonfinite and
+the final trace is zero. Speed is exactly zero at 1760–1772. The code's division
+by log1p(0), smoothing and NaN-to-zero step create this artificial interruption.
+A separate synthetic constant-raw check reproduces the exact gap boundaries.
+Thus these two detections are not evidence of two separate hind-paw slip cycles.
+
+The numerical issue is not sedentary-specific. Nonfinite pre-clamp entry samples
+occur in 4.8%, 11.3%, 1.9% of frames in the reviewed sedentary/walk/run samples.
+All exact-zero-speed entry frames in the full D0 dataset have a final score of
+zero. Such zeros must not be interpreted as proof that no physical movement
+occurred. Existing measures were preserved; no thresholds or code were repaired.
+
+5. The visual review found mixed movement sources, including plausible slips.
+
+All 13 target trial-4 detections were inspected in chronological source-frame
+sequences. Most early detections accompany subtle crouched head/paw adjustments;
+distinct hind-paw slip cycles cannot be established. Detections 11–12 visibly
+include head tissue entering the detector band (original rows 224–240). Tail
+movement coexists in later parts. Proximity to entry is not proof of contact with
+the entrance platform, which is outside the camera field.
+
+Other sedentary examples include apparent hind-paw excursions:
+TMCS2_S15_T3_C08_BB_D00_20251022_THT_TRIAL3_gray.mp4, frames 1056–1099 (BLIND_21),
+and TMCS2_S28_T1_C10_BB_D00_20251022_THT_TRIAL2_gray.mp4, 1363–1373 (BLIND_12).
+Comparable apparent excursions occur in walk S04 (BLIND_05) and run S10 (BLIND_04).
+Run S02, frames 1057–1123 (BLIND_20), shows substantial body rotation/balance
+disturbance, rather than just a tail sweep. Other sequences show prominent tail
+crossings (e.g. BLIND_09, 10, 15, 17, 23) or front-paw movements (BLIND_13).
+These labels describe what is visible; they do not prove which pixel source
+dominates each trace, and subtle/occluded movements remain uncertain.
+
+Visual coverage (both cohorts in each group):
+                 mice   cages   trials   events   non-event windows
+sedentary           5       4        7       21                   4
+walk                4       3        8        8                   4
+run                 4       4        6        8                   2
+
+The 37 event reviews and 10 non-event reviews are purposefully selected, not a
+group-level false-positive-rate estimate. Four added controls had center speed
+(0,5] px/s; no selected run trial met the same strict separation rule. Group labels
+were hidden for the initial non-target sequence review, but this was not an
+independent blinded expert study. Every case retains uncertainty, full filename,
+original-frame interval, short full-field clip, sequence and saved trace context.
+
+6. No obvious sedentary-specific recording difference was identified.
+
+All 124 eligible D0 videos are 1280x356. Detected bar tops differ by cohort
+(TMCS2: 207–208; TMCS3: 213–214), with overlapping thicknesses across groups.
+Median background brightness is tightly similar (approximately 188.2–188.4 on
+the decoded 0–255 grayscale scale across cohort/group cells). Full-field examples
+show similar composition. These checks do not exclude subtle local shadows,
+temporal flicker or posture-dependent masking. No gross centroid discontinuity
+was apparent in reviewed intervals; the analysis crop/masks were not independently
+segmented as a new ground truth. A handler's fingers are visible in a walk
+non-event control, so handling exposure is not confined to sedentary detections.
+
+Interpretation and limits
+
+Longer low-speed residence gives more opportunities for repeated under-bar
+movements and gives small positive-speed movements stronger detector gain.
+Trial-specific normalization and zero-speed invalid-value handling further alter
+threshold crossings and event splitting. These are supported mechanisms, but
+their exact contribution to the group event-count difference is not identified
+causally here. Similar raw peaks do not guarantee similar paw kinematics.
+
+The next confirmatory step would be a prespecified review sampled by mouse/cage,
+speed and raw-motion strata, with an agreed biological slip definition and a
+separate numerical sensitivity analysis. Do not simply discard stopped frames
+or tune thresholds by group based on this post-hoc region.
+
+Open review.html for clips and observations; METHODS_AND_RESULTS.txt describes
+selection, mappings and validation. detector_figures/ and detector_stages/ retain
+the complete stage comparisons. Original data, pipeline and prior rerun results
+remain unchanged.

@@ -37,3 +37,97 @@ successful execution as proof of numerical validity. Median slip counts were
 6.5 with stops included and 2 with stops excluded (all 12 pairs).
 
 The 40-video normalization check is implemented in `validateMovementNormalization.m`; its parameters, results location, and code hashes are recorded in `movement_normalization_validation_20261015.json`.
+
+# Candidate supplementary-video trace extraction (2026-11-06)
+
+`extractCandidateBeamTraces(outputDir)` captures 12 explicitly selected trials
+through a renamed, instrumented top-level copy; original analysis code is unchanged.
+Canonical results: `/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_candidate_traces_20261106`.
+That folder includes MAT/CSV traces, status, reference comparisons, code/input hashes,
+and a README describing timing, nonfinite values, and unverified reference settings.
+This historical candidate run used LOCOTHRESHOLD=150. Use the subsequent full
+L40 rerun for Tara's confirmed settings; do not treat the candidate run as equivalent.
+Reference: three `BB_*_261105_2.mat` files in `/Users/yoe/Downloads` (hashed in results).
+No video matrices or debug movies are saved. No bulk scratch is required.
+
+Reproduce with `python3 tests/prepareCandidateBeamTraces.py OUTPUT_DIR`, then
+MATLAB `extractCandidateBeamTraces(OUTPUT_DIR, trialIndex)` for indices 1–12
+(one fresh process per trial limits retained memory), then
+`verifyCandidateBeamTraces(OUTPUT_DIR)`. Add `tests` to the MATLAB path.
+Existing successfully saved trials are skipped. Use a new output directory
+for a different analysis configuration. The preparation helper requires ffprobe
+at `/opt/homebrew/bin/ffprobe`; reference filenames and roots are explicit in
+these helpers. Only metadata and small traces are written, not video matrices.
+
+Final outcome: 12/12 saved and verified. Four VideoReader frame rates disagree
+with encoded 160-fps timestamps; CSV/MAT time axes use verified encoded timing.
+S18 D14 trial 2 retains the pipeline's rounded 159-fps analysis scaling.
+All reference mean-speed/posture/tail summaries match, but stopping and slip
+metrics differ. See canonical `VALIDATION_REPORT.txt` before using these traces.
+
+# Full Tara event/trace and row-profile recovery (2026-11-06)
+
+Canonical outputs: `/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_events_traces_L40_20261106`.
+The user confirmed locomotion/slip/mouse-size thresholds **40 / 2.5 / 2** and
+approved up to 3 GB including compressed row profiles. No bulk scratch is used.
+`METHODS.txt` and `run_manifest.json` in the result folder describe exact code,
+settings, grouping evidence, timing, instrumentation and limitations.
+
+- `prepareTaraBeamRerun.py` initializes a new output directory, freezes original
+  analysis source and an instrumented copy, joins group metadata, and prepares
+  independently decoded frame timestamps and SHA-256 hashes.
+- `computeBeamRowProfiles.m` captures unweighted and destination-frame
+  probability-squared weighted row sums from the post-mouse region. Its new
+  motion-height indices are separate from the existing verticalMotionTrace.
+- `auditBeamRowProfiles.m` exports paired debug-video frames/profile sheets.
+- `rerunTaraBeamDataset.m` writes one trial at a time, preserving small stage
+  checkpoints, partial failures, nonfinite values, original frames, event positions,
+  compact indices, and compressed row profiles. It never saves video matrices.
+- `launchTaraBeamRerun.py OUTPUT_DIR --batch-size 12` restarts MATLAB between
+  serial batches and skips any trial with a status record, including failed/partial
+  outcomes. Inspect those records explicitly before planning a retry.
+- `finalizeTaraBeamRerun.m` validates saved events/profiles, aggregates comparisons,
+  and plots D0/D14 event counts per crossing visiting each common position bin.
+
+Initialize by exporting the struct from
+`/Users/yoe/Downloads/groupingMetadata_TMCS2_TMCS3.mat` as `grouping_metadata.json`
+in the new result folder, then run `prepareTaraBeamRerun.py OUTPUT_DIR`.
+Copy `rerunTaraBeamDataset.m`, `computeBeamRowProfiles.m`, and
+`auditBeamRowProfiles.m` to that folder's `code_snapshot` before launching.
+The launcher requires a `storage_approval.json` with the explicitly approved
+`maxNewBytes` (3,000,000,000 for this run); never infer future approval from it.
+Finalization: MATLAB `addpath('tests'); finalizeTaraBeamRerun(OUTPUT_DIR)`.
+All thresholds, source roots and reference filenames are explicit in the code.
+
+These are provenance-specific workflow scripts, not an automatic startup suite.
+Review hardcoded paths and choose a new output destination before reproducing a
+completed review; some figure/report helpers replace files in their configured
+review folder. Preparation and launch commands perform work when executed.
+`finishTaraBeamRerun.py` additionally sends Taildrop messages/files using an external
+`delivery_plan.json` after its visual-review gate; run it only with explicit delivery
+authorization. No device credentials or delivery plans are stored in this repository.
+
+
+## Exploratory D0 entrance review (2026-11-07)
+
+Canonical review: `/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_entry_review_20261107` (about 28 MB). Read `FINDINGS.txt`, `METHODS_AND_RESULTS.txt`, or open `review.html`. Original videos and the prior canonical rerun remain unchanged. No bulk scratch was used.
+
+The post-hoc camera-field bin is `[0.90,0.95)`. Reviewed 37 events and 10 non-event windows from 13 mice, 11 cages and 21 trials, with both cohorts in every group. Intermediate detector captures exactly match saved traces, speeds, centroids, frame mappings and event intervals for all 21 trials. All 124 eligible D0 crossings contribute to exposure/speed summaries. Preserve mouse/cage identifiers: frames/events are not independent replicates.
+
+The analysis separates pre-speed unweighted/weighted under-bar movement, speed adjustment, smoothing and trial baseline normalization. Low-speed exposure differs across groups; common-speed reweighting is a descriptive frame-exceedance calculation, not corrected slip counts. Exactly zero speed can cause Inf/NaN intermediates subsequently converted to zero. Original code/settings were not repaired or changed. See the report for visual uncertainty and sampling limitations.
+
+Reproduction uses Python with NumPy/Pillow, `/opt/homebrew/bin/ffmpeg` and `ffprobe`, and MATLAB R2024b. Scripts have explicit canonical paths; adapt only with documented provenance. Run from repository root, in order:
+
+1. `reviewBeamEntrance.py` (primary sample, frame sheets, slow clips and exposure)
+2. `addLowSpeedEntranceControls.py` (four additional controls; refuses duplicate addition)
+3. `summarizeEntranceReview.py` (joins the preserved observation JSON; camera checks and clip validation)
+4. MATLAB `checkEntranceNumerics` (exact saved crop geometry and isolated numerical check)
+5. `illustrateEntranceDetectorBand.py` (source-frame band overlay and continuous target clip)
+6. `prepareEntranceDetectorAudit.py`, then `launchEntranceDetectorAudit.py` (serial batches; original frozen dependencies; only compact intermediates)
+7. `analyzeEntranceDetectorStages.py`
+8. MATLAB `plotEntranceDetectorStages`
+9. `buildEntranceReviewReport.py`
+
+The recorded observations are qualitative source-sequence judgments, not automatically regenerated biological ground truth. The instrumented detector validates exact agreement before saving successful output. The first diagnostic batch had a capture-code placement error; failed attempt records were preserved and all four retries passed after correcting instrumentation. Current preparation code contains that correction.
+
+Keep only these small helpers, observation/report source and instructions in Git. Clips, figures, MAT/CSV products, logs, and all generated result folders belong in the canonical external review folder. No new bulk scratch is safe-to-delete by implication. Internal free space was about 35 GiB before and 31 GiB after; products were external, with transient OS/MATLAB memory/swap activity on the internal disk.
