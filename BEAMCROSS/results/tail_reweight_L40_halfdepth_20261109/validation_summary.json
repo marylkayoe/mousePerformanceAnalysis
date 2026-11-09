@@ -1,0 +1,20 @@
+{
+  "trials": 377,
+  "statusCounts": {
+    "complete": 377
+  },
+  "originalReconstructionPassCounts": {
+    "OldTotalMatch": 377,
+    "OldAboveMatch": 377,
+    "OldBelowMatch": 377
+  },
+  "independentlyAuditedCSVFrameRows": 388616,
+  "maximumAbsoluteNormalizedReconstructionErrors": {
+    "OldTotalMaxError": 1.00957860027506e-06,
+    "OldAboveMaxError": 4.31138461820524e-07,
+    "OldBelowMaxError": 4.00059454719326e-06
+  },
+  "sourceRoot": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_events_traces_L40_20261106",
+  "outputRoot": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_tail_reweight_L40_halfdepth_20261109",
+  "gitHead": "4ac9dd0fca5adc2359d597bf4af070b143c31180"
+}

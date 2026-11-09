@@ -25,9 +25,17 @@ stems followed by `_tail_debug_weights.mp4`. Exact-path exceptions in
 copies remain ignored. `debug/manifest.json` records canonical paths, sizes and
 verified SHA-256 checksums. Canonical results on ShosaiData remain unchanged.
 
-These movies show the **existing L40 weighting**, including the below-bar cubic
-ramp that starts near zero beneath the beam. That weighting is under review;
-these are not outputs of a corrected reanalysis.
+These movies show the **old L40 weighting**, including the below-bar cubic
+ramp that starts near zero beneath the beam. The corrected traces for all 377
+trials are now in [the repository results folder](../results/tail_reweight_L40_halfdepth_20261109/README.md).
+The movies have not been regenerated with the new weighting.
+
+**Known export defect:** the sedentary crop/debug movies contain diagonal black
+stripes and displaced image regions introduced during crop-MP4 export. The
+source frames and lossless analysis PNGs checked at original frames 1169–1170
+are clean; saved motion/height measurements match the clean analysis crops.
+Do not use the movie pixels as measurement input or final illustrations.
+See the [audit report](../results/tail_reweight_L40_halfdepth_20261109/stripe_audit/REPORT.md).
 
 ## Debug views and screenshot selection
 

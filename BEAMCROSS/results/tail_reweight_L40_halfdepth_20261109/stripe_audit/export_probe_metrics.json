@@ -1,0 +1,27 @@
+{
+  "gray234": {
+    "mean_absolute_error": 39.217888696821284,
+    "max_absolute_error": 255.0,
+    "pixels_error_over_50": 16724
+  },
+  "rgb234": {
+    "mean_absolute_error": 39.217888696821284,
+    "max_absolute_error": 255.0,
+    "pixels_error_over_50": 16724
+  },
+  "gray240": {
+    "mean_absolute_error": 0.8325890713531163,
+    "max_absolute_error": 6.0,
+    "pixels_error_over_50": 0
+  },
+  "crop_movie_ffmpeg": {
+    "mean_absolute_error": 39.1676870258331,
+    "max_absolute_error": 255.0,
+    "pixels_error_over_50": 16723
+  },
+  "crop_movie_matlab": {
+    "mean_absolute_error": 38.23597906463075,
+    "max_absolute_error": 255.0,
+    "pixels_error_over_50": 16702
+  }
+}

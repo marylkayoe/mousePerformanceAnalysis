@@ -1,0 +1,14 @@
+{
+  "clean_png_pair": {
+    "total_probability_weighted_difference": 359.209906405953,
+    "motion_weighted_height": 56.62757003643582,
+    "above_raw": 96.7939291537914,
+    "below_raw": 24.42199773720676
+  },
+  "corrupted_movie_pair": {
+    "total_probability_weighted_difference": 293.7109827531631,
+    "motion_weighted_height": 49.21072145227207,
+    "above_raw": 85.25910951931289,
+    "below_raw": 15.06536906672354
+  }
+}
