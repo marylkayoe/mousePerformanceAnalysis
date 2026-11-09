@@ -1,0 +1,20 @@
+[
+  {
+    "file": "TMCS3_S09_T3_C03_BB_D14_20260305_THT_TRIAL2_gray.mp4",
+    "group": "sedentary",
+    "bytes": 3712607,
+    "sha256": "02d2be932724fce7b0751e7305172e89fb5ae2b74c8305e6a4f5091633f4e6a2",
+    "source": "/Volumes/ShosaiData/DATA/Tara/DATA/BB/TMCS2-3_badRemoved_allTrials_aviToGray_exclMiceRemoved/TMCS3_S09_T3_C03_BB_D14_20260305_THT_TRIAL2_gray.mp4",
+    "firstFrame": "659",
+    "lastFrame": "1509"
+  },
+  {
+    "file": "TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL2_gray.mp4",
+    "group": "run",
+    "bytes": 3433544,
+    "sha256": "c647c4df015ce511dc4d174129f139cabd966ae54c7fb15a664b8d44de7dcf27",
+    "source": "/Volumes/ShosaiData/DATA/Tara/DATA/BB/TMCS2-3_badRemoved_allTrials_aviToGray_exclMiceRemoved/TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL2_gray.mp4",
+    "firstFrame": "685",
+    "lastFrame": "1362"
+  }
+]

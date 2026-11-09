@@ -1,0 +1,14 @@
+[
+  {
+    "file": "TMCS3_S09_T3_C03_BB_D14_20260305_THT_TRIAL2_gray_tail_debug_weights.mp4",
+    "source": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_tail_examples_L40_20261109/TMCS3_S09_T3_C03_BB_D14_20260305_THT_TRIAL2_gray.mp4/tail_debug_weights.mp4",
+    "bytes": 2861362,
+    "sha256": "ef0e1f4c24ca8bee4f8ab0960b06e7ff3b3919e942a9cb642107dde08249e57c"
+  },
+  {
+    "file": "TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL2_gray_tail_debug_weights.mp4",
+    "source": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_tail_examples_L40_20261109/TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL2_gray.mp4/tail_debug_weights.mp4",
+    "bytes": 2326670,
+    "sha256": "6297a3039a8b25c49e6e58b3255d1d2cd48be9c278c4e7800d003a01fb0fff64"
+  }
+]
