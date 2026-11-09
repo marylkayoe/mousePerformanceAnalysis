@@ -1,0 +1,14 @@
+{
+  "inputChecksums": {
+    "/Volumes/ShosaiData/DATA/Tara/DATA/BB/TMCS2-3_badRemoved_allTrials_aviToGray_exclMiceRemoved/TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL2_gray.mp4": "c647c4df015ce511dc4d174129f139cabd966ae54c7fb15a664b8d44de7dcf27",
+    "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_tail_examples_L40_20261109/TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL2_gray.mp4/weights_and_mapping.mat": "d3f35049d7166bee2c7c7e1b93c075ebbea92fc9e88cacf2634ff8f90d7c2451",
+    "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_events_traces_L40_20261106/trials/TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL2_gray.mp4.mat": "5dc1045a41ad6c7606d0bfac1ebb847dc008822981619d641ea0bc23049fc8dd",
+    "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_events_traces_L40_20261106/trials/TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL2_gray.mp4.profiles.mat": "6d564e285ee0aea168d81534bd0777fd72297d96e3a53eb8b8b6ed96c365e736",
+    "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_tail_reweight_L40_halfdepth_20261109/trials/TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL2_gray.mp4.mat": "d47e3d143a9d06262ef5a617d47c7050993e2317ecac836f8594b7c72b39bd51"
+  },
+  "gitHead": "1ee3eac23d040dfc4cf000ffabf0f4de9e5562e8",
+  "reproductionScripts": [
+    "tests/exportRunningTailColumns.m",
+    "tests/validateRunningTailColumns.py"
+  ]
+}

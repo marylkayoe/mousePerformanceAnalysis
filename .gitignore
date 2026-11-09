@@ -49,3 +49,6 @@ data/GMD2_A2_RR_D07_2023_05_31_THT.mp4
 # Two explicitly approved tail-debug illustrations (existing L40 weighting)
 !/BEAMCROSS/example-videos/debug/TMCS3_S09_T3_C03_BB_D14_20260305_THT_TRIAL2_gray_tail_debug_weights.mp4
 !/BEAMCROSS/example-videos/debug/TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL2_gray_tail_debug_weights.mp4
+
+# User-approved clean running-example crop export
+!/BEAMCROSS/results/running_column_export_L40_halfdepth_20261109/post_mouse_crop_clean.mp4

@@ -131,3 +131,26 @@ Reproduction uses Python with NumPy/Pillow, `/opt/homebrew/bin/ffmpeg` and `ffpr
 The recorded observations are qualitative source-sequence judgments, not automatically regenerated biological ground truth. The instrumented detector validates exact agreement before saving successful output. The first diagnostic batch had a capture-code placement error; failed attempt records were preserved and all four retries passed after correcting instrumentation. Current preparation code contains that correction.
 
 Keep only these small helpers, observation/report source and instructions in Git. Clips, figures, MAT/CSV products, logs, and all generated result folders belong in the canonical external review folder. No new bulk scratch is safe-to-delete by implication. Internal free space was about 35 GiB before and 31 GiB after; products were external, with transient OS/MATLAB memory/swap activity on the internal disk.
+
+## Running-example per-column export (2026-11-09)
+
+Canonical export:
+`/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_running_column_export_L40_halfdepth_20261109`.
+For `TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL2_gray.mp4`, this contains
+678-by-226 frame-by-column above-bar and corrected below-bar raw contribution
+matrices in MAT/CSV, exact destination-frame probability weights and crop column
+coordinates, frame mapping and invalid masks. Below weights are 1 at the first
+below-bar row, linear to 2 at half-depth, then constant. All below sums reproduce
+the saved `NewBelowRaw` within `1e-6 + 1e-6*abs(reference)`; maximum absolute
+error is 4.21562e-6. Above contributions match the original export exactly.
+
+Run MATLAB `exportRunningTailColumns`, then Python
+`validateRunningTailColumns.py` (NumPy/Pillow, FFmpeg required). Select a fresh
+destination before rerunning. Saved crop coordinates and probabilities are
+reused; tracking is not run. Source frames are decoded with the original MATLAB
+reader convention and streamed directly to FFmpeg, avoiding MATLAB's problematic
+MPEG-4 export. The FFV1 grayscale MKV is lossless and all 678 decoded frame hashes
+match the analysis crops. The H.264 MP4 is a clean lossy viewing copy. Both are
+226 wide by 356 high, original frames 685–1362, 30 fps playback; original source
+timestamps are in the mapping CSV. Existing source/results are unchanged.
+This separate external export is approximately 19 MB and uses no bulk scratch.

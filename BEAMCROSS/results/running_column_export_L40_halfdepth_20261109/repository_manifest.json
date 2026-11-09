@@ -1,0 +1,118 @@
+{
+  "canonicalRoot": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_running_column_export_L40_halfdepth_20261109",
+  "copiedFiles": [
+    {
+      "path": "README.md",
+      "bytes": 5389,
+      "sha256": "58cf3764f9336e48eb173703e2f9ab75b5d31c2b41a6cabbb6a48912e5c708a1"
+    },
+    {
+      "path": "above_contributions_frame_by_column.csv",
+      "bytes": 1924791,
+      "sha256": "3500bb1774f4815a52d1d76f868c01aaee9deae5513390528bd5952d3284acc5"
+    },
+    {
+      "path": "clean_mp4_decoded_f1103.png",
+      "bytes": 23207,
+      "sha256": "d8d92eccf22ea1d35e9612f3ac79048d41d602c3f74d8d8e63c0e88d35e30551"
+    },
+    {
+      "path": "clean_mp4_decoded_f1216.png",
+      "bytes": 20668,
+      "sha256": "3b1703eb959e57347bb733ee580f53deba3e3792cdb12090725efb634bde5bdd"
+    },
+    {
+      "path": "clean_mp4_decoded_f854.png",
+      "bytes": 22706,
+      "sha256": "137cfebe03f58a5052953c67f23e0bee8ec0eb51447a930de53c3e0a05fc39cd"
+    },
+    {
+      "path": "column_contributions.mat",
+      "bytes": 1778359,
+      "sha256": "8cf0fa2f2008147350b8595990ef83bca7d016e61a1e56025a1204cb2af869d0"
+    },
+    {
+      "path": "crop_f1033.png",
+      "bytes": 24183,
+      "sha256": "c32197a80819b77124b55a8f453429dfcf21ee3b361d749a63f22079dd09bc65"
+    },
+    {
+      "path": "crop_f1103.png",
+      "bytes": 23180,
+      "sha256": "2b1f0c23b5aaee450c370eff83152323e15662ebf21de2027c54ce00f12eee22"
+    },
+    {
+      "path": "crop_f1216.png",
+      "bytes": 22356,
+      "sha256": "05a3e39fc2cb64fbc70d36eb202ac1b547687d5e32556dbff8ef2c0ee35065e4"
+    },
+    {
+      "path": "crop_f854.png",
+      "bytes": 23203,
+      "sha256": "f3e9924f433dcc09c93b10ac8b380b2ca3b7f4409c499b5b8665169241569f7d"
+    },
+    {
+      "path": "crop_f967.png",
+      "bytes": 22219,
+      "sha256": "00687b2e8ab6f6cbf77732f8007f119a821a3fac356626e0cb93c4d7f8f77f17"
+    },
+    {
+      "path": "destination_probability_squared_frame_by_column.csv",
+      "bytes": 785160,
+      "sha256": "5c99c83fcb17860444976f3c634e1b09395f1f6083c62e6976b6705ba9e1e719"
+    },
+    {
+      "path": "frame_mapping.csv",
+      "bytes": 108014,
+      "sha256": "8f694cb1fa6f723b757dfdb4922bc6205edcf6109879c62f94c2d21512b6ffe5"
+    },
+    {
+      "path": "new_below_contributions_frame_by_column.csv",
+      "bytes": 1916623,
+      "sha256": "86749b7d3c01050894b257a6f1a27018a7aa8052e9a82bdd5b61423135dcc355"
+    },
+    {
+      "path": "numerical_validation.json",
+      "bytes": 563,
+      "sha256": "eb60c445f81f7e9bfaecc15d4ce564973cd34253bcebb8c97c4b125b36824300"
+    },
+    {
+      "path": "post_mouse_crop_clean.mp4",
+      "bytes": 612165,
+      "sha256": "ecb4b01530a01102ebc94c65863b596fa979e1b5786db7acdd53af4293a53531"
+    },
+    {
+      "path": "post_mouse_crop_lossless.mkv",
+      "bytes": 10980544,
+      "sha256": "a7ff29d1dca9599af091e2d39c16fa076b111c7c25c5045716221f222eaa5f32"
+    },
+    {
+      "path": "provenance.json",
+      "bytes": 1321,
+      "sha256": "58ddef79427eb419582398b27b90c3a84f08233e99d9e0113d9f70f4cc84b445"
+    },
+    {
+      "path": "source_columns_frame_by_column.csv",
+      "bytes": 663712,
+      "sha256": "38b6bf8ae8c590e60ecc05ef533a0d74bb7bb0d3630df3e52ddfceeee17677d9"
+    },
+    {
+      "path": "video_and_csv_validation.json",
+      "bytes": 3323,
+      "sha256": "6916e06ff5baf8b28a100f6205a99a59be366c3af1daca579e72e7b0e5591ec3"
+    },
+    {
+      "path": "video_validation_by_frame.csv",
+      "bytes": 27421,
+      "sha256": "752b602ce7ec6b069aae1122d048bd021e21ac1fa6a2997bbf2a734c0f7516b4"
+    }
+  ],
+  "excluded": [
+    "artifact_checksums.json",
+    "exportRunningTailColumns.m",
+    "ffmpeg.log",
+    "run.log",
+    "validateRunningTailColumns.py"
+  ],
+  "note": "Reproduction scripts are tracked in tests/. README.md is an unchanged copy of the canonical methods; see REPOSITORY_NOTES.md for repository-specific paths."
+}

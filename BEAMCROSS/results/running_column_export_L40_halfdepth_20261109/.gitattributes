@@ -1,0 +1,2 @@
+# Preserve canonical CSV bytes/checksums, including standard CRLF record endings.
+*.csv -text whitespace=cr-at-eol
