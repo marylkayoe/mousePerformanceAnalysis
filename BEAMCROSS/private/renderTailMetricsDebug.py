@@ -41,6 +41,16 @@ for k in valid:
 colmax=max(max(max(above[k]),max(below[k])) for k in valid)
 rowmax=max(max(q[k]) for k in valid)
 if not colmax or not rowmax: raise ValueError('Cannot plot a zero motion scale')
+window=meta.get('displaySpatialWindow',1)
+if not isinstance(window,int) or window<1 or window%2!=1:
+    raise ValueError('displaySpatialWindow must be a positive odd number')
+def display_spatial(values):
+    # Display-only smoothing along source-image columns; no temporal mixing.
+    # Keep the unsmoothed colmax, so this doesn't rescale either trace.
+    if window==1: return values
+    radius=window//2
+    return [sum(values[max(0,i-radius):min(len(values),i+radius+1)]) /
+            (min(len(values),i+radius+1)-max(0,i-radius)) for i in range(len(values))]
 W,H=w*scale,h*scale
 if W%2 or H%2: raise ValueError('Scaled output dimensions must both be even')
 bar=scale*(meta['barTop']-1); bar_bottom=scale*(meta['barTop']-1+meta['barWidth'])
@@ -95,7 +105,7 @@ try:
         if k in validset:
             for vector,color,base,direction in ((above[k],green,bar,-1),(below[k],red,bar_bottom,1)):
                 last=None
-                for x,v in enumerate(vector):
+                for x,v in enumerate(display_spatial(vector)):
                     pt=(x*scale,base+direction*scale*75*v/colmax)
                     if last is not None:line(frame,*last,*pt,color,2)
                     last=pt
@@ -142,4 +152,4 @@ try:
 except BaseException:
     decoder.kill(); encoder.kill(); decoder.wait(); encoder.wait()
     raise
-print(f'Rendered {n} frames; {len(valid)} valid; {n-len(valid)} flagged or nonfinite/no-motion; per-frame crop hashes verified.')
+print(f'Rendered {n} frames; {len(valid)} valid; {n-len(valid)} flagged or nonfinite/no-motion; per-frame crop hashes verified; display-only spatial window: {window} columns.')

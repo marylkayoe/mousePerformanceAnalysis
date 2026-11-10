@@ -1,7 +1,7 @@
 folder=fileparts(mfilename('fullpath'));
 t=readtable(fullfile(folder,'group-position-bin-summary.csv'),'TextType','string');
 groups={'sedentary','walk','run'}; days=[0 14]; colors=[0 0 0;0 141 63;8 100 207]/255; totals=[12 12 18];
-for spread={'sem','sd'}
+for spread={'sem'}
  measure=spread{1}; labels=upper(measure);
  for view={'by-day','by-group'}
   mode=view{1};

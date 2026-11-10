@@ -1,5 +1,7 @@
 # Balance-beam draft figures
 
+For the current Mac mini figure-making handoff, see [HANDOFF.md](HANDOFF.md).
+
 ## Draft publication tables
 
 These are editable CSV drafts, with cage / mouse / trial counts and group
@@ -14,6 +16,8 @@ adjustment across the three group pairs for each measure.
 The speed and posture rows in these tables are still in pixels and pixels/s,
 not the millimeter units used in the newer spatial figures. These are drafts,
 not finalized publication tables; review the statistical families and units.
+Earlier compact and wide summary CSVs, including exploratory and D7 values,
+are retained in `speed-presentation/exploratory-tables/`.
 
 ## Transfer data
 
@@ -28,6 +32,17 @@ scripts use these repository copies, rather than temporary files.
 
 ## Speed presentation
 
+### Main paper time points
+
+The intended main-paper behavioral presentation is D0 (baseline) and D14,
+because IO measurements are available at D14 and the paper focuses on IO.
+Behavior was also measured at D7; retain and report D7 for the paper's
+behavioral outcomes in the supplementary material, describe all three testing
+days in Methods, and do not imply a steady D0-to-D14 trajectory. This display
+choice was discussed after inspecting exploratory results, not presented as a
+preregistered plan. Exploratory tail motion-height results include a possible
+D7 pattern, but motion height is not anatomically tracked tail position.
+
 For the current speed presentation, retain three measures: combined crossing
 duration, whole-crossing speed while locomoting, and first-to-last change in
 locomoting speed within a day. The user confirmed that allocation to groups
@@ -40,18 +55,23 @@ each measure and comparison period. Overall p values are unadjusted. No
 correction is applied across measures or days. D14 group differences and
 D0-to-D14 group differences in change answer distinct questions.
 
+The reviewed presentation folders retain SEM trajectory figures only. For
+posture, the uncentered by-day trajectory and the mean-height statistics figure
+are retained; trial-centered and SD trajectory exports were removed. For speed,
+the by-day and by-group trajectories and locomoting-speed statistics remain.
+
 The position-dependent speed profile peaks in the middle of the beam. Keep the
 absolute speed-versus-position plots as descriptive views of that pattern.
+For presentation, pool the daily crossings rather than placing three beam
+traversals end-to-end: the concatenated layout can be mistaken for three bars.
+The older concatenated figure exports were removed; the underlying data remain.
 
 For the within-day slowing analysis, use **whole-crossing speed while
-locomoting**: compare each mouse's first and last retained trials. Keep the
-middle-third analysis as an exploratory comparison rather than the main test.
-
-- `within-day-slowdown.fig` / `.png`: locomoting speed for successive trials.
-- `first-last-speed-change-statistics.fig` / `.png`: first-to-last percentage
-  change, with mice, cage means and cage-aware group comparisons.
-- `speed-presentation/speed-by-group-mm.*`: absolute forward-speed profiles
-  by position, including stops.
+locomoting**: compare each mouse's first and last retained trials. Earlier
+middle-third and older-color speed, slowdown and duration figure exports were
+removed during the figure review; the analysis data and presentation tables
+are retained. `speed-presentation/speed-by-group-mm.*` shows absolute
+forward-speed profiles by position, including stops.
 
 One mouse has only two retained D0 trials; the first-to-last change uses those
 two. The displayed statistical comparisons are exploratory, and the correction
