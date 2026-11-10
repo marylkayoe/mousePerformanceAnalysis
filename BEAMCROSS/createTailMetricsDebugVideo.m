@@ -7,6 +7,8 @@ function info = createTailMetricsDebugVideo(exportFolder, profileFile, outputFil
 % does not infer column profiles or crop video from scalar tail traces.
 % Options: MillimetersPerPixel (default 700/1201, Tara calibration),
 % PlaybackFPS (30), ScaleBarMM (20), DisplayScale (2).
+% WorkFolder: optional fresh folder for retained renderer inputs on the result
+% volume. Omit to use the original temporary-directory behavior.
 arguments
  exportFolder (1,:) char
  profileFile (1,:) char
@@ -15,9 +17,14 @@ arguments
  opts.PlaybackFPS (1,1) double {mustBePositive,mustBeFinite} = 30
  opts.ScaleBarMM (1,1) double {mustBePositive,mustBeFinite} = 20
  opts.DisplayScale (1,1) double {mustBeInteger,mustBePositive} = 2
+ opts.WorkFolder (1,:) char = ''
 end
 assert(~isfile(outputFile),'Output exists; choose a new file to avoid overwriting it.');
 assert(endsWith(lower(outputFile),'.mp4'),'Output must have an .mp4 extension.');
+prepStatus=fullfile(exportFolder,'preparation_status.json');
+if isfile(prepStatus)
+ state=jsondecode(fileread(prepStatus));assert(strcmp(state.status,'complete'),'Preparation is incomplete or failed; refusing to render.');
+end
 crop=fullfile(exportFolder,'post_mouse_crop_lossless.mkv'); map=fullfile(exportFolder,'frame_mapping.csv');
 assert(isfile(crop)&&isfile(map)&&isfile(profileFile),'Missing crop, frame mapping, or row-profile file.');
 a=load(fullfile(exportFolder,'column_contributions.mat'),'E'); b=load(profileFile,'P'); E=a.E; P=b.P;
@@ -32,7 +39,11 @@ assert(isfield(E,'rowProfileMatches')&&all(E.rowProfileMatches(:))&&isfield(E,'n
 m=readtable(map,'TextType','string'); assert(height(m)==n && isequal(double(m.OriginalFrame(:)),double(E.originalFrames(:))) && isequal(logical(m.InvalidFramePair(:)),logical(E.invalidFramePairMask(:))),'Frame mapping differs.');
 assert(ismember('LosslessGrayFrameSHA256',m.Properties.VariableNames),'Crop frame hashes are required.');
 assert(all(isfinite(double(P.rowHeightRelativeToBar(:)))) && isequal(double(P.rowHeightRelativeToBar(:)),double(E.barTopOriginal-(1:E.height)')),'Row height convention differs.');
-work=tempname;mkdir(work);cleaner=onCleanup(@()rmdir(work,'s')); %#ok<NASGU>
+if isempty(opts.WorkFolder)
+ work=tempname;mkdir(work);cleaner=onCleanup(@()rmdir(work,'s')); %#ok<NASGU>
+else
+ work=opts.WorkFolder;assert(~isfolder(work)&&~isfile(work),'WorkFolder exists; choose a new folder.');mkdir(work);
+end
 writematrix(double(P.probabilityWeighted)',fullfile(work,'rows.csv'));
 writematrix(double(E.aboveContributions),fullfile(work,'above.csv'));
 writematrix(double(E.newBelowContributions),fullfile(work,'below.csv'));
@@ -43,6 +54,7 @@ workOutput=fullfile(work,'result.mp4');cmd=sprintf('python3 %s %s %s %s %s %s',q
 [status,out]=system(cmd);assert(status==0,'Debug rendering failed: %s',out);
 [ok,msg]=movefile(workOutput,outputFile);assert(ok,'Could not save video: %s',msg);
 info=struct('outputFile',outputFile,'sourceFilename',E.fileName,'frames',n,'playbackFPS',opts.PlaybackFPS,'millimetersPerPixel',opts.MillimetersPerPixel,'renderLog',strtrim(out));
+if ~isempty(opts.WorkFolder),info.retainedWorkFolder=work;end
 end
 function s=quote(s)
 % POSIX shell quoting for paths.

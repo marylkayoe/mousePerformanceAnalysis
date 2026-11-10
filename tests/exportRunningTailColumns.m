@@ -1,4 +1,6 @@
 function exportRunningTailColumns
+% Historical fixed-runner exporter. For on-demand trials use
+% BEAMCROSS/prepareTailMetricsTrial or createTailMetricsDebugForTrial instead.
 % Reuse validated crop coordinates and probability weights; no tracking.
 root='/Volumes/ShosaiData/DATA/Tara/RESULTS';
 out=fullfile(root,'balance_beam_running_column_export_L40_halfdepth_20261109');

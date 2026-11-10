@@ -246,8 +246,10 @@ Optional name-value arguments include `MillimetersPerPixel`, `PlaybackFPS`,
 The renderer needs MATLAB, Python 3, FFmpeg, and macOS Core Text/clang. It
 refuses to overwrite the output. The scalar traces and row profiles alone
 cannot provide the per-column overlays or background video: those require a
-separate validated, trial-matched crop/column export. To date such an export
-has been prepared for the runner example. Per-trial row profiles are stored
+separate validated, trial-matched crop/column export. Generalized preparation is
+now available through `BEAMCROSS/createTailMetricsDebugForTrial.m`; see
+`BEAMCROSS/TAIL_METRICS_WORKFLOW.md` for reconstruction checks, two-trial validation
+and current limits. Per-trial row profiles are stored
 in the original external rerun results rather than the smaller reweighting
 copy in this repository.
 

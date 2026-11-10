@@ -154,3 +154,69 @@ match the analysis crops. The H.264 MP4 is a clean lossy viewing copy. Both are
 226 wide by 356 high, original frames 685–1362, 30 fps playback; original source
 timestamps are in the mapping CSV. Existing source/results are unchanged.
 This separate external export is approximately 19 MB and uses no bulk scratch.
+
+## Selected tail-metrics movies
+
+`runSelectedTailMovies.m` processes the user-selected nine filenames and an
+additional walk D0 trial 3, reading `selection_manifest.json` from
+`/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_selected_tail_movies_20261109`.
+Each trial uses `createTailMetricsDebugForTrial(...,ReconstructWeights=true)`.
+`retrySelectedTailMovies.m` writes any failed trials to fresh retry folders;
+initial logs remain intact. `reviewSelectedTailMovies.py` independently validates
+complete movie decoding, frame counts, full-profile median and five-frame
+smoothing, then builds a crop-only local gallery. `reportSelectedTailMovies.py`
+writes the per-crossing findings and output checksums after visual inspection.
+Scripts use fixed fresh destinations; adjust paths together before a new run.
+No outputs are implicitly moved into Git or deleted. The existing runner D14
+trial 2 comparison is retained by verified copy of its prior validated movie.
+
+### Tracking-start presentation revision (2026-11-09)
+
+`createTailTriptychs.py --trim-hold` starts each panel at the first saved
+`InvalidOrUnusable=0` frame and holds its final image when shorter than the
+other panels. Later invalid frames remain. `validateTrimmedTailTriptychs.py`
+checks timing, first-frame validity, decoded final-frame holds and reference
+images, and exports trimmed individual movies (including alternate walk D0).
+Canonical outputs: `/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_tail_triptychs_tracking_start_20261109`.
+Original movies remain intact. Original frame/time mappings and held-frame flags
+are in the presentation CSVs; per-trial start offsets are in the manifest.
+MP4-only delivery: Proton Drive `WORK/DATA/Tara_selected_tail_metrics_debug_MP4_20261109/Tracking_start_presentations`.
+
+Runner shared-scale comparison: `createTailTriptychs.py --shared-runner-scale` uses one green/red maximum across full valid D0/D7/D14 trials, preserving tracking-start timing and last-frame holds. Validation: `validateSharedRunnerScale.py`. Canonical results: `/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_runner_shared_scale_20261109`. Previous per-trial-scaled movies are retained.
+
+### Per-mouse shared green/red presentation scale
+
+Run `python3 tests/createTailTriptychs.py --shared-scale` with NumPy, Pillow,
+FFmpeg and ffprobe available. This uses the selected-movie manifest's requested
+D0/D7/D14 trials. `--source-root PATH` selects another prepared input root;
+`--output PATH` requires a fresh external destination. Each group must select
+exactly one mouse and one crossing per day. The default new destination is
+`/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_mouse_shared_scale_20261109`.
+
+For each mouse, the denominator is the maximum of both raw above- and corrected
+below-bar column contributions across all columns and all renderer-valid frames
+of all three full trials. It is computed before start trimming. Each panel's
+stroke displacement is `150 * rawContribution / sharedMaximum` output pixels
+at the existing 2x display scale, before raster rounding. No MAD normalization,
+background subtraction, suppression or extra smoothing is applied. Invalid flags,
+purple per-trial profile scaling, the five-frame-smoothed black height marker,
+headings, padding, beam alignment and D0-only scale bar remain unchanged.
+The option starts panels at their first valid frame, plays at 30 fps, and holds
+shorter panels' last frames. It never overwrites old versions.
+
+The manifest records the three original full-trial maxima and all three display
+denominators. CSV mappings retain original frames/times, invalid and hold flags.
+Validate with `python3 tests/validateSharedRunnerScale.py OUTPUT_PATH` (the legacy
+filename now supports all three mouse presentations). It independently recomputes
+maxima, verifies identical frame mapping and panel geometry, checks first-frame
+validity and every held panel, fully decodes the movies, compares encoding against
+reference images, and checks that reference pixel changes from the per-trial
+version are confined to green/red strokes. Previous movie hashes are rechecked.
+
+The original `--trim-hold` per-trial mode and legacy `--shared-runner-scale`
+option remain available. `BEAMCROSS/createTailMetricsDebugVideo.m` remains the
+single-trial renderer and is not modified by this option. No underlying results
+or statistical analyses are changed. Alternate walk D0 trial 3 remains separately
+available under the prior `Tracking_start_presentations/individual_tracking_start`
+Proton folder and canonical tracking-start results. Only the three new MP4s are
+copied to `Per_mouse_shared_scale_presentations` alongside prior Proton versions.

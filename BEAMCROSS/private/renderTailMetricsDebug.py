@@ -38,6 +38,12 @@ for k in valid:
     hi=k+1
     while hi<min(n,k+3) and math.isfinite(medians[hi]): hi+=1
     smoothed[k]=sum(medians[lo:hi])/(hi-lo)
+# Retain inspectable full-profile median values; no near-bar row exclusion.
+with (work/'motion_height.csv').open('w', newline='') as f:
+    writer=csv.writer(f,lineterminator='\n')
+    writer.writerow(['ExportFrame','OriginalFrame','InvalidOrUnusable','WeightedMedianMM','WeightedMedianSmoothed5MM'])
+    valid_indices=set(valid)
+    writer.writerows((k+1,meta['originalFrames'][k],int(k not in valid_indices),medians[k],smoothed[k]) for k in range(n))
 colmax=max(max(max(above[k]),max(below[k])) for k in valid)
 rowmax=max(max(q[k]) for k in valid)
 if not colmax or not rowmax: raise ValueError('Cannot plot a zero motion scale')
@@ -77,6 +83,7 @@ white=bytes((255,255,255));black=bytes((0,0,0));green=bytes((0,155,70));red=byte
 decoder=subprocess.Popen(['ffmpeg','-loglevel','error','-i',str(crop),'-f','rawvideo','-pix_fmt','gray','-'],stdout=subprocess.PIPE)
 encoder=subprocess.Popen(['ffmpeg','-loglevel','error','-y','-f','rawvideo','-pixel_format','rgb24','-video_size',f'{W}x{H}','-framerate',str(meta['fps']),'-i','-','-an','-c:v','libx264','-crf','17','-pix_fmt','yuv420p',str(output)],stdin=subprocess.PIPE)
 validset=set(valid)
+(work/'render_progress.json').write_text(json.dumps({'status':'rendering','framesWritten':0,'totalFrames':n}))
 try:
     for k,m in enumerate(mapping):
         parts=[]; received=0; needed=w*h
@@ -134,6 +141,8 @@ try:
                 dst=((y0+y)*W+x+8)*3;src=y*430*3
                 frame[dst:dst+label_width*3]=label[src:src+label_width*3]
         encoder.stdin.write(frame)
+        if (k+1)%100==0:
+            (work/'render_progress.json').write_text(json.dumps({'status':'rendering','framesWritten':k+1,'totalFrames':n}))
     if decoder.stdout.read(1):raise ValueError('Crop contains more frames than the traces')
     decoder.stdout.close()
     if decoder.wait()!=0:raise RuntimeError('Crop decoder failed')
@@ -142,4 +151,5 @@ try:
 except BaseException:
     decoder.kill(); encoder.kill(); decoder.wait(); encoder.wait()
     raise
+(work/'render_progress.json').write_text(json.dumps({'status':'complete','framesWritten':n,'totalFrames':n}))
 print(f'Rendered {n} frames; {len(valid)} valid; {n-len(valid)} flagged or nonfinite/no-motion; per-frame crop hashes verified.')
