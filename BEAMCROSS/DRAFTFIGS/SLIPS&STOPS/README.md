@@ -4,6 +4,8 @@ The figures and tables summarize Tara's saved results for total slip count,
 total slip magnitude and total stop count across three retained crossings per
 mouse and day. One mouse has only two retained D0 crossings and is excluded
 from the D0 and D14-minus-D0 summaries, but retained on days with three.
+The total slip-magnitude figure exports were removed during figure review;
+their underlying values and table entries remain.
 
 Figures show mice, cage means and mouse group means. Overall p values are
 unadjusted; pairwise p values use Holm correction across the three group
@@ -30,10 +32,14 @@ slips overlapping stops and do not represent the main total-slip outcome.
 - The main slip-count outcome includes detected slips even when they overlap a
   stop. A slip can coincide with, or potentially lead to, stopping; temporal
   overlap alone is not a reason to remove it from the slip count.
+- The separate stop-overlap-excluded slip-count statistics figure was removed
+  during figure review; its `slips-stop-filter-*.csv` sensitivity data remain.
 - The exploratory combined slip-and-stop positional scatters and histograms
   omit slips with any stop overlap for visual clarity when stops are displayed
   as well. These are filtered displays and do not represent all detected
   slips. Their titles and captions should state that omission explicitly.
+  The positional scatter figure exports were removed during figure review;
+  the pooled histograms and underlying event data remain.
 - At the beginning and end of the camera field, part of the mouse may be
   outside the image. As the mouse enters or leaves, the visible silhouette
   changes shape and size, so the measured centroid can move differently from

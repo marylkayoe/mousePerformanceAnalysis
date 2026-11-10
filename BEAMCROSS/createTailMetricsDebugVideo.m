@@ -6,9 +6,9 @@ function info = createTailMetricsDebugVideo(exportFolder, profileFile, outputFil
 % profileFile is the same trial's saved *.profiles.mat (P). This function
 % does not infer column profiles or crop video from scalar tail traces.
 % Options: MillimetersPerPixel (default 700/1201, Tara calibration),
-% PlaybackFPS (30), ScaleBarMM (20), DisplayScale (2).
-% WorkFolder: optional fresh folder for retained renderer inputs on the result
-% volume. Omit to use the original temporary-directory behavior.
+% PlaybackFPS (30), ScaleBarMM (20), DisplayScale (2),
+% DisplaySpatialWindow (1: no smoothing; odd integer in source columns).
+% WorkFolder: optional fresh folder retaining renderer inputs on the result volume.
 arguments
  exportFolder (1,:) char
  profileFile (1,:) char
@@ -18,7 +18,9 @@ arguments
  opts.ScaleBarMM (1,1) double {mustBePositive,mustBeFinite} = 20
  opts.DisplayScale (1,1) double {mustBeInteger,mustBePositive} = 2
  opts.WorkFolder (1,:) char = ''
+ opts.DisplaySpatialWindow (1,1) double {mustBeInteger,mustBePositive} = 1
 end
+assert(mod(opts.DisplaySpatialWindow,2)==1,'DisplaySpatialWindow must be odd.');
 assert(~isfile(outputFile),'Output exists; choose a new file to avoid overwriting it.');
 assert(endsWith(lower(outputFile),'.mp4'),'Output must have an .mp4 extension.');
 prepStatus=fullfile(exportFolder,'preparation_status.json');
@@ -47,13 +49,13 @@ end
 writematrix(double(P.probabilityWeighted)',fullfile(work,'rows.csv'));
 writematrix(double(E.aboveContributions),fullfile(work,'above.csv'));
 writematrix(double(E.newBelowContributions),fullfile(work,'below.csv'));
-metadata=struct('sourceFilename',E.fileName,'width',E.width,'height',E.height,'nFrames',n,'barTop',E.barTopOriginal,'barWidth',E.barWidth,'originalFrames',double(E.originalFrames(:))','invalid',logical(E.invalidFramePairMask(:))','mmPerPixel',opts.MillimetersPerPixel,'fps',opts.PlaybackFPS,'scaleBarMM',opts.ScaleBarMM,'displayScale',opts.DisplayScale);
+metadata=struct('sourceFilename',E.fileName,'width',E.width,'height',E.height,'nFrames',n,'barTop',E.barTopOriginal,'barWidth',E.barWidth,'originalFrames',double(E.originalFrames(:))','invalid',logical(E.invalidFramePairMask(:))','mmPerPixel',opts.MillimetersPerPixel,'fps',opts.PlaybackFPS,'scaleBarMM',opts.ScaleBarMM,'displayScale',opts.DisplayScale,'displaySpatialWindow',opts.DisplaySpatialWindow);
 fid=fopen(fullfile(work,'metadata.json'),'w');assert(fid>=0);fwrite(fid,jsonencode(metadata),'char');fclose(fid);
 here=fileparts(mfilename('fullpath'));python=fullfile(here,'private','renderTailMetricsDebug.py');font=fullfile(here,'private','tailDebugLabel.c');
 workOutput=fullfile(work,'result.mp4');cmd=sprintf('python3 %s %s %s %s %s %s',quote(python),quote(work),quote(crop),quote(map),quote(font),quote(workOutput));
 [status,out]=system(cmd);assert(status==0,'Debug rendering failed: %s',out);
 [ok,msg]=movefile(workOutput,outputFile);assert(ok,'Could not save video: %s',msg);
-info=struct('outputFile',outputFile,'sourceFilename',E.fileName,'frames',n,'playbackFPS',opts.PlaybackFPS,'millimetersPerPixel',opts.MillimetersPerPixel,'renderLog',strtrim(out));
+info=struct('outputFile',outputFile,'sourceFilename',E.fileName,'frames',n,'playbackFPS',opts.PlaybackFPS,'millimetersPerPixel',opts.MillimetersPerPixel,'displaySpatialWindow',opts.DisplaySpatialWindow,'renderLog',strtrim(out));
 if ~isempty(opts.WorkFolder),info.retainedWorkFolder=work;end
 end
 function s=quote(s)
