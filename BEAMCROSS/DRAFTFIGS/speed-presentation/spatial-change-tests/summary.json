@@ -1,0 +1,62 @@
+[
+  {
+    "comparison": "run minus sedentary",
+    "permutations": 126,
+    "eligibleBins": 121,
+    "totalBins": 123,
+    "minPointwiseP": 0.007936507936507936,
+    "minSpatialAdjustedP": 0.015873015873015872,
+    "minFamilyAdjustedP": 0.047619047619047616,
+    "significantBins": 1,
+    "cagesByCohort": {
+      "TMCS2": {
+        "run": 5,
+        "sedentary": 2
+      },
+      "TMCS3": {
+        "run": 2,
+        "sedentary": 2
+      }
+    }
+  },
+  {
+    "comparison": "run minus walk",
+    "permutations": 168,
+    "eligibleBins": 121,
+    "totalBins": 123,
+    "minPointwiseP": 0.017857142857142856,
+    "minSpatialAdjustedP": 0.7321428571428571,
+    "minFamilyAdjustedP": 1.0,
+    "significantBins": 0,
+    "cagesByCohort": {
+      "TMCS2": {
+        "run": 5,
+        "walk": 3
+      },
+      "TMCS3": {
+        "run": 2,
+        "walk": 1
+      }
+    }
+  },
+  {
+    "comparison": "walk minus sedentary",
+    "permutations": 30,
+    "eligibleBins": 122,
+    "totalBins": 123,
+    "minPointwiseP": 0.03333333333333333,
+    "minSpatialAdjustedP": 0.6,
+    "minFamilyAdjustedP": 1.0,
+    "significantBins": 0,
+    "cagesByCohort": {
+      "TMCS2": {
+        "walk": 3,
+        "sedentary": 2
+      },
+      "TMCS3": {
+        "walk": 1,
+        "sedentary": 2
+      }
+    }
+  }
+]

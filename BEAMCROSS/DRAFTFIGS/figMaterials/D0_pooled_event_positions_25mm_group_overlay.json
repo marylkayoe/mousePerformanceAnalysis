@@ -1,0 +1,20 @@
+{
+  "units": "Raw event counts; no group rescaling or exposure adjustment",
+  "validation": "Group bins sum exactly to pooled bars",
+  "selection": "Inherited unchanged from createD0EventPositionPreview.py",
+  "group_event_totals": {
+    "sedentary": {
+      "stop": 93,
+      "slip": 174
+    },
+    "walk": {
+      "stop": 67,
+      "slip": 186
+    },
+    "run": {
+      "stop": 102,
+      "slip": 232
+    }
+  },
+  "caveat": "Group sample sizes differ; outlines show contributions, not comparable per-animal event rates."
+}

@@ -1,0 +1,13 @@
+{
+  "source": "analysis-data/speed-absolute-position-data.mat via speed-profile-source.json",
+  "method": "Saved speedRelative absolute profiles; subtract D0 from D14 within mouse at each identical spatial bin, then mean and SEM across mice. No added smoothing; finite paired bins only.",
+  "counts": {
+    "sedentary": 12,
+    "walk": 12,
+    "run": 18
+  },
+  "calibrationMMPerPixel": 0.5828476269775187,
+  "coordinate": "Original camera x descending from1255 to35; distance=(1255-x)*700/1201. Entry-side profile boundary, not independently detected tape mark.",
+  "coverage": "At least half group contributes to displayed bins; no bridging gaps. SEM is descriptive across mice, not cage-adjusted inference.",
+  "statistics": "No new tests; plot does not establish a group difference in change."
+}

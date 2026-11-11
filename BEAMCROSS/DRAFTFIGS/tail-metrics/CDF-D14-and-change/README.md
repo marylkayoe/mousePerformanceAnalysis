@@ -1,0 +1,7 @@
+# Tail CDFs: D14 and paired D14−D0
+
+Reproduce with tests/exportTailCDFValues.m then tests/plotTailCDFs.py. Reads canonical L40 saved row profiles and corrected whole-tail traces; preserves original results. Existing tail bad frames and invalid frame pairs are excluded as missing. Frame values retain NaNs. Height: full probability-weighted motion-profile median relative to bar top; contiguous-valid five-frame smoothing. Motion score: corrected NewWholeNormalized. All retained traversal frames; no tape-position restriction.
+
+Each crossing empirical CDF uses finite frames only; crossings average equally within mouse/day, then mice equally within group. Changes are D14 CDF minus D0 CDF within mouse before averaging. Both days have42 mice; D0 has125 crossings, D14 has126. Values and valid-frame counts are saved. Motion-height index is location of motion, not anatomical stationary-tail position.
+
+Curves evaluate empirical CDFs at1601 fixed display thresholds spanning the full observed range, joined for rendering; no statistical smoothing or clipping. Score axis uses sign(x)*log10(1+abs(x)) to retain negative normalized values and the long positive tail. Tick labels are original scores. Height uses linear mm. Positive changes indicate a greater fraction at or below a threshold at D14. Shading is descriptive paired-mouse SEM, not cage-adjusted or simultaneous confidence. No new significance tests.

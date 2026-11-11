@@ -52,3 +52,7 @@ slips overlapping stops and do not represent the main total-slip outcome.
   `tape-exclusion-sensitivity/README.md` for the paired comparison and its
   limitations. Choose a spatial exclusion based on the measurement and study
   question rather than on whether it changes statistical significance.
+
+## Standalone D0 Illustrator panels
+
+The main folder contains `stop_time_percentage_D0_mouse_cage_comparison`, `slip_count_D0_mouse_cage_comparison`, and `slip_magnitude_D0_mouse_cage_comparison` (SVG, PNG, CSV, JSON). Moved intact from figMaterials on 2026-11-11; generating scripts under tests now target this folder. The magnitude panel is mean slip-event score (42 mice), whereas count and stopped-time percentage retain the three-crossing selection (41 mice). Magnitude filenames and existing labels retain the older terminology.

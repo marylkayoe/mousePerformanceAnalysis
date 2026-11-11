@@ -1,0 +1,28 @@
+{
+  "source": "/Users/yoe/Documents/REPOS/PROJECTS/mousePerformanceAnalysis/BEAMCROSS/DRAFTFIGS/SLIPS&STOPS/stop-time-percentage/mouse-day-values.csv",
+  "sourceSHA256": "077244a1b334f74dc4e7a198ed44a6eecae0e60e83984beb2721c0498bb0d586",
+  "metric": "100 * pooled validated stopped time / pooled tracked traversal time across three retained D0 crossings per mouse",
+  "units": "Percent of tracked traversal time",
+  "counts": {
+    "sedentary": {
+      "mice": 12,
+      "cages": 4,
+      "count": 13.88702253885734
+    },
+    "walk": {
+      "mice": 12,
+      "cages": 4,
+      "count": 8.325333711432977
+    },
+    "run": {
+      "mice": 17,
+      "cages": 7,
+      "count": 8.569793991919152
+    }
+  },
+  "layout": "Circles: mice; diamonds: cage means; bars: equally weighted mouse group means; standard Illustrator style",
+  "exclusion": "TMCS2_S10 has only two D0 crossings; excluded consistently with four-panel figure",
+  "validation": "41 mice, group means exactly match four-panel analysis",
+  "statisticalTests": "Not repeated or annotated; see stop-time-percentage/group-comparisons.csv",
+  "axisMaximum": 40
+}

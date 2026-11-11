@@ -220,3 +220,25 @@ or statistical analyses are changed. Alternate walk D0 trial 3 remains separatel
 available under the prior `Tracking_start_presentations/individual_tracking_start`
 Proton folder and canonical tracking-start results. Only the three new MP4s are
 copied to `Per_mouse_shared_scale_presentations` alongside prior Proton versions.
+
+### Corrected whole-range tail trace (2026-11-10)
+
+`reweightTaraWholeTailProfiles.m` computes a new whole-range trace from the saved
+probability-weighted row profiles, without source-video decoding or tracking.
+Canonical output: `/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_whole_tail_reweight_L40_halfdepth_20261110`.
+The original above-bar cubic ramp reaches 1 at the bar top; intervening beam
+rows receive 1. Beginning at `barTop + barWidth`, weights increase linearly
+from 1 to 2 at half-depth, then stay at 2. This is distinct from the original
+whole-image cubic ramp. It includes beam rows (so it is not just the sum of
+above and below raw measures, which omit beam-interior rows).
+
+Five-frame smoothing, per-trial median/MAD normalization, first-frame zero
+placeholder and legacy bad-frame masking are retained. Separate invalid-pair
+masks and pre-NaN-replacement normalized values are saved. No background
+subtraction or speed scaling is added. Per-trial MAT and CSV preserve original
+traces, timing, parameters and new raw/smoothed/normalized values. Original
+whole/above/below traces are independently reconstructed and compared at
+absolute+relative tolerances of 1e-6. A second sum verifies the new full field
+against separate above, beam-interior and corrected-below components.
+Existing analysis functions, published/draft statistics and figures remain
+unchanged; using this new outcome in analysis is a separate explicit step.

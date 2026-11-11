@@ -1,0 +1,25 @@
+Frame 514/original frame 1369, TMCS2_S18 D0 trial 2. All contour paths are editable SVG objects. Orange: actual spatial slip field p(column)^2 multiplied by the detector's sigmoid row weight, restricted to its under-bar crop. Blue: actual corrected tail spatial field, destination-frame (1-p)^2 after the 0.85 cutoff, with original above-bar cubic weights and corrected below-bar ramp (1 to 2 at half-depth, then 2). Fine blue rectangle is the exact post-mouse crop. Probability is a column occupancy fraction repeated vertically, not an anatomical probability map. These contours show spatial weights, not event thresholds or motion magnitude; slip speed adjustment and temporal/robust normalization are not depicted. Levels are 25/50/75% of each separate field maximum, so colors do not have a shared quantitative scale. Zero padding closes contours at the crop boundary by half-pixel interpolation. Image, centroid and trajectory retain the prior SVG content. Background subtraction/ratio enhancement used upstream in slip measurement is not shown in this raw-image illustration. Full mean background and mask column fractions reconstructed by streaming source video, no retracking. Current-frame centroid and saved probability-weighted motion row profile independently checked. Calibration remains approximate 700/1201 mm per pixel.
+{
+  "rowProfileMaxError": 3.257434109116275e-07,
+  "slipRows": [
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233
+  ],
+  "tailBadFrame": false,
+  "slipPeakWeight": 0.3066047401133803,
+  "tailPeakWeight": 2
+}

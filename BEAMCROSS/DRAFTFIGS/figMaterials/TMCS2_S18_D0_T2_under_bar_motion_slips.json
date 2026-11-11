@@ -1,0 +1,62 @@
+{
+  "sourceTrace": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_events_traces_L40_20261106/trials/TMCS2_S18_T3_C05_BB_D00_20251022_THT_TRIAL2_gray.mp4.trace.csv",
+  "sourceEvents": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_events_traces_L40_20261106/trials/TMCS2_S18_T3_C05_BB_D00_20251022_THT_TRIAL2_gray.mp4.events.csv",
+  "fps": 160,
+  "timeOrigin": "First traversal frame, original frame 856",
+  "extraSmoothing": false,
+  "slipThreshold": 2.5,
+  "traceDefinition": "Saved MovementTrace: weighted under-bar image differences, speed adjusted, smoothed and median/MAD normalized by existing detector. No new transformations.",
+  "slips": [
+    {
+      "firstFrame": "491",
+      "lastFrame": "501",
+      "startSeconds": 3.0625,
+      "endExclusiveSeconds": 3.13125
+    },
+    {
+      "firstFrame": "511",
+      "lastFrame": "516",
+      "startSeconds": 3.1875,
+      "endExclusiveSeconds": 3.225
+    },
+    {
+      "firstFrame": "544",
+      "lastFrame": "554",
+      "startSeconds": 3.39375,
+      "endExclusiveSeconds": 3.4625
+    },
+    {
+      "firstFrame": "645",
+      "lastFrame": "650",
+      "startSeconds": 4.025,
+      "endExclusiveSeconds": 4.0625
+    },
+    {
+      "firstFrame": "712",
+      "lastFrame": "730",
+      "startSeconds": 4.44375,
+      "endExclusiveSeconds": 4.5625
+    },
+    {
+      "firstFrame": "768",
+      "lastFrame": "780",
+      "startSeconds": 4.79375,
+      "endExclusiveSeconds": 4.875
+    },
+    {
+      "firstFrame": "858",
+      "lastFrame": "864",
+      "startSeconds": 5.35625,
+      "endExclusiveSeconds": 5.4
+    },
+    {
+      "firstFrame": "924",
+      "lastFrame": "967",
+      "startSeconds": 5.76875,
+      "endExclusiveSeconds": 6.04375
+    }
+  ],
+  "stopAnnotations": false,
+  "overlapPolicy": "All eight saved slips retained, including overlaps with stops; intervals are saved detector outputs, not newly thresholded.",
+  "nonfiniteFrames": []
+}

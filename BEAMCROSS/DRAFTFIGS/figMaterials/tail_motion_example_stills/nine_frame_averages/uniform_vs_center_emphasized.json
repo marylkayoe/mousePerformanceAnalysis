@@ -1,0 +1,18 @@
+{
+  "formula": "0.5*centre + 0.5*mean(nine original crops); average recomputed before rounding",
+  "interpretation": "Illustrative composite, not a single video frame; no change to measured traces",
+  "records": [
+    {
+      "originalFrame": 1186,
+      "output": "/Users/yoe/Documents/REPOS/PROJECTS/mousePerformanceAnalysis/BEAMCROSS/DRAFTFIGS/figMaterials/tail_motion_example_stills/nine_frame_averages/center_emphasized_50pct_original_1186.png",
+      "centerWeight": 0.5555555555555556,
+      "eachOtherFrameWeight": 0.05555555555555555
+    },
+    {
+      "originalFrame": 1639,
+      "output": "/Users/yoe/Documents/REPOS/PROJECTS/mousePerformanceAnalysis/BEAMCROSS/DRAFTFIGS/figMaterials/tail_motion_example_stills/nine_frame_averages/center_emphasized_50pct_original_1639.png",
+      "centerWeight": 0.5555555555555556,
+      "eachOtherFrameWeight": 0.05555555555555555
+    }
+  ]
+}

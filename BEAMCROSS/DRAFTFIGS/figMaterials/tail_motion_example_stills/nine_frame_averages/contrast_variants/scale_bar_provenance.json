@@ -1,0 +1,12 @@
+{
+  "frames": [
+    1186,
+    1639
+  ],
+  "scaleBarMM": 20,
+  "scaleBarPixels": 34.31428571428572,
+  "mmPerPixel": 0.5828476269775187,
+  "calibration": "Inherited approximate 700 mm / 1201 pixels from reference recording; not independently calibrated for this trial",
+  "images": "Existing strong-contrast center-emphasized nine-frame temporal composites embedded unchanged; editable SVG scale bar and text",
+  "generator": "tests/exportTailCompositeScaleBars.py"
+}

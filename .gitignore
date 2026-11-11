@@ -52,3 +52,9 @@ data/GMD2_A2_RR_D07_2023_05_31_THT.mp4
 
 # User-approved clean running-example crop export
 !/BEAMCROSS/results/running_column_export_L40_halfdepth_20261109/post_mouse_crop_clean.mp4
+
+# Reproducible CDF intermediates and Illustrator session temporary files (2026-11-11)
+BEAMCROSS/DRAFTFIGS/figMaterials/~ai-*.tmp
+BEAMCROSS/DRAFTFIGS/tail-metrics/CDF-D14-and-change/frame-values.csv
+BEAMCROSS/DRAFTFIGS/speed-presentation/speed_spatial_CDF_D0_D14_and_change_group_summary.csv
+BEAMCROSS/DRAFTFIGS/posture-presentation/posture_spatial_CDF_D0_D14_and_change_group_summary.csv

@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="92.92" height="83.93" viewBox="0 0 92.92 83.93">
+<title>D0 percentage of traversal time stopped: mouse values, cage means and group means</title>
+<line x1="17.3800" y1="74.0600" x2="17.3800" y2="11.2900" stroke="#262626" stroke-width="0.5" stroke-linecap="square"/>
+<line x1="17.3800" y1="70.9200" x2="18.7900" y2="70.9200" stroke="#262626" stroke-width="0.5" stroke-linecap="square"/>
+<text x="15" y="72.92" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="end" fill="#000000">-3</text>
+<line x1="17.3800" y1="56.2350" x2="18.7900" y2="56.2350" stroke="#262626" stroke-width="0.5" stroke-linecap="square"/>
+<text x="15" y="58.235" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="end" fill="#000000">-1.5</text>
+<line x1="17.3800" y1="41.5500" x2="18.7900" y2="41.5500" stroke="#262626" stroke-width="0.5" stroke-linecap="square"/>
+<text x="15" y="43.55" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="end" fill="#000000">0</text>
+<line x1="17.3800" y1="26.8650" x2="18.7900" y2="26.8650" stroke="#262626" stroke-width="0.5" stroke-linecap="square"/>
+<text x="15" y="28.865000000000002" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="end" fill="#000000">1.5</text>
+<line x1="17.3800" y1="12.1800" x2="18.7900" y2="12.1800" stroke="#262626" stroke-width="0.5" stroke-linecap="square"/>
+<text x="15" y="14.18" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="end" fill="#000000">3</text>
+<text x="17.87" y="6.44" font-family="Arial, Helvetica, sans-serif" font-size="6.5" text-anchor="start" fill="#000000">Posture change, D14−D0</text>
+<text transform="translate(4 43) rotate(-90)" text-anchor="middle" font-family="Arial" font-size="6">mm</text>
+<line x1="18.7900" y1="41.5500" x2="87.0000" y2="41.5500" stroke="#bbbbbb" stroke-width="0.25" stroke-linecap="square"/>
+<g id="sedentary-mouse-points">
+<ellipse id="TMCS2_S13" cx="29.39000" cy="44.01680" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS2_S13: -0.251971 count</title></ellipse>
+<ellipse id="TMCS2_S14" cx="30.23909" cy="41.39040" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS2_S14: 0.016302 count</title></ellipse>
+<ellipse id="TMCS2_S15" cx="31.08818" cy="36.78401" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS2_S15: 0.486822 count</title></ellipse>
+<ellipse id="TMCS2_S28" cx="31.93727" cy="31.42288" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS2_S28: 1.034436 count</title></ellipse>
+<ellipse id="TMCS2_S29" cx="32.78636" cy="37.38858" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS2_S29: 0.425068 count</title></ellipse>
+<ellipse id="TMCS2_S30" cx="33.63545" cy="42.47009" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS2_S30: -0.093982 count</title></ellipse>
+<ellipse id="TMCS3_S07" cx="34.48455" cy="40.23036" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS3_S07: 0.134795 count</title></ellipse>
+<ellipse id="TMCS3_S08" cx="35.33364" cy="51.92572" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS3_S08: -1.059828 count</title></ellipse>
+<ellipse id="TMCS3_S09" cx="36.18273" cy="46.06804" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS3_S09: -0.461495 count</title></ellipse>
+<ellipse id="TMCS3_S13" cx="37.03182" cy="48.62580" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS3_S13: -0.722758 count</title></ellipse>
+<ellipse id="TMCS3_S14" cx="37.88091" cy="60.37649" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS3_S14: -1.923033 count</title></ellipse>
+<ellipse id="TMCS3_S15" cx="38.73000" cy="47.11821" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS3_S15: -0.568765 count</title></ellipse>
+</g>
+<g id="sedentary-cage-means">
+<polygon id="TMCS2-C08" points="23.97000,40.73040 25.39000,42.52040 26.81000,40.73040 25.39000,38.94040" fill="#000000" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C10" points="23.97000,37.09385 25.39000,38.88385 26.81000,37.09385 25.39000,35.30385" fill="#000000" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS3-C03" points="23.97000,46.07470 25.39000,47.86470 26.81000,46.07470 25.39000,44.28470" fill="#000000" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS3-C05" points="23.97000,52.04017 25.39000,53.83017 26.81000,52.04017 25.39000,50.25017" fill="#000000" stroke="#231f20" stroke-width=".13"/>
+</g>
+<line x1="28.7200" y1="43.9848" x2="39.4000" y2="43.9848" stroke="#000000" stroke-width="1" stroke-linecap="square"/>
+<text x="28.0" y="81.99" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="start" fill="#000000">SED</text>
+<g id="walk-mouse-points">
+<ellipse id="TMCS2_S07" cx="52.29000" cy="53.38745" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S07: -1.209137 count</title></ellipse>
+<ellipse id="TMCS2_S08" cx="53.13909" cy="45.43121" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S08: -0.396446 count</title></ellipse>
+<ellipse id="TMCS2_S09" cx="53.98818" cy="34.30855" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S09: 0.739678 count</title></ellipse>
+<ellipse id="TMCS2_S19" cx="54.83727" cy="53.93517" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S19: -1.265084 count</title></ellipse>
+<ellipse id="TMCS2_S20" cx="55.68636" cy="36.29459" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S20: 0.536814 count</title></ellipse>
+<ellipse id="TMCS2_S21" cx="56.53545" cy="58.27100" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S21: -1.707968 count</title></ellipse>
+<ellipse id="TMCS2_S31" cx="57.38455" cy="40.86485" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S31: 0.069984 count</title></ellipse>
+<ellipse id="TMCS2_S32" cx="58.23364" cy="50.36646" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S32: -0.900558 count</title></ellipse>
+<ellipse id="TMCS2_S33" cx="59.08273" cy="37.72769" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S33: 0.390430 count</title></ellipse>
+<ellipse id="TMCS3_S04" cx="59.93182" cy="44.48433" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS3_S04: -0.299728 count</title></ellipse>
+<ellipse id="TMCS3_S05" cx="60.78091" cy="46.12580" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS3_S05: -0.467395 count</title></ellipse>
+<ellipse id="TMCS3_S06" cx="61.63000" cy="66.49929" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS3_S06: -2.548446 count</title></ellipse>
+</g>
+<g id="walk-cage-means">
+<polygon id="TMCS2-C02" points="46.87000,42.98634 48.29000,44.77634 49.71000,42.98634 48.29000,41.19634" fill="#008d3f" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C03" points="46.87000,44.37574 48.29000,46.16574 49.71000,44.37574 48.29000,42.58574" fill="#008d3f" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C06" points="46.87000,49.50026 48.29000,51.29026 49.71000,49.50026 48.29000,47.71026" fill="#008d3f" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS3-C02" points="46.87000,52.36980 48.29000,54.15980 49.71000,52.36980 48.29000,50.57980" fill="#008d3f" stroke="#231f20" stroke-width=".13"/>
+</g>
+<line x1="51.6200" y1="47.3080" x2="62.3000" y2="47.3080" stroke="#008d3f" stroke-width="1" stroke-linecap="square"/>
+<text x="48.56" y="81.99" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="start" fill="#000000">WALK</text>
+<g id="run-mouse-points">
+<ellipse id="TMCS2_S05" cx="76.49000" cy="39.30719" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S05: 0.229092 count</title></ellipse>
+<ellipse id="TMCS2_S06" cx="77.04000" cy="45.69644" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S06: -0.423538 count</title></ellipse>
+<ellipse id="TMCS2_S10" cx="77.59000" cy="42.03223" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S10: -0.049258 count</title></ellipse>
+<ellipse id="TMCS2_S11" cx="78.14000" cy="39.72715" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S11: 0.186195 count</title></ellipse>
+<ellipse id="TMCS2_S16" cx="78.69000" cy="29.66711" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S16: 1.213778 count</title></ellipse>
+<ellipse id="TMCS2_S17" cx="79.24000" cy="36.19166" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S17: 0.547328 count</title></ellipse>
+<ellipse id="TMCS2_S18" cx="79.79000" cy="33.02201" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S18: 0.871092 count</title></ellipse>
+<ellipse id="TMCS2_S22" cx="80.34000" cy="46.53609" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S22: -0.509305 count</title></ellipse>
+<ellipse id="TMCS2_S24" cx="80.89000" cy="60.58683" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S24: -1.944518 count</title></ellipse>
+<ellipse id="TMCS2_S25" cx="81.44000" cy="51.80649" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S25: -1.047650 count</title></ellipse>
+<ellipse id="TMCS2_S26" cx="81.99000" cy="40.11547" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S26: 0.146530 count</title></ellipse>
+<ellipse id="TMCS2_S27" cx="82.54000" cy="35.95584" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S27: 0.571416 count</title></ellipse>
+<ellipse id="TMCS3_S01" cx="83.09000" cy="53.79826" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS3_S01: -1.251099 count</title></ellipse>
+<ellipse id="TMCS3_S02" cx="83.64000" cy="45.77488" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS3_S02: -0.431550 count</title></ellipse>
+<ellipse id="TMCS3_S03" cx="84.19000" cy="43.88538" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS3_S03: -0.238547 count</title></ellipse>
+<ellipse id="TMCS3_S10" cx="84.74000" cy="44.15792" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS3_S10: -0.266387 count</title></ellipse>
+<ellipse id="TMCS3_S11" cx="85.29000" cy="41.64851" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS3_S11: -0.010062 count</title></ellipse>
+<ellipse id="TMCS3_S12" cx="85.84000" cy="38.91410" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS3_S12: 0.269244 count</title></ellipse>
+</g>
+<g id="run-cage-means">
+<polygon id="TMCS2-C01" points="71.07000,42.50181 72.49000,44.29181 73.91000,42.50181 72.49000,40.71181" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C04" points="71.07000,40.87969 72.49000,42.66969 73.91000,40.87969 72.49000,39.08969" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C05" points="71.07000,32.96026 72.49000,34.75026 73.91000,32.96026 72.49000,31.17026" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C07" points="71.07000,53.56146 72.49000,55.35146 73.91000,53.56146 72.49000,51.77146" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C09" points="71.07000,42.62594 72.49000,44.41594 73.91000,42.62594 72.49000,40.83594" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS3-C01" points="71.07000,47.81950 72.49000,49.60950 73.91000,47.81950 72.49000,46.02950" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS3-C04" points="71.07000,41.57351 72.49000,43.36351 73.91000,41.57351 72.49000,39.78351" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+</g>
+<line x1="75.8300" y1="42.7124" x2="86.5000" y2="42.7124" stroke="#0864cf" stroke-width="1" stroke-linecap="square"/>
+<text x="73.99" y="81.99" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="start" fill="#000000">RUN</text>
+</svg>

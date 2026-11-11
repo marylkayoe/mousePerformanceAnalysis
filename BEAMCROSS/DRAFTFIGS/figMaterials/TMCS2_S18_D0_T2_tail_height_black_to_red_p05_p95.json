@@ -1,0 +1,12 @@
+{
+  "source": "/Users/yoe/Documents/REPOS/PROJECTS/mousePerformanceAnalysis/BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_tail_example_traces.csv",
+  "geometry": "Full-profile weighted-median motion height, five-frame smoothing inherited; mm positive above bar",
+  "colour": "Linear black to red, 5th to 95th percentiles of jointly valid scores; outside colours saturated. Each segment uses mean score of its two endpoints. Colour saturation only; numerical trace values unchanged. No extra smoothing.",
+  "colourLimits": [
+    -1.30027052743606,
+    2.319575262332722
+  ],
+  "jointlyValidFrames": 796,
+  "missing": "No segment across invalid endpoints. Slip markers and stop shading omitted.",
+  "interpretation": "Motion location, not anatomical stationary tail position; negative score values are retained from baseline normalization."
+}

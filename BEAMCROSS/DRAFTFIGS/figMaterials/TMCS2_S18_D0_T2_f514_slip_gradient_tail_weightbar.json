@@ -1,0 +1,42 @@
+{
+  "slipVerticalWeights": [
+    0.01798621198617284,
+    0.06496917643998085,
+    0.20860855080184199,
+    0.5000000562675874,
+    0.7913915617333327,
+    0.9350309360951939,
+    0.982013900549002,
+    0.9951953591073115,
+    0.9987290961290594,
+    0.9996647623669697,
+    0.9999116933552056,
+    0.9999768039747102,
+    0.9999939683598811,
+    0.9999984929408233,
+    0.9999996856142296,
+    1.0
+  ],
+  "actualDetectorRows": [
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233
+  ],
+  "displayMapping": "Actual detector relative-depth sigmoid sampled over original 16 rows is stretched to 55-pixel schematic depth, shared global y gradient clipped by p(x)^2-shaped outline. Not physical vertical coordinates.",
+  "fillOpacity": 0.65,
+  "color": "Pale orange at low weight, dark orange at high weight",
+  "measurementsChanged": false
+}

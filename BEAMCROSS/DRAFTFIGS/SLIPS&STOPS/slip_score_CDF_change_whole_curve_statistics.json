@@ -1,0 +1,67 @@
+{
+  "analysis": "Between-group comparison of D14\u2212D0 CDF changes; not within-group tests",
+  "nMice": 42,
+  "nCages": 15,
+  "omnibus": {
+    "statistic": 0.09067232040694571,
+    "p_raw": 0.26874338624338623,
+    "permutations": 75600
+  },
+  "pairwise": [
+    {
+      "comparison": "walk minus sedentary",
+      "integrated_squared_difference": 0.017011552411395143,
+      "p_raw": 0.4666666666666667,
+      "permutations": 30,
+      "cages": {
+        "TMCS2": {
+          "walk": 3,
+          "sedentary": 2
+        },
+        "TMCS3": {
+          "walk": 1,
+          "sedentary": 2
+        }
+      },
+      "p_holm_3_pairs": 0.9333333333333333
+    },
+    {
+      "comparison": "run minus sedentary",
+      "integrated_squared_difference": 0.003885897563532961,
+      "p_raw": 0.8492063492063492,
+      "permutations": 126,
+      "cages": {
+        "TMCS2": {
+          "run": 5,
+          "sedentary": 2
+        },
+        "TMCS3": {
+          "run": 2,
+          "sedentary": 2
+        }
+      },
+      "p_holm_3_pairs": 0.9333333333333333
+    },
+    {
+      "comparison": "run minus walk",
+      "integrated_squared_difference": 0.025552544178954986,
+      "p_raw": 0.16071428571428573,
+      "permutations": 168,
+      "cages": {
+        "TMCS2": {
+          "run": 5,
+          "walk": 3
+        },
+        "TMCS3": {
+          "run": 2,
+          "walk": 1
+        }
+      },
+      "p_holm_3_pairs": 0.4821428571428572
+    }
+  ],
+  "method": "Mean paired mouse CDF changes within cage; exact group-label permutations of whole cage curves within cohort. Pair statistic: integrated squared equal-cohort mean difference on log10 score. Omnibus: integrated cohort-adjusted group regression sum of squares. Exact integration over every empirical interval, without bins or smoothing. Holm over 3 pairwise comparisons.",
+  "limitations": "Exploratory after viewing CDFs; assumes cage-label exchangeability within cohort. Equal cage weighting for inference differs from descriptive mouse-weighted curves. No correction across other outcomes or exploratory tests. No threshold-specific localization. Nonsignificance does not establish equivalence.",
+  "input": "slip_score_CDF_change_D14_minus_D0_paired_mouse_values.csv",
+  "validation": "42 mice, common exact score grid, all finite; tails have zero difference and contribute zero to integral."
+}

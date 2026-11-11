@@ -1,0 +1,32 @@
+{
+  "sourceTrace": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_events_traces_L40_20261106/trials/TMCS2_S18_T3_C05_BB_D00_20251022_THT_TRIAL2_gray.mp4.trace.csv",
+  "fps": 160,
+  "millimetersPerPixel": 0.5828476269775187,
+  "calibration": "Approximate existing 700/1201 mm per pixel; not newly calibrated",
+  "timeOrigin": "First traversal frame, original frame 856",
+  "extraSmoothing": false,
+  "nonfiniteTraversalFrames": [
+    967
+  ],
+  "stops": [
+    {
+      "firstFrame": "811",
+      "lastFrame": "836",
+      "startSeconds": 5.0625,
+      "endExclusiveSeconds": 5.225
+    },
+    {
+      "firstFrame": "855",
+      "lastFrame": "894",
+      "startSeconds": 5.3375,
+      "endExclusiveSeconds": 5.5875
+    },
+    {
+      "firstFrame": "951",
+      "lastFrame": "967",
+      "startSeconds": 5.9375,
+      "endExclusiveSeconds": 6.04375
+    }
+  ],
+  "slipsShown": false
+}

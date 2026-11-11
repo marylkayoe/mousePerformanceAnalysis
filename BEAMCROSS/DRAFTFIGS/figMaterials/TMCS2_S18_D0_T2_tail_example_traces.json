@@ -1,0 +1,16 @@
+{
+  "file": "TMCS2_S18_T3_C05_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+  "originalFrames": [
+    856,
+    1822
+  ],
+  "frames": 967,
+  "fps": 160,
+  "scoreSource": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_whole_tail_reweight_L40_halfdepth_20261110/trials/TMCS2_S18_T3_C05_BB_D00_20251022_THT_TRIAL2_gray.mp4.csv",
+  "score": "NewWholeNormalized, unchanged; corrected below-bar weights 1 at first below-bar row, 2 at half depth, then plateau; above weights unchanged; no additional smoothing",
+  "height": "Full probability-weighted row-profile median, no vertical distance ramp, positive above bar; contiguous-valid centered five-frame mean, truncated at invalid gaps and edges; no near-bar blanking",
+  "calibrationMMPerPixel": 0.5828476269775187,
+  "validHeightFrames": 796,
+  "limitations": "Motion location, not stationary anatomical tail position. Reconstructed from saved float32 row profiles; no per-column rerender validation for this trial. Invalid pairs and tail bad flags retained; plot paths break at missing values.",
+  "style": "Supplied speed SVG geometry x22.1..267.56 y13.41..90.12; added time labels below; blue bands are saved stops"
+}

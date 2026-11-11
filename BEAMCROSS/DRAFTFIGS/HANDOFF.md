@@ -1,5 +1,7 @@
 # Balance-beam figure handoff
 
+> **Current figure update (2026-11-11):** Read [FIGURE_HANDOFF_20261111.md](FIGURE_HANDOFF_20261111.md) first for the current Illustrator panel map, corrected whole-tail definitions, paired-change presentation, statistics, alternatives and unresolved checks. The historical notes below remain useful but some presentation choices are superseded.
+
 This is Tara's project. The main paper is about IO; the intended main-figure
 behavioral comparison is baseline D0 versus D14, when IO was measured.
 Behavior was also measured at D7: report testing on all three days in Methods

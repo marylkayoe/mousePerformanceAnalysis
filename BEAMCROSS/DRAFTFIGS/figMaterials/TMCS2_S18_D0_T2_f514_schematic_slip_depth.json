@@ -1,0 +1,9 @@
+{
+  "interpretation": "Schematic encoding of squared mouse-column probability; not an actual vertical sampling boundary",
+  "depthFormula": "55 * p(x)^2 / max(p(x)^2) pixels",
+  "maximumDepthPixels": 55.0,
+  "heightBasis": "Approximate visible mouse body height above beam, visually estimated; excludes tail",
+  "baselineSvgY": 222,
+  "sourceProbability": "TMCS2_S18_D0_T2_f514_weights.json",
+  "noAnalysisChanges": true
+}

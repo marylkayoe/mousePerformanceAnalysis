@@ -1,0 +1,23 @@
+{
+  "originalFrame": 1369,
+  "traversalFrame": 514,
+  "activeColumnsMatlabInclusive": [
+    551,
+    682
+  ],
+  "originalPostMouseCropColumns": [
+    475,
+    682
+  ],
+  "supportDefinition": "Destination-frame noMouseProbability >=0.85; no threshold on observed motion magnitude",
+  "columnWeightSquaredRange": [
+    0.8415408783553037,
+    1
+  ],
+  "verticalWeight": "Above-bar cubic to 1 at barTop; 1 through beam; below-bar linear to 2 at half-depth then constant 2",
+  "firstBelowRow": 223,
+  "halfDepthOriginalRow": 289.5,
+  "colorbarDefinition": "Vertical factor only; final pixel weight also multiplies column probability squared",
+  "interpretation": "Measurement support, not anatomical tail segmentation or a contour of detected movement",
+  "priorOverlaysPreserved": true
+}

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="85.45" height="84.36" viewBox="0 0 85.45 84.36">
+<title>Slip counts: mouse values, cage means and group means</title>
+<line x1="13.8100" y1="74.4900" x2="13.8100" y2="11.7200" stroke="#262626" stroke-width="0.5" stroke-linecap="square"/>
+<line x1="13.8100" y1="66.4550" x2="15.2200" y2="66.4550" stroke="#262626" stroke-width="0.5" stroke-linecap="square"/>
+<text x="12" y="68.455" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="end" fill="#000000">-10</text>
+<line x1="13.8100" y1="54.2175" x2="15.2200" y2="54.2175" stroke="#262626" stroke-width="0.5" stroke-linecap="square"/>
+<text x="12" y="56.2175" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="end" fill="#000000">-5</text>
+<line x1="13.8100" y1="41.9800" x2="15.2200" y2="41.9800" stroke="#262626" stroke-width="0.5" stroke-linecap="square"/>
+<text x="12" y="43.980000000000004" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="end" fill="#000000">0</text>
+<line x1="13.8100" y1="29.7425" x2="15.2200" y2="29.7425" stroke="#262626" stroke-width="0.5" stroke-linecap="square"/>
+<text x="12" y="31.7425" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="end" fill="#000000">5</text>
+<line x1="13.8100" y1="17.5050" x2="15.2200" y2="17.5050" stroke="#262626" stroke-width="0.5" stroke-linecap="square"/>
+<text x="12" y="19.504999999999995" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="end" fill="#000000">10</text>
+<text x="14.3" y="6.87" font-family="Arial, Helvetica, sans-serif" font-size="5.7" text-anchor="start" fill="#000000">Total slip score, D14−D0</text>
+<text x="1" y="11" font-family="Arial, Helvetica, sans-serif" font-size="3.5" text-anchor="start" fill="#000000">×10³ a.u.</text>
+<line x1="15.2200" y1="41.9800" x2="84.0000" y2="41.9800" stroke="#bbbbbb" stroke-width="0.3" stroke-linecap="square"/>
+<g id="sedentary-mouse-points">
+<ellipse id="TMCS2_S13" cx="25.82000" cy="37.81261" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS2_S13: 1702.711586 a.u.</title></ellipse>
+<ellipse id="TMCS2_S14" cx="26.66909" cy="56.30687" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS2_S14: -5853.675054 a.u.</title></ellipse>
+<ellipse id="TMCS2_S15" cx="27.51818" cy="47.97595" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS2_S15: -2449.827296 a.u.</title></ellipse>
+<ellipse id="TMCS2_S28" cx="28.36727" cy="48.36594" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS2_S28: -2609.169640 a.u.</title></ellipse>
+<ellipse id="TMCS2_S29" cx="29.21636" cy="32.45746" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS2_S29: 3890.719744 a.u.</title></ellipse>
+<ellipse id="TMCS2_S30" cx="30.06545" cy="49.05613" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS2_S30: -2891.167209 a.u.</title></ellipse>
+<ellipse id="TMCS3_S07" cx="30.91455" cy="66.49935" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS3_S07: -10018.120187 a.u.</title></ellipse>
+<ellipse id="TMCS3_S08" cx="31.76364" cy="40.88457" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS3_S08: 447.572039 a.u.</title></ellipse>
+<ellipse id="TMCS3_S09" cx="32.61273" cy="42.89764" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS3_S09: -374.931503 a.u.</title></ellipse>
+<ellipse id="TMCS3_S13" cx="33.46182" cy="46.59690" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS3_S13: -1886.372606 a.u.</title></ellipse>
+<ellipse id="TMCS3_S14" cx="34.31091" cy="40.67800" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS3_S14: 531.972354 a.u.</title></ellipse>
+<ellipse id="TMCS3_S15" cx="35.16000" cy="55.96996" rx="1.14" ry="1.09" fill="#000000" fill-opacity="1"><title>TMCS3_S15: -5716.022220 a.u.</title></ellipse>
+</g>
+<g id="sedentary-cage-means">
+<polygon id="TMCS2-C08" points="20.40000,47.36515 21.82000,49.15515 23.24000,47.36515 21.82000,45.57515" fill="#000000" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C10" points="20.40000,43.29318 21.82000,45.08318 23.24000,43.29318 21.82000,41.50318" fill="#000000" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS3-C03" points="20.40000,50.09385 21.82000,51.88385 23.24000,50.09385 21.82000,48.30385" fill="#000000" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS3-C05" points="20.40000,47.74829 21.82000,49.53829 23.24000,47.74829 21.82000,45.95829" fill="#000000" stroke="#231f20" stroke-width=".13"/>
+</g>
+<line x1="25.1500" y1="47.1251" x2="35.8300" y2="47.1251" stroke="#000000" stroke-width="1" stroke-linecap="square"/>
+<text x="24.43" y="82.42" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="start" fill="#000000">SED</text>
+<g id="walk-mouse-points">
+<ellipse id="TMCS2_S07" cx="48.72000" cy="53.20551" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S07: -4586.522876 a.u.</title></ellipse>
+<ellipse id="TMCS2_S08" cx="49.56909" cy="49.40451" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S08: -3033.507939 a.u.</title></ellipse>
+<ellipse id="TMCS2_S09" cx="50.41818" cy="49.17964" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S09: -2941.630738 a.u.</title></ellipse>
+<ellipse id="TMCS2_S19" cx="51.26727" cy="44.57639" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S19: -1060.831501 a.u.</title></ellipse>
+<ellipse id="TMCS2_S20" cx="52.11636" cy="45.84540" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S20: -1579.325159 a.u.</title></ellipse>
+<ellipse id="TMCS2_S21" cx="52.96545" cy="28.56986" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S21: 5479.116578 a.u.</title></ellipse>
+<ellipse id="TMCS2_S31" cx="53.81455" cy="53.51210" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S31: -4711.789542 a.u.</title></ellipse>
+<ellipse id="TMCS2_S32" cx="54.66364" cy="41.63559" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S32: 140.720106 a.u.</title></ellipse>
+<ellipse id="TMCS2_S33" cx="55.51273" cy="36.18623" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS2_S33: 2367.220451 a.u.</title></ellipse>
+<ellipse id="TMCS3_S04" cx="56.36182" cy="45.06342" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS3_S04: -1259.825005 a.u.</title></ellipse>
+<ellipse id="TMCS3_S05" cx="57.21091" cy="42.60430" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS3_S05: -255.077851 a.u.</title></ellipse>
+<ellipse id="TMCS3_S06" cx="58.06000" cy="38.74808" rx="1.14" ry="1.09" fill="#008d3f" fill-opacity="0.4"><title>TMCS3_S06: 1320.497660 a.u.</title></ellipse>
+</g>
+<g id="walk-cage-means">
+<polygon id="TMCS2-C02" points="43.30000,43.77797 44.72000,45.56797 46.14000,43.77797 44.72000,41.98797" fill="#008d3f" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C03" points="43.30000,50.59656 44.72000,52.38656 46.14000,50.59656 44.72000,48.80656" fill="#008d3f" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C06" points="43.30000,39.66388 44.72000,41.45388 46.14000,39.66388 44.72000,37.87388" fill="#008d3f" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS3-C02" points="43.30000,42.13860 44.72000,43.92860 46.14000,42.13860 44.72000,40.34860" fill="#008d3f" stroke="#231f20" stroke-width=".13"/>
+</g>
+<line x1="48.0500" y1="44.0443" x2="58.7300" y2="44.0443" stroke="#008d3f" stroke-width="1" stroke-linecap="square"/>
+<text x="44.99" y="82.42" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="start" fill="#000000">WALK</text>
+<g id="run-mouse-points">
+<ellipse id="TMCS2_S05" cx="72.92000" cy="42.40166" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S05: -172.283911 a.u.</title></ellipse>
+<ellipse id="TMCS2_S06" cx="73.50437" cy="43.90140" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S06: -785.046158 a.u.</title></ellipse>
+<ellipse id="TMCS2_S11" cx="74.08875" cy="44.53435" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S11: -1043.658729 a.u.</title></ellipse>
+<ellipse id="TMCS2_S16" cx="74.67312" cy="57.12342" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S16: -6187.299909 a.u.</title></ellipse>
+<ellipse id="TMCS2_S17" cx="75.25750" cy="54.94711" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S17: -5298.102640 a.u.</title></ellipse>
+<ellipse id="TMCS2_S18" cx="75.84188" cy="46.23302" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S18: -1737.700750 a.u.</title></ellipse>
+<ellipse id="TMCS2_S22" cx="76.42625" cy="49.29311" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S22: -2987.991471 a.u.</title></ellipse>
+<ellipse id="TMCS2_S24" cx="77.01063" cy="27.30079" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S24: 5997.634994 a.u.</title></ellipse>
+<ellipse id="TMCS2_S25" cx="77.59500" cy="40.84013" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S25: 465.728390 a.u.</title></ellipse>
+<ellipse id="TMCS2_S26" cx="78.17937" cy="44.35700" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S26: -971.196453 a.u.</title></ellipse>
+<ellipse id="TMCS2_S27" cx="78.76375" cy="48.47172" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS2_S27: -2652.388791 a.u.</title></ellipse>
+<ellipse id="TMCS3_S01" cx="79.34812" cy="40.93962" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS3_S01: 425.077172 a.u.</title></ellipse>
+<ellipse id="TMCS3_S02" cx="79.93250" cy="46.84107" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS3_S02: -1986.138735 a.u.</title></ellipse>
+<ellipse id="TMCS3_S03" cx="80.51687" cy="43.82627" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS3_S03: -754.347603 a.u.</title></ellipse>
+<ellipse id="TMCS3_S10" cx="81.10125" cy="16.64991" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS3_S10: 10349.373159 a.u.</title></ellipse>
+<ellipse id="TMCS3_S11" cx="81.68563" cy="40.27373" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS3_S11: 697.146176 a.u.</title></ellipse>
+<ellipse id="TMCS3_S12" cx="82.27000" cy="58.44659" rx="1.14" ry="1.09" fill="#0864cf" fill-opacity="0.4"><title>TMCS3_S12: -6727.922431 a.u.</title></ellipse>
+</g>
+<g id="run-cage-means">
+<polygon id="TMCS2-C01" points="67.50000,43.15153 68.92000,44.94153 70.34000,43.15153 68.92000,41.36153" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C04" points="67.50000,44.53435 68.92000,46.32435 70.34000,44.53435 68.92000,42.74435" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C05" points="67.50000,52.76785 68.92000,54.55785 70.34000,52.76785 68.92000,50.97785" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C07" points="67.50000,38.29695 68.92000,40.08695 70.34000,38.29695 68.92000,36.50695" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS2-C09" points="67.50000,44.55628 68.92000,46.34628 70.34000,44.55628 68.92000,42.76628" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS3-C01" points="67.50000,43.86899 68.92000,45.65899 70.34000,43.86899 68.92000,42.07899" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+<polygon id="TMCS3-C04" points="67.50000,38.45674 68.92000,40.24674 70.34000,38.45674 68.92000,36.66674" fill="#0864cf" stroke="#231f20" stroke-width=".13"/>
+</g>
+<line x1="72.2600" y1="43.9048" x2="82.9300" y2="43.9048" stroke="#0864cf" stroke-width="1" stroke-linecap="square"/>
+<text x="70.42" y="82.42" font-family="Arial, Helvetica, sans-serif" font-size="6" text-anchor="start" fill="#000000">RUN</text>
+</svg>

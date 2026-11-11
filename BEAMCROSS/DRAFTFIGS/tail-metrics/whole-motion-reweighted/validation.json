@@ -1,0 +1,11 @@
+{
+  "trials": 377,
+  "mouseDayRows": 126,
+  "mice": 42,
+  "cages": 15,
+  "testImplementationIdenticalToBelowBar": true,
+  "frameMasksAndSampleCountsIdenticalToBelowBar": true,
+  "invalidPairsRetainedInLegacy": 443,
+  "sourceRoot": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_whole_tail_reweight_L40_halfdepth_20261110",
+  "sourceSummarySHA256": "80306f1f66ceef92c125c93246de87f116611fed80a04dc1aaff3797071e0a55"
+}

@@ -1,0 +1,8 @@
+{
+  "selection": "Same validated event selection as 25 mm preview; reverses original 10 mm bins for entry-left display",
+  "display": "Stops upward 0..40, slips downward 0..20; all counts positive; no group outlines or normalization",
+  "slips": 592,
+  "stops": 262,
+  "crossingDenominator": "Unresolved; not used",
+  "generator": "tests/createD0EventPositionMirrored.py"
+}

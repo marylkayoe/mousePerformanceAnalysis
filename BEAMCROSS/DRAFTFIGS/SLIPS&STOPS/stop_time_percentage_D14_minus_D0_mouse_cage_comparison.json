@@ -1,0 +1,54 @@
+{
+  "source": "/Users/yoe/Documents/REPOS/PROJECTS/mousePerformanceAnalysis/BEAMCROSS/DRAFTFIGS/SLIPS&STOPS/stop-time-percentage/mouse-day-values.csv",
+  "metric": "Within-mouse D14 minus D0 stopped-time percentage, pooled across three crossings per day",
+  "units": "percentage points",
+  "counts": {
+    "sedentary": {
+      "mice": 12,
+      "cages": 4,
+      "count": -3.5417102664386277
+    },
+    "walk": {
+      "mice": 12,
+      "cages": 4,
+      "count": -0.8342351887350423
+    },
+    "run": {
+      "mice": 17,
+      "cages": 7,
+      "count": -4.1797255309865475
+    }
+  },
+  "statistics": [
+    {
+      "period": "D14-D00",
+      "nMice": "41",
+      "overallP": "0.6378571428571429",
+      "pair": "walk minus sedentary",
+      "difference_cage_cohort_balanced": "1.7341189201791447",
+      "p_raw": "0.6333333333333333",
+      "p_holm_3_pairs": "1.0"
+    },
+    {
+      "period": "D14-D00",
+      "nMice": "41",
+      "overallP": "0.6378571428571429",
+      "pair": "run minus sedentary",
+      "difference_cage_cohort_balanced": "-0.4600853449310782",
+      "p_raw": "0.8968253968253969",
+      "p_holm_3_pairs": "1.0"
+    },
+    {
+      "period": "D14-D00",
+      "nMice": "41",
+      "overallP": "0.6378571428571429",
+      "pair": "run minus walk",
+      "difference_cage_cohort_balanced": "-2.1942042651102227",
+      "p_raw": "0.44047619047619047",
+      "p_holm_3_pairs": "1.0"
+    }
+  ],
+  "exclusion": "Require three retained crossings on both days; TMCS2_S10 excluded for only two D0 crossings",
+  "axisMinimum": -30,
+  "axisMaximum": 20
+}

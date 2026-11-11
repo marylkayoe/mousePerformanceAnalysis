@@ -1,0 +1,17 @@
+{
+  "sourceTrace": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_events_traces_L40_20261106/trials/TMCS2_S18_T3_C05_BB_D00_20251022_THT_TRIAL2_gray.mp4.trace.csv",
+  "sourceTraceSHA256": "2f9072345b74377b98ba48050c4401ac58c2594704c7c243d0f649eb8f6398e2",
+  "originalFrame": 1369,
+  "traversalFrame": 514,
+  "centroidMatlabXY": [
+    475.323262066317,
+    185.90206119575
+  ],
+  "coordinateConversion": "MATLAB pixel centre (1,1) -> SVG pixel centre (0.5,0.5)",
+  "trajectory": "All 967 saved centroids, unsmoothed; solid through selected frame, dashed afterward; nonfinite samples break paths",
+  "millimetersPerPixel": 0.5828476269775187,
+  "scaleBarMM": 50,
+  "scaleBarPixels": 85.78571428571429,
+  "calibrationCaveat": "Approximate 700 mm / 1201 pixels from a different reference recording; not independently calibrated for this video",
+  "background": "Global contrast-stretched source PNG, embedded; overlays remain vector objects"
+}

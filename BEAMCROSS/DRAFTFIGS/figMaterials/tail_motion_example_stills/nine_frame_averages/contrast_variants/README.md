@@ -1,0 +1,3 @@
+# Contrast-enhanced illustrative temporal composites
+
+Original composites preserved in the parent folder. Moderate: input 70–235 mapped linearly to 0–255. Strong: input 110–225 mapped linearly to 0–255. Values outside the interval saturate; the same mapping is applied to both example images. Enhancement follows the 50% centre-frame / 50% nine-frame-mean blend. No spatial processing, background removal, sharpening or generation. These are presentation images only, not inputs to scientific measurements. Both temporal compositing and contrast enhancement should be disclosed in the figure caption. Exact saturation fractions are in contrast_settings.json. Reproduction: tests/enhanceMethodTailComposites.py.

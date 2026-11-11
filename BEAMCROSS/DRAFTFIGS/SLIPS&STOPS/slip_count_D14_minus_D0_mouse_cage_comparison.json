@@ -1,0 +1,28 @@
+{
+  "source": "/Users/yoe/Documents/REPOS/PROJECTS/mousePerformanceAnalysis/BEAMCROSS/DRAFTFIGS/analysis-data/pooled-exposures.csv",
+  "sourceSHA256": "707eb94a32e6e31e061defc296de1d1f3f0556c7fe172a7cbefd158c77c49337",
+  "metric": "Paired D14 minus D0 change in total slips across three retained crossings per day",
+  "counts": {
+    "sedentary": {
+      "mice": 12,
+      "cages": 4,
+      "count": -7.166666666666667
+    },
+    "walk": {
+      "mice": 12,
+      "cages": 4,
+      "count": -8.0
+    },
+    "run": {
+      "mice": 17,
+      "cages": 7,
+      "count": -8.705882352941176
+    }
+  },
+  "layout": "Circles: mice; diamonds: cohort-specific cage means; bars: equally weighted mouse means. Standard Illustrator palette and dimensions.",
+  "exclusion": "Require three retained crossings for each included day; change excludes TMCS2_S10 with only two D0 crossings. D14 includes that mouse.",
+  "slipOverlapPolicy": "Slips during stops included, matching existing D0 count panel",
+  "statisticalTests": "Not recomputed or displayed",
+  "axisMinimum": -40,
+  "axisMaximum": 30
+}
