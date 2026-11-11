@@ -1,0 +1,266 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 810">
+<rect width="100%" height="100%" fill="white"/>
+<text x="35" y="30" font-family="Arial" font-size="24" text-anchor="start" fill="#232323">D14 outcomes adjusted for D0</text>
+<text x="35" y="53" font-family="Arial" font-size="14" text-anchor="start" fill="#232323">Unconstrained cage-level ANCOVA estimates · equal cohort averaging · pointwise 95% confidence intervals</text>
+<text x="55" y="89" font-family="Arial" font-size="19" text-anchor="start" fill="#232323">Locomoting speed</text>
+<text x="55" y="110" font-family="Arial" font-size="12" text-anchor="start" fill="#232323">mm/s</text>
+<text x="55" y="130" font-family="Arial" font-size="13" text-anchor="start" fill="#232323">Ordered-pattern p = 0.086</text>
+<path d="M55,145L55,350" fill="none" stroke="#232323" stroke-width="1"/>
+<path d="M55,350.0L59,350.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="48" y="354.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">100</text>
+<path d="M55,309.0L59,309.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="48" y="313.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">120</text>
+<path d="M55,268.0L59,268.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="48" y="272.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">140</text>
+<path d="M55,227.0L59,227.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="48" y="231.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">160</text>
+<path d="M55,186.0L59,186.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="48" y="190.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">180</text>
+<path d="M55,145.0L59,145.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="48" y="149.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">200</text>
+<path d="M100,279.36355407397633L177,247.85692824415167" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M177,247.85692824415167L254,223.22320073040387" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M100,322.8282371528573L100,235.8988709950953" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M94,322.8282371528573L106,322.8282371528573" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M94,235.8988709950953L106,235.8988709950953" fill="none" stroke="#232323" stroke-width="2"/>
+<circle cx="100" cy="279.36355407397633" r="5" fill="#232323"/>
+<text x="100" y="374" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">SED</text>
+<path d="M177,290.6946201159509L177,205.01923637235248" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M171,290.6946201159509L183,290.6946201159509" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M171,205.01923637235248L183,205.01923637235248" fill="none" stroke="#00b226" stroke-width="2"/>
+<circle cx="177" cy="247.85692824415167" r="5" fill="#00b226"/>
+<text x="177" y="374" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">WALK</text>
+<path d="M254,256.1264259526448L254,190.31997550816288" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M248,256.1264259526448L260,256.1264259526448" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M248,190.31997550816288L260,190.31997550816288" fill="none" stroke="#002bff" stroke-width="2"/>
+<circle cx="254" cy="223.22320073040387" r="5" fill="#002bff"/>
+<text x="254" y="374" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">RUN</text>
+<text x="370" y="89" font-family="Arial" font-size="19" text-anchor="start" fill="#232323">Time stopped</text>
+<text x="370" y="110" font-family="Arial" font-size="12" text-anchor="start" fill="#232323">%</text>
+<text x="370" y="130" font-family="Arial" font-size="13" text-anchor="start" fill="#232323">Ordered-pattern p = 0.064</text>
+<path d="M370,145L370,350" fill="none" stroke="#232323" stroke-width="1"/>
+<path d="M370,350.0L374,350.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="354.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">0</text>
+<path d="M370,320.7142857142857L374,320.7142857142857" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="324.7142857142857" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">2.5</text>
+<path d="M370,291.42857142857144L374,291.42857142857144" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="295.42857142857144" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">5</text>
+<path d="M370,262.14285714285717L374,262.14285714285717" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="266.14285714285717" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">7.5</text>
+<path d="M370,232.85714285714286L374,232.85714285714286" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="236.85714285714286" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">10</text>
+<path d="M370,203.57142857142856L374,203.57142857142856" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="207.57142857142856" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">12.5</text>
+<path d="M370,174.2857142857143L374,174.2857142857143" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="178.2857142857143" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">15</text>
+<path d="M370,145.0L374,145.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="149.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">17.5</text>
+<path d="M415,228.633691152704L492,266.29154501866617" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M492,266.29154501866617L569,295.0605838156673" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M415,276.4998773013407L415,180.7675050040673" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M409,276.4998773013407L421,276.4998773013407" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M409,180.7675050040673L421,180.7675050040673" fill="none" stroke="#232323" stroke-width="2"/>
+<circle cx="415" cy="228.633691152704" r="5" fill="#232323"/>
+<text x="415" y="374" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">SED</text>
+<path d="M492,313.7668082281051L492,218.81628180922718" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M486,313.7668082281051L498,313.7668082281051" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M486,218.81628180922718L498,218.81628180922718" fill="none" stroke="#00b226" stroke-width="2"/>
+<circle cx="492" cy="266.29154501866617" r="5" fill="#00b226"/>
+<text x="492" y="374" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">WALK</text>
+<path d="M569,330.62493397321015L569,259.4962336581245" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M563,330.62493397321015L575,330.62493397321015" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M563,259.4962336581245L575,259.4962336581245" fill="none" stroke="#002bff" stroke-width="2"/>
+<circle cx="569" cy="295.0605838156673" r="5" fill="#002bff"/>
+<text x="569" y="374" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">RUN</text>
+<text x="685" y="89" font-family="Arial" font-size="19" text-anchor="start" fill="#232323">Posture height</text>
+<text x="685" y="110" font-family="Arial" font-size="12" text-anchor="start" fill="#232323">mm</text>
+<text x="685" y="130" font-family="Arial" font-size="13" text-anchor="start" fill="#777777">Order not tested</text>
+<path d="M685,145L685,350" fill="none" stroke="#232323" stroke-width="1"/>
+<path d="M685,350.0L689,350.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="354.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">12.75</text>
+<path d="M685,320.7142857142857L689,320.7142857142857" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="324.7142857142857" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">13</text>
+<path d="M685,291.42857142857144L689,291.42857142857144" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="295.42857142857144" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">13.25</text>
+<path d="M685,262.14285714285717L689,262.14285714285717" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="266.14285714285717" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">13.5</text>
+<path d="M685,232.85714285714286L689,232.85714285714286" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="236.85714285714286" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">13.75</text>
+<path d="M685,203.57142857142856L689,203.57142857142856" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="207.57142857142856" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">14</text>
+<path d="M685,174.2857142857143L689,174.2857142857143" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="178.2857142857143" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">14.25</text>
+<path d="M685,145.0L689,145.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="149.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">14.5</text>
+<path d="M730,244.08481505909225L807,268.8590200744975" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M807,268.8590200744975L884,215.789891391593" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M730,300.14025840428127L730,188.02937171390323" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M724,300.14025840428127L736,300.14025840428127" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M724,188.02937171390323L736,188.02937171390323" fill="none" stroke="#232323" stroke-width="2"/>
+<circle cx="730" cy="244.08481505909225" r="5" fill="#232323"/>
+<text x="730" y="374" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">SED</text>
+<path d="M807,324.6102341613132L807,213.10780598768176" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M801,324.6102341613132L813,324.6102341613132" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M801,213.10780598768176L813,213.10780598768176" fill="none" stroke="#00b226" stroke-width="2"/>
+<circle cx="807" cy="268.8590200744975" r="5" fill="#00b226"/>
+<text x="807" y="374" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">WALK</text>
+<path d="M884,258.5870431158467L884,172.99273966733924" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M878,258.5870431158467L890,258.5870431158467" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M878,172.99273966733924L890,172.99273966733924" fill="none" stroke="#002bff" stroke-width="2"/>
+<circle cx="884" cy="215.789891391593" r="5" fill="#002bff"/>
+<text x="884" y="374" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">RUN</text>
+<text x="1000" y="89" font-family="Arial" font-size="19" text-anchor="start" fill="#232323">Slip count</text>
+<text x="1000" y="110" font-family="Arial" font-size="12" text-anchor="start" fill="#232323">count</text>
+<text x="1000" y="130" font-family="Arial" font-size="13" text-anchor="start" fill="#232323">Ordered-pattern p = 0.216</text>
+<path d="M1000,145L1000,350" fill="none" stroke="#232323" stroke-width="1"/>
+<path d="M1000,350.0L1004,350.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="993" y="354.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">7.5</text>
+<path d="M1000,320.7142857142857L1004,320.7142857142857" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="993" y="324.7142857142857" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">10</text>
+<path d="M1000,291.42857142857144L1004,291.42857142857144" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="993" y="295.42857142857144" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">12.5</text>
+<path d="M1000,262.14285714285717L1004,262.14285714285717" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="993" y="266.14285714285717" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">15</text>
+<path d="M1000,232.85714285714286L1004,232.85714285714286" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="993" y="236.85714285714286" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">17.5</text>
+<path d="M1000,203.57142857142856L1004,203.57142857142856" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="993" y="207.57142857142856" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">20</text>
+<path d="M1000,174.2857142857143L1004,174.2857142857143" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="993" y="178.2857142857143" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">22.5</text>
+<path d="M1000,145.0L1004,145.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="993" y="149.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">25</text>
+<path d="M1045,229.31981695628647L1122,260.92598545620854" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M1122,260.92598545620854L1199,289.4458107811354" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M1045,289.8738128192577L1045,168.76582109331522" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M1039,289.8738128192577L1051,289.8738128192577" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M1039,168.76582109331522L1051,168.76582109331522" fill="none" stroke="#232323" stroke-width="2"/>
+<circle cx="1045" cy="229.31981695628647" r="5" fill="#232323"/>
+<text x="1045" y="374" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">SED</text>
+<path d="M1122,318.9432227728103L1122,202.90874813960673" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M1116,318.9432227728103L1128,318.9432227728103" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M1116,202.90874813960673L1128,202.90874813960673" fill="none" stroke="#00b226" stroke-width="2"/>
+<circle cx="1122" cy="260.92598545620854" r="5" fill="#00b226"/>
+<text x="1122" y="374" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">WALK</text>
+<path d="M1199,335.68322930337865L1199,243.20839225889216" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M1193,335.68322930337865L1205,335.68322930337865" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M1193,243.20839225889216L1205,243.20839225889216" fill="none" stroke="#002bff" stroke-width="2"/>
+<circle cx="1199" cy="289.4458107811354" r="5" fill="#002bff"/>
+<text x="1199" y="374" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">RUN</text>
+<text x="55" y="409" font-family="Arial" font-size="19" text-anchor="start" fill="#232323">Total slip score</text>
+<text x="55" y="430" font-family="Arial" font-size="12" text-anchor="start" fill="#232323">10³ a.u. × frames</text>
+<text x="55" y="450" font-family="Arial" font-size="13" text-anchor="start" fill="#777777">Order not tested</text>
+<path d="M55,465L55,670" fill="none" stroke="#232323" stroke-width="1"/>
+<path d="M55,670.0L59,670.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="48" y="674.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">-1</text>
+<path d="M55,629.0L59,629.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="48" y="633.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">0</text>
+<path d="M55,588.0L59,588.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="48" y="592.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">1</text>
+<path d="M55,547.0L59,547.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="48" y="551.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">2</text>
+<path d="M55,506.0L59,506.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="48" y="510.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">3</text>
+<path d="M55,465.0L59,465.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="48" y="469.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">4</text>
+<path d="M100,556.9935370910292L177,551.0697268063309" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M177,551.0697268063309L254,550.3447429387625" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M100,624.3818042620235L100,489.6052699200351" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M94,624.3818042620235L106,624.3818042620235" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M94,489.6052699200351L106,489.6052699200351" fill="none" stroke="#232323" stroke-width="2"/>
+<circle cx="100" cy="556.9935370910292" r="5" fill="#232323"/>
+<text x="100" y="694" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">SED</text>
+<path d="M177,615.3815770833677L177,486.7578765292942" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M171,615.3815770833677L183,615.3815770833677" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M171,486.7578765292942L183,486.7578765292942" fill="none" stroke="#00b226" stroke-width="2"/>
+<circle cx="177" cy="551.0697268063309" r="5" fill="#00b226"/>
+<text x="177" y="694" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">WALK</text>
+<path d="M254,600.2167653786366L254,500.4727204988884" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M248,600.2167653786366L260,600.2167653786366" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M248,500.4727204988884L260,500.4727204988884" fill="none" stroke="#002bff" stroke-width="2"/>
+<circle cx="254" cy="550.3447429387625" r="5" fill="#002bff"/>
+<text x="254" y="694" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">RUN</text>
+<text x="370" y="409" font-family="Arial" font-size="19" text-anchor="start" fill="#232323">Motion height</text>
+<text x="370" y="430" font-family="Arial" font-size="12" text-anchor="start" fill="#232323">mm relative to bar</text>
+<text x="370" y="450" font-family="Arial" font-size="13" text-anchor="start" fill="#777777">Order not tested</text>
+<path d="M370,465L370,670" fill="none" stroke="#232323" stroke-width="1"/>
+<path d="M370,670.0L374,670.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="674.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">25</text>
+<path d="M370,635.8333333333334L374,635.8333333333334" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="639.8333333333334" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">27.5</text>
+<path d="M370,601.6666666666666L374,601.6666666666666" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="605.6666666666666" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">30</text>
+<path d="M370,567.5L374,567.5" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="571.5" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">32.5</text>
+<path d="M370,533.3333333333334L374,533.3333333333334" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="537.3333333333334" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">35</text>
+<path d="M370,499.16666666666663L374,499.16666666666663" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="503.16666666666663" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">37.5</text>
+<path d="M370,465.0L374,465.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="363" y="469.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">40</text>
+<path d="M415,569.5983137824177L492,561.8547218700235" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M492,561.8547218700235L569,580.1020655573797" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M415,640.166239524976L415,499.0303880398594" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M409,640.166239524976L421,640.166239524976" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M409,499.0303880398594L421,499.0303880398594" fill="none" stroke="#232323" stroke-width="2"/>
+<circle cx="415" cy="569.5983137824177" r="5" fill="#232323"/>
+<text x="415" y="694" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">SED</text>
+<path d="M492,629.4624769600745L492,494.24696677997247" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M486,629.4624769600745L498,629.4624769600745" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M486,494.24696677997247L498,494.24696677997247" fill="none" stroke="#00b226" stroke-width="2"/>
+<circle cx="492" cy="561.8547218700235" r="5" fill="#00b226"/>
+<text x="492" y="694" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">WALK</text>
+<path d="M569,636.3869539536039L569,523.8171771611555" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M563,636.3869539536039L575,636.3869539536039" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M563,523.8171771611555L575,523.8171771611555" fill="none" stroke="#002bff" stroke-width="2"/>
+<circle cx="569" cy="580.1020655573797" r="5" fill="#002bff"/>
+<text x="569" y="694" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">RUN</text>
+<text x="685" y="409" font-family="Arial" font-size="19" text-anchor="start" fill="#232323">Tail-motion score</text>
+<text x="685" y="430" font-family="Arial" font-size="12" text-anchor="start" fill="#232323">a.u.</text>
+<text x="685" y="450" font-family="Arial" font-size="13" text-anchor="start" fill="#232323">Ordered-pattern p = 0.010</text>
+<path d="M685,465L685,670" fill="none" stroke="#232323" stroke-width="1"/>
+<path d="M685,670.0L689,670.0" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="674.0" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">0.25</text>
+<path d="M685,644.375L689,644.375" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="648.375" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">0.3</text>
+<path d="M685,618.75L689,618.75" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="622.75" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">0.35</text>
+<path d="M685,593.125L689,593.125" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="597.125" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">0.4</text>
+<path d="M685,567.5L689,567.5" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="571.5" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">0.45</text>
+<path d="M685,541.875L689,541.875" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="545.875" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">0.5</text>
+<path d="M685,516.25L689,516.25" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="520.25" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">0.55</text>
+<path d="M685,490.62500000000006L689,490.62500000000006" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="494.62500000000006" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">0.6</text>
+<path d="M685,465.00000000000006L689,465.00000000000006" fill="none" stroke="#232323" stroke-width="1"/>
+<text x="678" y="469.00000000000006" font-family="Arial" font-size="12" text-anchor="end" fill="#232323">0.65</text>
+<path d="M730,534.4408950713403L807,586.4312461785413" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M807,586.4312461785413L884,614.4537453748375" fill="none" stroke="#999999" stroke-width="1.3"/>
+<path d="M730,574.3270263736262L730,494.5547637690544" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M724,574.3270263736262L736,574.3270263736262" fill="none" stroke="#232323" stroke-width="2"/>
+<path d="M724,494.5547637690544L736,494.5547637690544" fill="none" stroke="#232323" stroke-width="2"/>
+<circle cx="730" cy="534.4408950713403" r="5" fill="#232323"/>
+<text x="730" y="694" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">SED</text>
+<path d="M807,626.8880839358702L807,545.9744084212124" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M801,626.8880839358702L813,626.8880839358702" fill="none" stroke="#00b226" stroke-width="2"/>
+<path d="M801,545.9744084212124L813,545.9744084212124" fill="none" stroke="#00b226" stroke-width="2"/>
+<circle cx="807" cy="586.4312461785413" r="5" fill="#00b226"/>
+<text x="807" y="694" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">WALK</text>
+<path d="M884,646.0314965223284L884,582.8759942273465" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M878,646.0314965223284L890,646.0314965223284" fill="none" stroke="#002bff" stroke-width="2"/>
+<path d="M878,582.8759942273465L890,582.8759942273465" fill="none" stroke="#002bff" stroke-width="2"/>
+<circle cx="884" cy="614.4537453748375" r="5" fill="#002bff"/>
+<text x="884" y="694" font-family="Arial" font-size="14" text-anchor="middle" fill="#232323">RUN</text>
+<text x="1000" y="480" font-family="Arial" font-size="18" text-anchor="start" fill="#232323">How to read</text>
+<text x="1000" y="507" font-family="Arial" font-size="13" text-anchor="start" fill="#232323">Lines connect group estimates;</text>
+<text x="1000" y="529" font-family="Arial" font-size="13" text-anchor="start" fill="#232323">they do not imply equal doses.</text>
+<text x="1000" y="551" font-family="Arial" font-size="13" text-anchor="start" fill="#232323">Means are not forced to be ordered.</text>
+<text x="1000" y="573" font-family="Arial" font-size="13" text-anchor="start" fill="#232323"></text>
+<text x="1000" y="595" font-family="Arial" font-size="13" text-anchor="start" fill="#232323">p tests the whole ordered pattern,</text>
+<text x="1000" y="617" font-family="Arial" font-size="13" text-anchor="start" fill="#232323">not RUN versus WALK.</text>
+<text x="35" y="737" font-family="Arial" font-size="14" text-anchor="start" fill="#232323">Exploratory tests: p-values allow either increasing or decreasing order; no across-outcome adjustment.</text>
+<text x="35" y="761" font-family="Arial" font-size="13" text-anchor="start" fill="#232323">Only speed, stopping, slip count and tail score were tested for order. Outcome selection was informed by the data.</text>
+<text x="35" y="785" font-family="Arial" font-size="13" text-anchor="start" fill="#232323">Intervals assume constant error variance; few cages and influential observations limit precision. See methods and sensitivity results.</text>
+</svg>

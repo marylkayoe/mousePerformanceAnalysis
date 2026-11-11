@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "pair": "run minus walk",
+      "estimate": -0.052742875217420875,
+      "lower": -0.10977048998519373,
+      "upper": 0.011818630924724707,
+      "p_holm": 0.39285714285714285,
+      "cages": {
+        "TMCS2_run": 5,
+        "TMCS2_walk": 3,
+        "TMCS3_run": 2,
+        "TMCS3_walk": 1
+      }
+    },
+    {
+      "pair": "run minus sedentary",
+      "estimate": -0.15299612044205566,
+      "lower": -0.18827129282841734,
+      "upper": -0.11772094805569393,
+      "p_holm": 0.023809523809523808,
+      "cages": {
+        "TMCS2_run": 5,
+        "TMCS2_sedentary": 2,
+        "TMCS3_run": 2,
+        "TMCS3_sedentary": 2
+      }
+    }
+  ],
+  "bootstrapReplicates": 100000,
+  "seed": 20261111,
+  "definition": "Legacy mean normalized corrected whole-range tail score; unchanged from existing scatters.",
+  "method": "Within-mouse change then cage mean. Equal cohort weight for contrasts. Resample cages with replacement separately within each cohort/group; keep whole-cage changes intact. Percentile95% intervals.",
+  "caution": "One WALK cage in TMCS3 cannot contribute estimated within-cell bootstrap variation; intervals may underrepresent uncertainty. Layout/estimation prototype only. Original exact-permutation Holm p-values retained; no new testing hierarchy. Bootstrap intervals are unadjusted and need not agree with adjusted p-values."
+}

@@ -1,0 +1,22 @@
+domain,metric,label,role,contrast,unit,difference,p_direct_two_sided,previous_holm_three_pairs,n_mice,n_permutations,sensitivity_holm_primary_outcomes_within_domain,sensitivity_holm_primary_outcomes_within_domain
+Forward locomotion,speed,Locomoting speed,primary,run minus walk,mm/s,13.470539272142,0.44642857142857145,0.8928571428571429,42,168,0.8809523809523809,0.8809523809523809
+Forward locomotion,speed,Locomoting speed,secondary,run minus sedentary,mm/s,22.626129932546444,0.15873015873015872,0.47619047619047616,42,126,,
+Forward locomotion,speed,Locomoting speed,secondary,walk minus sedentary,mm/s,9.155590660404442,0.4666666666666667,0.8928571428571429,42,30,,
+Forward locomotion,time_stopped,Time stopped,primary,run minus walk,percentage points,-2.1942042651102227,0.44047619047619047,1.0,41,168,0.8809523809523809,0.8809523809523809
+Forward locomotion,time_stopped,Time stopped,secondary,run minus sedentary,percentage points,-0.4600853449310782,0.8968253968253969,1.0,41,126,,
+Forward locomotion,time_stopped,Time stopped,secondary,walk minus sedentary,percentage points,1.7341189201791447,0.6333333333333333,1.0,41,30,,
+Forward locomotion,posture,Posture height,primary,run minus walk,mm,0.5509826496354084,0.19642857142857142,0.39285714285714285,42,168,0.5892857142857143,0.5892857142857143
+Forward locomotion,posture,Posture height,secondary,run minus sedentary,mm,0.03918386878788965,0.9126984126984127,0.9126984126984127,42,126,,
+Forward locomotion,posture,Posture height,secondary,walk minus sedentary,mm,-0.5117987808475188,0.1,0.30000000000000004,42,30,,
+Slipping,slip_count,Slip count,primary,run minus walk,count,-0.288888888888889,0.9226190476190477,1.0,41,168,1.0,1.0
+Slipping,slip_count,Slip count,secondary,run minus sedentary,count,0.4333333333333331,0.9603174603174603,1.0,41,126,,
+Slipping,slip_count,Slip count,secondary,walk minus sedentary,count,0.7222222222222221,0.9333333333333333,1.0,41,30,,
+Slipping,slip_score,Total slip score,primary,run minus walk,a.u. × frames,203.0260067520538,0.8392857142857143,0.8392857142857143,41,168,1.0,1.0
+Slipping,slip_score,Total slip score,secondary,run minus sedentary,a.u. × frames,1721.342605520062,0.21428571428571427,0.6428571428571428,41,126,,
+Slipping,slip_score,Total slip score,secondary,walk minus sedentary,a.u. × frames,1518.3165987680084,0.3,0.6428571428571428,41,30,,
+Tail,motion_height,Motion height,primary,run minus walk,mm,-0.35094982576248746,0.8869047619047619,0.8869047619047619,42,168,0.8869047619047619,0.8869047619047619
+Tail,motion_height,Motion height,secondary,run minus sedentary,mm,-4.008858358775104,0.1746031746031746,0.5238095238095237,42,126,,
+Tail,motion_height,Motion height,secondary,walk minus sedentary,mm,-3.6579085330126158,0.2,0.5238095238095237,42,30,,
+Tail,tail_score,Tail-motion score,primary,run minus walk,a.u.,-0.05274287521742088,0.19642857142857142,0.39285714285714285,42,168,0.39285714285714285,0.39285714285714285
+Tail,tail_score,Tail-motion score,secondary,run minus sedentary,a.u.,-0.15299612044205566,0.007936507936507936,0.023809523809523808,42,126,,
+Tail,tail_score,Tail-motion score,secondary,walk minus sedentary,a.u.,-0.10025324522463477,0.2,0.39285714285714285,42,30,,

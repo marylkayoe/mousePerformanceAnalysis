@@ -1,0 +1,60 @@
+{
+  "metric": "tail_score",
+  "source": "tail-metrics/whole-motion-reweighted/mouse-day-values.csv",
+  "field": "meanLegacy",
+  "unit": "a.u.",
+  "conversion": 1,
+  "nD0": 42,
+  "nPaired": 42,
+  "overallChangeP": 0.015357142857142857,
+  "allThreePairTests": [
+    {
+      "pair": "walk minus sedentary",
+      "difference_cage_cohort_balanced": -0.10025324522463477,
+      "p_raw": 0.2,
+      "p_holm_3_pairs": 0.39285714285714285
+    },
+    {
+      "pair": "run minus sedentary",
+      "difference_cage_cohort_balanced": -0.15299612044205566,
+      "p_raw": 0.007936507936507936,
+      "p_holm_3_pairs": 0.023809523809523808
+    },
+    {
+      "pair": "run minus walk",
+      "difference_cage_cohort_balanced": -0.05274287521742088,
+      "p_raw": 0.19642857142857142,
+      "p_holm_3_pairs": 0.39285714285714285
+    }
+  ],
+  "effects": [
+    {
+      "pair": "run minus walk",
+      "estimate": -0.052742875217420875,
+      "lower": -0.10973066040399747,
+      "upper": 0.011771180840193907,
+      "pHolm": 0.39285714285714285,
+      "cages": {
+        "TMCS2_run": 5,
+        "TMCS2_walk": 3,
+        "TMCS3_run": 2,
+        "TMCS3_walk": 1
+      }
+    },
+    {
+      "pair": "run minus sedentary",
+      "estimate": -0.15299612044205566,
+      "lower": -0.18827129282841734,
+      "upper": -0.11767349797116314,
+      "pHolm": 0.023809523809523808,
+      "cages": {
+        "TMCS2_run": 5,
+        "TMCS2_sedentary": 2,
+        "TMCS3_run": 2,
+        "TMCS3_sedentary": 2
+      }
+    }
+  ],
+  "bootstrapReplicates": 100000,
+  "seed": 20261111
+}

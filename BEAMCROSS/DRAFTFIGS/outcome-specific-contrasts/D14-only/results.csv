@@ -1,0 +1,22 @@
+domain,metric,label,period,role,contrast,unit,difference,p_direct_two_sided,previous_holm_three_pairs,n_mice,n_cages,source,source_field,conversion
+Forward locomotion,speed,Locomoting speed,D14,primary,run minus walk,mm/s,11.56453353793377,0.6726190476190477,0.6726190476190477,42,15,analysis-data/weighted-speed/speed-days-input.csv,value,0.5828476269775187
+Forward locomotion,speed,Locomoting speed,D14,secondary,run minus sedentary,mm/s,30.870745099535952,0.023809523809523808,0.07142857142857142,42,15,analysis-data/weighted-speed/speed-days-input.csv,value,0.5828476269775187
+Forward locomotion,speed,Locomoting speed,D14,secondary,walk minus sedentary,mm/s,19.306211561602183,0.23333333333333334,0.4666666666666667,42,15,analysis-data/weighted-speed/speed-days-input.csv,value,0.5828476269775187
+Forward locomotion,time_stopped,Time stopped,D14,primary,run minus walk,%,-3.077489157294241,0.13095238095238096,0.2619047619047619,42,15,SLIPS&STOPS/stop-time-percentage/mouse-day-values.csv,value,1
+Forward locomotion,time_stopped,Time stopped,D14,secondary,run minus sedentary,%,-6.369660025495099,0.015873015873015872,0.047619047619047616,42,15,SLIPS&STOPS/stop-time-percentage/mouse-day-values.csv,value,1
+Forward locomotion,time_stopped,Time stopped,D14,secondary,walk minus sedentary,%,-3.292170868200858,0.3333333333333333,0.3333333333333333,42,15,SLIPS&STOPS/stop-time-percentage/mouse-day-values.csv,value,1
+Forward locomotion,posture,Posture height,D14,primary,run minus walk,mm,0.5197149331575766,0.047619047619047616,0.14285714285714285,42,15,analysis-data/posture-statistics/tail-days.csv,value,0.5828476269775187
+Forward locomotion,posture,Posture height,D14,secondary,run minus sedentary,mm,0.3993116961629495,0.25396825396825395,0.5079365079365079,42,15,analysis-data/posture-statistics/tail-days.csv,value,0.5828476269775187
+Forward locomotion,posture,Posture height,D14,secondary,walk minus sedentary,mm,-0.12040323699462707,0.7333333333333333,0.7333333333333333,42,15,analysis-data/posture-statistics/tail-days.csv,value,0.5828476269775187
+Slipping,slip_count,Slip count,D14,primary,run minus walk,count,-3.6722222222222216,0.07142857142857142,0.14285714285714285,42,15,analysis-data/pooled-exposures.csv,combinedSlips,1
+Slipping,slip_count,Slip count,D14,secondary,run minus sedentary,count,-7.283333333333331,0.023809523809523808,0.07142857142857142,42,15,analysis-data/pooled-exposures.csv,combinedSlips,1
+Slipping,slip_count,Slip count,D14,secondary,walk minus sedentary,count,-3.61111111111111,0.5666666666666667,0.5666666666666667,42,15,analysis-data/pooled-exposures.csv,combinedSlips,1
+Slipping,slip_score,Total slip score,D14,primary,run minus walk,a.u. × frames,142.3685402509684,0.9404761904761905,1.0,42,15,analysis-data/pooled-exposures.csv,combinedSlipMagnitude,1
+Slipping,slip_score,Total slip score,D14,secondary,run minus sedentary,a.u. × frames,128.48566961255915,0.9285714285714286,1.0,42,15,analysis-data/pooled-exposures.csv,combinedSlipMagnitude,1
+Slipping,slip_score,Total slip score,D14,secondary,walk minus sedentary,a.u. × frames,-13.882870638409258,1.0,1.0,42,15,analysis-data/pooled-exposures.csv,combinedSlipMagnitude,1
+Tail,motion_height,Motion height,D14,primary,run minus walk,mm,0.17415271224596118,0.9404761904761905,1.0,42,15,tail-metrics/height-exploratory/mouse-day-motion-height.csv,medianHeight,1
+Tail,motion_height,Motion height,D14,secondary,run minus sedentary,mm,0.0386946063465512,0.9841269841269841,1.0,42,15,tail-metrics/height-exploratory/mouse-day-motion-height.csv,medianHeight,1
+Tail,motion_height,Motion height,D14,secondary,walk minus sedentary,mm,-0.13545810589941,0.9666666666666667,1.0,42,15,tail-metrics/height-exploratory/mouse-day-motion-height.csv,medianHeight,1
+Tail,tail_score,Tail-motion score,D14,primary,run minus walk,a.u.,-0.06530016652610945,0.02976190476190476,0.07142857142857142,42,15,tail-metrics/whole-motion-reweighted/mouse-day-values.csv,meanLegacy,1
+Tail,tail_score,Tail-motion score,D14,secondary,run minus sedentary,a.u.,-0.13830578108575545,0.023809523809523808,0.07142857142857142,42,15,tail-metrics/whole-motion-reweighted/mouse-day-values.csv,meanLegacy,1
+Tail,tail_score,Tail-motion score,D14,secondary,walk minus sedentary,a.u.,-0.07300561455964599,0.3333333333333333,0.3333333333333333,42,15,tail-metrics/whole-motion-reweighted/mouse-day-values.csv,meanLegacy,1

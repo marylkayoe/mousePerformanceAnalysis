@@ -1,0 +1,947 @@
+[
+  {
+    "metric": "speed",
+    "cohort": "TMCS2",
+    "cage": "C01",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 143.0600345492323,
+    "D14": 171.7864603840714
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS2",
+    "cage": "C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 114.15058128364562,
+    "D14": 147.01752251802523
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS2",
+    "cage": "C03",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 113.36240386769238,
+    "D14": 178.14208567162166
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS2",
+    "cage": "C04",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 122.37597392417507,
+    "D14": 148.64001196560565
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS2",
+    "cage": "C05",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 102.88715169460004,
+    "D14": 175.40147960013942
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS2",
+    "cage": "C06",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 125.82264101475376,
+    "D14": 144.13987779544985
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS2",
+    "cage": "C07",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 135.28008870362407,
+    "D14": 175.92943835371392
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS2",
+    "cage": "C08",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 119.19709424832229,
+    "D14": 158.8525336894895
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS2",
+    "cage": "C09",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 104.4367729051625,
+    "D14": 172.54348749986312
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS2",
+    "cage": "C10",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 109.39224801449404,
+    "D14": 139.1713749590413
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS3",
+    "cage": "C01",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 123.18441013347274,
+    "D14": 185.2151344893948
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS3",
+    "cage": "C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 123.06123869057764,
+    "D14": 147.8212017270407
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS3",
+    "cage": "C03",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 105.4618653767534,
+    "D14": 125.08912523043652
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS3",
+    "cage": "C04",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 107.65511971085989,
+    "D14": 131.83137598512874
+  },
+  {
+    "metric": "speed",
+    "cohort": "TMCS3",
+    "cage": "C05",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 107.0258702475224,
+    "D14": 108.17084731876982
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C01",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 3.529336241544724,
+    "D14": 7.009658646062191
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 8.986568498894158,
+    "D14": 3.9728076481642645
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C03",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 9.679962294613036,
+    "D14": 6.206624462619556
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C04",
+    "group": "run",
+    "n_mice": 1,
+    "D0": 21.39496263492942,
+    "D14": 7.914523149980214
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C05",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 14.463889409643214,
+    "D14": 5.131842917564172
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C06",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 4.703273223658652,
+    "D14": 13.607734812750223
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C07",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 5.713329429161007,
+    "D14": 7.1615400180964945
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C08",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 11.976425873685097,
+    "D14": 7.331831825699058
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C09",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 10.612289351556631,
+    "D14": 3.459501964698425
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C10",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 14.257787481645721,
+    "D14": 10.538333588726221
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C01",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 4.87575480971545,
+    "D14": 1.1097064194409327
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 9.931530828566062,
+    "D14": 6.177227167257697
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C03",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 17.018413211303464,
+    "D14": 9.023730628281399
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C04",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 5.316801057846271,
+    "D14": 3.090363150815365
+  },
+  {
+    "metric": "time_stopped",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C05",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 12.295463588795078,
+    "D14": 14.487353046968172
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS2",
+    "cage": "C01",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 14.396287400456064,
+    "D14": 14.299064445563351
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS2",
+    "cage": "C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 13.647560890170022,
+    "D14": 13.50084631443338
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS2",
+    "cage": "C03",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 14.536149986877225,
+    "D14": 14.247515107881908
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS2",
+    "cage": "C04",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 14.193016282828289,
+    "D14": 14.261485022982393
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS2",
+    "cage": "C05",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 13.548566580155828,
+    "D14": 14.425965858783263
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS2",
+    "cage": "C06",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 14.277376441660481,
+    "D14": 13.465297163834094
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS2",
+    "cage": "C07",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 15.049872966583852,
+    "D14": 13.822961727710018
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS2",
+    "cage": "C08",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 14.372193926730594,
+    "D14": 14.455911742744348
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS2",
+    "cage": "C09",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 13.784240181854436,
+    "D14": 13.674338695981353
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS2",
+    "cage": "C10",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 13.580449742247124,
+    "D14": 14.03562355644351
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS3",
+    "cage": "C01",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 14.6810980641921,
+    "D14": 14.040699321377268
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS3",
+    "cage": "C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 14.335235564590107,
+    "D14": 13.230046122722461
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS3",
+    "cage": "C03",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 13.662516961749867,
+    "D14": 13.200340918563496
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS3",
+    "cage": "C04",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 13.782900380130554,
+    "D14": 13.780498747056063
+  },
+  {
+    "metric": "posture",
+    "cohort": "TMCS3",
+    "cage": "C05",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 13.797119868846215,
+    "D14": 12.725601366438331
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS2",
+    "cage": "C01",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 13.0,
+    "D14": 6.5
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS2",
+    "cage": "C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 25.0,
+    "D14": 8.333333333333334
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS2",
+    "cage": "C03",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 25.666666666666668,
+    "D14": 11.333333333333334
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS2",
+    "cage": "C04",
+    "group": "run",
+    "n_mice": 1,
+    "D0": 26.0,
+    "D14": 16.0
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS2",
+    "cage": "C05",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 24.666666666666668,
+    "D14": 8.333333333333334
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS2",
+    "cage": "C06",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 13.333333333333334,
+    "D14": 15.666666666666666
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS2",
+    "cage": "C07",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 12.5,
+    "D14": 7.5
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS2",
+    "cage": "C08",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 21.666666666666668,
+    "D14": 11.333333333333334
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS2",
+    "cage": "C09",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 27.0,
+    "D14": 10.0
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS2",
+    "cage": "C10",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 25.0,
+    "D14": 14.333333333333334
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS3",
+    "cage": "C01",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 13.333333333333334,
+    "D14": 12.0
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS3",
+    "cage": "C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 21.333333333333332,
+    "D14": 18.0
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS3",
+    "cage": "C03",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 29.333333333333332,
+    "D14": 18.333333333333332
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS3",
+    "cage": "C04",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 19.0,
+    "D14": 15.333333333333334
+  },
+  {
+    "metric": "slip_count",
+    "cohort": "TMCS3",
+    "cage": "C05",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 26.666666666666668,
+    "D14": 30.0
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS2",
+    "cage": "C01",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 758.3874741710528,
+    "D14": 279.7224397896189
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS2",
+    "cage": "C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 2061.519148319218,
+    "D14": 1326.9028199597112
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS2",
+    "cage": "C03",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 4518.621301004933,
+    "D14": 998.0674496718806
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS2",
+    "cage": "C04",
+    "group": "run",
+    "n_mice": 1,
+    "D0": 3158.1017979125495,
+    "D14": 2114.443068665528
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS2",
+    "cage": "C05",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 5130.702942082185,
+    "D14": 723.0018422201733
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS2",
+    "cage": "C06",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 1793.0085602668335,
+    "D14": 2739.3285330472518
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS2",
+    "cage": "C07",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 1952.4893590951822,
+    "D14": 3457.3111205853907
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS2",
+    "cage": "C08",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 3304.882133985148,
+    "D14": 1104.618546049772
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS2",
+    "cage": "C09",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 1757.2171346127354,
+    "D14": 704.5981834177818
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS2",
+    "cage": "C10",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 2755.2578128206223,
+    "D14": 2218.7187775897896
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS3",
+    "cage": "C01",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 1293.7633222837783,
+    "D14": 521.9602668145704
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS3",
+    "cage": "C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 1941.4199133956292,
+    "D14": 1876.6181812720727
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS3",
+    "cage": "C03",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 5027.012849020029,
+    "D14": 1711.852965308978
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS3",
+    "cage": "C04",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 3150.649765003757,
+    "D14": 4590.182066570724
+  },
+  {
+    "metric": "slip_score",
+    "cohort": "TMCS3",
+    "cage": "C05",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 4506.584248318453,
+    "D14": 2149.776757935139
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C01",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 36.69997224535108,
+    "D14": 34.33943935609215
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 31.33777407715793,
+    "D14": 28.38467943380517
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C03",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 34.41391433065039,
+    "D14": 35.28170968637245
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C04",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 39.3810713294477,
+    "D14": 25.742436858173736
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C05",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 31.04635026366918,
+    "D14": 27.618882412804144
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C06",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 38.73993893977241,
+    "D14": 33.85697104264963
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C07",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 35.47599222869829,
+    "D14": 24.139605883985553
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C08",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 30.502359145156813,
+    "D14": 33.274123415672136
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C09",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 33.93468405957998,
+    "D14": 35.61846609307057
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C10",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 31.104635026366907,
+    "D14": 30.29512443334259
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C01",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 38.51975205846978,
+    "D14": 34.187251364603554
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 38.157091312794876,
+    "D14": 31.72633916180961
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C03",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 33.610879822370244,
+    "D14": 33.98649273753353
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C04",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 38.94069756684244,
+    "D14": 35.99407900823388
+  },
+  {
+    "metric": "motion_height",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C05",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 36.66759182163011,
+    "D14": 31.454343602553433
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C01",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 0.46010693721420176,
+    "D14": 0.304708000601133
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 0.4428841951878502,
+    "D14": 0.47822312921222326
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C03",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 0.5531380017650184,
+    "D14": 0.4892290264506425
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C04",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 0.4814762372584514,
+    "D14": 0.3748925109021163
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C05",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 0.4900157105060739,
+    "D14": 0.43843964255054696
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C06",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 0.6013178985140035,
+    "D14": 0.383715548667193
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C07",
+    "group": "run",
+    "n_mice": 2,
+    "D0": 0.46203676873886884,
+    "D14": 0.32286917228598433
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C08",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 0.3350058115494734,
+    "D14": 0.45671456926879195
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C09",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 0.4587039684145738,
+    "D14": 0.3635480478726329
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS2",
+    "cage": "TMCS2_C10",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 0.6064577934341749,
+    "D14": 0.7050763760566888
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C01",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 0.3835230921149928,
+    "D14": 0.3347403442057651
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C02",
+    "group": "walk",
+    "n_mice": 3,
+    "D0": 0.36329449646910206,
+    "D14": 0.39581968132413436
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C03",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 0.4712427086486282,
+    "D14": 0.4650965960596472
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C04",
+    "group": "run",
+    "n_mice": 3,
+    "D0": 0.41679428371350385,
+    "D14": 0.374693872206473
+  },
+  {
+    "metric": "tail_score",
+    "cohort": "TMCS3",
+    "cage": "TMCS3_C05",
+    "group": "sedentary",
+    "n_mice": 3,
+    "D0": 0.2697855536238869,
+    "D14": 0.357552749055097
+  }
+]

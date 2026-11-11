@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 365">
+<text x="55" y="27" font-family="Arial" font-size="17" text-anchor="start">Locomoting speed, D0</text>
+<text x="55" y="47" font-family="Arial" font-size="11" text-anchor="start">mm/s</text>
+<path d="M55,280.0L59,280.0" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="48" y="284.0" font-family="Arial" font-size="10" text-anchor="end">50</text>
+<path d="M55,226.25L59,226.25" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="48" y="230.25" font-family="Arial" font-size="10" text-anchor="end">87.5</text>
+<path d="M55,172.5L59,172.5" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="48" y="176.5" font-family="Arial" font-size="10" text-anchor="end">125</text>
+<path d="M55,118.75L59,118.75" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="48" y="122.75" font-family="Arial" font-size="10" text-anchor="end">162</text>
+<path d="M55,65.0L59,65.0" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="48" y="69.0" font-family="Arial" font-size="10" text-anchor="end">200</text>
+<path d="M55,65L55,280" stroke="#333333" stroke-width="1" fill="none"/>
+<circle cx="91.0" cy="164.86810151585883" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="93.18181818181819" cy="204.16703098965831" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="95.36363636363636" cy="173.41736222669704" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="97.54545454545455" cy="241.57268533836256" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="99.72727272727272" cy="184.29237754974554" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="101.9090909090909" cy="158.74827064956747" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="104.0909090909091" cy="244.11439752261393" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="106.27272727272728" cy="189.28432511187992" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="108.45454545454545" cy="168.11525624546658" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="110.63636363636364" cy="232.12284238412428" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="112.81818181818181" cy="140.05880242336704" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="115.0" cy="222.60711312816227" r="3" fill="#000000" fill-opacity="1"/>
+<polygon points="75,180.81749824407137 78,176.31749824407137 81,180.81749824407137 78,185.31749824407137" fill="#000000" stroke="#232323" stroke-width=".4"/>
+<polygon points="75,194.8711111792252 78,190.3711111792252 81,194.8711111792252 78,199.3711111792252" fill="#000000" stroke="#232323" stroke-width=".4"/>
+<polygon points="75,200.50465962665348 78,196.00465962665348 81,200.50465962665348 78,205.00465962665348" fill="#000000" stroke="#232323" stroke-width=".4"/>
+<polygon points="75,198.26291931188456 78,193.76291931188456 81,198.26291931188456 78,202.76291931188456" fill="#000000" stroke="#232323" stroke-width=".4"/>
+<path d="M87,193.61404709045866L119,193.61404709045866" stroke="#000000" stroke-width="3" fill="none"/>
+<text x="103" y="305" font-family="Arial" font-size="13" text-anchor="middle">SED</text>
+<circle cx="173.0" cy="177.14983164610976" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="175.1818181818182" cy="213.05721980318083" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="177.36363636363637" cy="177.33461191963212" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="179.54545454545453" cy="206.26839222330347" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="181.72727272727272" cy="153.45770798523642" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="183.9090909090909" cy="154.23654342801896" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="186.0909090909091" cy="224.26232333814073" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="188.27272727272728" cy="146.87052967072478" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="190.45454545454544" cy="193.0196474714583" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="192.63636363636363" cy="204.3277904682505" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="194.8181818181818" cy="157.34239703416915" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="197.0" cy="164.16648612809644" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<polygon points="157,189.1805544563076 160,184.6805544563076 163,189.1805544563076 160,193.6805544563076" fill="#008d3f" stroke="#232323" stroke-width=".4"/>
+<polygon points="157,171.3208812121863 160,166.8208812121863 163,171.3208812121863 160,175.8208812121863" fill="#008d3f" stroke="#232323" stroke-width=".4"/>
+<polygon points="157,188.05083349344127 160,183.55083349344127 163,188.05083349344127 160,192.55083349344127" fill="#008d3f" stroke="#232323" stroke-width=".4"/>
+<polygon points="157,175.27889121017205 160,170.77889121017205 163,175.27889121017205 160,179.77889121017205" fill="#008d3f" stroke="#232323" stroke-width=".4"/>
+<path d="M169,180.9577900930268L201,180.9577900930268" stroke="#008d3f" stroke-width="3" fill="none"/>
+<text x="185" y="305" font-family="Arial" font-size="13" text-anchor="middle">WALK</text>
+<circle cx="255.0" cy="174.91664813334046" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="256.4117647058824" cy="118.31125282552696" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="257.8235294117647" cy="176.52845994420915" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="259.2352941176471" cy="175.99374813982234" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="260.6470588235294" cy="222.0277606303028" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="262.05882352941177" cy="225.49352633465082" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="263.47058823529414" cy="165.0639607482662" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="264.88235294117646" cy="204.48399111807183" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="266.29411764705884" cy="111.04642126487249" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="267.70588235294116" cy="205.91864249520597" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="269.11764705882354" cy="214.0003818304771" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="270.52941176470586" cy="186.00285218211818" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="271.94117647058823" cy="202.05426355948487" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="273.3529411764706" cy="157.30551694800752" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="274.7647058823529" cy="165.94725591857485" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="276.1764705882353" cy="197.15159276085484" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="277.5882352941176" cy="176.80758309092892" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="279.0" cy="218.12380939151865" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<polygon points="239,146.61395047943367 242,142.11395047943367 245,146.61395047943367 242,151.11395047943367" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<polygon points="239,176.26110404201575 242,171.76110404201575 245,176.26110404201575 242,180.76110404201575" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<polygon points="239,204.19508257107327 242,199.69508257107327 245,204.19508257107327 242,208.69508257107327" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<polygon points="239,157.76520619147215 242,153.26520619147215 245,157.76520619147215 242,162.26520619147215" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<polygon points="239,201.97395883593373 242,197.47395883593373 245,201.97395883593373 242,206.47395883593373" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<polygon points="239,175.10234547535575 242,170.60234547535575 245,175.10234547535575 242,179.60234547535575" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<polygon points="239,197.3609950811008 242,192.8609950811008 245,197.3609950811008 242,201.8609950811008" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<path d="M251,183.17653707312408L283,183.17653707312408" stroke="#0864cf" stroke-width="3" fill="none"/>
+<text x="267" y="305" font-family="Arial" font-size="13" text-anchor="middle">RUN</text>
+<text x="385" y="27" font-family="Arial" font-size="17" text-anchor="start">Locomoting speed, D14−D0</text>
+<text x="385" y="47" font-family="Arial" font-size="11" text-anchor="start">mm/s</text>
+<path d="M385,280.0L389,280.0" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="378" y="284.0" font-family="Arial" font-size="10" text-anchor="end">-55</text>
+<path d="M385,226.25L389,226.25" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="378" y="230.25" font-family="Arial" font-size="10" text-anchor="end">-15</text>
+<path d="M385,172.5L389,172.5" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="378" y="176.5" font-family="Arial" font-size="10" text-anchor="end">25</text>
+<path d="M385,118.75L389,118.75" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="378" y="122.75" font-family="Arial" font-size="10" text-anchor="end">65</text>
+<path d="M385,65.0L389,65.0" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="378" y="69.0" font-family="Arial" font-size="10" text-anchor="end">105</text>
+<path d="M385,65L385,280" stroke="#333333" stroke-width="1" fill="none"/>
+<path d="M385,206.09375L635,206.09375" stroke="#bbbbbb" stroke-width="1" fill="none"/>
+<circle cx="421.0" cy="145.6442695853868" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="423.1818181818182" cy="163.9024199614504" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="425.3636363636364" cy="148.87357020595758" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="427.54545454545456" cy="147.85034505618944" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="429.72727272727275" cy="210.51934552631175" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="431.90909090909093" cy="139.86445392229277" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="434.09090909090907" cy="143.0034711810553" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="436.27272727272725" cy="185.53937573844797" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="438.45454545454544" cy="210.61601179533665" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="440.6363636363636" cy="206.908987170822" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="442.8181818181818" cy="265.35182452621723" r="3" fill="#000000" fill-opacity="1"/>
+<circle cx="445.0" cy="141.4047494844947" r="3" fill="#000000" fill-opacity="1"/>
+<polygon points="405,152.8067532509316 408,148.3067532509316 411,152.8067532509316 408,157.3067532509316" fill="#000000" stroke="#232323" stroke-width=".4"/>
+<polygon points="405,166.07804816826462 408,161.57804816826462 411,166.07804816826462 408,170.57804816826462" fill="#000000" stroke="#232323" stroke-width=".4"/>
+<polygon points="405,179.7196195716133 408,175.2196195716133 411,179.7196195716133 408,184.2196195716133" fill="#000000" stroke="#232323" stroke-width=".4"/>
+<polygon points="405,204.5551870605113 408,200.0551870605113 411,204.5551870605113 408,209.0551870605113" fill="#000000" stroke="#232323" stroke-width=".4"/>
+<path d="M417,175.78990201283023L449,175.78990201283023" stroke="#000000" stroke-width="3" fill="none"/>
+<text x="433" y="305" font-family="Arial" font-size="13" text-anchor="middle">SED</text>
+<circle cx="503.0" cy="105.85208592619344" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="505.1818181818182" cy="152.323652270173" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="507.3636363636364" cy="98.96241953154362" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="509.54545454545456" cy="206.35194104355378" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="511.72727272727275" cy="167.0726516849456" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="513.9090909090909" cy="171.01529649931945" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="516.0909090909091" cy="188.43795017866742" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="518.2727272727273" cy="124.73630305642277" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="520.4545454545455" cy="172.61213991381697" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="522.6363636363636" cy="146.65840664936255" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="524.8181818181819" cy="141.84060227820467" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<circle cx="527.0" cy="229.9686400816912" r="3" fill="#008d3f" fill-opacity="0.4"/>
+<polygon points="487,119.04605257597001 490,114.54605257597001 493,119.04605257597001 490,123.54605257597001" fill="#008d3f" stroke="#232323" stroke-width=".4"/>
+<polygon points="487,181.47996307593962 490,176.97996307593962 493,181.47996307593962 490,185.97996307593962" fill="#008d3f" stroke="#232323" stroke-width=".4"/>
+<polygon points="487,161.92879771630237 490,157.42879771630237 493,161.92879771630237 490,166.42879771630237" fill="#008d3f" stroke="#232323" stroke-width=".4"/>
+<polygon points="487,172.82254966975282 490,168.32254966975282 493,172.82254966975282 490,177.32254966975282" fill="#008d3f" stroke="#232323" stroke-width=".4"/>
+<path d="M499,158.8193407594912L531,158.8193407594912" stroke="#008d3f" stroke-width="3" fill="none"/>
+<text x="515" y="305" font-family="Arial" font-size="13" text-anchor="middle">WALK</text>
+<circle cx="585.0" cy="133.89899986421165" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="586.4117647058823" cy="201.0862307046583" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="587.8235294117648" cy="165.0385838827804" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="589.2352941176471" cy="176.5643138808749" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="590.6470588235294" cy="111.44973335075534" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="592.0588235294117" cy="73.84016092428857" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="593.4705882352941" cy="140.66797135575052" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="594.8823529411765" cy="131.3525583504138" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="596.2941176470588" cy="171.58981446496978" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="597.7058823529412" cy="162.30217518441393" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="599.1176470588235" cy="101.15875063841025" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="600.5294117647059" cy="80.26513096728885" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="601.9411764705883" cy="148.22417405375933" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="603.3529411764706" cy="133.95010895924423" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="604.7647058823529" cy="86.04560942718561" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="606.1764705882352" cy="222.26343410270457" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="607.5882352941177" cy="198.21976239781793" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<circle cx="609.0" cy="100.33752039383123" r="3" fill="#0864cf" fill-opacity="0.4"/>
+<polygon points="569,167.49261528443498 572,162.99261528443498 575,167.49261528443498 572,171.99261528443498" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<polygon points="569,170.80144888182767 572,166.30144888182767 575,170.80144888182767 572,175.30144888182767" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<polygon points="569,108.65262187693145 572,104.15262187693145 575,108.65262187693145 572,113.15262187693145" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<polygon points="569,151.4711864076918 572,146.9711864076918 575,151.4711864076918 572,155.9711864076918" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<polygon points="569,114.575352263371 572,110.075352263371 575,114.575352263371 572,119.075352263371" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<polygon points="569,122.7399641467297 572,118.2399641467297 575,122.7399641467297 572,127.2399641467297" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<polygon points="569,173.60690563145124 572,169.10690563145124 575,173.60690563145124 572,178.10690563145124" fill="#0864cf" stroke="#232323" stroke-width=".4"/>
+<path d="M581,141.01416849463104L613,141.01416849463104" stroke="#0864cf" stroke-width="3" fill="none"/>
+<text x="597" y="305" font-family="Arial" font-size="13" text-anchor="middle">RUN</text>
+<text x="710" y="27" font-family="Arial" font-size="17" text-anchor="start">Comparisons of changes</text>
+<text x="710" y="47" font-family="Arial" font-size="11" text-anchor="start">Cage/cohort-balanced estimates</text>
+<path d="M924.5454545454545,70L924.5454545454545,255" stroke="#aaaaaa" stroke-width="1" fill="none"/>
+<text x="710" y="110" font-family="Arial" font-size="14" text-anchor="start">RUN − WALK</text>
+<text x="710" y="128" font-family="Arial" font-size="10" text-anchor="start">Beyond shared routine</text>
+<path d="M905.7929743724208,115L1035.7506418192477,115" stroke="#002bff" stroke-width="2" fill="none"/>
+<circle cx="971.0800447583088" cy="115" r="4" fill="#002bff" fill-opacity="1"/>
+<text x="985.0" y="141" font-family="Arial" font-size="10" text-anchor="middle">Holm p = 0.893</text>
+<text x="710" y="210" font-family="Arial" font-size="14" text-anchor="start">RUN − SED</text>
+<text x="710" y="228" font-family="Arial" font-size="10" text-anchor="start">Overall procedure</text>
+<path d="M944.5523924230586,215L1060.8635884077823,215" stroke="#002bff" stroke-width="2" fill="none"/>
+<circle cx="1002.7084488578877" cy="215" r="4" fill="#002bff" fill-opacity="1"/>
+<text x="985.0" y="241" font-family="Arial" font-size="10" text-anchor="middle">Holm p = 0.476</text>
+<path d="M890,275L1080,275" stroke="#333333" stroke-width="1" fill="none"/>
+<path d="M890.0,275L890.0,279" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="890.0" y="294" font-family="Arial" font-size="10" text-anchor="middle">-10</text>
+<path d="M953.3333333333334,275L953.3333333333334,279" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="953.3333333333334" y="294" font-family="Arial" font-size="10" text-anchor="middle">8.33</text>
+<path d="M1016.6666666666666,275L1016.6666666666666,279" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="1016.6666666666666" y="294" font-family="Arial" font-size="10" text-anchor="middle">26.7</text>
+<path d="M1080.0,275L1080.0,279" stroke="#333333" stroke-width="1" fill="none"/>
+<text x="1080.0" y="294" font-family="Arial" font-size="10" text-anchor="middle">45</text>
+<text x="985.0" y="316" font-family="Arial" font-size="10" text-anchor="middle">Difference (mm/s)</text>
+<text x="20" y="344" font-family="Arial" font-size="11" text-anchor="start">Exploratory 95% cage-bootstrap intervals; original three-pair Holm p-values retained.</text>
+<text x="20" y="361" font-family="Arial" font-size="10" text-anchor="start">Sparse cages limit interval reliability. Intervals are unadjusted; no new hypothesis hierarchy has been adopted.</text>
+</svg>

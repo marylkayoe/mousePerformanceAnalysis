@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 365">
+<text x="60" y="25" font-family="Arial" font-size="18">motion_height: cage means D0 versus D14</text>
+<path d="M65 50V300H465" fill="none" stroke="black"/>
+<g><title>TMCS2 TMCS2_C01 run</title><circle cx="344.2122538293203" cy="93.49904397705538" r="4" fill="#002bff"/></g>
+<g><title>TMCS2 TMCS2_C02 walk</title><circle cx="102.63676148796527" cy="214.05626877902176" r="4" fill="#00b226"/></g>
+<g><title>TMCS2 TMCS2_C03 walk</title><circle cx="241.22173595915396" cy="74.42228899207902" r="4" fill="#00b226"/></g>
+<g><title>TMCS2 TMCS2_C04 run</title><circle cx="465.0" cy="267.54984976782293" r="4" fill="#002bff"/></g>
+<g><title>TMCS2 TMCS2_C05 run</title><circle cx="89.50765864332669" cy="229.5602294455065" r="4" fill="#002bff"/></g>
+<g><title>TMCS2 TMCS2_C06 walk</title><circle cx="436.11597374179337" cy="103.26686697623623" r="4" fill="#00b226"/></g>
+<g><title>TMCS2 TMCS2_C07 run</title><circle cx="289.07002188183685" cy="300.0" r="4" fill="#002bff"/></g>
+<g><title>TMCS2 TMCS2_C08 sedentary</title><circle cx="65.0" cy="115.06692160611831" r="4" fill="#232323"/></g>
+<g><title>TMCS2 TMCS2_C09 run</title><circle cx="219.63165572574732" cy="67.60447965036911" r="4" fill="#002bff"/></g>
+<g><title>TMCS2 TMCS2_C10 sedentary</title><circle cx="92.13347921225338" cy="175.37831193662913" r="4" fill="#232323"/></g>
+<g><title>TMCS3 TMCS3_C01 run</title><rect x="422.19620714806564" y="92.58016935263623" width="8" height="8" fill="#002bff"/></g>
+<g><title>TMCS3 TMCS3_C02 walk</title><rect x="405.8577680525149" y="142.402622234362" width="8" height="8" fill="#00b226"/></g>
+<g><title>TMCS3 TMCS3_C03 sedentary</title><rect x="201.0437636761484" y="96.64463261403998" width="8" height="8" fill="#232323"/></g>
+<g><title>TMCS3 TMCS3_C04 run</title><rect x="441.1604668125445" y="56.0" width="8" height="8" fill="#002bff"/></g>
+<g><title>TMCS3 TMCS3_C05 sedentary</title><rect x="338.75346462436073" y="147.90931439497388" width="8" height="8" fill="#232323"/></g>
+<text x="480" y="80" fill="#232323" font-family="Arial" font-size="12">sedentary</text>
+<text x="480" y="100" fill="#00b226" font-family="Arial" font-size="12">walk</text>
+<text x="480" y="120" fill="#002bff" font-family="Arial" font-size="12">run</text>
+<text x="65.0" y="320" text-anchor="middle" font-family="Arial" font-size="11">30.5</text>
+<text x="164.9999999999999" y="320" text-anchor="middle" font-family="Arial" font-size="11">32.7</text>
+<text x="264.9999999999999" y="320" text-anchor="middle" font-family="Arial" font-size="11">34.9</text>
+<text x="365.0" y="320" text-anchor="middle" font-family="Arial" font-size="11">37.2</text>
+<text x="465.0" y="320" text-anchor="middle" font-family="Arial" font-size="11">39.4</text>
+<text x="58" y="304.0" text-anchor="end" font-family="Arial" font-size="11">24.1</text>
+<text x="58" y="244.0" text-anchor="end" font-family="Arial" font-size="11">27.1</text>
+<text x="58" y="184.0" text-anchor="end" font-family="Arial" font-size="11">30.1</text>
+<text x="58" y="124.0" text-anchor="end" font-family="Arial" font-size="11">33</text>
+<text x="58" y="64.0" text-anchor="end" font-family="Arial" font-size="11">36</text>
+<text x="240" y="345" font-family="Arial" font-size="14">D0</text>
+<text x="10" y="40" font-family="Arial" font-size="14">D14</text>
+<text x="65" y="362" font-family="Arial" font-size="11">Circles: TMCS2; squares: TMCS3. Each point is one cage.</text>
+</svg>

@@ -1,5 +1,7 @@
 # Current balance-beam figure: handoff, 2026-11-11
 
+> **Latest continuation:** Read [STATISTICS_HANDOFF_20261111_EVENING.md](STATISTICS_HANDOFF_20261111_EVENING.md) before continuing. It documents everything since commit `d29bb45`: prioritized comparisons, D14/change differences, ANCOVA and mouse-independent sensitivities, ordered-trend tests, the seven-panel figure, and unresolved main-figure choices. Historical “uncommitted” notes below are superseded by Git history.
+
 ## Plot cleanup update
 
 After this handoff was written, the user requested keeping only current-figure plots plus recent CDFs.145 unused plot assets were checksum-archived outside the repo to `/Volumes/ShosaiData/DATA/Tara/RESULTS/figure_plot_archive_20261111`. Data/statistics/scripts remain. See [CURRENT_PLOT_INDEX.md](CURRENT_PLOT_INDEX.md) and [PLOT_CLEANUP_20261111.csv](PLOT_CLEANUP_20261111.csv). Historical plot paths below may now refer to the same relative path in that archive. No commit/push yet.

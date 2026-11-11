@@ -1,0 +1,60 @@
+{
+  "metric": "slip_score",
+  "source": "analysis-data/pooled-exposures.csv",
+  "field": "combinedSlipMagnitude",
+  "unit": "a.u. \u00d7 frames",
+  "conversion": 1,
+  "nD0": 41,
+  "nPaired": 41,
+  "overallChangeP": 0.4419047619047619,
+  "allThreePairTests": [
+    {
+      "pair": "walk minus sedentary",
+      "difference_cage_cohort_balanced": 1518.3165987680084,
+      "p_raw": 0.3,
+      "p_holm_3_pairs": 0.6428571428571428
+    },
+    {
+      "pair": "run minus sedentary",
+      "difference_cage_cohort_balanced": 1721.342605520062,
+      "p_raw": 0.21428571428571427,
+      "p_holm_3_pairs": 0.6428571428571428
+    },
+    {
+      "pair": "run minus walk",
+      "difference_cage_cohort_balanced": 203.0260067520538,
+      "p_raw": 0.8392857142857143,
+      "p_holm_3_pairs": 0.8392857142857143
+    }
+  ],
+  "effects": [
+    {
+      "pair": "run minus walk",
+      "estimate": 203.02600675205375,
+      "lower": -1332.816520380429,
+      "upper": 1755.186865770399,
+      "pHolm": 0.8392857142857143,
+      "cages": {
+        "TMCS2_run": 5,
+        "TMCS2_walk": 3,
+        "TMCS3_run": 2,
+        "TMCS3_walk": 1
+      }
+    },
+    {
+      "pair": "run minus sedentary",
+      "estimate": 1721.342605520062,
+      "lower": 400.0174180868016,
+      "upper": 3002.351023710317,
+      "pHolm": 0.6428571428571428,
+      "cages": {
+        "TMCS2_run": 5,
+        "TMCS2_sedentary": 2,
+        "TMCS3_run": 2,
+        "TMCS3_sedentary": 2
+      }
+    }
+  ],
+  "bootstrapReplicates": 100000,
+  "seed": 20261111
+}
