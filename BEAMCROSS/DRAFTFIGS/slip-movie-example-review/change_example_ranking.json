@@ -1,0 +1,2234 @@
+{
+  "sedentary": {
+    "groupMedianChange": {
+      "speed": 38.24339231759401,
+      "stopped": -5.296593634566667,
+      "slip_count": -1.5,
+      "slip_score": -722.6999836886874
+    },
+    "MAD": {
+      "speed": 12.22309758109683,
+      "stopped": 6.0024767878401875,
+      "slip_count": 2.6666666666666665,
+      "slip_score": 885.9573825178933
+    },
+    "ranking": [
+      {
+        "mouse": "TMCS2_S14",
+        "distance": 0.4906194815291628,
+        "means": {
+          "0": {
+            "speed": 102.91197588694367,
+            "stopped": 16.10815783899,
+            "slip_count": 7.0,
+            "slip_score": 2126.4693607374993
+          },
+          "14": {
+            "speed": 136.46516299275868,
+            "stopped": 10.839160839160833,
+            "slip_count": 5.0,
+            "slip_score": 175.24434286607664
+          }
+        },
+        "change": {
+          "speed": 33.55318710581501,
+          "stopped": -5.268996999829167,
+          "slip_count": -2.0,
+          "slip_score": -1951.2250178714226
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S14_T2_C08_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+            "MouseID": "TMCS2_S14",
+            "CageID": "TMCS2_C08",
+            "Cohort": "TMCS2",
+            "Group": "sedentary",
+            "Day": "0",
+            "TrialNumber": "4",
+            "speed": "103.216031049773",
+            "duration": "8.00625",
+            "stopped": "14.9102263856362",
+            "slip_count": "6",
+            "slip_score": "369.428891450016",
+            "tail_score": "0.258988567541399"
+          },
+          "14": {
+            "File": "TMCS2_S14_T2_C08_BB_D14_20251105_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S14",
+            "CageID": "TMCS2_C08",
+            "Cohort": "TMCS2",
+            "Group": "sedentary",
+            "Day": "14",
+            "TrialNumber": "1",
+            "speed": "150.592940757947",
+            "duration": "4.6875",
+            "stopped": "0",
+            "slip_count": "3",
+            "slip_score": "18.3349275951608",
+            "tail_score": "0.381715929235094"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S30",
+        "distance": 0.7062241932850954,
+        "means": {
+          "0": {
+            "speed": 135.90723319478468,
+            "stopped": 12.709379532581256,
+            "slip_count": 4.666666666666667,
+            "slip_score": 1137.359378434722
+          },
+          "14": {
+            "speed": 184.645513010771,
+            "stopped": 1.36986301369863,
+            "slip_count": 1.3333333333333333,
+            "slip_score": 173.6369754460758
+          }
+        },
+        "change": {
+          "speed": 48.73827981598632,
+          "stopped": -11.339516518882625,
+          "slip_count": -3.333333333333334,
+          "slip_score": -963.7224029886462
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S30_T3_C10_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+            "MouseID": "TMCS2_S30",
+            "CageID": "TMCS2_C10",
+            "Cohort": "TMCS2",
+            "Group": "sedentary",
+            "Day": "0",
+            "TrialNumber": "4",
+            "speed": "123.170392953062",
+            "duration": "6.85",
+            "stopped": "14.3248175182482",
+            "slip_count": "6",
+            "slip_score": "1178.44696536489",
+            "tail_score": "0.834358307071199"
+          },
+          "14": {
+            "File": "TMCS2_S30_T3_C10_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS2_S30",
+            "CageID": "TMCS2_C10",
+            "Cohort": "TMCS2",
+            "Group": "sedentary",
+            "Day": "14",
+            "TrialNumber": "3",
+            "speed": "178.616342108659",
+            "duration": "3.94375",
+            "stopped": "0",
+            "slip_count": "1",
+            "slip_score": "17.8143921977064",
+            "tail_score": "0.691067165037138"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S15",
+        "distance": 0.7617687204797038,
+        "means": {
+          "0": {
+            "speed": 126.57020411041432,
+            "stopped": 11.660012607191426,
+            "slip_count": 10.666666666666666,
+            "slip_score": 882.8821892211403
+          },
+          "14": {
+            "speed": 169.50380163978733,
+            "stopped": 4.143337066069433,
+            "slip_count": 3.3333333333333335,
+            "slip_score": 66.27309044951551
+          }
+        },
+        "change": {
+          "speed": 42.933597529373,
+          "stopped": -7.516675541121993,
+          "slip_count": -7.333333333333332,
+          "slip_score": -816.6090987716248
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S15_T3_C08_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S15",
+            "CageID": "TMCS2_C08",
+            "Cohort": "TMCS2",
+            "Group": "sedentary",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "130.821333209547",
+            "duration": "5.58125",
+            "stopped": "3.47144456886898",
+            "slip_count": "7",
+            "slip_score": "1209.16169216798",
+            "tail_score": "0.424089012178465"
+          },
+          "14": {
+            "File": "TMCS2_S15_T3_C08_BB_D14_20251105_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S15",
+            "CageID": "TMCS2_C08",
+            "Cohort": "TMCS2",
+            "Group": "sedentary",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "171.32622495315",
+            "duration": "4.1125",
+            "stopped": "0",
+            "slip_count": "4",
+            "slip_score": "22.8943789913721",
+            "tail_score": "0.410219191016606"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S28",
+        "distance": 0.7766585343015572,
+        "means": {
+          "0": {
+            "speed": 77.60861384201027,
+            "stopped": 21.112429201824167,
+            "slip_count": 15.333333333333334,
+            "slip_score": 1279.82560839956
+          },
+          "14": {
+            "speed": 120.600557624839,
+            "stopped": 15.127377340891817,
+            "slip_count": 7.333333333333333,
+            "slip_score": 410.1023949162983
+          }
+        },
+        "change": {
+          "speed": 42.99194378282873,
+          "stopped": -5.98505186093235,
+          "slip_count": -8.0,
+          "slip_score": -869.7232134832617
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S28_T1_C10_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S28",
+            "CageID": "TMCS2_C10",
+            "Cohort": "TMCS2",
+            "Group": "sedentary",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "74.0571260080264",
+            "duration": "13.9875",
+            "stopped": "26.8096514745308",
+            "slip_count": "15",
+            "slip_score": "1774.76328256689",
+            "tail_score": "0.857078815935299"
+          },
+          "14": {
+            "File": "TMCS2_S28_T1_C10_BB_D14_20251105_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S28",
+            "CageID": "TMCS2_C10",
+            "Cohort": "TMCS2",
+            "Group": "sedentary",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "112.088353843867",
+            "duration": "6.7375",
+            "stopped": "6.86456400742115",
+            "slip_count": "7",
+            "slip_score": "121.091435241753",
+            "tail_score": "0.720995030368989"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S13",
+        "distance": 0.8572644065303924,
+        "means": {
+          "0": {
+            "speed": 132.317951066778,
+            "stopped": 3.006199221394717,
+            "slip_count": 4.0,
+            "slip_score": 295.53058402650964
+          },
+          "14": {
+            "speed": 181.82528167797702,
+            "stopped": 2.8937728937728937,
+            "slip_count": 3.0,
+            "slip_score": 863.1011127341793
+          }
+        },
+        "change": {
+          "speed": 49.50733061119902,
+          "stopped": -0.11242632762182314,
+          "slip_count": -1.0,
+          "slip_score": 567.5705287076696
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S13_T1_C08_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S13",
+            "CageID": "TMCS2_C08",
+            "Cohort": "TMCS2",
+            "Group": "sedentary",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "130.094543576223",
+            "duration": "5.6",
+            "stopped": "3.23660714285714",
+            "slip_count": "4",
+            "slip_score": "170.340423552744",
+            "tail_score": "0.286476568342635"
+          },
+          "14": {
+            "File": "TMCS2_S13_T1_C08_BB_D14_20251105_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S13",
+            "CageID": "TMCS2_C08",
+            "Cohort": "TMCS2",
+            "Group": "sedentary",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "194.113791141548",
+            "duration": "3.61875",
+            "stopped": "0",
+            "slip_count": "5",
+            "slip_score": "217.585650871718",
+            "tail_score": "0.475893619329721"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS3_S09",
+        "distance": 1.1533968902274,
+        "means": {
+          "0": {
+            "speed": 129.42231930887965,
+            "stopped": 5.324190269304167,
+            "slip_count": 5.333333333333333,
+            "slip_score": 270.44597357553795
+          },
+          "14": {
+            "speed": 124.92365581690933,
+            "stopped": 0.0,
+            "slip_count": 5.0,
+            "slip_score": 145.46880590284027
+          }
+        },
+        "change": {
+          "speed": -4.498663491970319,
+          "stopped": -5.324190269304167,
+          "slip_count": -0.33333333333333304,
+          "slip_score": -124.97716767269768
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS3_S09_T3_C03_BB_D00_20260219_THT_TRIAL4_gray.mp4",
+            "MouseID": "TMCS3_S09",
+            "CageID": "TMCS3_C03",
+            "Cohort": "TMCS3",
+            "Group": "sedentary",
+            "Day": "0",
+            "TrialNumber": "4",
+            "speed": "126.542276392773",
+            "duration": "5.83125",
+            "stopped": "3.7513397642015",
+            "slip_count": "5",
+            "slip_score": "73.0238632418708",
+            "tail_score": "0.924513820681394"
+          },
+          "14": {
+            "File": "TMCS3_S09_T3_C03_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS3_S09",
+            "CageID": "TMCS3_C03",
+            "Cohort": "TMCS3",
+            "Group": "sedentary",
+            "Day": "14",
+            "TrialNumber": "3",
+            "speed": "120.617400298028",
+            "duration": "5.84375",
+            "stopped": "0",
+            "slip_count": "5",
+            "slip_score": "241.039071795773",
+            "tail_score": "0.323046150492755"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS3_S13",
+        "distance": 1.2045709327031118,
+        "means": {
+          "0": {
+            "speed": 83.70422671169118,
+            "stopped": 9.374417036176032,
+            "slip_count": 11.666666666666666,
+            "slip_score": 1456.4854518438196
+          },
+          "14": {
+            "speed": 86.59408335792077,
+            "stopped": 10.875217463013273,
+            "slip_count": 12.0,
+            "slip_score": 827.6945832380695
+          }
+        },
+        "change": {
+          "speed": 2.889856646229589,
+          "stopped": 1.500800426837241,
+          "slip_count": 0.3333333333333339,
+          "slip_score": -628.7908686057501
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS3_S13_T1_C05_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS3_S13",
+            "CageID": "TMCS3_C05",
+            "Cohort": "TMCS3",
+            "Group": "sedentary",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "89.348051581895",
+            "duration": "8.7",
+            "stopped": "11.2068965517241",
+            "slip_count": "10",
+            "slip_score": "680.938942292312",
+            "tail_score": "0.330081087735632"
+          },
+          "14": {
+            "File": "TMCS3_S13_T1_C05_BB_D14_20260305_THT_TRIAL4_gray.mp4",
+            "MouseID": "TMCS3_S13",
+            "CageID": "TMCS3_C05",
+            "Cohort": "TMCS3",
+            "Group": "sedentary",
+            "Day": "14",
+            "TrialNumber": "4",
+            "speed": "90.4875165886036",
+            "duration": "8.3125",
+            "stopped": "7.59398496240602",
+            "slip_count": "6",
+            "slip_score": "43.7845630256786",
+            "tail_score": "0.242501422749312"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS3_S15",
+        "distance": 1.2422765007274115,
+        "means": {
+          "0": {
+            "speed": 90.27986530848133,
+            "stopped": 18.77338546388062,
+            "slip_count": 10.0,
+            "slip_score": 2369.3594064098725
+          },
+          "14": {
+            "speed": 141.705514494664,
+            "stopped": 7.514761137949534,
+            "slip_count": 4.333333333333333,
+            "slip_score": 464.0186665552835
+          }
+        },
+        "change": {
+          "speed": 51.42564918618265,
+          "stopped": -11.258624325931084,
+          "slip_count": -5.666666666666667,
+          "slip_score": -1905.340739854589
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS3_S15_T3_C05_BB_D00_20260219_THT_TRIAL5_gray.mp4",
+            "MouseID": "TMCS3_S15",
+            "CageID": "TMCS3_C05",
+            "Cohort": "TMCS3",
+            "Group": "sedentary",
+            "Day": "0",
+            "TrialNumber": "5",
+            "speed": "85.0713725502822",
+            "duration": "9.70625",
+            "stopped": "13.9729555698648",
+            "slip_count": "9",
+            "slip_score": "552.912738126027",
+            "tail_score": "0.571666603548509"
+          },
+          "14": {
+            "File": "TMCS3_S15_T3_C05_BB_D14_20260305_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS3_S15",
+            "CageID": "TMCS3_C05",
+            "Cohort": "TMCS3",
+            "Group": "sedentary",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "138.223780004195",
+            "duration": "5.10625",
+            "stopped": "0",
+            "slip_count": "1",
+            "slip_score": "3.93660139818572",
+            "tail_score": "0.153031450725157"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS3_S08",
+        "distance": 1.2456633903739966,
+        "means": {
+          "0": {
+            "speed": 114.16790183065667,
+            "stopped": 8.10527795347531,
+            "slip_count": 5.666666666666667,
+            "slip_score": 849.6214568670767
+          },
+          "14": {
+            "speed": 131.21620048901667,
+            "stopped": 9.273418733919073,
+            "slip_count": 7.333333333333333,
+            "slip_score": 998.812136448464
+          }
+        },
+        "change": {
+          "speed": 17.048298658359997,
+          "stopped": 1.1681407804437622,
+          "slip_count": 1.666666666666666,
+          "slip_score": 149.19067958138726
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS3_S08_T2_C03_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS3_S08",
+            "CageID": "TMCS3_C03",
+            "Cohort": "TMCS3",
+            "Group": "sedentary",
+            "Day": "0",
+            "TrialNumber": "1",
+            "speed": "111.848734983655",
+            "duration": "6.5875",
+            "stopped": "4.45920303605313",
+            "slip_count": "4",
+            "slip_score": "181.501360849237",
+            "tail_score": "0.309819767893341"
+          },
+          "14": {
+            "File": "TMCS3_S08_T2_C03_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS3_S08",
+            "CageID": "TMCS3_C03",
+            "Cohort": "TMCS3",
+            "Group": "sedentary",
+            "Day": "14",
+            "TrialNumber": "3",
+            "speed": "122.537989261195",
+            "duration": "6.7",
+            "stopped": "15.205223880597",
+            "slip_count": "8",
+            "slip_score": "820.340296459169",
+            "tail_score": "0.437083748133245"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S29",
+        "distance": 2.1639635761878084,
+        "means": {
+          "0": {
+            "speed": 118.45609585814266,
+            "stopped": 7.51875256175794,
+            "slip_count": 5.0,
+            "slip_score": 338.07282598634436
+          },
+          "14": {
+            "speed": 113.70088066542634,
+            "stopped": 14.503004738017625,
+            "slip_count": 5.666666666666667,
+            "slip_score": 1634.9794072274162
+          }
+        },
+        "change": {
+          "speed": -4.755215192716321,
+          "stopped": 6.984252176259685,
+          "slip_count": 0.666666666666667,
+          "slip_score": 1296.9065812410718
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S29_T2_C10_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S29",
+            "CageID": "TMCS2_C10",
+            "Cohort": "TMCS2",
+            "Group": "sedentary",
+            "Day": "0",
+            "TrialNumber": "1",
+            "speed": "127.188724109566",
+            "duration": "5.75625",
+            "stopped": "3.80021715526602",
+            "slip_count": "4",
+            "slip_score": "89.8696226865661",
+            "tail_score": "0.557935076111694"
+          },
+          "14": {
+            "File": "TMCS2_S29_T2_C10_BB_D14_20251105_THT_TRIAL4_gray.mp4",
+            "MouseID": "TMCS2_S29",
+            "CageID": "TMCS2_C10",
+            "Cohort": "TMCS2",
+            "Group": "sedentary",
+            "Day": "14",
+            "TrialNumber": "4",
+            "speed": "107.628966049496",
+            "duration": "8.225",
+            "stopped": "17.3252279635258",
+            "slip_count": "7",
+            "slip_score": "1343.05217206857",
+            "tail_score": "1.08481068505658"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS3_S14",
+        "distance": 3.070209860925154,
+        "means": {
+          "0": {
+            "speed": 148.58783336446268,
+            "stopped": 6.4747367695462605,
+            "slip_count": 5.0,
+            "slip_score": 680.7393900647627
+          },
+          "14": {
+            "speed": 115.30973799763319,
+            "stopped": 10.788846854420633,
+            "slip_count": 13.666666666666666,
+            "slip_score": 858.0635081417871
+          }
+        },
+        "change": {
+          "speed": -33.27809536682949,
+          "stopped": 4.314110084874373,
+          "slip_count": 8.666666666666666,
+          "slip_score": 177.32411807702442
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS3_S14_T2_C05_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS3_S14",
+            "CageID": "TMCS3_C05",
+            "Cohort": "TMCS3",
+            "Group": "sedentary",
+            "Day": "0",
+            "TrialNumber": "1",
+            "speed": "146.841262985213",
+            "duration": "5.25625",
+            "stopped": "9.75029726516052",
+            "slip_count": "5",
+            "slip_score": "506.026803175606",
+            "tail_score": "-0.00977291369946401"
+          },
+          "14": {
+            "File": "TMCS3_S14_T2_C05_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS3_S14",
+            "CageID": "TMCS3_C05",
+            "Cohort": "TMCS3",
+            "Group": "sedentary",
+            "Day": "14",
+            "TrialNumber": "3",
+            "speed": "126.153661643564",
+            "duration": "5.6",
+            "stopped": "0",
+            "slip_count": "3",
+            "slip_score": "616.194816721519",
+            "tail_score": "0.227059704557289"
+          }
+        }
+      }
+    ]
+  },
+  "walk": {
+    "groupMedianChange": {
+      "speed": 34.854087579408855,
+      "stopped": -0.7959471788480297,
+      "slip_count": -3.0,
+      "slip_score": -386.77608432119484
+    },
+    "MAD": {
+      "speed": 21.601947258850856,
+      "stopped": 3.4074942278095426,
+      "slip_count": 3.333333333333333,
+      "slip_score": 609.0803619465015
+    },
+    "ranking": [
+      {
+        "mouse": "TMCS3_S05",
+        "distance": 0.4903079821140846,
+        "means": {
+          "0": {
+            "speed": 138.501558009752,
+            "stopped": 6.3809389649316435,
+            "slip_count": 7.0,
+            "slip_score": 998.0201576637627
+          },
+          "14": {
+            "speed": 194.80061509391433,
+            "stopped": 4.313725490196067,
+            "slip_count": 3.6666666666666665,
+            "slip_score": 912.9942072371059
+          }
+        },
+        "change": {
+          "speed": 56.29905708416234,
+          "stopped": -2.067213474735577,
+          "slip_count": -3.3333333333333335,
+          "slip_score": -85.02595042665678
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS3_S05_T2_C02_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS3_S05",
+            "CageID": "TMCS3_C02",
+            "Cohort": "TMCS3",
+            "Group": "walk",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "136.265065758717",
+            "duration": "5.575",
+            "stopped": "6.05381165919283",
+            "slip_count": "8",
+            "slip_score": "751.627875757548",
+            "tail_score": "0.0663806202951374"
+          },
+          "14": {
+            "File": "TMCS3_S05_T2_C02_BB_D14_20260305_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS3_S05",
+            "CageID": "TMCS3_C02",
+            "Cohort": "TMCS3",
+            "Group": "walk",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "193.741324739441",
+            "duration": "3.625",
+            "stopped": "0",
+            "slip_count": "2",
+            "slip_score": "346.68122070906",
+            "tail_score": "0.350708044816384"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S08",
+        "distance": 0.519646944656279,
+        "means": {
+          "0": {
+            "speed": 97.90845849721097,
+            "stopped": 11.142536867074293,
+            "slip_count": 10.333333333333334,
+            "slip_score": 1587.8864865272387
+          },
+          "14": {
+            "speed": 139.67213571798666,
+            "stopped": 9.550642509378234,
+            "slip_count": 5.666666666666667,
+            "slip_score": 576.717173470847
+          }
+        },
+        "change": {
+          "speed": 41.76367722077569,
+          "stopped": -1.5918943576960594,
+          "slip_count": -4.666666666666667,
+          "slip_score": -1011.1693130563917
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S08_T2_C03_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S08",
+            "CageID": "TMCS2_C03",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "93.4086643076352",
+            "duration": "8.4375",
+            "stopped": "12.0740740740741",
+            "slip_count": "9",
+            "slip_score": "192.249932296736",
+            "tail_score": "0.492276214972761"
+          },
+          "14": {
+            "File": "TMCS2_S08_T2_C03_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS2_S08",
+            "CageID": "TMCS2_C03",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "14",
+            "TrialNumber": "3",
+            "speed": "133.996087757844",
+            "duration": "5.84375",
+            "stopped": "11.4438502673797",
+            "slip_count": "5",
+            "slip_score": "293.873237564158",
+            "tail_score": "0.149183097026297"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S32",
+        "distance": 0.6282710315599325,
+        "means": {
+          "0": {
+            "speed": 143.882015238929,
+            "stopped": 0.0,
+            "slip_count": 4.666666666666667,
+            "slip_score": 80.7126987294032
+          },
+          "14": {
+            "speed": 203.95568583617734,
+            "stopped": 0.0,
+            "slip_count": 3.0,
+            "slip_score": 127.61940080984712
+          }
+        },
+        "change": {
+          "speed": 60.07367059724834,
+          "stopped": 0.0,
+          "slip_count": -1.666666666666667,
+          "slip_score": 46.90670208044392
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S32_T2_C02_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS2_S32",
+            "CageID": "TMCS2_C02",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "0",
+            "TrialNumber": "3",
+            "speed": "141.006068254035",
+            "duration": "4.99375",
+            "stopped": "0",
+            "slip_count": "4",
+            "slip_score": "14.181624846234",
+            "tail_score": "0.254421830841558"
+          },
+          "14": {
+            "File": "TMCS2_S32_T2_C02_BB_D14_20251105_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S32",
+            "CageID": "TMCS2_C02",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "212.74706417186",
+            "duration": "3.31875",
+            "stopped": "0",
+            "slip_count": "3",
+            "slip_score": "12.3938922808578",
+            "tail_score": "0.29298712400939"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS3_S04",
+        "distance": 1.0711465320266438,
+        "means": {
+          "0": {
+            "speed": 103.97802961170294,
+            "stopped": 14.8443820536559,
+            "slip_count": 10.666666666666666,
+            "slip_score": 747.8748740681626
+          },
+          "14": {
+            "speed": 149.07158022205266,
+            "stopped": 4.65694549645475,
+            "slip_count": 4.333333333333333,
+            "slip_score": 327.933205607003
+          }
+        },
+        "change": {
+          "speed": 45.09355061034972,
+          "stopped": -10.187436557201151,
+          "slip_count": -6.333333333333333,
+          "slip_score": -419.9416684611596
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS3_S04_T1_C02_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS3_S04",
+            "CageID": "TMCS3_C02",
+            "Cohort": "TMCS3",
+            "Group": "walk",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "97.292265349436",
+            "duration": "9.5125",
+            "stopped": "23.9816031537451",
+            "slip_count": "13",
+            "slip_score": "724.694008301842",
+            "tail_score": "0.500116090562955"
+          },
+          "14": {
+            "File": "TMCS3_S04_T1_C02_BB_D14_20260305_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS3_S04",
+            "CageID": "TMCS3_C02",
+            "Cohort": "TMCS3",
+            "Group": "walk",
+            "Day": "14",
+            "TrialNumber": "1",
+            "speed": "174.599895397389",
+            "duration": "4.28125",
+            "stopped": "6.13138686131387",
+            "slip_count": "5",
+            "slip_score": "289.472224706956",
+            "tail_score": "0.077552776063555"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S09",
+        "distance": 1.1127518002647827,
+        "means": {
+          "0": {
+            "speed": 126.5093022498055,
+            "stopped": 7.310603772879054,
+            "slip_count": 9.333333333333334,
+            "slip_score": 1203.2858988804273
+          },
+          "14": {
+            "speed": 201.884783673134,
+            "stopped": 5.150545282124243,
+            "slip_count": 2.3333333333333335,
+            "slip_score": 222.74231940142633
+          }
+        },
+        "change": {
+          "speed": 75.3754814233285,
+          "stopped": -2.1600584907548104,
+          "slip_count": -7.0,
+          "slip_score": -980.543579479001
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S09_T3_C03_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S09",
+            "CageID": "TMCS2_C03",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "0",
+            "TrialNumber": "1",
+            "speed": "134.061860573089",
+            "duration": "5.8625",
+            "stopped": "9.91471215351812",
+            "slip_count": "9",
+            "slip_score": "1003.20376939784",
+            "tail_score": "0.673460678559449"
+          },
+          "14": {
+            "File": "TMCS2_S09_T3_C03_BB_D14_20251105_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S09",
+            "CageID": "TMCS2_C03",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "189.175268646221",
+            "duration": "3.82389937106918",
+            "stopped": "3.28947368421053",
+            "slip_count": "3",
+            "slip_score": "216.77008653949",
+            "tail_score": "0.327830206529832"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S33",
+        "distance": 1.227112158253324,
+        "means": {
+          "0": {
+            "speed": 114.76730106915014,
+            "stopped": 7.278203857962397,
+            "slip_count": 9.333333333333334,
+            "slip_score": 215.4087822236194
+          },
+          "14": {
+            "speed": 138.241310239442,
+            "stopped": 11.086149127985706,
+            "slip_count": 2.6666666666666665,
+            "slip_score": 1004.4822659201864
+          }
+        },
+        "change": {
+          "speed": 23.47400917029185,
+          "stopped": 3.8079452700233096,
+          "slip_count": -6.666666666666668,
+          "slip_score": 789.073483696567
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S33_T3_C02_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S33",
+            "CageID": "TMCS2_C02",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "0",
+            "TrialNumber": "1",
+            "speed": "117.238222980084",
+            "duration": "6.375",
+            "stopped": "6.17647058823529",
+            "slip_count": "3",
+            "slip_score": "27.0612293505912",
+            "tail_score": "0.565977642334045"
+          },
+          "14": {
+            "File": "TMCS2_S33_T3_C02_BB_D14_20251105_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S33",
+            "CageID": "TMCS2_C02",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "14",
+            "TrialNumber": "1",
+            "speed": "164.365642492093",
+            "duration": "4.68125",
+            "stopped": "8.81174899866489",
+            "slip_count": "3",
+            "slip_score": "1368.0933360606",
+            "tail_score": "0.596557207973052"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S07",
+        "distance": 1.3888388280713302,
+        "means": {
+          "0": {
+            "speed": 122.890531829808,
+            "stopped": 8.983226970769707,
+            "slip_count": 6.0,
+            "slip_score": 1727.4489155972653
+          },
+          "14": {
+            "speed": 199.26499455313333,
+            "stopped": 2.5368888830383,
+            "slip_count": 3.3333333333333335,
+            "slip_score": 198.60795679960725
+          }
+        },
+        "change": {
+          "speed": 76.37446272332534,
+          "stopped": -6.446338087731407,
+          "slip_count": -2.6666666666666665,
+          "slip_score": -1528.840958797658
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S07_T1_C03_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+            "MouseID": "TMCS2_S07",
+            "CageID": "TMCS2_C03",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "0",
+            "TrialNumber": "4",
+            "speed": "137.324902692947",
+            "duration": "5.875",
+            "stopped": "6.48936170212766",
+            "slip_count": "6",
+            "slip_score": "1111.45406638017",
+            "tail_score": "1.08478827058317"
+          },
+          "14": {
+            "File": "TMCS2_S07_T1_C03_BB_D14_20251105_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S07",
+            "CageID": "TMCS2_C03",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "14",
+            "TrialNumber": "1",
+            "speed": "204.377581641287",
+            "duration": "3.63125",
+            "stopped": "3.78657487091222",
+            "slip_count": "2",
+            "slip_score": "112.931258915473",
+            "tail_score": "0.543981784789202"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S19",
+        "distance": 1.5801633515548559,
+        "means": {
+          "0": {
+            "speed": 101.7061939500181,
+            "stopped": 8.141710165415766,
+            "slip_count": 6.0,
+            "slip_score": 1073.1507103822469
+          },
+          "14": {
+            "speed": 103.41843685212812,
+            "stopped": 15.973521856410967,
+            "slip_count": 10.333333333333334,
+            "slip_score": 719.5402102010169
+          }
+        },
+        "change": {
+          "speed": 1.7122429021100203,
+          "stopped": 7.831811690995201,
+          "slip_count": 4.333333333333334,
+          "slip_score": -353.61050018123
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S19_T1_C06_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S19",
+            "CageID": "TMCS2_C06",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "102.820133736725",
+            "duration": "8.00625",
+            "stopped": "8.19672131147541",
+            "slip_count": "8",
+            "slip_score": "1986.7643617932",
+            "tail_score": "0.961434409257742"
+          },
+          "14": {
+            "File": "TMCS2_S19_T1_C06_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS2_S19",
+            "CageID": "TMCS2_C06",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "14",
+            "TrialNumber": "3",
+            "speed": "101.027442980216",
+            "duration": "7.86875",
+            "stopped": "11.3582208101668",
+            "slip_count": "5",
+            "slip_score": "333.932280331969",
+            "tail_score": "0.410197507505751"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS3_S06",
+        "distance": 1.832434008901934,
+        "means": {
+          "0": {
+            "speed": 133.26672120085766,
+            "stopped": 5.562393092306387,
+            "slip_count": 3.6666666666666665,
+            "slip_score": 195.52488166370543
+          },
+          "14": {
+            "speed": 113.61575778523434,
+            "stopped": 6.977541920206103,
+            "slip_count": 10.0,
+            "slip_score": 635.6907684279633
+          }
+        },
+        "change": {
+          "speed": -19.650963415623323,
+          "stopped": 1.4151488278997162,
+          "slip_count": 6.333333333333334,
+          "slip_score": 440.16588676425795
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS3_S06_T3_C02_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS3_S06",
+            "CageID": "TMCS3_C02",
+            "Cohort": "TMCS3",
+            "Group": "walk",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "139.44588245329",
+            "duration": "5.50625",
+            "stopped": "8.28603859250851",
+            "slip_count": "4",
+            "slip_score": "39.8333463299895",
+            "tail_score": "0.302695547570062"
+          },
+          "14": {
+            "File": "TMCS3_S06_T3_C02_BB_D14_20260305_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS3_S06",
+            "CageID": "TMCS3_C02",
+            "Cohort": "TMCS3",
+            "Group": "walk",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "107.543851919752",
+            "duration": "6.94375",
+            "stopped": "6.21062106210621",
+            "slip_count": "10",
+            "slip_score": "1086.22680801295",
+            "tail_score": "0.605263695002937"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S31",
+        "distance": 2.1131121936033366,
+        "means": {
+          "0": {
+            "speed": 89.06648332373443,
+            "stopped": 14.702387004252385,
+            "slip_count": 11.0,
+            "slip_score": 1765.3976673661966
+          },
+          "14": {
+            "speed": 102.16164589019506,
+            "stopped": 0.6118881118881133,
+            "slip_count": 2.6666666666666665,
+            "slip_score": 194.80115322967634
+          }
+        },
+        "change": {
+          "speed": 13.09516256646063,
+          "stopped": -14.090498892364272,
+          "slip_count": -8.333333333333334,
+          "slip_score": -1570.5965141365202
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S31_T1_C02_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S31",
+            "CageID": "TMCS2_C02",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "0",
+            "TrialNumber": "1",
+            "speed": "90.3599182705715",
+            "duration": "8.475",
+            "stopped": "7.9646017699115",
+            "slip_count": "8",
+            "slip_score": "899.824583830701",
+            "tail_score": "0.661190588847306"
+          },
+          "14": {
+            "File": "TMCS2_S31_T1_C02_BB_D14_20251105_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S31",
+            "CageID": "TMCS2_C02",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "107.509157000713",
+            "duration": "6.5375",
+            "stopped": "0",
+            "slip_count": "2",
+            "slip_score": "139.549605167365",
+            "tail_score": "0.496424964774051"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S21",
+        "distance": 2.4318906021002893,
+        "means": {
+          "0": {
+            "speed": 140.90965926492467,
+            "stopped": 4.526723988032077,
+            "slip_count": 3.6666666666666665,
+            "slip_score": 133.1929912171544
+          },
+          "14": {
+            "speed": 165.42797168336233,
+            "stopped": 19.458091943972136,
+            "slip_count": 4.0,
+            "slip_score": 1959.5651838729966
+          }
+        },
+        "change": {
+          "speed": 24.51831241843766,
+          "stopped": 14.931367955940058,
+          "slip_count": 0.3333333333333335,
+          "slip_score": 1826.3721926558421
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S21_T3_C06_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S21",
+            "CageID": "TMCS2_C06",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "149.879406584337",
+            "duration": "4.89375",
+            "stopped": "3.19284802043423",
+            "slip_count": "4",
+            "slip_score": "122.525945281558",
+            "tail_score": "0.899094529204303"
+          },
+          "14": {
+            "File": "TMCS2_S21_T3_C06_BB_D14_20251105_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S21",
+            "CageID": "TMCS2_C06",
+            "Cohort": "TMCS2",
+            "Group": "walk",
+            "Day": "14",
+            "TrialNumber": "1",
+            "speed": "188.410126100745",
+            "duration": "5.28125",
+            "stopped": "28.1656804733728",
+            "slip_count": "4",
+            "slip_score": "1327.35465222444",
+            "tail_score": "0.317874991600307"
+          }
+        }
+      }
+    ]
+  },
+  "run": {
+    "groupMedianChange": {
+      "speed": 49.501364446107004,
+      "stopped": -4.2347876338377555,
+      "slip_count": -2.833333333333333,
+      "slip_score": -335.80919706771795
+    },
+    "MAD": {
+      "speed": 25.194661879396342,
+      "stopped": 2.3711661497592607,
+      "slip_count": 3.1666666666666665,
+      "slip_score": 519.6861968121243
+    },
+    "ranking": [
+      {
+        "mouse": "TMCS2_S18",
+        "distance": 0.1581875179739236,
+        "means": {
+          "0": {
+            "speed": 130.228341517197,
+            "stopped": 4.98950951381148,
+            "slip_count": 5.0,
+            "slip_score": 639.5191371802654
+          },
+          "14": {
+            "speed": 180.115679360208,
+            "stopped": 0.9832841691248766,
+            "slip_count": 2.3333333333333335,
+            "slip_score": 60.285553699922744
+          }
+        },
+        "change": {
+          "speed": 49.88733784301098,
+          "stopped": -4.006225344686603,
+          "slip_count": -2.6666666666666665,
+          "slip_score": -579.2335834803426
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S18_T3_C05_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS2_S18",
+            "CageID": "TMCS2_C05",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "3",
+            "speed": "129.459296415664",
+            "duration": "5.775",
+            "stopped": "6.38528138528139",
+            "slip_count": "4",
+            "slip_score": "821.903687452976",
+            "tail_score": "0.366092243228048"
+          },
+          "14": {
+            "File": "TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS2_S18",
+            "CageID": "TMCS2_C05",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "3",
+            "speed": "168.965334889346",
+            "duration": "4.21875",
+            "stopped": "0",
+            "slip_count": "3",
+            "slip_score": "51.4319179664003",
+            "tail_score": "0.284421291264168"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S05",
+        "distance": 0.39574147707912766,
+        "means": {
+          "0": {
+            "speed": 124.03255990855733,
+            "stopped": 4.922166822991214,
+            "slip_count": 5.0,
+            "slip_score": 106.62043318736664
+          },
+          "14": {
+            "speed": 179.305992969304,
+            "stopped": 2.2530614446782136,
+            "slip_count": 1.6666666666666667,
+            "slip_score": 49.192462951172566
+          }
+        },
+        "change": {
+          "speed": 55.273433060746655,
+          "stopped": -2.669105378313,
+          "slip_count": -3.333333333333333,
+          "slip_score": -57.42797023619408
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S05_T2_C01_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S05",
+            "CageID": "TMCS2_C01",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "1",
+            "speed": "135.430395163276",
+            "duration": "5.3875",
+            "stopped": "3.59628770301624",
+            "slip_count": "3",
+            "slip_score": "25.7622022499922",
+            "tail_score": "0.503841695130976"
+          },
+          "14": {
+            "File": "TMCS2_S05_T2_C01_BB_D14_20251105_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S05",
+            "CageID": "TMCS2_C01",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "156.687706759638",
+            "duration": "4.625",
+            "stopped": "2.56756756756757",
+            "slip_count": "2",
+            "slip_score": "34.1708690512617",
+            "tail_score": "0.245146835194163"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS3_S03",
+        "distance": 0.4878827561996618,
+        "means": {
+          "0": {
+            "speed": 131.209220393239,
+            "stopped": 3.7809433719272865,
+            "slip_count": 6.0,
+            "slip_score": 294.9874967618035
+          },
+          "14": {
+            "speed": 219.640606256526,
+            "stopped": 0.0,
+            "slip_count": 3.0,
+            "slip_score": 43.53829572712657
+          }
+        },
+        "change": {
+          "speed": 88.431385863287,
+          "stopped": -3.7809433719272865,
+          "slip_count": -3.0,
+          "slip_score": -251.44920103467695
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS3_S03_T3_C01_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS3_S03",
+            "CageID": "TMCS3_C01",
+            "Cohort": "TMCS3",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "134.10988882271",
+            "duration": "5.36875",
+            "stopped": "2.44470314318976",
+            "slip_count": "6",
+            "slip_score": "77.4411792528653",
+            "tail_score": "0.154852374439973"
+          },
+          "14": {
+            "File": "TMCS3_S03_T3_C01_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS3_S03",
+            "CageID": "TMCS3_C01",
+            "Cohort": "TMCS3",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "3",
+            "speed": "214.851900552577",
+            "duration": "3.26875",
+            "stopped": "0",
+            "slip_count": "2",
+            "slip_score": "10.6906631369595",
+            "tail_score": "0.183998027278576"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS3_S02",
+        "distance": 0.5350618668392015,
+        "means": {
+          "0": {
+            "speed": 141.47696319494298,
+            "stopped": 5.413660421303383,
+            "slip_count": 4.0,
+            "slip_score": 757.5367848133981
+          },
+          "14": {
+            "speed": 190.592354244146,
+            "stopped": 0.0,
+            "slip_count": 4.333333333333333,
+            "slip_score": 95.49053974223534
+          }
+        },
+        "change": {
+          "speed": 49.115391049203026,
+          "stopped": -5.413660421303383,
+          "slip_count": 0.33333333333333304,
+          "slip_score": -662.0462450711627
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS3_S02_T2_C01_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS3_S02",
+            "CageID": "TMCS3_C01",
+            "Cohort": "TMCS3",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "153.906052592397",
+            "duration": "4.69375",
+            "stopped": "2.79627163781625",
+            "slip_count": "3",
+            "slip_score": "252.289628009147",
+            "tail_score": "0.259433102769508"
+          },
+          "14": {
+            "File": "TMCS3_S02_T2_C01_BB_D14_20260305_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS3_S02",
+            "CageID": "TMCS3_C01",
+            "Cohort": "TMCS3",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "201.693289161627",
+            "duration": "3.49375",
+            "stopped": "0",
+            "slip_count": "4",
+            "slip_score": "69.6211028773439",
+            "tail_score": "0.369076816368911"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S25",
+        "distance": 0.597151809747899,
+        "means": {
+          "0": {
+            "speed": 104.47727132286491,
+            "stopped": 11.308785770349541,
+            "slip_count": 7.333333333333333,
+            "slip_score": 317.36749960704066
+          },
+          "14": {
+            "speed": 136.0176557697353,
+            "stopped": 7.683704959448224,
+            "slip_count": 6.0,
+            "slip_score": 472.61029634823626
+          }
+        },
+        "change": {
+          "speed": 31.540384446870405,
+          "stopped": -3.6250808109013173,
+          "slip_count": -1.333333333333333,
+          "slip_score": 155.2427967411956
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S25_T1_C09_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+            "MouseID": "TMCS2_S25",
+            "CageID": "TMCS2_C09",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "4",
+            "speed": "99.9812069333196",
+            "duration": "7.925",
+            "stopped": "10.6466876971609",
+            "slip_count": "12",
+            "slip_score": "231.07934768426",
+            "tail_score": "0.456500663729213"
+          },
+          "14": {
+            "File": "TMCS2_S25_T1_C09_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS2_S25",
+            "CageID": "TMCS2_C09",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "3",
+            "speed": "116.05741182687",
+            "duration": "6.69375",
+            "stopped": "9.71055088702147",
+            "slip_count": "9",
+            "slip_score": "533.457200003518",
+            "tail_score": "0.232444550976199"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S22",
+        "distance": 0.7667589090490785,
+        "means": {
+          "0": {
+            "speed": 104.0279964856002,
+            "stopped": 9.347515332236867,
+            "slip_count": 6.333333333333333,
+            "slip_score": 1083.2756326497276
+          },
+          "14": {
+            "speed": 160.430938003526,
+            "stopped": 3.12441922048512,
+            "slip_count": 1.3333333333333333,
+            "slip_score": 87.27847575244405
+          }
+        },
+        "change": {
+          "speed": 56.4029415179258,
+          "stopped": -6.223096111751747,
+          "slip_count": -5.0,
+          "slip_score": -995.9971568972836
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S22_T1_C07_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S22",
+            "CageID": "TMCS2_C07",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "96.0322439567194",
+            "duration": "8.34375",
+            "stopped": "12.5842696629213",
+            "slip_count": "3",
+            "slip_score": "194.018162519431",
+            "tail_score": "0.368394975030106"
+          },
+          "14": {
+            "File": "TMCS2_S22_T1_C07_BB_D14_20251105_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S22",
+            "CageID": "TMCS2_C07",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "164.00804918905",
+            "duration": "4.4125",
+            "stopped": "3.11614730878187",
+            "slip_count": "2",
+            "slip_score": "254.516532757363",
+            "tail_score": "0.407234604907326"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S26",
+        "distance": 0.8007558310672487,
+        "means": {
+          "0": {
+            "speed": 96.20804133814799,
+            "stopped": 7.773714742135686,
+            "slip_count": 9.666666666666666,
+            "slip_score": 346.76325745396633
+          },
+          "14": {
+            "speed": 174.38629668494667,
+            "stopped": 2.067574382249117,
+            "slip_count": 2.3333333333333335,
+            "slip_score": 23.031106400870627
+          }
+        },
+        "change": {
+          "speed": 78.17825534679868,
+          "stopped": -5.70614035988657,
+          "slip_count": -7.333333333333332,
+          "slip_score": -323.7321510530957
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S26_T2_C09_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+            "MouseID": "TMCS2_S26",
+            "CageID": "TMCS2_C09",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "4",
+            "speed": "93.1365561467475",
+            "duration": "8.38125",
+            "stopped": "8.65026099925429",
+            "slip_count": "13",
+            "slip_score": "419.422851041085",
+            "tail_score": "0.541748876498358"
+          },
+          "14": {
+            "File": "TMCS2_S26_T2_C09_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS2_S26",
+            "CageID": "TMCS2_C09",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "3",
+            "speed": "175.140563458333",
+            "duration": "4.025",
+            "stopped": "0",
+            "slip_count": "2",
+            "slip_score": "11.938717588332",
+            "tail_score": "0.480484578928355"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS3_S01",
+        "distance": 1.0781657173431745,
+        "means": {
+          "0": {
+            "speed": 107.36081108998337,
+            "stopped": 3.2389693517765132,
+            "slip_count": 3.3333333333333335,
+            "slip_score": 241.23904070857833
+          },
+          "14": {
+            "speed": 148.064007776723,
+            "stopped": 3.10354626972706,
+            "slip_count": 4.666666666666667,
+            "slip_score": 382.93143134520864
+          }
+        },
+        "change": {
+          "speed": 40.70319668673963,
+          "stopped": -0.1354230820494533,
+          "slip_count": 1.3333333333333335,
+          "slip_score": 141.6923906366303
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS3_S01_T1_C01_BB_D00_20260219_THT_TRIAL4_gray.mp4",
+            "MouseID": "TMCS3_S01",
+            "CageID": "TMCS3_C01",
+            "Cohort": "TMCS3",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "4",
+            "speed": "88.9688094576163",
+            "duration": "7.68125",
+            "stopped": "2.19690805532954",
+            "slip_count": "5",
+            "slip_score": "548.903892568063",
+            "tail_score": "0.250393511247332"
+          },
+          "14": {
+            "File": "TMCS3_S01_T1_C01_BB_D14_20260305_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS3_S01",
+            "CageID": "TMCS3_C01",
+            "Cohort": "TMCS3",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "142.129910080888",
+            "duration": "5.06875",
+            "stopped": "2.46609124537608",
+            "slip_count": "5",
+            "slip_score": "119.642817486646",
+            "tail_score": "0.154591078775243"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S10",
+        "distance": 1.3226542425356678,
+        "means": {
+          "0": {
+            "speed": 122.859294466489,
+            "stopped": 9.4806828391734,
+            "slip_count": 3.5,
+            "slip_score": 2527.741550314065
+          },
+          "14": {
+            "speed": 153.09978073866566,
+            "stopped": 5.017332916184493,
+            "slip_count": 2.3333333333333335,
+            "slip_score": 163.37557301721498
+          }
+        },
+        "change": {
+          "speed": 30.240486272176653,
+          "stopped": -4.4633499229889075,
+          "slip_count": -1.1666666666666665,
+          "slip_score": -2364.36597729685
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S10_T1_C04_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS2_S10",
+            "CageID": "TMCS2_C04",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "3",
+            "speed": "114.05557899989",
+            "duration": "6.95625",
+            "stopped": "10.9613656783468",
+            "slip_count": "7",
+            "slip_score": "5055.48310062813",
+            "tail_score": "0.735057233193412"
+          },
+          "14": {
+            "File": "TMCS2_S10_T1_C04_BB_D14_20251105_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S10",
+            "CageID": "TMCS2_C04",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "1",
+            "speed": "157.494110640567",
+            "duration": "4.7125",
+            "stopped": "5.83554376657825",
+            "slip_count": "2",
+            "slip_score": "45.4561965178829",
+            "tail_score": "0.345171060526703"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S11",
+        "distance": 1.3253156276915747,
+        "means": {
+          "0": {
+            "speed": 123.57135483439133,
+            "stopped": 21.190490328356667,
+            "slip_count": 8.666666666666666,
+            "slip_score": 1052.7005993041819
+          },
+          "14": {
+            "speed": 145.97015213845867,
+            "stopped": 7.36575335341582,
+            "slip_count": 5.333333333333333,
+            "slip_score": 704.8143562218418
+          }
+        },
+        "change": {
+          "speed": 22.398797304067344,
+          "stopped": -13.824736974940848,
+          "slip_count": -3.333333333333333,
+          "slip_score": -347.8862430823401
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S11_T2_C04_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS2_S11",
+            "CageID": "TMCS2_C04",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "3",
+            "speed": "111.519115243923",
+            "duration": "8.46875",
+            "stopped": "18.8929889298893",
+            "slip_count": "13",
+            "slip_score": "1114.79995636076",
+            "tail_score": "0.525397522674015"
+          },
+          "14": {
+            "File": "TMCS2_S11_T2_C04_BB_D14_20251105_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S11",
+            "CageID": "TMCS2_C04",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "126.933935416394",
+            "duration": "6.0625",
+            "stopped": "9.17525773195876",
+            "slip_count": "9",
+            "slip_score": "648.185408122963",
+            "tail_score": "0.545638267632"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS3_S11",
+        "distance": 1.3957417070019946,
+        "means": {
+          "0": {
+            "speed": 123.83511920094833,
+            "stopped": 1.5312131919905767,
+            "slip_count": 3.0,
+            "slip_score": 244.6094859424012
+          },
+          "14": {
+            "speed": 128.68101027751868,
+            "stopped": 0.61943476577623,
+            "slip_count": 4.333333333333333,
+            "slip_score": 476.9915446983621
+          }
+        },
+        "change": {
+          "speed": 4.845891076570354,
+          "stopped": -0.9117784262143467,
+          "slip_count": 1.333333333333333,
+          "slip_score": 232.38205875596088
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS3_S11_T2_C04_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS3_S11",
+            "CageID": "TMCS3_C04",
+            "Cohort": "TMCS3",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "130.580090884363",
+            "duration": "5.39375",
+            "stopped": "0",
+            "slip_count": "3",
+            "slip_score": "20.3797108618521",
+            "tail_score": "0.221975557923248"
+          },
+          "14": {
+            "File": "TMCS3_S11_T2_C04_BB_D14_20260305_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS3_S11",
+            "CageID": "TMCS3_C04",
+            "Cohort": "TMCS3",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "1",
+            "speed": "138.026435862106",
+            "duration": "5.11875",
+            "stopped": "0",
+            "slip_count": "2",
+            "slip_score": "259.525029588933",
+            "tail_score": "0.397474773046215"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S27",
+        "distance": 1.5761868487140325,
+        "means": {
+          "0": {
+            "speed": 125.61872590216703,
+            "stopped": 8.785747369766034,
+            "slip_count": 10.0,
+            "slip_score": 1093.086377551728
+          },
+          "14": {
+            "speed": 215.26814859612668,
+            "stopped": 0.0,
+            "slip_count": 1.6666666666666667,
+            "slip_score": 208.95678066867507
+          }
+        },
+        "change": {
+          "speed": 89.64942269395965,
+          "stopped": -8.785747369766034,
+          "slip_count": -8.333333333333334,
+          "slip_score": -884.129596883053
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S27_T3_C09_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S27",
+            "CageID": "TMCS2_C09",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "2",
+            "speed": "105.115877065165",
+            "duration": "7.9",
+            "stopped": "13.2120253164557",
+            "slip_count": "8",
+            "slip_score": "570.781594479675",
+            "tail_score": "0.276775425156548"
+          },
+          "14": {
+            "File": "TMCS2_S27_T3_C09_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS2_S27",
+            "CageID": "TMCS2_C09",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "3",
+            "speed": "234.504709380627",
+            "duration": "3.00625",
+            "stopped": "0",
+            "slip_count": "0",
+            "slip_score": "0",
+            "tail_score": "0.698898642275112"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S16",
+        "distance": 1.5961667713282433,
+        "means": {
+          "0": {
+            "speed": 90.62239610639077,
+            "stopped": 15.027869114608045,
+            "slip_count": 8.333333333333334,
+            "slip_score": 2194.0736641196136
+          },
+          "14": {
+            "speed": 162.818287002336,
+            "stopped": 8.03905765916576,
+            "slip_count": 2.3333333333333335,
+            "slip_score": 131.640361213118
+          }
+        },
+        "change": {
+          "speed": 72.19589089594524,
+          "stopped": -6.988811455442285,
+          "slip_count": -6.0,
+          "slip_score": -2062.4333029064956
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S16_T1_C05_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S16",
+            "CageID": "TMCS2_C05",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "1",
+            "speed": "89.0172514540441",
+            "duration": "9.05625",
+            "stopped": "12.1463077984817",
+            "slip_count": "12",
+            "slip_score": "2651.57397795974",
+            "tail_score": "0.524263455573087"
+          },
+          "14": {
+            "File": "TMCS2_S16_T1_C05_BB_D14_20251105_THT_TRIAL6_gray.mp4",
+            "MouseID": "TMCS2_S16",
+            "CageID": "TMCS2_C05",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "6",
+            "speed": "163.366230241026",
+            "duration": "4.75625",
+            "stopped": "9.72404730617608",
+            "slip_count": "2",
+            "slip_score": "184.826382415737",
+            "tail_score": "0.116775896813555"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S06",
+        "distance": 1.9546743795922914,
+        "means": {
+          "0": {
+            "speed": 163.527575189507,
+            "stopped": 1.5092712376024133,
+            "slip_count": 3.6666666666666665,
+            "slip_score": 398.9712162600017
+          },
+          "14": {
+            "speed": 170.73783524167766,
+            "stopped": 10.122737183848633,
+            "slip_count": 2.6666666666666665,
+            "slip_score": 137.28916357523997
+          }
+        },
+        "change": {
+          "speed": 7.210260052170668,
+          "stopped": 8.613465946246219,
+          "slip_count": -1.0,
+          "slip_score": -261.68205268476174
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S06_T3_C01_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S06",
+            "CageID": "TMCS2_C01",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "1",
+            "speed": "157.306323543664",
+            "duration": "4.49375",
+            "stopped": "0",
+            "slip_count": "3",
+            "slip_score": "452.074667864945",
+            "tail_score": "0.336612755741707"
+          },
+          "14": {
+            "File": "TMCS2_S06_T3_C01_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS2_S06",
+            "CageID": "TMCS2_C01",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "3",
+            "speed": "167.589917973013",
+            "duration": "4.88125",
+            "stopped": "14.4686299615877",
+            "slip_count": "1",
+            "slip_score": "59.2398120418137",
+            "tail_score": "0.111708794767857"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S17",
+        "distance": 2.80516648520183,
+        "means": {
+          "0": {
+            "speed": 89.1319531122101,
+            "stopped": 20.859061125881,
+            "slip_count": 11.333333333333334,
+            "slip_score": 2297.110140782306
+          },
+          "14": {
+            "speed": 187.69477977557935,
+            "stopped": 4.780391735596386,
+            "slip_count": 3.6666666666666665,
+            "slip_score": 531.0759273071327
+          }
+        },
+        "change": {
+          "speed": 98.56282666336925,
+          "stopped": -16.078669390284613,
+          "slip_count": -7.666666666666668,
+          "slip_score": -1766.0342134751736
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S17_T2_C05_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S17",
+            "CageID": "TMCS2_C05",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "1",
+            "speed": "93.4307477062084",
+            "duration": "9.3",
+            "stopped": "14.7849462365591",
+            "slip_count": "10",
+            "slip_score": "1966.94719695465",
+            "tail_score": "0.618632419175837"
+          },
+          "14": {
+            "File": "TMCS2_S17_T2_C05_BB_D14_20251105_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S17",
+            "CageID": "TMCS2_C05",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "1",
+            "speed": "180.048548104671",
+            "duration": "4.0125",
+            "stopped": "3.58255451713396",
+            "slip_count": "5",
+            "slip_score": "579.627487681747",
+            "tail_score": "1.02164476287237"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS2_S24",
+        "distance": 3.2082838085363203,
+        "means": {
+          "0": {
+            "speed": 169.13818786337768,
+            "stopped": 0.8474576271186433,
+            "slip_count": 2.0,
+            "slip_score": 218.38394008039535
+          },
+          "14": {
+            "speed": 195.35279569273166,
+            "stopped": 10.82703562742576,
+            "slip_count": 3.6666666666666665,
+            "slip_score": 2217.5956046378183
+          }
+        },
+        "change": {
+          "speed": 26.21460782935398,
+          "stopped": 9.979578000307116,
+          "slip_count": 1.6666666666666665,
+          "slip_score": 1999.2116645574229
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS2_S24_T3_C07_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+            "MouseID": "TMCS2_S24",
+            "CageID": "TMCS2_C07",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "1",
+            "speed": "163.073476804452",
+            "duration": "4.425",
+            "stopped": "2.54237288135593",
+            "slip_count": "2",
+            "slip_score": "203.365084131587",
+            "tail_score": "0.433809352186855"
+          },
+          "14": {
+            "File": "TMCS2_S24_T3_C07_BB_D14_20251105_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS2_S24",
+            "CageID": "TMCS2_C07",
+            "Cohort": "TMCS2",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "173.149476820328",
+            "duration": "4.4875",
+            "stopped": "7.93871866295265",
+            "slip_count": "5",
+            "slip_score": "327.18899299587",
+            "tail_score": "0.402498824651069"
+          }
+        }
+      },
+      {
+        "mouse": "TMCS3_S10",
+        "distance": 3.50564279358844,
+        "means": {
+          "0": {
+            "speed": 108.74639558467823,
+            "stopped": 4.122845422151927,
+            "slip_count": 5.333333333333333,
+            "slip_score": 333.302355744888
+          },
+          "14": {
+            "speed": 95.85006480155539,
+            "stopped": 5.375369551324047,
+            "slip_count": 8.666666666666666,
+            "slip_score": 3783.093408805027
+          }
+        },
+        "change": {
+          "speed": -12.896330783122835,
+          "stopped": 1.2525241291721203,
+          "slip_count": 3.333333333333333,
+          "slip_score": 3449.7910530601393
+        },
+        "trials": {
+          "0": {
+            "File": "TMCS3_S10_T1_C04_BB_D00_20260219_THT_TRIAL3_gray.mp4",
+            "MouseID": "TMCS3_S10",
+            "CageID": "TMCS3_C04",
+            "Cohort": "TMCS3",
+            "Group": "run",
+            "Day": "0",
+            "TrialNumber": "3",
+            "speed": "108.551166112297",
+            "duration": "6.61875",
+            "stopped": "2.36071765816808",
+            "slip_count": "4",
+            "slip_score": "92.8765716535328",
+            "tail_score": "0.346597210416129"
+          },
+          "14": {
+            "File": "TMCS3_S10_T1_C04_BB_D14_20260305_THT_TRIAL2_gray.mp4",
+            "MouseID": "TMCS3_S10",
+            "CageID": "TMCS3_C04",
+            "Cohort": "TMCS3",
+            "Group": "run",
+            "Day": "14",
+            "TrialNumber": "2",
+            "speed": "96.0552300318593",
+            "duration": "7.68125",
+            "stopped": "5.93978844589097",
+            "slip_count": "9",
+            "slip_score": "431.287803651141",
+            "tail_score": "0.499837061203297"
+          }
+        }
+      }
+    ]
+  }
+}

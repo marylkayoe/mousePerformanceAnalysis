@@ -1,4 +1,8 @@
+> Current figure and tail definitions: [CURRENT/README.md](CURRENT/README.md) and [13 November handoff](CURRENT/HANDOFF_20261113.md). The historical panel choices below are superseded; removed files are recoverable from the external archive.
+
 # Current balance-beam figure: handoff, 2026-11-11
+
+> **Newest continuation (2026-11-12):** Read [HANDOFF_20261112_WITHIN_DAY.md](HANDOFF_20261112_WITHIN_DAY.md) first. It records pooled D0 first/last work, stop-excluded spatial CDF corrections, added slip analyses, unresolved inference issues, and the rejected example overlay. HEAD is e52c789; subsequent work remains uncommitted/unpushed.
 
 > **Latest continuation:** Read [STATISTICS_HANDOFF_20261111_EVENING.md](STATISTICS_HANDOFF_20261111_EVENING.md) before continuing. It documents everything since commit `d29bb45`: prioritized comparisons, D14/change differences, ANCOVA and mouse-independent sensitivities, ordered-trend tests, the seven-panel figure, and unresolved main-figure choices. Historical “uncommitted” notes below are superseded by Git history.
 

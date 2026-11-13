@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156.31 95.64">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #262626;
+        stroke-width: .33px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-6 {
+        fill: rgba(35, 35, 35, .4);
+      }
+
+      .cls-7 {
+        fill: rgba(8, 100, 207, .4);
+      }
+
+      .cls-8 {
+        font-size: 5px;
+      }
+
+      .cls-8, .cls-9 {
+        isolation: isolate;
+      }
+
+      .cls-8, .cls-10, .cls-11, .cls-12, .cls-13 {
+        font-family: ArialMT, Arial;
+      }
+
+      .cls-8, .cls-14, .cls-12 {
+        fill: #232323;
+      }
+
+      .cls-2 {
+        stroke: #232323;
+      }
+
+      .cls-2, .cls-3, .cls-5 {
+        stroke-width: .77px;
+      }
+
+      .cls-3 {
+        stroke: #0864cf;
+      }
+
+      .cls-4 {
+        stroke: #bcbcbc;
+        stroke-width: .29px;
+      }
+
+      .cls-5 {
+        stroke: #008d3f;
+      }
+
+      .cls-10 {
+        font-size: 10px;
+      }
+
+      .cls-15 {
+        fill: #008d3f;
+      }
+
+      .cls-15, .cls-16, .cls-14 {
+        stroke: #231f20;
+        stroke-width: .11px;
+      }
+
+      .cls-16 {
+        fill: #0864cf;
+      }
+
+      .cls-11 {
+        fill: #222;
+        font-size: 6px;
+      }
+
+      .cls-17 {
+        fill: rgba(0, 141, 63, .4);
+      }
+
+      .cls-12 {
+        font-size: 5.92px;
+      }
+
+      .cls-13 {
+        font-size: 8px;
+      }
+
+      .cls-18 {
+        letter-spacing: -.04em;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="cls-1" d="M18.67,14.52v72.53"/>
+    <path class="cls-4" d="M18.67,46.76h58.35"/>
+    <path class="cls-1" d="M18.67,78.99h.83"/>
+    <g class="cls-9">
+      <text class="cls-11" transform="translate(5 80.49)"><tspan x="0" y="0">-100</tspan></text>
+    </g>
+    <path class="cls-1" d="M18.67,62.87h.83"/>
+    <g class="cls-9">
+      <text class="cls-11" transform="translate(7.78 64.37)"><tspan x="0" y="0">-50</tspan></text>
+    </g>
+    <path class="cls-1" d="M18.67,46.76h.83"/>
+    <text class="cls-8" transform="translate(14.23 48.26)"><tspan x="0" y="0">0</tspan></text>
+    <path class="cls-1" d="M18.67,30.64h.83"/>
+    <g class="cls-9">
+      <text class="cls-11" transform="translate(9.44 32.14)"><tspan x="0" y="0">50</tspan></text>
+    </g>
+    <path class="cls-1" d="M18.67,14.52h.83"/>
+    <g class="cls-9">
+      <text class="cls-11" transform="translate(6.66 16.02)"><tspan x="0" y="0">100</tspan></text>
+    </g>
+    <ellipse class="cls-6" cx="26.43" cy="33.73" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="27.14" cy="47.98" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="27.85" cy="59.3" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="28.56" cy="40.88" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="29.28" cy="55.51" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="29.99" cy="39.47" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="30.7" cy="57.86" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="31.41" cy="49.4" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="32.13" cy="53.47" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="32.84" cy="48.45" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="33.55" cy="50.62" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="34.26" cy="49.27" rx=".95" ry=".92"/>
+    <polygon class="cls-14" points="22.49 47 23.68 45.51 24.86 47 23.68 48.5 22.49 47"/>
+    <polygon class="cls-14" points="22.49 45.28 23.68 43.79 24.86 45.28 23.68 46.78 22.49 45.28"/>
+    <polygon class="cls-14" points="22.49 53.58 23.68 52.09 24.86 53.58 23.68 55.07 22.49 53.58"/>
+    <polygon class="cls-14" points="22.49 49.45 23.68 47.96 24.86 49.45 23.68 50.94 22.49 49.45"/>
+    <path class="cls-2" d="M25.89,48.83h8.9"/>
+    <g class="cls-9">
+      <text class="cls-12" transform="translate(25.2 93.72)"><tspan x="0" y="0">SED</tspan></text>
+    </g>
+    <ellipse class="cls-17" cx="45.6" cy="36.88" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="46.31" cy="38.2" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="47.03" cy="58.74" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="47.74" cy="51.09" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="48.45" cy="39.12" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="49.16" cy="61.5" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="49.88" cy="48.52" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="50.59" cy="52.87" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="51.3" cy="40.38" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="52.01" cy="38.73" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="52.72" cy="62.38" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="53.44" cy="60" rx=".95" ry=".92"/>
+    <polygon class="cls-15" points="41.67 47.26 42.85 45.76 44.03 47.26 42.85 48.75 41.67 47.26"/>
+    <polygon class="cls-15" points="41.67 44.6 42.85 43.11 44.03 44.6 42.85 46.1 41.67 44.6"/>
+    <polygon class="cls-15" points="41.67 50.57 42.85 49.08 44.03 50.57 42.85 52.06 41.67 50.57"/>
+    <polygon class="cls-15" points="41.67 53.7 42.85 52.21 44.03 53.7 42.85 55.2 41.67 53.7"/>
+    <path class="cls-5" d="M45.07,49.03h8.9"/>
+    <g class="cls-9">
+      <text class="cls-12" transform="translate(42.52 93.72)"><tspan class="cls-18" x="0" y="0">W</tspan><tspan x="5.37" y="0">ALK</tspan></text>
+    </g>
+    <ellipse class="cls-7" cx="64.77" cy="54.18" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="65.24" cy="39.86" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="65.7" cy="52.43" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="66.16" cy="51.69" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="66.62" cy="44.25" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="67.08" cy="45.39" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="67.54" cy="48.02" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="68" cy="38.68" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="68.46" cy="49.31" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="68.92" cy="60.56" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="69.38" cy="46.89" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="69.84" cy="19.01" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="70.31" cy="61.47" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="70.77" cy="26.71" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="71.23" cy="57.85" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="71.69" cy="51.04" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="72.15" cy="57.82" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="72.61" cy="46.94" rx=".95" ry=".92"/>
+    <polygon class="cls-16" points="60.84 47.02 62.02 45.53 63.21 47.02 62.02 48.51 60.84 47.02"/>
+    <polygon class="cls-16" points="60.84 52.06 62.02 50.57 63.21 52.06 62.02 53.55 60.84 52.06"/>
+    <polygon class="cls-16" points="60.84 45.89 62.02 44.39 63.21 45.89 62.02 47.38 60.84 45.89"/>
+    <polygon class="cls-16" points="60.84 43.99 62.02 42.5 63.21 43.99 62.02 45.49 60.84 43.99"/>
+    <polygon class="cls-16" points="60.84 42.16 62.02 40.66 63.21 42.16 62.02 43.65 60.84 42.16"/>
+    <polygon class="cls-16" points="60.84 48.68 62.02 47.19 63.21 48.68 62.02 50.17 60.84 48.68"/>
+    <polygon class="cls-16" points="60.84 51.93 62.02 50.44 63.21 51.93 62.02 53.43 60.84 51.93"/>
+    <path class="cls-3" d="M64.24,47.34h8.9"/>
+    <g class="cls-9">
+      <text class="cls-12" transform="translate(63.27 93.72)"><tspan x="0" y="0">RUN</tspan></text>
+    </g>
+  </g>
+  <g>
+    <path class="cls-1" d="M97.95,14.52v72.53"/>
+    <path class="cls-4" d="M97.95,46.76h58.35"/>
+    <path class="cls-1" d="M97.95,78.99h.83"/>
+    <g class="cls-9">
+      <text class="cls-11" transform="translate(84.28 80.49)"><tspan x="0" y="0">-100</tspan></text>
+    </g>
+    <path class="cls-1" d="M97.95,62.87h.83"/>
+    <g class="cls-9">
+      <text class="cls-11" transform="translate(87.06 64.37)"><tspan x="0" y="0">-50</tspan></text>
+    </g>
+    <path class="cls-1" d="M97.95,46.76h.83"/>
+    <g class="cls-9">
+      <text class="cls-11" transform="translate(91.5 48.26)"><tspan x="0" y="0">0</tspan></text>
+    </g>
+    <path class="cls-1" d="M97.95,30.64h.83"/>
+    <g class="cls-9">
+      <text class="cls-11" transform="translate(88.72 32.14)"><tspan x="0" y="0">50</tspan></text>
+    </g>
+    <path class="cls-1" d="M97.95,14.52h.83"/>
+    <g class="cls-9">
+      <text class="cls-11" transform="translate(85.94 16.02)"><tspan x="0" y="0">100</tspan></text>
+    </g>
+    <ellipse class="cls-6" cx="105.71" cy="70.95" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="106.42" cy="58.65" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="107.13" cy="63.03" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="107.84" cy="52.01" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="108.56" cy="49.14" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="109.27" cy="54.11" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="109.98" cy="61.49" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="110.69" cy="57.94" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="111.4" cy="47.06" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="112.12" cy="38.44" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="112.83" cy="54.77" rx=".95" ry=".92"/>
+    <ellipse class="cls-6" cx="113.54" cy="65.18" rx=".95" ry=".92"/>
+    <polygon class="cls-14" points="101.77 64.21 102.95 62.72 104.14 64.21 102.95 65.7 101.77 64.21"/>
+    <polygon class="cls-14" points="101.77 51.75 102.95 50.26 104.14 51.75 102.95 53.24 101.77 51.75"/>
+    <polygon class="cls-14" points="101.77 55.5 102.95 54.01 104.14 55.5 102.95 56.99 101.77 55.5"/>
+    <polygon class="cls-14" points="101.77 52.79 102.95 51.3 104.14 52.79 102.95 54.29 101.77 52.79"/>
+    <path class="cls-2" d="M105.17,56.06h8.9"/>
+    <g class="cls-9">
+      <text class="cls-12" transform="translate(104.48 93.72)"><tspan x="0" y="0">SED</tspan></text>
+    </g>
+    <ellipse class="cls-17" cx="124.88" cy="58.14" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="125.59" cy="57.75" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="126.3" cy="51.2" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="127.02" cy="54.2" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="127.73" cy="43.82" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="128.44" cy="55.83" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="129.15" cy="46.98" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="129.87" cy="53.19" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="130.58" cy="56.63" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="131.29" cy="59.43" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="132" cy="83.69" rx=".95" ry=".92"/>
+    <ellipse class="cls-17" cx="132.72" cy="41.46" rx=".95" ry=".92"/>
+    <polygon class="cls-15" points="120.94 52.27 122.13 50.77 123.31 52.27 122.13 53.76 120.94 52.27"/>
+    <polygon class="cls-15" points="120.94 55.7 122.13 54.21 123.31 55.7 122.13 57.19 120.94 55.7"/>
+    <polygon class="cls-15" points="120.94 51.28 122.13 49.79 123.31 51.28 122.13 52.78 120.94 51.28"/>
+    <polygon class="cls-15" points="120.94 61.53 122.13 60.03 123.31 61.53 122.13 63.02 120.94 61.53"/>
+    <path class="cls-5" d="M124.35,55.19h8.9"/>
+    <g class="cls-9">
+      <text class="cls-12" transform="translate(121.8 93.72)"><tspan class="cls-18" x="0" y="0">W</tspan><tspan x="5.37" y="0">ALK</tspan></text>
+    </g>
+    <ellipse class="cls-7" cx="144.05" cy="36.63" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="144.51" cy="58.84" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="144.97" cy="46.33" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="145.44" cy="42.62" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="145.9" cy="53.43" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="146.36" cy="49.03" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="146.82" cy="57.21" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="147.28" cy="55.47" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="147.74" cy="53.9" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="148.2" cy="58.52" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="148.66" cy="49.01" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="149.12" cy="25.09" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="149.58" cy="39.37" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="150.04" cy="36.28" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="150.51" cy="44.03" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="150.97" cy="44.73" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="151.43" cy="54.25" rx=".95" ry=".92"/>
+    <ellipse class="cls-7" cx="151.89" cy="43.94" rx=".95" ry=".92"/>
+    <polygon class="cls-16" points="140.12 47.73 141.3 46.24 142.49 47.73 141.3 49.23 140.12 47.73"/>
+    <polygon class="cls-16" points="140.12 44.48 141.3 42.98 142.49 44.48 141.3 45.97 140.12 44.48"/>
+    <polygon class="cls-16" points="140.12 53.22 141.3 51.73 142.49 53.22 141.3 54.71 140.12 53.22"/>
+    <polygon class="cls-16" points="140.12 54.69 141.3 53.19 142.49 54.69 141.3 56.18 140.12 54.69"/>
+    <polygon class="cls-16" points="140.12 44.21 141.3 42.71 142.49 44.21 141.3 45.7 140.12 44.21"/>
+    <polygon class="cls-16" points="140.12 39.89 141.3 38.4 142.49 39.89 141.3 41.39 140.12 39.89"/>
+    <polygon class="cls-16" points="140.12 47.64 141.3 46.15 142.49 47.64 141.3 49.13 140.12 47.64"/>
+    <path class="cls-3" d="M143.52,47.15h8.9"/>
+    <g class="cls-9">
+      <text class="cls-12" transform="translate(142.55 93.72)"><tspan x="0" y="0">RUN</tspan></text>
+    </g>
+  </g>
+  <g class="cls-9">
+    <text class="cls-10" transform="translate(26.1 8.58)"><tspan x="0" y="0">Change in locomoting speed</tspan></text>
+  </g>
+  <text class="cls-13" transform="translate(6.87 58.73) rotate(-90)"><tspan x="0" y="0">mm/s</tspan></text>
+</svg>

@@ -58,3 +58,7 @@ BEAMCROSS/DRAFTFIGS/figMaterials/~ai-*.tmp
 BEAMCROSS/DRAFTFIGS/tail-metrics/CDF-D14-and-change/frame-values.csv
 BEAMCROSS/DRAFTFIGS/speed-presentation/speed_spatial_CDF_D0_D14_and_change_group_summary.csv
 BEAMCROSS/DRAFTFIGS/posture-presentation/posture_spatial_CDF_D0_D14_and_change_group_summary.csv
+
+# User-approved final six-panel movies only (2026-11-13)
+!/BEAMCROSS/DRAFTFIGS/CURRENT/videos/full_traverse_SED_WALK_RUN_D0_D14_final.mp4
+!/BEAMCROSS/DRAFTFIGS/CURRENT/videos/tail_SED_WALK_RUN_D0_D14_final.mp4

@@ -1,0 +1,3118 @@
+[
+  {
+    "file": "TMCS2_S16_T1_C05_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S16",
+    "group": "run",
+    "cage": "TMCS2_C05",
+    "goodEvents": 7,
+    "events": [
+      {
+        "event": 7,
+        "peak": 37.9396616718354,
+        "score": 444.21738596055377,
+        "originalPeak": 1635,
+        "start": 1617,
+        "end": 1647,
+        "x": 540.319560544543,
+        "position": 0.421672838580565,
+        "durationFrames": 31
+      },
+      {
+        "event": 5,
+        "peak": 19.9794316572205,
+        "score": 164.7650715889784,
+        "originalPeak": 1565,
+        "start": 1547,
+        "end": 1580,
+        "x": 565.029888368743,
+        "position": 0.440992875972434,
+        "durationFrames": 34
+      },
+      {
+        "event": 10,
+        "peak": 16.7835187105257,
+        "score": 121.13863952959595,
+        "originalPeak": 1823,
+        "start": 1815,
+        "end": 1839,
+        "x": 351.871121718377,
+        "position": 0.274332386019059,
+        "durationFrames": 25
+      },
+      {
+        "event": 9,
+        "peak": 14.2512401124019,
+        "score": 87.35418834357232,
+        "originalPeak": 1761,
+        "start": 1756,
+        "end": 1773,
+        "x": 411.964462112998,
+        "position": 0.321317014943705,
+        "durationFrames": 18
+      },
+      {
+        "event": 6,
+        "peak": 11.0475505583051,
+        "score": 59.99241479196466,
+        "originalPeak": 1604,
+        "start": 1596,
+        "end": 1609,
+        "x": 548.57888465205,
+        "position": 0.428130480572361,
+        "durationFrames": 14
+      },
+      {
+        "event": 8,
+        "peak": 8.71981144920046,
+        "score": 51.44896364816361,
+        "originalPeak": 1725,
+        "start": 1717,
+        "end": 1730,
+        "x": 453.310528811952,
+        "position": 0.35364388491943,
+        "durationFrames": 14
+      },
+      {
+        "event": 1,
+        "peak": 6.65627818969953,
+        "score": 26.99752046548899,
+        "originalPeak": 1099,
+        "start": 1096,
+        "end": 1112,
+        "x": 1023.96908653237,
+        "position": 0.799819457804824,
+        "durationFrames": 17
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S12_T3_C04_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS3_S12",
+    "group": "run",
+    "cage": "TMCS3_C04",
+    "goodEvents": 5,
+    "events": [
+      {
+        "event": 3,
+        "peak": 20.8311644001191,
+        "score": 466.36357593120783,
+        "originalPeak": 1346,
+        "start": 1278,
+        "end": 1354,
+        "x": 863.615793895267,
+        "position": 0.674445499527183,
+        "durationFrames": 77
+      },
+      {
+        "event": 10,
+        "peak": 20.5419504665564,
+        "score": 264.7465272398103,
+        "originalPeak": 1793,
+        "start": 1774,
+        "end": 1827,
+        "x": 712.424841772152,
+        "position": 0.556235216397304,
+        "durationFrames": 54
+      },
+      {
+        "event": 7,
+        "peak": 20.4322231351597,
+        "score": 255.6760841031872,
+        "originalPeak": 1547,
+        "start": 1526,
+        "end": 1568,
+        "x": 803.608172153196,
+        "position": 0.627527890659262,
+        "durationFrames": 43
+      },
+      {
+        "event": 5,
+        "peak": 17.1910826673556,
+        "score": 145.777826358629,
+        "originalPeak": 1411,
+        "start": 1405,
+        "end": 1425,
+        "x": 853.934655443002,
+        "position": 0.666876196593434,
+        "durationFrames": 21
+      },
+      {
+        "event": 4,
+        "peak": 13.4559089743499,
+        "score": 120.81982334044666,
+        "originalPeak": 1393,
+        "start": 1362,
+        "end": 1398,
+        "x": 861.590861889927,
+        "position": 0.67286228451128,
+        "durationFrames": 37
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S27_T3_C09_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S27",
+    "group": "run",
+    "cage": "TMCS2_C09",
+    "goodEvents": 5,
+    "events": [
+      {
+        "event": 11,
+        "peak": 35.7674980449011,
+        "score": 417.2633892020074,
+        "originalPeak": 1807,
+        "start": 1782,
+        "end": 1820,
+        "x": 268.686696900983,
+        "position": 0.20929374269037,
+        "durationFrames": 39
+      },
+      {
+        "event": 10,
+        "peak": 19.2180619826522,
+        "score": 273.27943188596424,
+        "originalPeak": 1733,
+        "start": 1726,
+        "end": 1771,
+        "x": 315.017162162162,
+        "position": 0.24551771865689,
+        "durationFrames": 46
+      },
+      {
+        "event": 7,
+        "peak": 12.2591709310969,
+        "score": 69.75627705991852,
+        "originalPeak": 1417,
+        "start": 1402,
+        "end": 1422,
+        "x": 767.189960518895,
+        "position": 0.599053917528455,
+        "durationFrames": 21
+      },
+      {
+        "event": 3,
+        "peak": 11.2931722096713,
+        "score": 56.98238642618058,
+        "originalPeak": 1161,
+        "start": 1155,
+        "end": 1165,
+        "x": 923.652153280342,
+        "position": 0.72138557723248,
+        "durationFrames": 11
+      },
+      {
+        "event": 8,
+        "peak": 9.36072316375416,
+        "score": 137.8628184276986,
+        "originalPeak": 1480,
+        "start": 1458,
+        "end": 1496,
+        "x": 722.355639683777,
+        "position": 0.563999718282859,
+        "durationFrames": 39
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S28_T1_C10_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S28",
+    "group": "sedentary",
+    "cage": "TMCS2_C10",
+    "goodEvents": 5,
+    "events": [
+      {
+        "event": 9,
+        "peak": 20.565401815506,
+        "score": 225.67470884993136,
+        "originalPeak": 2485,
+        "start": 2469,
+        "end": 2498,
+        "x": 521.062247372676,
+        "position": 0.406616299744078,
+        "durationFrames": 30
+      },
+      {
+        "event": 10,
+        "peak": 19.6435421968088,
+        "score": 484.34110496920755,
+        "originalPeak": 2523,
+        "start": 2516,
+        "end": 2597,
+        "x": 504.080431280208,
+        "position": 0.393338882939959,
+        "durationFrames": 82
+      },
+      {
+        "event": 12,
+        "peak": 17.4309082298094,
+        "score": 164.62525890283152,
+        "originalPeak": 2641,
+        "start": 2622,
+        "end": 2647,
+        "x": 456.554180418042,
+        "position": 0.356179969052417,
+        "durationFrames": 26
+      },
+      {
+        "event": 8,
+        "peak": 10.6191688799807,
+        "score": 205.5117962326402,
+        "originalPeak": 2417,
+        "start": 2409,
+        "end": 2455,
+        "x": 561.615195804976,
+        "position": 0.438323061614524,
+        "durationFrames": 47
+      },
+      {
+        "event": 14,
+        "peak": 6.33036671065764,
+        "score": 19.62493750762945,
+        "originalPeak": 2785,
+        "start": 2782,
+        "end": 2789,
+        "x": 378.65162966462,
+        "position": 0.295271016156857,
+        "durationFrames": 8
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S16_T1_C05_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S16",
+    "group": "run",
+    "cage": "TMCS2_C05",
+    "goodEvents": 4,
+    "events": [
+      {
+        "event": 8,
+        "peak": 51.6871062412835,
+        "score": 1256.130544922611,
+        "originalPeak": 2162,
+        "start": 2142,
+        "end": 2221,
+        "x": 332.457991665546,
+        "position": 0.259154020066885,
+        "durationFrames": 80
+      },
+      {
+        "event": 10,
+        "peak": 30.1799965181363,
+        "score": 199.93661891259026,
+        "originalPeak": 2270,
+        "start": 2264,
+        "end": 2277,
+        "x": 245.054031927957,
+        "position": 0.190816287668458,
+        "durationFrames": 14
+      },
+      {
+        "event": 9,
+        "peak": 19.2049700202468,
+        "score": 137.12461011993048,
+        "originalPeak": 2238,
+        "start": 2231,
+        "end": 2245,
+        "x": 290.869738945125,
+        "position": 0.226637794327698,
+        "durationFrames": 15
+      },
+      {
+        "event": 11,
+        "peak": 10.1680082597441,
+        "score": 55.08704420311721,
+        "originalPeak": 2312,
+        "start": 2306,
+        "end": 2323,
+        "x": 203.547091013825,
+        "position": 0.158363636445524,
+        "durationFrames": 18
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S31_T1_C02_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S31",
+    "group": "walk",
+    "cage": "TMCS2_C02",
+    "goodEvents": 4,
+    "events": [
+      {
+        "event": 6,
+        "peak": 25.6981983265047,
+        "score": 188.66454688595715,
+        "originalPeak": 2022,
+        "start": 2014,
+        "end": 2029,
+        "x": 508.789031897034,
+        "position": 0.39702035332059,
+        "durationFrames": 16
+      },
+      {
+        "event": 7,
+        "peak": 21.5954888904819,
+        "score": 160.06886843771176,
+        "originalPeak": 2096,
+        "start": 2086,
+        "end": 2107,
+        "x": 442.349361866701,
+        "position": 0.345073777847303,
+        "durationFrames": 22
+      },
+      {
+        "event": 3,
+        "peak": 14.3950971314011,
+        "score": 88.71258046779559,
+        "originalPeak": 1896,
+        "start": 1891,
+        "end": 1905,
+        "x": 650.646350277042,
+        "position": 0.507933033836624,
+        "durationFrames": 15
+      },
+      {
+        "event": 8,
+        "peak": 11.8464499139793,
+        "score": 58.56238604736536,
+        "originalPeak": 2128,
+        "start": 2123,
+        "end": 2137,
+        "x": 427.190724088973,
+        "position": 0.333221832751347,
+        "durationFrames": 15
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S07_T1_C03_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+    "mouse": "TMCS2_S07",
+    "group": "walk",
+    "cage": "TMCS2_C03",
+    "goodEvents": 4,
+    "events": [
+      {
+        "event": 6,
+        "peak": 19.9698427945277,
+        "score": 187.71671018071075,
+        "originalPeak": 1883,
+        "start": 1878,
+        "end": 1899,
+        "x": 253.965234054202,
+        "position": 0.197783607548242,
+        "durationFrames": 22
+      },
+      {
+        "event": 2,
+        "peak": 18.9406171921668,
+        "score": 174.4126569285015,
+        "originalPeak": 1472,
+        "start": 1467,
+        "end": 1490,
+        "x": 666.275092153765,
+        "position": 0.52015253491303,
+        "durationFrames": 24
+      },
+      {
+        "event": 1,
+        "peak": 14.6668065485638,
+        "score": 70.77649091903162,
+        "originalPeak": 1438,
+        "start": 1433,
+        "end": 1443,
+        "x": 716.624481106972,
+        "position": 0.559518749888172,
+        "durationFrames": 11
+      },
+      {
+        "event": 5,
+        "peak": 9.5426513475588,
+        "score": 128.03537252969352,
+        "originalPeak": 1659,
+        "start": 1616,
+        "end": 1669,
+        "x": 636.305030324652,
+        "position": 0.496720117532957,
+        "durationFrames": 54
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S09_T3_C03_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S09",
+    "group": "walk",
+    "cage": "TMCS2_C03",
+    "goodEvents": 4,
+    "events": [
+      {
+        "event": 6,
+        "peak": 32.0977699292973,
+        "score": 306.12631357506586,
+        "originalPeak": 1501,
+        "start": 1493,
+        "end": 1518,
+        "x": 899.412935323383,
+        "position": 0.702433882191855,
+        "durationFrames": 26
+      },
+      {
+        "event": 4,
+        "peak": 17.4030209560602,
+        "score": 111.0752196510531,
+        "originalPeak": 1373,
+        "start": 1367,
+        "end": 1381,
+        "x": 1068.36042350134,
+        "position": 0.834527305317703,
+        "durationFrames": 15
+      },
+      {
+        "event": 5,
+        "peak": 13.5785705144673,
+        "score": 63.71339367302246,
+        "originalPeak": 1482,
+        "start": 1478,
+        "end": 1487,
+        "x": 906.897990510745,
+        "position": 0.708286153644054,
+        "durationFrames": 10
+      },
+      {
+        "event": 7,
+        "peak": 5.34910520102512,
+        "score": 13.055756122172461,
+        "originalPeak": 1575,
+        "start": 1571,
+        "end": 1578,
+        "x": 788.333530315566,
+        "position": 0.615585246532889,
+        "durationFrames": 8
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S20_T2_C06_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S20",
+    "group": "walk",
+    "cage": "TMCS2_C06",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 4,
+        "peak": 25.9391618493103,
+        "score": 255.3608297960571,
+        "originalPeak": 1260,
+        "start": 1251,
+        "end": 1278,
+        "x": 955.578917215698,
+        "position": 0.746347863343,
+        "durationFrames": 28
+      },
+      {
+        "event": 2,
+        "peak": 23.2015132122558,
+        "score": 226.75078782695658,
+        "originalPeak": 1203,
+        "start": 1194,
+        "end": 1218,
+        "x": 996.246495823305,
+        "position": 0.778144250057314,
+        "durationFrames": 25
+      },
+      {
+        "event": 3,
+        "peak": 20.1894264247821,
+        "score": 204.9439323245613,
+        "originalPeak": 1230,
+        "start": 1225,
+        "end": 1244,
+        "x": 980.530577576444,
+        "position": 0.765856589191903,
+        "durationFrames": 20
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S09_T3_C03_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S09",
+    "group": "walk",
+    "cage": "TMCS2_C03",
+    "goodEvents": 5,
+    "events": [
+      {
+        "event": 7,
+        "peak": 17.5843927005418,
+        "score": 319.778458961814,
+        "originalPeak": 1342,
+        "start": 1329,
+        "end": 1375,
+        "x": 1070.85147058824,
+        "position": 0.836474957457573,
+        "durationFrames": 47
+      },
+      {
+        "event": 11,
+        "peak": 13.4762791360833,
+        "score": 113.03496869586246,
+        "originalPeak": 1803,
+        "start": 1778,
+        "end": 1807,
+        "x": 469.511516785102,
+        "position": 0.366310802803051,
+        "durationFrames": 30
+      },
+      {
+        "event": 8,
+        "peak": 7.61574124426653,
+        "score": 51.66528530164284,
+        "originalPeak": 1469,
+        "start": 1452,
+        "end": 1482,
+        "x": 984.451746670018,
+        "position": 0.768922397709161,
+        "durationFrames": 31
+      },
+      {
+        "event": 9,
+        "peak": 7.43089279888243,
+        "score": 31.316283198622298,
+        "originalPeak": 1515,
+        "start": 1512,
+        "end": 1524,
+        "x": 919.603881835938,
+        "position": 0.718220392365862,
+        "durationFrames": 13
+      },
+      {
+        "event": 10,
+        "peak": 5.74921426151669,
+        "score": 30.714373441424065,
+        "originalPeak": 1606,
+        "start": 1602,
+        "end": 1614,
+        "x": 776.026276189374,
+        "position": 0.605962686621872,
+        "durationFrames": 13
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S26_T2_C09_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S26",
+    "group": "run",
+    "cage": "TMCS2_C09",
+    "goodEvents": 5,
+    "events": [
+      {
+        "event": 6,
+        "peak": 14.5881805982665,
+        "score": 198.0514469720033,
+        "originalPeak": 2045,
+        "start": 2018,
+        "end": 2051,
+        "x": 307.989104287534,
+        "position": 0.240022755502372,
+        "durationFrames": 34
+      },
+      {
+        "event": 7,
+        "peak": 11.8650085555608,
+        "score": 153.84909241068567,
+        "originalPeak": 2160,
+        "start": 2125,
+        "end": 2165,
+        "x": 223.716064953492,
+        "position": 0.174132967125482,
+        "durationFrames": 41
+      },
+      {
+        "event": 4,
+        "peak": 8.88953805489656,
+        "score": 97.41336735832319,
+        "originalPeak": 1939,
+        "start": 1934,
+        "end": 1957,
+        "x": 405.45205974464,
+        "position": 0.31622522263068,
+        "durationFrames": 24
+      },
+      {
+        "event": 1,
+        "peak": 8.39479403886329,
+        "score": 32.980578068079204,
+        "originalPeak": 1596,
+        "start": 1592,
+        "end": 1600,
+        "x": 784.588919119466,
+        "position": 0.612657481719676,
+        "durationFrames": 9
+      },
+      {
+        "event": 2,
+        "peak": 6.23652149262313,
+        "score": 21.882702097827192,
+        "originalPeak": 1615,
+        "start": 1612,
+        "end": 1623,
+        "x": 772.150504927607,
+        "position": 0.602932372891014,
+        "durationFrames": 12
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S04_T1_C02_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S04",
+    "group": "walk",
+    "cage": "TMCS3_C02",
+    "goodEvents": 4,
+    "events": [
+      {
+        "event": 7,
+        "peak": 27.9962386924451,
+        "score": 255.09516773578287,
+        "originalPeak": 1366,
+        "start": 1358,
+        "end": 1383,
+        "x": 910.965954606142,
+        "position": 0.711466735423097,
+        "durationFrames": 26
+      },
+      {
+        "event": 12,
+        "peak": 20.4645797965008,
+        "score": 152.6312928644301,
+        "originalPeak": 1675,
+        "start": 1666,
+        "end": 1691,
+        "x": 787.975314991,
+        "position": 0.615305172002346,
+        "durationFrames": 26
+      },
+      {
+        "event": 6,
+        "peak": 8.16470760360275,
+        "score": 64.39034595978947,
+        "originalPeak": 1324,
+        "start": 1320,
+        "end": 1349,
+        "x": 934.597908496732,
+        "position": 0.729943634477507,
+        "durationFrames": 30
+      },
+      {
+        "event": 13,
+        "peak": 6.78133752047327,
+        "score": 29.527879301657176,
+        "originalPeak": 1756,
+        "start": 1751,
+        "end": 1765,
+        "x": 734.216839677047,
+        "position": 0.573273525939834,
+        "durationFrames": 15
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S06_T3_C01_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S06",
+    "group": "run",
+    "cage": "TMCS2_C01",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 3,
+        "peak": 40.7198250370827,
+        "score": 347.22248872990315,
+        "originalPeak": 1515,
+        "start": 1493,
+        "end": 1523,
+        "x": 389.473381688792,
+        "position": 0.303732120163246,
+        "durationFrames": 31
+      },
+      {
+        "event": 4,
+        "peak": 19.5592078718684,
+        "score": 138.9798391167086,
+        "originalPeak": 1571,
+        "start": 1566,
+        "end": 1584,
+        "x": 311.892998678996,
+        "position": 0.243075057606721,
+        "durationFrames": 19
+      },
+      {
+        "event": 2,
+        "peak": 6.76669721985367,
+        "score": 30.052378658434826,
+        "originalPeak": 1469,
+        "start": 1462,
+        "end": 1473,
+        "x": 432.28768714507,
+        "position": 0.33720694851061,
+        "durationFrames": 12
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S13_T1_C08_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S13",
+    "group": "sedentary",
+    "cage": "TMCS2_C08",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 5,
+        "peak": 17.1554319832736,
+        "score": 164.45234433043956,
+        "originalPeak": 1046,
+        "start": 1038,
+        "end": 1056,
+        "x": 1032.12148711944,
+        "position": 0.806193500484314,
+        "durationFrames": 19
+      },
+      {
+        "event": 7,
+        "peak": 12.7376826656105,
+        "score": 93.06387018637739,
+        "originalPeak": 1168,
+        "start": 1163,
+        "end": 1182,
+        "x": 882.559281753367,
+        "position": 0.689256670643758,
+        "durationFrames": 20
+      },
+      {
+        "event": 6,
+        "peak": 7.52788809868013,
+        "score": 43.96820064962209,
+        "originalPeak": 1100,
+        "start": 1097,
+        "end": 1113,
+        "x": 972.911905740512,
+        "position": 0.759899848116116,
+        "durationFrames": 17
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S15_T3_C08_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S15",
+    "group": "sedentary",
+    "cage": "TMCS2_C08",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 11,
+        "peak": 25.882177598259,
+        "score": 329.4209803072864,
+        "originalPeak": 1523,
+        "start": 1511,
+        "end": 1547,
+        "x": 628.263823595254,
+        "position": 0.490433012975179,
+        "durationFrames": 37
+      },
+      {
+        "event": 13,
+        "peak": 21.3468944177699,
+        "score": 188.97372251311853,
+        "originalPeak": 1712,
+        "start": 1702,
+        "end": 1722,
+        "x": 364.592816635161,
+        "position": 0.284278980950087,
+        "durationFrames": 21
+      },
+      {
+        "event": 7,
+        "peak": 5.75585634848479,
+        "score": 22.141228104125055,
+        "originalPeak": 1254,
+        "start": 1250,
+        "end": 1264,
+        "x": 1016.08817173318,
+        "position": 0.793657679228444,
+        "durationFrames": 15
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S03_T3_C01_BB_D00_20260219_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS3_S03",
+    "group": "run",
+    "cage": "TMCS3_C01",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 4,
+        "peak": 21.8713566352543,
+        "score": 253.80199206156365,
+        "originalPeak": 1298,
+        "start": 1276,
+        "end": 1313,
+        "x": 483.868812456426,
+        "position": 0.377536209895564,
+        "durationFrames": 38
+      },
+      {
+        "event": 2,
+        "peak": 11.6056940492563,
+        "score": 79.41074116072738,
+        "originalPeak": 957,
+        "start": 953,
+        "end": 972,
+        "x": 925.638207609704,
+        "position": 0.722938395316423,
+        "durationFrames": 20
+      },
+      {
+        "event": 8,
+        "peak": 7.85951222704291,
+        "score": 36.773918440618054,
+        "originalPeak": 1422,
+        "start": 1407,
+        "end": 1427,
+        "x": 431.622793934874,
+        "position": 0.336687094554241,
+        "durationFrames": 21
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S06_T3_C01_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S06",
+    "group": "run",
+    "cage": "TMCS2_C01",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 2,
+        "peak": 12.5855936455452,
+        "score": 58.573367010778455,
+        "originalPeak": 1557,
+        "start": 1552,
+        "end": 1562,
+        "x": 390.997507270461,
+        "position": 0.304923774253683,
+        "durationFrames": 11
+      },
+      {
+        "event": 3,
+        "peak": 11.165766270336,
+        "score": 67.93177884204076,
+        "originalPeak": 1605,
+        "start": 1598,
+        "end": 1617,
+        "x": 309.519465594024,
+        "position": 0.241219285061786,
+        "durationFrames": 20
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S17_T2_C05_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S17",
+    "group": "run",
+    "cage": "TMCS2_C05",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 5,
+        "peak": 37.0247887993089,
+        "score": 720.6702367548186,
+        "originalPeak": 1499,
+        "start": 1475,
+        "end": 1524,
+        "x": 888.442338301259,
+        "position": 0.693856402112008,
+        "durationFrames": 50
+      },
+      {
+        "event": 6,
+        "peak": 17.8862020731483,
+        "score": 93.9063967067108,
+        "originalPeak": 1550,
+        "start": 1544,
+        "end": 1555,
+        "x": 872.006144578313,
+        "position": 0.681005586065921,
+        "durationFrames": 12
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S24_T3_C07_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S24",
+    "group": "run",
+    "cage": "TMCS2_C07",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 4,
+        "peak": 34.7635220139963,
+        "score": 260.69305688748756,
+        "originalPeak": 1302,
+        "start": 1296,
+        "end": 1312,
+        "x": 210.497877897486,
+        "position": 0.163798184439004,
+        "durationFrames": 17
+      },
+      {
+        "event": 3,
+        "peak": 21.3149915894375,
+        "score": 172.44807771679177,
+        "originalPeak": 1097,
+        "start": 1092,
+        "end": 1115,
+        "x": 569.00327523687,
+        "position": 0.444099511522181,
+        "durationFrames": 24
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S28_T1_C10_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S28",
+    "group": "sedentary",
+    "cage": "TMCS2_C10",
+    "goodEvents": 4,
+    "events": [
+      {
+        "event": 12,
+        "peak": 10.8052949975098,
+        "score": 58.10458749816822,
+        "originalPeak": 2520,
+        "start": 2514,
+        "end": 2525,
+        "x": 219.731942215088,
+        "position": 0.171017937619303,
+        "durationFrames": 12
+      },
+      {
+        "event": 8,
+        "peak": 7.87563224216465,
+        "score": 50.94670682262604,
+        "originalPeak": 2228,
+        "start": 2223,
+        "end": 2241,
+        "x": 454.667513304306,
+        "position": 0.354704857939254,
+        "durationFrames": 19
+      },
+      {
+        "event": 2,
+        "peak": 6.32716431819031,
+        "score": 19.35530695213986,
+        "originalPeak": 1587,
+        "start": 1584,
+        "end": 1590,
+        "x": 949.851141330743,
+        "position": 0.741869539742567,
+        "durationFrames": 7
+      },
+      {
+        "event": 6,
+        "peak": 5.08336815203337,
+        "score": 20.89949880665757,
+        "originalPeak": 2144,
+        "start": 2138,
+        "end": 2150,
+        "x": 469.949982470492,
+        "position": 0.366653621947218,
+        "durationFrames": 13
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S31_T1_C02_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S31",
+    "group": "walk",
+    "cage": "TMCS2_C02",
+    "goodEvents": 4,
+    "events": [
+      {
+        "event": 12,
+        "peak": 14.7439220501247,
+        "score": 81.83168301255046,
+        "originalPeak": 2280,
+        "start": 2275,
+        "end": 2286,
+        "x": 965.15215229436,
+        "position": 0.753832800855637,
+        "durationFrames": 12
+      },
+      {
+        "event": 17,
+        "peak": 7.33489987434357,
+        "score": 41.63389255019524,
+        "originalPeak": 2993,
+        "start": 2986,
+        "end": 3006,
+        "x": 289.369571155422,
+        "position": 0.225464871896342,
+        "durationFrames": 21
+      },
+      {
+        "event": 13,
+        "peak": 6.9398040180557,
+        "score": 21.739714073391617,
+        "originalPeak": 2319,
+        "start": 2316,
+        "end": 2323,
+        "x": 928.811635093376,
+        "position": 0.725419573958856,
+        "durationFrames": 8
+      },
+      {
+        "event": 16,
+        "peak": 6.25781512426663,
+        "score": 40.16629940841288,
+        "originalPeak": 2838,
+        "start": 2827,
+        "end": 2844,
+        "x": 438.844542300507,
+        "position": 0.342333496716581,
+        "durationFrames": 18
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S15_T3_C05_BB_D00_20260219_THT_TRIAL6_gray.mp4",
+    "mouse": "TMCS3_S15",
+    "group": "sedentary",
+    "cage": "TMCS3_C05",
+    "goodEvents": 4,
+    "events": [
+      {
+        "event": 5,
+        "peak": 11.3039964777009,
+        "score": 101.20128608409355,
+        "originalPeak": 1238,
+        "start": 1227,
+        "end": 1246,
+        "x": 921.277589708869,
+        "position": 0.719528998990515,
+        "durationFrames": 20
+      },
+      {
+        "event": 4,
+        "peak": 9.88045730064224,
+        "score": 130.38853278342114,
+        "originalPeak": 1042,
+        "start": 1030,
+        "end": 1058,
+        "x": 1057.51316865696,
+        "position": 0.826046261655168,
+        "durationFrames": 29
+      },
+      {
+        "event": 13,
+        "peak": 7.36937519512415,
+        "score": 28.044852780343472,
+        "originalPeak": 2299,
+        "start": 2294,
+        "end": 2304,
+        "x": 227.658357302653,
+        "position": 0.177215291088861,
+        "durationFrames": 11
+      },
+      {
+        "event": 14,
+        "peak": 5.2426681151071,
+        "score": 12.900366236997861,
+        "originalPeak": 2315,
+        "start": 2311,
+        "end": 2317,
+        "x": 221.677159126859,
+        "position": 0.172538826526082,
+        "durationFrames": 7
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S08_T2_C03_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S08",
+    "group": "walk",
+    "cage": "TMCS2_C03",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 8,
+        "peak": 13.7303117243572,
+        "score": 82.2689819401128,
+        "originalPeak": 1488,
+        "start": 1483,
+        "end": 1496,
+        "x": 1039.32054917177,
+        "position": 0.811822165106932,
+        "durationFrames": 14
+      },
+      {
+        "event": 14,
+        "peak": 9.35301378842005,
+        "score": 56.41354639882705,
+        "originalPeak": 2226,
+        "start": 2216,
+        "end": 2231,
+        "x": 313.232739254156,
+        "position": 0.244122548283156,
+        "durationFrames": 16
+      },
+      {
+        "event": 15,
+        "peak": 9.28013480472411,
+        "score": 48.78754547629727,
+        "originalPeak": 2295,
+        "start": 2290,
+        "end": 2300,
+        "x": 242.471749284315,
+        "position": 0.188797302020575,
+        "durationFrames": 11
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S08_T2_C03_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S08",
+    "group": "walk",
+    "cage": "TMCS2_C03",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 3,
+        "peak": 25.7979660625696,
+        "score": 311.2255918986241,
+        "originalPeak": 1548,
+        "start": 1543,
+        "end": 1570,
+        "x": 258.60002897291,
+        "position": 0.201407372144574,
+        "durationFrames": 28
+      },
+      {
+        "event": 2,
+        "peak": 8.67242189440859,
+        "score": 34.94894563826152,
+        "originalPeak": 1400,
+        "start": 1396,
+        "end": 1404,
+        "x": 430.031769486516,
+        "position": 0.335443134860451,
+        "durationFrames": 9
+      },
+      {
+        "event": 1,
+        "peak": 5.78990206450484,
+        "score": 17.0696201074978,
+        "originalPeak": 1324,
+        "start": 1320,
+        "end": 1328,
+        "x": 524.544688026981,
+        "position": 0.409339083680204,
+        "durationFrames": 9
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S09_T3_C03_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S09",
+    "group": "walk",
+    "cage": "TMCS2_C03",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 3,
+        "peak": 17.0615107138018,
+        "score": 218.4305043631347,
+        "originalPeak": 1256,
+        "start": 1245,
+        "end": 1272,
+        "x": 687.591040462428,
+        "position": 0.536818639923712,
+        "durationFrames": 28
+      },
+      {
+        "event": 5,
+        "peak": 9.89077298793039,
+        "score": 60.616476963562036,
+        "originalPeak": 1439,
+        "start": 1434,
+        "end": 1449,
+        "x": 286.663978127136,
+        "position": 0.223349474688926,
+        "durationFrames": 16
+      },
+      {
+        "event": 1,
+        "peak": 5.18027391856442,
+        "score": 14.466823221834519,
+        "originalPeak": 995,
+        "start": 991,
+        "end": 999,
+        "x": 1054.93219866071,
+        "position": 0.824028302314866,
+        "durationFrames": 9
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S22_T1_C07_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+    "mouse": "TMCS2_S22",
+    "group": "run",
+    "cage": "TMCS2_C07",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 3,
+        "peak": 50.608385287584,
+        "score": 677.5489816991447,
+        "originalPeak": 1458,
+        "start": 1442,
+        "end": 1478,
+        "x": 426.185426154847,
+        "position": 0.332435829675408,
+        "durationFrames": 37
+      },
+      {
+        "event": 2,
+        "peak": 7.86448214585822,
+        "score": 28.84593139505266,
+        "originalPeak": 1422,
+        "start": 1417,
+        "end": 1426,
+        "x": 458.759958746938,
+        "position": 0.357904580724737,
+        "durationFrames": 10
+      },
+      {
+        "event": 4,
+        "peak": 6.31397423935648,
+        "score": 19.34363397249323,
+        "originalPeak": 1514,
+        "start": 1511,
+        "end": 1519,
+        "x": 342.39627805145,
+        "position": 0.266924376897147,
+        "durationFrames": 9
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S27_T3_C09_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+    "mouse": "TMCS2_S27",
+    "group": "run",
+    "cage": "TMCS2_C09",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 5,
+        "peak": 27.0188248109289,
+        "score": 298.3000360805191,
+        "originalPeak": 1978,
+        "start": 1969,
+        "end": 1994,
+        "x": 314.612224322621,
+        "position": 0.245201113622065,
+        "durationFrames": 26
+      },
+      {
+        "event": 2,
+        "peak": 6.63428252563559,
+        "score": 28.215578310919625,
+        "originalPeak": 1717,
+        "start": 1712,
+        "end": 1727,
+        "x": 873.597393015248,
+        "position": 0.682249720887606,
+        "durationFrames": 16
+      },
+      {
+        "event": 1,
+        "peak": 5.64103791531959,
+        "score": 14.787976282668659,
+        "originalPeak": 1688,
+        "start": 1684,
+        "end": 1691,
+        "x": 942.203460689815,
+        "position": 0.735890117818464,
+        "durationFrames": 8
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S05_T2_C02_BB_D00_20260219_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS3_S05",
+    "group": "walk",
+    "cage": "TMCS3_C02",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 8,
+        "peak": 10.2189999001426,
+        "score": 55.553305857694745,
+        "originalPeak": 1630,
+        "start": 1626,
+        "end": 1640,
+        "x": 517.719073813483,
+        "position": 0.404002403294358,
+        "durationFrames": 15
+      },
+      {
+        "event": 4,
+        "peak": 5.49409953819038,
+        "score": 24.893391530207975,
+        "originalPeak": 1428,
+        "start": 1418,
+        "end": 1432,
+        "x": 874.997245868803,
+        "position": 0.683344210999846,
+        "durationFrames": 15
+      },
+      {
+        "event": 7,
+        "peak": 5.22056636507638,
+        "score": 19.832573313924094,
+        "originalPeak": 1591,
+        "start": 1586,
+        "end": 1597,
+        "x": 595.358062918008,
+        "position": 0.464705287660679,
+        "durationFrames": 12
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S12_T3_C04_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S12",
+    "group": "run",
+    "cage": "TMCS3_C04",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 10,
+        "peak": 17.7215685372955,
+        "score": 108.34410133046873,
+        "originalPeak": 1808,
+        "start": 1802,
+        "end": 1814,
+        "x": 205.444782939832,
+        "position": 0.159847367427547,
+        "durationFrames": 13
+      },
+      {
+        "event": 9,
+        "peak": 9.67442939601642,
+        "score": 48.817331556145994,
+        "originalPeak": 1768,
+        "start": 1754,
+        "end": 1773,
+        "x": 235.10091079948,
+        "position": 0.183034332134073,
+        "durationFrames": 20
+      },
+      {
+        "event": 4,
+        "peak": 5.39602976419945,
+        "score": 20.516931418388673,
+        "originalPeak": 1268,
+        "start": 1263,
+        "end": 1273,
+        "x": 804.195967943902,
+        "position": 0.627987465163332,
+        "durationFrames": 11
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S11_T2_C04_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S11",
+    "group": "run",
+    "cage": "TMCS2_C04",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 11,
+        "peak": 22.0316197419589,
+        "score": 243.94787621467998,
+        "originalPeak": 1878,
+        "start": 1864,
+        "end": 1895,
+        "x": 489.992561105207,
+        "position": 0.382324129089294,
+        "durationFrames": 32
+      },
+      {
+        "event": 8,
+        "peak": 5.11898627477488,
+        "score": 15.739813384251411,
+        "originalPeak": 1578,
+        "start": 1570,
+        "end": 1581,
+        "x": 922.206302250804,
+        "position": 0.720255122948244,
+        "durationFrames": 12
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S13_T1_C08_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S13",
+    "group": "sedentary",
+    "cage": "TMCS2_C08",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 2,
+        "peak": 11.4607371329162,
+        "score": 71.98924215761947,
+        "originalPeak": 1585,
+        "start": 1577,
+        "end": 1591,
+        "x": 1032.12325934096,
+        "position": 0.806194886114904,
+        "durationFrames": 15
+      },
+      {
+        "event": 4,
+        "peak": 6.40759230261977,
+        "score": 25.890450081539832,
+        "originalPeak": 1680,
+        "start": 1673,
+        "end": 1685,
+        "x": 881.382427952053,
+        "position": 0.688336534755319,
+        "durationFrames": 13
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S14_T2_C08_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S14",
+    "group": "sedentary",
+    "cage": "TMCS2_C08",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 5,
+        "peak": 21.5795683261439,
+        "score": 187.1646863978715,
+        "originalPeak": 1636,
+        "start": 1631,
+        "end": 1649,
+        "x": 520.468283824102,
+        "position": 0.406151902911729,
+        "durationFrames": 19
+      },
+      {
+        "event": 4,
+        "peak": 7.26796702430596,
+        "score": 63.865084247948026,
+        "originalPeak": 1566,
+        "start": 1557,
+        "end": 1582,
+        "x": 589.683125919979,
+        "position": 0.460268276716168,
+        "durationFrames": 26
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S17_T2_C05_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+    "mouse": "TMCS2_S17",
+    "group": "run",
+    "cage": "TMCS2_C05",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 8,
+        "peak": 14.6049168109742,
+        "score": 68.58713133007714,
+        "originalPeak": 1655,
+        "start": 1650,
+        "end": 1659,
+        "x": 814.054083353409,
+        "position": 0.635695139447544,
+        "durationFrames": 10
+      },
+      {
+        "event": 5,
+        "peak": 7.34844077739857,
+        "score": 29.11922375191118,
+        "originalPeak": 1451,
+        "start": 1447,
+        "end": 1457,
+        "x": 948.940329793181,
+        "position": 0.741157411878953,
+        "durationFrames": 11
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S19_T1_C06_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S19",
+    "group": "walk",
+    "cage": "TMCS2_C06",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 7,
+        "peak": 10.3392037403278,
+        "score": 44.22748499016723,
+        "originalPeak": 1646,
+        "start": 1642,
+        "end": 1651,
+        "x": 669.77761589404,
+        "position": 0.522891021027396,
+        "durationFrames": 10
+      },
+      {
+        "event": 3,
+        "peak": 5.99251777890435,
+        "score": 18.80397597897851,
+        "originalPeak": 1411,
+        "start": 1406,
+        "end": 1415,
+        "x": 691.735701384708,
+        "position": 0.540059187947387,
+        "durationFrames": 10
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S20_T2_C06_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S20",
+    "group": "walk",
+    "cage": "TMCS2_C06",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 2,
+        "peak": 71.7562739875688,
+        "score": 878.5919176088628,
+        "originalPeak": 1270,
+        "start": 1246,
+        "end": 1284,
+        "x": 288.42246311352,
+        "position": 0.224724365217764,
+        "durationFrames": 39
+      },
+      {
+        "event": 3,
+        "peak": 6.38742124835277,
+        "score": 58.078846673847615,
+        "originalPeak": 1327,
+        "start": 1290,
+        "end": 1331,
+        "x": 235.749837027379,
+        "position": 0.183541702132431,
+        "durationFrames": 42
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S32_T2_C02_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S32",
+    "group": "walk",
+    "cage": "TMCS2_C02",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 1,
+        "peak": 15.2129682654862,
+        "score": 114.11850909000881,
+        "originalPeak": 1091,
+        "start": 1082,
+        "end": 1098,
+        "x": 984.129535752401,
+        "position": 0.768670473614074,
+        "durationFrames": 17
+      },
+      {
+        "event": 5,
+        "peak": 5.43392803528477,
+        "score": 17.643607711482307,
+        "originalPeak": 1452,
+        "start": 1448,
+        "end": 1458,
+        "x": 415.107535986452,
+        "position": 0.323774461287296,
+        "durationFrames": 11
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S33_T3_C02_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S33",
+    "group": "walk",
+    "cage": "TMCS2_C02",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 1,
+        "peak": 17.366902589133,
+        "score": 92.30504259236261,
+        "originalPeak": 1139,
+        "start": 1135,
+        "end": 1145,
+        "x": 941.790035124236,
+        "position": 0.735566876563124,
+        "durationFrames": 11
+      },
+      {
+        "event": 2,
+        "peak": 5.63142885484295,
+        "score": 22.996365483587233,
+        "originalPeak": 1254,
+        "start": 1246,
+        "end": 1259,
+        "x": 740.329926837766,
+        "position": 0.578053109333671,
+        "durationFrames": 14
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S01_T1_C01_BB_D00_20260219_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS3_S01",
+    "group": "run",
+    "cage": "TMCS3_C01",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 2,
+        "peak": 11.9961575470335,
+        "score": 84.17931053692334,
+        "originalPeak": 1293,
+        "start": 1285,
+        "end": 1300,
+        "x": 670.480968045113,
+        "position": 0.523440944523153,
+        "durationFrames": 16
+      },
+      {
+        "event": 3,
+        "peak": 7.22324769410896,
+        "score": 28.272895466492336,
+        "originalPeak": 1310,
+        "start": 1306,
+        "end": 1318,
+        "x": 666.646561514196,
+        "position": 0.52044297225504,
+        "durationFrames": 13
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S08_T2_C03_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S08",
+    "group": "sedentary",
+    "cage": "TMCS3_C03",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 4,
+        "peak": 18.9309081900174,
+        "score": 135.93164978644137,
+        "originalPeak": 1479,
+        "start": 1469,
+        "end": 1488,
+        "x": 537.137030995106,
+        "position": 0.41918454338945,
+        "durationFrames": 20
+      },
+      {
+        "event": 2,
+        "peak": 6.50787581561014,
+        "score": 36.366949271296676,
+        "originalPeak": 1258,
+        "start": 1253,
+        "end": 1266,
+        "x": 824.170851669687,
+        "position": 0.643605044307808,
+        "durationFrames": 14
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S10_T1_C04_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS3_S10",
+    "group": "run",
+    "cage": "TMCS3_C04",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 6,
+        "peak": 16.2367651505891,
+        "score": 107.17528791581495,
+        "originalPeak": 1295,
+        "start": 1291,
+        "end": 1306,
+        "x": 955.334080421885,
+        "position": 0.746156435044476,
+        "durationFrames": 16
+      },
+      {
+        "event": 5,
+        "peak": 6.84342309099317,
+        "score": 26.89355107882382,
+        "originalPeak": 1214,
+        "start": 1210,
+        "end": 1224,
+        "x": 1034.39912039582,
+        "position": 0.807974292725428,
+        "durationFrames": 15
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S15_T3_C05_BB_D00_20260219_THT_TRIAL5_gray.mp4",
+    "mouse": "TMCS3_S15",
+    "group": "sedentary",
+    "cage": "TMCS3_C05",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 3,
+        "peak": 21.3815345006072,
+        "score": 397.0900512483936,
+        "originalPeak": 1365,
+        "start": 1357,
+        "end": 1394,
+        "x": 654.051887971993,
+        "position": 0.510595690361214,
+        "durationFrames": 38
+      },
+      {
+        "event": 2,
+        "peak": 5.44971145822038,
+        "score": 15.88424305733733,
+        "originalPeak": 1319,
+        "start": 1315,
+        "end": 1324,
+        "x": 675.950402975821,
+        "position": 0.527717281450994,
+        "durationFrames": 10
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S10_T1_C04_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S10",
+    "group": "run",
+    "cage": "TMCS2_C04",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 5,
+        "peak": 34.834270471666,
+        "score": 261.15972070225604,
+        "originalPeak": 1753,
+        "start": 1743,
+        "end": 1759,
+        "x": 628.465076853526,
+        "position": 0.490590365014485,
+        "durationFrames": 17
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S13_T1_C08_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S13",
+    "group": "sedentary",
+    "cage": "TMCS2_C08",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 1,
+        "peak": 23.9397389859895,
+        "score": 175.80927087822974,
+        "originalPeak": 1040,
+        "start": 1033,
+        "end": 1047,
+        "x": 891.383225969433,
+        "position": 0.696155766981574,
+        "durationFrames": 15
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S14_T2_C08_BB_D00_20251022_THT_TRIAL5_gray.mp4",
+    "mouse": "TMCS2_S14",
+    "group": "sedentary",
+    "cage": "TMCS2_C08",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 5,
+        "peak": 17.0868411427276,
+        "score": 99.29482870409517,
+        "originalPeak": 1740,
+        "start": 1735,
+        "end": 1746,
+        "x": 746.357395056885,
+        "position": 0.582765750630872,
+        "durationFrames": 12
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S16_T1_C05_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S16",
+    "group": "run",
+    "cage": "TMCS2_C05",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 1,
+        "peak": 50.5344138875007,
+        "score": 1023.801463123236,
+        "originalPeak": 2088,
+        "start": 2079,
+        "end": 2125,
+        "x": 275.497880158282,
+        "position": 0.214619140076842,
+        "durationFrames": 47
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S17_T2_C05_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S17",
+    "group": "run",
+    "cage": "TMCS2_C05",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 10,
+        "peak": 21.8797739781751,
+        "score": 321.5154460334677,
+        "originalPeak": 2284,
+        "start": 2272,
+        "end": 2304,
+        "x": 869.298014061922,
+        "position": 0.678888204895951,
+        "durationFrames": 33
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S21_T3_C06_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S21",
+    "group": "walk",
+    "cage": "TMCS2_C06",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 2,
+        "peak": 10.1007679233306,
+        "score": 58.68122451989168,
+        "originalPeak": 1090,
+        "start": 1085,
+        "end": 1106,
+        "x": 993.325643983083,
+        "position": 0.775860550416797,
+        "durationFrames": 22
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S21_T3_C06_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+    "mouse": "TMCS2_S21",
+    "group": "walk",
+    "cage": "TMCS2_C06",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 4,
+        "peak": 11.2233260827371,
+        "score": 70.3887893579475,
+        "originalPeak": 1474,
+        "start": 1457,
+        "end": 1486,
+        "x": 560.478316489702,
+        "position": 0.437434180210869,
+        "durationFrames": 30
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S22_T1_C07_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S22",
+    "group": "run",
+    "cage": "TMCS2_C07",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 3,
+        "peak": 20.416673721534,
+        "score": 176.00960764178174,
+        "originalPeak": 1621,
+        "start": 1612,
+        "end": 1628,
+        "x": 758.381150862568,
+        "position": 0.592166654310061,
+        "durationFrames": 17
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S27_T3_C09_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S27",
+    "group": "run",
+    "cage": "TMCS2_C09",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 7,
+        "peak": 21.3620662301363,
+        "score": 270.4957761331343,
+        "originalPeak": 1949,
+        "start": 1941,
+        "end": 1962,
+        "x": 289.522212029878,
+        "position": 0.225584215816949,
+        "durationFrames": 22
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S29_T2_C10_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S29",
+    "group": "sedentary",
+    "cage": "TMCS2_C10",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 4,
+        "peak": 10.0454101909615,
+        "score": 47.4885499018753,
+        "originalPeak": 1435,
+        "start": 1431,
+        "end": 1444,
+        "x": 461.446041497624,
+        "position": 0.360004723610339,
+        "durationFrames": 14
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S02_T2_C01_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S02",
+    "group": "run",
+    "cage": "TMCS3_C01",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 5,
+        "peak": 24.9691453019034,
+        "score": 174.9588836010539,
+        "originalPeak": 1539,
+        "start": 1534,
+        "end": 1549,
+        "x": 945.513036164844,
+        "position": 0.738477745242255,
+        "durationFrames": 16
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S02_T2_C01_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS3_S02",
+    "group": "run",
+    "cage": "TMCS3_C01",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 1,
+        "peak": 19.7663811160293,
+        "score": 247.76494279572847,
+        "originalPeak": 1198,
+        "start": 1191,
+        "end": 1217,
+        "x": 959.249109345026,
+        "position": 0.749217442802991,
+        "durationFrames": 27
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S05_T2_C02_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS3_S05",
+    "group": "walk",
+    "cage": "TMCS3_C02",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 7,
+        "peak": 10.0828154251477,
+        "score": 69.96150258252092,
+        "originalPeak": 1213,
+        "start": 1206,
+        "end": 1220,
+        "x": 930.625659050967,
+        "position": 0.72683788823375,
+        "durationFrames": 15
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S09_T3_C03_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS3_S09",
+    "group": "sedentary",
+    "cage": "TMCS3_C03",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 9,
+        "peak": 26.4993670981686,
+        "score": 400.22077542621076,
+        "originalPeak": 1556,
+        "start": 1534,
+        "end": 1586,
+        "x": 412.399582172702,
+        "position": 0.3216572182742,
+        "durationFrames": 53
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S11_T2_C04_BB_D00_20260219_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS3_S11",
+    "group": "run",
+    "cage": "TMCS3_C04",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 3,
+        "peak": 22.8667132514964,
+        "score": 517.9147380987439,
+        "originalPeak": 1706,
+        "start": 1701,
+        "end": 1753,
+        "x": 222.195211492418,
+        "position": 0.172943871377966,
+        "durationFrames": 53
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S13_T1_C05_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S13",
+    "group": "sedentary",
+    "cage": "TMCS3_C05",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 15,
+        "peak": 19.7247834879495,
+        "score": 110.94691869652743,
+        "originalPeak": 2039,
+        "start": 2033,
+        "end": 2045,
+        "x": 268.656665723181,
+        "position": 0.209270262488805,
+        "durationFrames": 13
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S33_T3_C02_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S33",
+    "group": "walk",
+    "cage": "TMCS2_C02",
+    "goodEvents": 9,
+    "events": [
+      {
+        "event": 1,
+        "peak": 9.52381506340566,
+        "score": 64.23813356823612,
+        "originalPeak": 1324,
+        "start": 1318,
+        "end": 1339,
+        "x": 448.130947943844,
+        "position": 0.349594173529198,
+        "durationFrames": 22
+      },
+      {
+        "event": 11,
+        "peak": 6.30915993517445,
+        "score": 41.19254129867245,
+        "originalPeak": 1676,
+        "start": 1672,
+        "end": 1687,
+        "x": 330.266753698869,
+        "position": 0.257440776934221,
+        "durationFrames": 16
+      },
+      {
+        "event": 17,
+        "peak": 6.29442514756683,
+        "score": 32.737154753021926,
+        "originalPeak": 1906,
+        "start": 1897,
+        "end": 1911,
+        "x": 228.569795221843,
+        "position": 0.177927908695733,
+        "durationFrames": 15
+      },
+      {
+        "event": 7,
+        "peak": 6.20783351233455,
+        "score": 44.26218349018362,
+        "originalPeak": 1539,
+        "start": 1525,
+        "end": 1551,
+        "x": 388.892734478203,
+        "position": 0.303278134853951,
+        "durationFrames": 27
+      },
+      {
+        "event": 16,
+        "peak": 5.89050971900952,
+        "score": 30.535523766921422,
+        "originalPeak": 1871,
+        "start": 1867,
+        "end": 1884,
+        "x": 242.682799702159,
+        "position": 0.188962314075183,
+        "durationFrames": 18
+      },
+      {
+        "event": 5,
+        "peak": 5.81947974838384,
+        "score": 15.02473757274045,
+        "originalPeak": 1452,
+        "start": 1449,
+        "end": 1455,
+        "x": 427.006854531607,
+        "position": 0.333078072346839,
+        "durationFrames": 7
+      },
+      {
+        "event": 10,
+        "peak": 5.53633268744106,
+        "score": 29.28352892897957,
+        "originalPeak": 1654,
+        "start": 1644,
+        "end": 1659,
+        "x": 335.142225392297,
+        "position": 0.261252717273101,
+        "durationFrames": 16
+      },
+      {
+        "event": 9,
+        "peak": 5.16793155144352,
+        "score": 11.034869452762019,
+        "originalPeak": 1594,
+        "start": 1591,
+        "end": 1597,
+        "x": 366.223640026864,
+        "position": 0.285554057878705,
+        "durationFrames": 7
+      },
+      {
+        "event": 12,
+        "peak": 5.04539329869038,
+        "score": 10.523602946190298,
+        "originalPeak": 1730,
+        "start": 1727,
+        "end": 1732,
+        "x": 306.735434436895,
+        "position": 0.239042560153944,
+        "durationFrames": 6
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S08_T2_C03_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S08",
+    "group": "walk",
+    "cage": "TMCS2_C03",
+    "goodEvents": 4,
+    "events": [
+      {
+        "event": 3,
+        "peak": 9.58887431380504,
+        "score": 40.57596173889903,
+        "originalPeak": 1410,
+        "start": 1406,
+        "end": 1415,
+        "x": 1079.22809088227,
+        "position": 0.843024308742976,
+        "durationFrames": 10
+      },
+      {
+        "event": 7,
+        "peak": 8.54228143496521,
+        "score": 34.21157900535522,
+        "originalPeak": 2017,
+        "start": 2013,
+        "end": 2022,
+        "x": 368.59038991729,
+        "position": 0.287404526909531,
+        "durationFrames": 10
+      },
+      {
+        "event": 5,
+        "peak": 7.28425909676123,
+        "score": 30.054576399744235,
+        "originalPeak": 1638,
+        "start": 1635,
+        "end": 1646,
+        "x": 832.828130829499,
+        "position": 0.650373831766614,
+        "durationFrames": 12
+      },
+      {
+        "event": 6,
+        "peak": 5.174696302595,
+        "score": 17.234402877229662,
+        "originalPeak": 1702,
+        "start": 1697,
+        "end": 1706,
+        "x": 808.288310718287,
+        "position": 0.631187107676534,
+        "durationFrames": 10
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S07_T1_C03_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S07",
+    "group": "walk",
+    "cage": "TMCS2_C03",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 4,
+        "peak": 8.97772486946512,
+        "score": 82.4956885643989,
+        "originalPeak": 1092,
+        "start": 1083,
+        "end": 1104,
+        "x": 831.207953421949,
+        "position": 0.649107078515988,
+        "durationFrames": 22
+      },
+      {
+        "event": 7,
+        "peak": 6.05870950267813,
+        "score": 15.41733543172358,
+        "originalPeak": 1364,
+        "start": 1361,
+        "end": 1367,
+        "x": 405.178074178074,
+        "position": 0.316011004048533,
+        "durationFrames": 7
+      },
+      {
+        "event": 5,
+        "peak": 5.40502480879682,
+        "score": 14.116517660552812,
+        "originalPeak": 1298,
+        "start": 1294,
+        "end": 1301,
+        "x": 447.490020886517,
+        "position": 0.349093057768973,
+        "durationFrames": 8
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S21_T3_C06_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S21",
+    "group": "walk",
+    "cage": "TMCS2_C06",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 1,
+        "peak": 9.74633548002832,
+        "score": 66.40584319025969,
+        "originalPeak": 1180,
+        "start": 1175,
+        "end": 1214,
+        "x": 767.3896484375,
+        "position": 0.599210045689992,
+        "durationFrames": 40
+      },
+      {
+        "event": 3,
+        "peak": 7.60330966194486,
+        "score": 34.99091062972433,
+        "originalPeak": 1260,
+        "start": 1256,
+        "end": 1266,
+        "x": 674.852971845673,
+        "position": 0.526859243038055,
+        "durationFrames": 11
+      },
+      {
+        "event": 2,
+        "peak": 5.16846999601364,
+        "score": 12.70752302287269,
+        "originalPeak": 1245,
+        "start": 1242,
+        "end": 1248,
+        "x": 680.415506415506,
+        "position": 0.531208370926901,
+        "durationFrames": 7
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S22_T1_C07_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S22",
+    "group": "run",
+    "cage": "TMCS2_C07",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 8,
+        "peak": 6.4294252057595,
+        "score": 17.77614890082353,
+        "originalPeak": 1843,
+        "start": 1840,
+        "end": 1845,
+        "x": 650.10102739726,
+        "position": 0.507506667237889,
+        "durationFrames": 6
+      },
+      {
+        "event": 10,
+        "peak": 5.42835138684288,
+        "score": 27.28187118548127,
+        "originalPeak": 1936,
+        "start": 1925,
+        "end": 1944,
+        "x": 552.113446901051,
+        "position": 0.430894016341713,
+        "durationFrames": 20
+      },
+      {
+        "event": 12,
+        "peak": 5.34728997602148,
+        "score": 14.801523153405128,
+        "originalPeak": 2131,
+        "start": 2127,
+        "end": 2135,
+        "x": 292.901690857399,
+        "position": 0.228226497933854,
+        "durationFrames": 9
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S31_T1_C02_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S31",
+    "group": "walk",
+    "cage": "TMCS2_C02",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 2,
+        "peak": 6.40592617449726,
+        "score": 39.93085393193558,
+        "originalPeak": 1677,
+        "start": 1664,
+        "end": 1692,
+        "x": 668.911692155895,
+        "position": 0.522213989175837,
+        "durationFrames": 29
+      },
+      {
+        "event": 3,
+        "peak": 5.59265524800114,
+        "score": 20.369844035785064,
+        "originalPeak": 1807,
+        "start": 1803,
+        "end": 1818,
+        "x": 519.608659647462,
+        "position": 0.405479796440549,
+        "durationFrames": 16
+      },
+      {
+        "event": 1,
+        "peak": 5.28452762408987,
+        "score": 16.23708675527035,
+        "originalPeak": 1640,
+        "start": 1636,
+        "end": 1645,
+        "x": 707.361388437427,
+        "position": 0.552276300576566,
+        "durationFrames": 10
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S32_T2_C02_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S32",
+    "group": "walk",
+    "cage": "TMCS2_C02",
+    "goodEvents": 3,
+    "events": [
+      {
+        "event": 1,
+        "peak": 8.02720705755423,
+        "score": 36.49890286163907,
+        "originalPeak": 1167,
+        "start": 1162,
+        "end": 1175,
+        "x": 502.049701314217,
+        "position": 0.391751134725737,
+        "durationFrames": 14
+      },
+      {
+        "event": 3,
+        "peak": 6.41776766004177,
+        "score": 28.20532868202492,
+        "originalPeak": 1218,
+        "start": 1213,
+        "end": 1229,
+        "x": 453.048023314749,
+        "position": 0.35343864215383,
+        "durationFrames": 17
+      },
+      {
+        "event": 2,
+        "peak": 5.10008913788591,
+        "score": 17.19730113319569,
+        "originalPeak": 1189,
+        "start": 1185,
+        "end": 1196,
+        "x": 483.097392902263,
+        "position": 0.376933067163614,
+        "durationFrames": 12
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S05_T2_C01_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S05",
+    "group": "run",
+    "cage": "TMCS2_C01",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 3,
+        "peak": 6.30596145075641,
+        "score": 19.45176363318206,
+        "originalPeak": 1387,
+        "start": 1383,
+        "end": 1391,
+        "x": 814.801396614984,
+        "position": 0.636279434413592,
+        "durationFrames": 9
+      },
+      {
+        "event": 5,
+        "peak": 5.08337562814148,
+        "score": 16.235318964519173,
+        "originalPeak": 1744,
+        "start": 1740,
+        "end": 1756,
+        "x": 282.081455335324,
+        "position": 0.219766579621051,
+        "durationFrames": 17
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S15_T3_C08_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S15",
+    "group": "sedentary",
+    "cage": "TMCS2_C08",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 3,
+        "peak": 8.65867681257071,
+        "score": 49.30342344962125,
+        "originalPeak": 1287,
+        "start": 1280,
+        "end": 1296,
+        "x": 528.951824817518,
+        "position": 0.412784851303767,
+        "durationFrames": 17
+      },
+      {
+        "event": 1,
+        "peak": 5.51792767814159,
+        "score": 14.674673375376939,
+        "originalPeak": 972,
+        "start": 968,
+        "end": 976,
+        "x": 1012.44972324723,
+        "position": 0.790812918879775,
+        "durationFrames": 9
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S25_T1_C09_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+    "mouse": "TMCS2_S25",
+    "group": "run",
+    "cage": "TMCS2_C09",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 9,
+        "peak": 8.89924984810199,
+        "score": 39.12459569210151,
+        "originalPeak": 1700,
+        "start": 1695,
+        "end": 1705,
+        "x": 717.398548003505,
+        "position": 0.560123962473421,
+        "durationFrames": 11
+      },
+      {
+        "event": 7,
+        "peak": 5.9601246724763,
+        "score": 28.146250681323767,
+        "originalPeak": 1447,
+        "start": 1442,
+        "end": 1454,
+        "x": 982.070771408351,
+        "position": 0.767060806417788,
+        "durationFrames": 13
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S26_T2_C09_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+    "mouse": "TMCS2_S26",
+    "group": "run",
+    "cage": "TMCS2_C09",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 5,
+        "peak": 9.10675797665128,
+        "score": 56.03983542422746,
+        "originalPeak": 1863,
+        "start": 1859,
+        "end": 1874,
+        "x": 542.618787806903,
+        "position": 0.42347051431345,
+        "durationFrames": 16
+      },
+      {
+        "event": 6,
+        "peak": 6.77374615402032,
+        "score": 21.218679832026666,
+        "originalPeak": 1924,
+        "start": 1920,
+        "end": 1927,
+        "x": 452.032442980851,
+        "position": 0.352644599672284,
+        "durationFrames": 8
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S29_T2_C10_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S29",
+    "group": "sedentary",
+    "cage": "TMCS2_C10",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 8,
+        "peak": 7.06494339690148,
+        "score": 23.145572322391523,
+        "originalPeak": 1696,
+        "start": 1692,
+        "end": 1700,
+        "x": 341.442227024279,
+        "position": 0.266178441770351,
+        "durationFrames": 9
+      },
+      {
+        "event": 7,
+        "peak": 5.67074147277296,
+        "score": 17.618231386137353,
+        "originalPeak": 1626,
+        "start": 1622,
+        "end": 1631,
+        "x": 398.171926281242,
+        "position": 0.310533171447414,
+        "durationFrames": 10
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S09_T3_C03_BB_D00_20260219_THT_TRIAL4_gray.mp4",
+    "mouse": "TMCS3_S09",
+    "group": "sedentary",
+    "cage": "TMCS3_C03",
+    "goodEvents": 2,
+    "events": [
+      {
+        "event": 4,
+        "peak": 6.98119831441726,
+        "score": 36.93714254382529,
+        "originalPeak": 1372,
+        "start": 1368,
+        "end": 1382,
+        "x": 352.514879356568,
+        "position": 0.274835714899584,
+        "durationFrames": 15
+      },
+      {
+        "event": 3,
+        "peak": 6.6870585899804,
+        "score": 20.04604718115604,
+        "originalPeak": 1271,
+        "start": 1267,
+        "end": 1274,
+        "x": 471.172035139092,
+        "position": 0.367609097059494,
+        "durationFrames": 8
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S05_T2_C01_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S05",
+    "group": "run",
+    "cage": "TMCS2_C01",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 1,
+        "peak": 5.78035911476591,
+        "score": 15.54321051605116,
+        "originalPeak": 967,
+        "start": 963,
+        "end": 970,
+        "x": 1058.05450762829,
+        "position": 0.826469513391942,
+        "durationFrames": 8
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S11_T2_C04_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S11",
+    "group": "run",
+    "cage": "TMCS2_C04",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 1,
+        "peak": 8.47084083820589,
+        "score": 36.368199535965516,
+        "originalPeak": 1104,
+        "start": 1099,
+        "end": 1108,
+        "x": 819.034218522922,
+        "position": 0.639588912058579,
+        "durationFrames": 10
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S15_T3_C08_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S15",
+    "group": "sedentary",
+    "cage": "TMCS2_C08",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 1,
+        "peak": 5.06178527163495,
+        "score": 13.77008500148691,
+        "originalPeak": 1104,
+        "start": 1100,
+        "end": 1108,
+        "x": 829.458899837845,
+        "position": 0.647739562031153,
+        "durationFrames": 9
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S24_T3_C07_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S24",
+    "group": "run",
+    "cage": "TMCS2_C07",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 2,
+        "peak": 8.55712699614775,
+        "score": 38.99066852997405,
+        "originalPeak": 1343,
+        "start": 1338,
+        "end": 1349,
+        "x": 582.129948473043,
+        "position": 0.454362743137641,
+        "durationFrames": 12
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S26_T2_C09_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S26",
+    "group": "run",
+    "cage": "TMCS2_C09",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 3,
+        "peak": 6.84991102674203,
+        "score": 24.56628557108827,
+        "originalPeak": 1774,
+        "start": 1770,
+        "end": 1778,
+        "x": 660.129621229304,
+        "position": 0.515347631922833,
+        "durationFrames": 9
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S29_T2_C10_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS2_S29",
+    "group": "sedentary",
+    "cage": "TMCS2_C10",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 2,
+        "peak": 6.18206057224605,
+        "score": 24.375690845802445,
+        "originalPeak": 1432,
+        "start": 1428,
+        "end": 1438,
+        "x": 523.279104319219,
+        "position": 0.408349573353572,
+        "durationFrames": 11
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S30_T3_C10_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S30",
+    "group": "sedentary",
+    "cage": "TMCS2_C10",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 5,
+        "peak": 7.86721385550084,
+        "score": 32.12545082340716,
+        "originalPeak": 1448,
+        "start": 1443,
+        "end": 1452,
+        "x": 730.320222803228,
+        "position": 0.570226913841461,
+        "durationFrames": 10
+      }
+    ]
+  },
+  {
+    "file": "TMCS2_S30_T3_C10_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+    "mouse": "TMCS2_S30",
+    "group": "sedentary",
+    "cage": "TMCS2_C10",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 5,
+        "peak": 7.23735224043867,
+        "score": 25.3554090789485,
+        "originalPeak": 1495,
+        "start": 1491,
+        "end": 1499,
+        "x": 897.493360682284,
+        "position": 0.700933041972075,
+        "durationFrames": 9
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S01_T1_C01_BB_D00_20260219_THT_TRIAL4_gray.mp4",
+    "mouse": "TMCS3_S01",
+    "group": "run",
+    "cage": "TMCS3_C01",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 3,
+        "peak": 7.55826714032757,
+        "score": 36.717425691303745,
+        "originalPeak": 1420,
+        "start": 1413,
+        "end": 1424,
+        "x": 1061.20449865357,
+        "position": 0.171067632014408,
+        "durationFrames": 12
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S02_T2_C01_BB_D00_20260219_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS3_S02",
+    "group": "run",
+    "cage": "TMCS3_C01",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 3,
+        "peak": 6.90781604545814,
+        "score": 32.25211134035095,
+        "originalPeak": 1329,
+        "start": 1325,
+        "end": 1343,
+        "x": 351.504583333333,
+        "position": 0.274045804013552,
+        "durationFrames": 19
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S03_T3_C01_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S03",
+    "group": "run",
+    "cage": "TMCS3_C01",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 2,
+        "peak": 5.57036030937379,
+        "score": 23.75452939134992,
+        "originalPeak": 1179,
+        "start": 1171,
+        "end": 1184,
+        "x": 538.264909351145,
+        "position": 0.420066387295657,
+        "durationFrames": 14
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S04_T1_C02_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS3_S04",
+    "group": "walk",
+    "cage": "TMCS3_C02",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 9,
+        "peak": 6.32830530920458,
+        "score": 24.42302689537141,
+        "originalPeak": 1851,
+        "start": 1846,
+        "end": 1856,
+        "x": 736.967455621302,
+        "position": 0.575424124801643,
+        "durationFrames": 11
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S04_T1_C02_BB_D00_20260219_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS3_S04",
+    "group": "walk",
+    "cage": "TMCS3_C02",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 2,
+        "peak": 8.3208316419462,
+        "score": 33.358493535643,
+        "originalPeak": 1162,
+        "start": 1157,
+        "end": 1166,
+        "x": 780.786957618567,
+        "position": 0.609684876949622,
+        "durationFrames": 10
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S05_T2_C02_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S05",
+    "group": "walk",
+    "cage": "TMCS3_C02",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 1,
+        "peak": 9.82903661095335,
+        "score": 47.99626742347691,
+        "originalPeak": 943,
+        "start": 939,
+        "end": 950,
+        "x": 814.574637586522,
+        "position": 0.636102140411667,
+        "durationFrames": 12
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S06_T3_C02_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S06",
+    "group": "walk",
+    "cage": "TMCS3_C02",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 1,
+        "peak": 6.55068567522771,
+        "score": 17.73835353162606,
+        "originalPeak": 997,
+        "start": 994,
+        "end": 999,
+        "x": 904.052011646374,
+        "position": 0.706060994250488,
+        "durationFrames": 6
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S06_T3_C02_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS3_S06",
+    "group": "walk",
+    "cage": "TMCS3_C02",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 4,
+        "peak": 6.37004116464919,
+        "score": 25.592519222324867,
+        "originalPeak": 1405,
+        "start": 1402,
+        "end": 1422,
+        "x": 302.029034348671,
+        "position": 0.235362810280431,
+        "durationFrames": 21
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S07_T1_C03_BB_D00_20260219_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS3_S07",
+    "group": "sedentary",
+    "cage": "TMCS3_C03",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 9,
+        "peak": 5.19077323169224,
+        "score": 14.753589006064608,
+        "originalPeak": 2095,
+        "start": 2090,
+        "end": 2099,
+        "x": 470.778742403572,
+        "position": 0.367301596875349,
+        "durationFrames": 10
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S07_T1_C03_BB_D00_20260219_THT_TRIAL4_gray.mp4",
+    "mouse": "TMCS3_S07",
+    "group": "sedentary",
+    "cage": "TMCS3_C03",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 20,
+        "peak": 9.21206603375909,
+        "score": 60.14565631224612,
+        "originalPeak": 2739,
+        "start": 2735,
+        "end": 2759,
+        "x": 858.207265521797,
+        "position": 0.670216783050662,
+        "durationFrames": 25
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S10_T1_C04_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S10",
+    "group": "run",
+    "cage": "TMCS3_C04",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 2,
+        "peak": 6.65379405726275,
+        "score": 23.857973744113163,
+        "originalPeak": 1418,
+        "start": 1413,
+        "end": 1422,
+        "x": 495.998314065511,
+        "position": 0.38701979207624,
+        "durationFrames": 10
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S10_T1_C04_BB_D00_20260219_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS3_S10",
+    "group": "run",
+    "cage": "TMCS3_C04",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 3,
+        "peak": 6.4248861537894,
+        "score": 80.0776950418171,
+        "originalPeak": 1403,
+        "start": 1395,
+        "end": 1427,
+        "x": 615.890349319124,
+        "position": 0.480758678122849,
+        "durationFrames": 33
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S13_T1_C05_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+    "mouse": "TMCS3_S13",
+    "group": "sedentary",
+    "cage": "TMCS3_C05",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 10,
+        "peak": 5.00204689328712,
+        "score": 13.964931888074368,
+        "originalPeak": 2207,
+        "start": 2203,
+        "end": 2211,
+        "x": 274.918933773015,
+        "position": 0.214166484576243,
+        "durationFrames": 9
+      }
+    ]
+  },
+  {
+    "file": "TMCS3_S14_T2_C05_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S14",
+    "group": "sedentary",
+    "cage": "TMCS3_C05",
+    "goodEvents": 1,
+    "events": [
+      {
+        "event": 2,
+        "peak": 9.1352065777063,
+        "score": 56.61734175717148,
+        "originalPeak": 1161,
+        "start": 1157,
+        "end": 1182,
+        "x": 878.327145882646,
+        "position": 0.685947729384399,
+        "durationFrames": 26
+      }
+    ]
+  }
+]

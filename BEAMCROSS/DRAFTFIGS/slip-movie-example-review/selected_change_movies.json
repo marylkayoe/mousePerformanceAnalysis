@@ -1,0 +1,38 @@
+[
+  {
+    "group": "sedentary",
+    "day": "D0",
+    "file": "TMCS2_S14_T2_C08_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+    "inputFolder": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_D0_slip_example_review_20261112/group_presentations/change_pair_inputs/sedentary_D0"
+  },
+  {
+    "group": "sedentary",
+    "day": "D14",
+    "file": "TMCS2_S14_T2_C08_BB_D14_20251105_THT_TRIAL1_gray.mp4",
+    "inputFolder": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_D0_slip_example_review_20261112/group_presentations/change_pair_inputs/sedentary_D14"
+  },
+  {
+    "group": "walk",
+    "day": "D0",
+    "file": "TMCS3_S05_T2_C02_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+    "inputFolder": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_D0_slip_example_review_20261112/group_presentations/change_pair_inputs/walk_D0"
+  },
+  {
+    "group": "walk",
+    "day": "D14",
+    "file": "TMCS3_S05_T2_C02_BB_D14_20260305_THT_TRIAL2_gray.mp4",
+    "inputFolder": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_D0_slip_example_review_20261112/group_presentations/change_pair_inputs/walk_D14"
+  },
+  {
+    "group": "run",
+    "day": "D0",
+    "file": "TMCS2_S18_T3_C05_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "inputFolder": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_D0_slip_example_review_20261112/group_presentations/change_pair_inputs/run_D0"
+  },
+  {
+    "group": "run",
+    "day": "D14",
+    "file": "TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+    "inputFolder": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_D0_slip_example_review_20261112/group_presentations/change_pair_inputs/run_D14"
+  }
+]

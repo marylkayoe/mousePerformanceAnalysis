@@ -1,0 +1,3 @@
+251 unique source filenames; 42 paired mice; 15 cages. All six scalar outcomes finite.
+252 D14 last-crossing values independently matched previous exported table: max error 0.
+Slip counts match validated manifest. Day difference identities verified.

@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Isolation_Mode" data-name="Isolation Mode" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 348.41 196.66">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: .46px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14 {
+        fill: none;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-4, .cls-13 {
+        stroke: #262626;
+      }
+
+      .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23 {
+        stroke: #231f20;
+      }
+
+      .cls-15, .cls-16, .cls-21 {
+        fill: #0864cf;
+      }
+
+      .cls-15, .cls-17, .cls-20 {
+        stroke-width: .15px;
+      }
+
+      .cls-2, .cls-3, .cls-5 {
+        stroke: #232323;
+      }
+
+      .cls-2, .cls-8, .cls-10 {
+        stroke-width: 1.02px;
+      }
+
+      .cls-3, .cls-9, .cls-11 {
+        stroke-width: .87px;
+      }
+
+      .cls-16, .cls-18, .cls-19 {
+        stroke-width: .14px;
+      }
+
+      .cls-17, .cls-18, .cls-22 {
+        fill: #008d3f;
+      }
+
+      .cls-24 {
+        fill: #a7a7a7;
+      }
+
+      .cls-25 {
+        font-size: 4.83px;
+      }
+
+      .cls-25, .cls-19, .cls-20, .cls-26, .cls-27, .cls-28, .cls-29, .cls-30, .cls-31, .cls-32, .cls-23, .cls-33, .cls-34, .cls-35, .cls-36 {
+        fill: #232323;
+      }
+
+      .cls-25, .cls-26, .cls-27, .cls-28, .cls-29, .cls-30, .cls-31, .cls-32, .cls-33, .cls-34, .cls-35, .cls-36 {
+        font-family: ArialMT, Arial;
+        isolation: isolate;
+      }
+
+      .cls-26 {
+        font-size: 4.76px;
+      }
+
+      .cls-4 {
+        stroke-width: .39px;
+      }
+
+      .cls-27 {
+        font-size: 5.12px;
+      }
+
+      .cls-28 {
+        font-size: 5.01px;
+      }
+
+      .cls-29 {
+        font-size: 5.41px;
+      }
+
+      .cls-37 {
+        fill: #99d1b2;
+      }
+
+      .cls-30 {
+        font-size: 3.89px;
+      }
+
+      .cls-5, .cls-12, .cls-13, .cls-14 {
+        stroke-linecap: round;
+      }
+
+      .cls-5, .cls-12, .cls-14 {
+        stroke-width: .97px;
+      }
+
+      .cls-31 {
+        font-size: 4.1px;
+      }
+
+      .cls-32 {
+        font-size: 4.25px;
+      }
+
+      .cls-38 {
+        letter-spacing: 0em;
+      }
+
+      .cls-39 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        stroke-width: .34px;
+      }
+
+      .cls-6, .cls-7 {
+        stroke: #bbb;
+      }
+
+      .cls-7 {
+        stroke-width: .4px;
+      }
+
+      .cls-8, .cls-11, .cls-12 {
+        stroke: #0864cf;
+      }
+
+      .cls-21, .cls-22, .cls-23 {
+        stroke-width: .13px;
+      }
+
+      .cls-40 {
+        letter-spacing: 0em;
+      }
+
+      .cls-41 {
+        letter-spacing: 0em;
+      }
+
+      .cls-9, .cls-10, .cls-14 {
+        stroke: #008d3f;
+      }
+
+      .cls-33 {
+        font-size: 3.47px;
+      }
+
+      .cls-42 {
+        letter-spacing: -.11em;
+      }
+
+      .cls-43 {
+        letter-spacing: -.11em;
+      }
+
+      .cls-13 {
+        stroke-width: .43px;
+      }
+
+      .cls-44 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-45 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-46 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-47 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-48 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-34 {
+        font-size: 5.69px;
+      }
+
+      .cls-49 {
+        fill: #9cc1ec;
+      }
+
+      .cls-35 {
+        font-size: 6.03px;
+      }
+
+      .cls-36 {
+        font-size: 6.27px;
+      }
+    </style>
+  </defs>
+  <g>
+    <text class="cls-35" transform="translate(9.5 106.79)"><tspan x="0" y="0">Speed, D14</tspan></text>
+    <text class="cls-31" transform="translate(11.78 114.75)"><tspan x="0" y="0">mm/s</tspan></text>
+    <line class="cls-1" x1="11.78" y1="119.31" x2="11.78" y2="185.35"/>
+    <line class="cls-7" x1="11.78" y1="185.35" x2="83.51" y2="185.35"/>
+    <line class="cls-1" x1="11.78" y1="185.35" x2="12.91" y2="185.35"/>
+    <text class="cls-34" transform="translate(6.33 187.29)"><tspan x="0" y="0">0</tspan></text>
+    <line class="cls-1" x1="11.78" y1="172.53" x2="12.91" y2="172.53"/>
+    <text class="cls-34" transform="translate(3.17 174.46)"><tspan x="0" y="0">50</tspan></text>
+    <line class="cls-1" x1="11.78" y1="159.7" x2="12.91" y2="159.7"/>
+    <text class="cls-34" transform="translate(0 161.64)"><tspan x="0" y="0">100</tspan></text>
+    <line class="cls-1" x1="11.78" y1="146.88" x2="12.91" y2="146.88"/>
+    <text class="cls-34" transform="translate(0 148.82)"><tspan x="0" y="0">150</tspan></text>
+    <line class="cls-1" x1="11.78" y1="134.06" x2="12.91" y2="134.06"/>
+    <text class="cls-34" transform="translate(0 135.99)"><tspan x="0" y="0">200</tspan></text>
+    <line class="cls-1" x1="11.78" y1="121.23" x2="12.91" y2="121.23"/>
+    <text class="cls-34" transform="translate(0 123.17)"><tspan x="0" y="0">250</tspan></text>
+    <text class="cls-28" transform="translate(61.34 125)"><tspan x="0" y="0">p = 0.004</tspan></text>
+    <circle class="cls-24" cx="21.23" cy="149.92" r="1.25"/>
+    <circle class="cls-24" cx="22.2" cy="156.19" r="1.25"/>
+    <circle class="cls-24" cx="23.17" cy="148.58" r="1.25"/>
+    <circle class="cls-24" cx="24.15" cy="155.42" r="1.25"/>
+    <circle class="cls-24" cx="25.12" cy="157.75" r="1.25"/>
+    <circle class="cls-24" cx="26.09" cy="139.54" r="1.25"/>
+    <circle class="cls-24" cx="27.06" cy="158.84" r="1.25"/>
+    <circle class="cls-24" cx="28.04" cy="153.92" r="1.25"/>
+    <circle class="cls-24" cx="29.01" cy="154.42" r="1.25"/>
+    <circle class="cls-24" cx="29.98" cy="162.14" r="1.25"/>
+    <circle class="cls-24" cx="30.96" cy="153" r="1.25"/>
+    <circle class="cls-24" cx="31.93" cy="155.89" r="1.25"/>
+    <polygon class="cls-20" points="15.93 151.57 17.47 149.63 19.01 151.57 17.47 153.5 15.93 151.57"/>
+    <polygon class="cls-20" points="15.93 150.9 17.47 148.97 19.01 150.9 17.47 152.84 15.93 150.9"/>
+    <polygon class="cls-20" points="15.93 155.73 17.47 153.79 19.01 155.73 17.47 157.66 15.93 155.73"/>
+    <polygon class="cls-20" points="15.93 157.01 17.47 155.07 19.01 157.01 17.47 158.95 15.93 157.01"/>
+    <line class="cls-2" x1="20.88" y1="153.8" x2="32.27" y2="153.8"/>
+    <text class="cls-34" transform="translate(20.73 192.18)"><tspan x="0" y="0">SED</tspan></text>
+    <circle class="cls-37" cx="46.85" cy="141.99" r="1.25"/>
+    <circle class="cls-37" cx="47.82" cy="150.98" r="1.25"/>
+    <circle class="cls-37" cx="48.79" cy="133.71" r="1.25"/>
+    <circle class="cls-37" cx="49.76" cy="159.44" r="1.25"/>
+    <circle class="cls-37" cx="50.74" cy="141.12" r="1.25"/>
+    <circle class="cls-37" cx="51.71" cy="144.25" r="1.25"/>
+    <circle class="cls-37" cx="52.68" cy="159.92" r="1.25"/>
+    <circle class="cls-37" cx="53.66" cy="136.73" r="1.25"/>
+    <circle class="cls-37" cx="54.63" cy="151.05" r="1.25"/>
+    <circle class="cls-37" cx="55.6" cy="150.65" r="1.25"/>
+    <circle class="cls-37" cx="56.58" cy="149.95" r="1.25"/>
+    <circle class="cls-37" cx="57.55" cy="153.33" r="1.25"/>
+    <polygon class="cls-17" points="41.55 142.23 43.09 140.29 44.63 142.23 43.09 144.17 41.55 142.23"/>
+    <polygon class="cls-17" points="41.55 148.27 43.09 146.34 44.63 148.27 43.09 150.21 41.55 148.27"/>
+    <polygon class="cls-17" points="41.55 149.23 43.09 147.3 44.63 149.23 43.09 151.17 41.55 149.23"/>
+    <polygon class="cls-17" points="41.55 151.31 43.09 149.37 44.63 151.31 43.09 153.24 41.55 151.31"/>
+    <line class="cls-10" x1="46.5" y1="147.76" x2="57.89" y2="147.76"/>
+    <text class="cls-34" transform="translate(44.24 192.18)"><tspan class="cls-44" x="0" y="0">W</tspan><tspan x="5.16" y="0">ALK</tspan></text>
+    <circle class="cls-49" cx="72.46" cy="132.43" r="1.25"/>
+    <circle class="cls-49" cx="73.09" cy="142.37" r="1.25"/>
+    <circle class="cls-49" cx="73.72" cy="144.62" r="1.25"/>
+    <circle class="cls-49" cx="74.35" cy="143.83" r="1.25"/>
+    <circle class="cls-49" cx="74.98" cy="143.45" r="1.25"/>
+    <circle class="cls-49" cx="75.61" cy="140.98" r="1.25"/>
+    <circle class="cls-49" cx="76.24" cy="142.02" r="1.25"/>
+    <circle class="cls-49" cx="76.87" cy="150.22" r="1.25"/>
+    <circle class="cls-49" cx="77.5" cy="135.24" r="1.25"/>
+    <circle class="cls-49" cx="78.13" cy="155.59" r="1.25"/>
+    <circle class="cls-49" cx="78.76" cy="140.43" r="1.25"/>
+    <circle class="cls-49" cx="79.39" cy="125.21" r="1.25"/>
+    <circle class="cls-49" cx="80.02" cy="143.68" r="1.25"/>
+    <circle class="cls-49" cx="80.65" cy="133.72" r="1.25"/>
+    <circle class="cls-49" cx="81.28" cy="130.25" r="1.25"/>
+    <circle class="cls-49" cx="81.91" cy="159.99" r="1.25"/>
+    <circle class="cls-49" cx="82.54" cy="155.91" r="1.25"/>
+    <circle class="cls-49" cx="83.17" cy="140.8" r="1.25"/>
+    <polygon class="cls-15" points="67.17 137.4 68.71 135.47 70.24 137.4 68.71 139.34 67.17 137.4"/>
+    <polygon class="cls-15" points="67.17 144.22 68.71 142.29 70.24 144.22 68.71 146.16 67.17 144.22"/>
+    <polygon class="cls-15" points="67.17 142.15 68.71 140.21 70.24 142.15 68.71 144.08 67.17 142.15"/>
+    <polygon class="cls-15" points="67.17 142.73 68.71 140.8 70.24 142.73 68.71 144.67 67.17 142.73"/>
+    <polygon class="cls-15" points="67.17 140.41 68.71 138.47 70.24 140.41 68.71 142.34 67.17 140.41"/>
+    <polygon class="cls-15" points="67.17 135.88 68.71 133.95 70.24 135.88 68.71 137.82 67.17 135.88"/>
+    <polygon class="cls-15" points="67.17 152.23 68.71 150.3 70.24 152.23 68.71 154.17 67.17 152.23"/>
+    <line class="cls-8" x1="72.12" y1="142.26" x2="83.51" y2="142.26"/>
+    <text class="cls-34" transform="translate(71.65 192.18)"><tspan x="0" y="0">RUN</tspan></text>
+    <text class="cls-27" transform="translate(195.29 4.39)"><tspan x="0" y="0">Slip count, D14</tspan></text>
+    <text class="cls-33" transform="translate(197.22 11.15)"><tspan x="0" y="0">count</tspan></text>
+    <line class="cls-4" x1="197.22" y1="15.01" x2="197.22" y2="70.99"/>
+    <line class="cls-6" x1="197.22" y1="70.99" x2="258.03" y2="70.99"/>
+    <line class="cls-4" x1="197.22" y1="70.99" x2="198.18" y2="70.99"/>
+    <text class="cls-25" transform="translate(192.6 72.64)"><tspan x="0" y="0">0</tspan></text>
+    <line class="cls-4" x1="197.22" y1="53.22" x2="198.18" y2="53.22"/>
+    <text class="cls-25" transform="translate(192.6 54.86)"><tspan x="0" y="0">5</tspan></text>
+    <line class="cls-4" x1="197.22" y1="35.45" x2="198.18" y2="35.45"/>
+    <text class="cls-25" transform="translate(189.92 37.09)"><tspan x="0" y="0">10</tspan></text>
+    <line class="cls-4" x1="197.22" y1="17.68" x2="198.18" y2="17.68"/>
+    <text class="cls-25" transform="translate(189.92 19.32)"><tspan x="0" y="0">15</tspan></text>
+    <text class="cls-32" transform="translate(239.23 19.83)"><tspan x="0" y="0">p = 0.009</tspan></text>
+    <circle class="cls-24" cx="205.23" cy="56.78" r="1.06"/>
+    <circle class="cls-24" cx="206.05" cy="60.33" r="1.06"/>
+    <circle class="cls-24" cx="206.88" cy="53.22" r="1.06"/>
+    <circle class="cls-24" cx="207.7" cy="60.33" r="1.06"/>
+    <circle class="cls-24" cx="208.53" cy="46.11" r="1.06"/>
+    <circle class="cls-24" cx="209.35" cy="67.44" r="1.06"/>
+    <circle class="cls-24" cx="210.18" cy="35.45" r="1.06"/>
+    <circle class="cls-24" cx="211" cy="42.56" r="1.06"/>
+    <circle class="cls-24" cx="211.83" cy="53.22" r="1.06"/>
+    <circle class="cls-24" cx="212.65" cy="49.67" r="1.06"/>
+    <circle class="cls-24" cx="213.48" cy="60.33" r="1.06"/>
+    <circle class="cls-24" cx="214.3" cy="31.89" r="1.06"/>
+    <polygon class="cls-23" points="200.74 56.78 202.04 55.14 203.35 56.78 202.04 58.42 200.74 56.78"/>
+    <polygon class="cls-23" points="200.74 57.96 202.04 56.32 203.35 57.96 202.04 59.6 200.74 57.96"/>
+    <polygon class="cls-23" points="200.74 43.74 202.04 42.1 203.35 43.74 202.04 45.38 200.74 43.74"/>
+    <polygon class="cls-23" points="200.74 47.3 202.04 45.66 203.35 47.3 202.04 48.94 200.74 47.3"/>
+    <line class="cls-3" x1="204.94" y1="51.44" x2="214.59" y2="51.44"/>
+    <text class="cls-25" transform="translate(204.8 76.79)"><tspan x="0" y="0">SED</tspan></text>
+    <circle class="cls-37" cx="226.95" cy="53.22" r="1.06"/>
+    <circle class="cls-37" cx="227.77" cy="53.22" r="1.06"/>
+    <circle class="cls-37" cx="228.6" cy="67.44" r="1.06"/>
+    <circle class="cls-37" cx="229.42" cy="53.22" r="1.06"/>
+    <circle class="cls-37" cx="230.25" cy="67.44" r="1.06"/>
+    <circle class="cls-37" cx="231.07" cy="63.89" r="1.06"/>
+    <circle class="cls-37" cx="231.9" cy="53.22" r="1.06"/>
+    <circle class="cls-37" cx="232.72" cy="67.44" r="1.06"/>
+    <circle class="cls-37" cx="233.54" cy="60.33" r="1.06"/>
+    <circle class="cls-37" cx="234.37" cy="63.89" r="1.06"/>
+    <circle class="cls-37" cx="235.19" cy="42.56" r="1.06"/>
+    <circle class="cls-37" cx="236.02" cy="56.78" r="1.06"/>
+    <polygon class="cls-22" points="222.46 57.96 223.76 56.32 225.06 57.96 223.76 59.6 222.46 57.96"/>
+    <polygon class="cls-22" points="222.46 61.52 223.76 59.87 225.06 61.52 223.76 63.16 222.46 61.52"/>
+    <polygon class="cls-22" points="222.46 60.33 223.76 58.69 225.06 60.33 223.76 61.97 222.46 60.33"/>
+    <polygon class="cls-22" points="222.46 54.41 223.76 52.77 225.06 54.41 223.76 56.05 222.46 54.41"/>
+    <line class="cls-9" x1="226.66" y1="58.55" x2="236.31" y2="58.55"/>
+    <text class="cls-25" transform="translate(224.73 76.79)"><tspan class="cls-47" x="0" y="0">W</tspan><tspan class="cls-40" x="4.38" y="0">ALK</tspan></text>
+    <circle class="cls-49" cx="248.66" cy="70.99" r="1.06"/>
+    <circle class="cls-49" cx="249.2" cy="67.44" r="1.06"/>
+    <circle class="cls-49" cx="249.73" cy="60.33" r="1.06"/>
+    <circle class="cls-49" cx="250.27" cy="63.89" r="1.06"/>
+    <circle class="cls-49" cx="250.8" cy="63.89" r="1.06"/>
+    <circle class="cls-49" cx="251.33" cy="56.78" r="1.06"/>
+    <circle class="cls-49" cx="251.87" cy="60.33" r="1.06"/>
+    <circle class="cls-49" cx="252.4" cy="67.44" r="1.06"/>
+    <circle class="cls-49" cx="252.93" cy="60.33" r="1.06"/>
+    <circle class="cls-49" cx="253.47" cy="39" r="1.06"/>
+    <circle class="cls-49" cx="254" cy="63.89" r="1.06"/>
+    <circle class="cls-49" cx="254.54" cy="70.99" r="1.06"/>
+    <circle class="cls-49" cx="255.07" cy="60.33" r="1.06"/>
+    <circle class="cls-49" cx="255.6" cy="56.78" r="1.06"/>
+    <circle class="cls-49" cx="256.14" cy="63.89" r="1.06"/>
+    <circle class="cls-49" cx="256.67" cy="46.11" r="1.06"/>
+    <circle class="cls-49" cx="257.2" cy="53.22" r="1.06"/>
+    <circle class="cls-49" cx="257.74" cy="67.44" r="1.06"/>
+    <polygon class="cls-21" points="244.18 69.22 245.48 67.58 246.78 69.22 245.48 70.86 244.18 69.22"/>
+    <polygon class="cls-21" points="244.18 62.11 245.48 60.47 246.78 62.11 245.48 63.75 244.18 62.11"/>
+    <polygon class="cls-21" points="244.18 60.33 245.48 58.69 246.78 60.33 245.48 61.97 244.18 60.33"/>
+    <polygon class="cls-21" points="244.18 63.89 245.48 62.24 246.78 63.89 245.48 65.53 244.18 63.89"/>
+    <polygon class="cls-21" points="244.18 57.96 245.48 56.32 246.78 57.96 245.48 59.6 244.18 57.96"/>
+    <polygon class="cls-21" points="244.18 60.33 245.48 58.69 246.78 60.33 245.48 61.97 244.18 60.33"/>
+    <polygon class="cls-21" points="244.18 55.59 245.48 53.95 246.78 55.59 245.48 57.23 244.18 55.59"/>
+    <line class="cls-11" x1="248.37" y1="60.73" x2="258.03" y2="60.73"/>
+    <text class="cls-25" transform="translate(247.97 76.79)"><tspan x="0" y="0">RUN</tspan></text>
+    <g>
+      <text class="cls-27" transform="translate(272.46 5.45)"><tspan class="cls-42" x="0" y="0">T</tspan><tspan x="2.56" y="0">otal slip score, D14</tspan></text>
+      <text class="cls-33" transform="translate(274.4 12.21)"><tspan x="0" y="0">10³ a.u. × frames</tspan></text>
+      <line class="cls-4" x1="274.39" y1="16.06" x2="274.39" y2="72.05"/>
+      <line class="cls-6" x1="274.39" y1="72.05" x2="335.21" y2="72.05"/>
+      <line class="cls-4" x1="274.39" y1="72.05" x2="275.36" y2="72.05"/>
+      <text class="cls-25" transform="translate(269.78 73.69)"><tspan x="0" y="0">0</tspan></text>
+      <line class="cls-4" x1="274.39" y1="54.28" x2="275.36" y2="54.28"/>
+      <text class="cls-25" transform="translate(269.78 55.92)"><tspan x="0" y="0">1</tspan></text>
+      <line class="cls-4" x1="274.39" y1="36.5" x2="275.36" y2="36.5"/>
+      <text class="cls-25" transform="translate(269.78 38.15)"><tspan x="0" y="0">2</tspan></text>
+      <line class="cls-4" x1="274.39" y1="18.73" x2="275.36" y2="18.73"/>
+      <text class="cls-25" transform="translate(269.78 20.37)"><tspan x="0" y="0">3</tspan></text>
+      <text class="cls-32" transform="translate(316.41 20.89)"><tspan x="0" y="0">p = 0.005</tspan></text>
+      <circle class="cls-24" cx="282.41" cy="29.9" r="1.06"/>
+      <circle class="cls-24" cx="283.23" cy="71.46" r="1.06"/>
+      <circle class="cls-24" cx="284.06" cy="69.05" r="1.06"/>
+      <circle class="cls-24" cx="284.88" cy="71.68" r="1.06"/>
+      <circle class="cls-24" cx="285.71" cy="48.18" r="1.06"/>
+      <circle class="cls-24" cx="286.53" cy="71.73" r="1.06"/>
+      <circle class="cls-24" cx="287.36" cy="44.4" r="1.06"/>
+      <circle class="cls-24" cx="288.18" cy="57.47" r="1.06"/>
+      <circle class="cls-24" cx="289.01" cy="67.77" r="1.06"/>
+      <circle class="cls-24" cx="289.83" cy="71.27" r="1.06"/>
+      <circle class="cls-24" cx="290.66" cy="61.1" r="1.06"/>
+      <circle class="cls-24" cx="291.48" cy="47.41" r="1.06"/>
+      <polygon class="cls-23" points="277.92 56.8 279.22 55.16 280.52 56.8 279.22 58.44 277.92 56.8"/>
+      <polygon class="cls-23" points="277.92 63.86 279.22 62.22 280.52 63.86 279.22 65.5 277.92 63.86"/>
+      <polygon class="cls-23" points="277.92 56.55 279.22 54.91 280.52 56.55 279.22 58.19 277.92 56.55"/>
+      <polygon class="cls-23" points="277.92 59.93 279.22 58.29 280.52 59.93 279.22 61.57 277.92 59.93"/>
+      <line class="cls-3" x1="282.12" y1="59.28" x2="291.77" y2="59.28"/>
+      <text class="cls-25" transform="translate(281.98 77.84)"><tspan x="0" y="0">SED</tspan></text>
+      <circle class="cls-37" cx="304.12" cy="64.97" r="1.06"/>
+      <circle class="cls-37" cx="304.95" cy="66.83" r="1.06"/>
+      <circle class="cls-37" cx="305.77" cy="69.44" r="1.06"/>
+      <circle class="cls-37" cx="306.6" cy="66.12" r="1.06"/>
+      <circle class="cls-37" cx="307.42" cy="69.3" r="1.06"/>
+      <circle class="cls-37" cx="308.25" cy="64.7" r="1.06"/>
+      <circle class="cls-37" cx="309.07" cy="66.08" r="1.06"/>
+      <circle class="cls-37" cx="309.9" cy="72" r="1.06"/>
+      <circle class="cls-37" cx="310.72" cy="45.21" r="1.06"/>
+      <circle class="cls-37" cx="311.55" cy="70.1" r="1.06"/>
+      <circle class="cls-37" cx="312.37" cy="29.6" r="1.06"/>
+      <circle class="cls-37" cx="313.2" cy="69.1" r="1.06"/>
+      <polygon class="cls-22" points="299.64 67.08 300.94 65.44 302.24 67.08 300.94 68.72 299.64 67.08"/>
+      <polygon class="cls-22" points="299.64 66.7 300.94 65.06 302.24 66.7 300.94 68.35 299.64 66.7"/>
+      <polygon class="cls-22" points="299.64 61.1 300.94 59.45 302.24 61.1 300.94 62.74 299.64 61.1"/>
+      <polygon class="cls-22" points="299.64 56.27 300.94 54.62 302.24 56.27 300.94 57.91 299.64 56.27"/>
+      <line class="cls-9" x1="303.84" y1="62.79" x2="313.49" y2="62.79"/>
+      <text class="cls-25" transform="translate(301.91 77.84)"><tspan class="cls-47" x="0" y="0">W</tspan><tspan class="cls-40" x="4.38" y="0">ALK</tspan></text>
+      <circle class="cls-49" cx="325.84" cy="72.05" r="1.06"/>
+      <circle class="cls-49" cx="326.38" cy="71" r="1.06"/>
+      <circle class="cls-49" cx="326.91" cy="70.02" r="1.06"/>
+      <circle class="cls-49" cx="327.44" cy="69.91" r="1.06"/>
+      <circle class="cls-49" cx="327.98" cy="68.77" r="1.06"/>
+      <circle class="cls-49" cx="328.51" cy="61.05" r="1.06"/>
+      <circle class="cls-49" cx="329.05" cy="71.14" r="1.06"/>
+      <circle class="cls-49" cx="329.58" cy="71.96" r="1.06"/>
+      <circle class="cls-49" cx="330.11" cy="65.7" r="1.06"/>
+      <circle class="cls-49" cx="330.65" cy="62.57" r="1.06"/>
+      <circle class="cls-49" cx="331.18" cy="71.84" r="1.06"/>
+      <circle class="cls-49" cx="331.71" cy="72.05" r="1.06"/>
+      <circle class="cls-49" cx="332.25" cy="66.64" r="1.06"/>
+      <circle class="cls-49" cx="332.78" cy="71.88" r="1.06"/>
+      <circle class="cls-49" cx="333.32" cy="71.86" r="1.06"/>
+      <circle class="cls-49" cx="333.85" cy="59" r="1.06"/>
+      <circle class="cls-49" cx="334.38" cy="52.21" r="1.06"/>
+      <circle class="cls-49" cx="334.92" cy="71.96" r="1.06"/>
+      <polygon class="cls-21" points="321.36 71.52 322.66 69.88 323.96 71.52 322.66 73.17 321.36 71.52"/>
+      <polygon class="cls-21" points="321.36 69.97 322.66 68.32 323.96 69.97 322.66 71.61 321.36 69.97"/>
+      <polygon class="cls-21" points="321.36 66.98 322.66 65.34 323.96 66.98 322.66 68.62 321.36 66.98"/>
+      <polygon class="cls-21" points="321.36 68.83 322.66 67.19 323.96 68.83 322.66 70.47 321.36 68.83"/>
+      <polygon class="cls-21" points="321.36 68.82 322.66 67.18 323.96 68.82 322.66 70.46 321.36 68.82"/>
+      <polygon class="cls-21" points="321.36 70.13 322.66 68.49 323.96 70.13 322.66 71.77 321.36 70.13"/>
+      <polygon class="cls-21" points="321.36 61.06 322.66 59.42 323.96 61.06 322.66 62.7 321.36 61.06"/>
+      <line class="cls-11" x1="325.55" y1="67.87" x2="335.21" y2="67.87"/>
+      <text class="cls-25" transform="translate(325.15 77.84)"><tspan x="0" y="0">RUN</tspan></text>
+    </g>
+    <text class="cls-35" transform="translate(101.13 109.41)"><tspan class="cls-46" x="0" y="0">T</tspan><tspan x="3.46" y="0">ime stopped, D14</tspan></text>
+    <text class="cls-31" transform="translate(103.41 117.38)"><tspan x="0" y="0">%</tspan></text>
+    <line class="cls-1" x1="103.4" y1="121.94" x2="103.4" y2="187.98"/>
+    <line class="cls-7" x1="103.4" y1="187.98" x2="175.14" y2="187.98"/>
+    <line class="cls-1" x1="103.4" y1="187.98" x2="104.54" y2="187.98"/>
+    <text class="cls-34" transform="translate(97.96 189.91)"><tspan x="0" y="0">0</tspan></text>
+    <line class="cls-1" x1="103.4" y1="167.01" x2="104.54" y2="167.01"/>
+    <text class="cls-34" transform="translate(94.79 168.95)"><tspan x="0" y="0">10</tspan></text>
+    <line class="cls-1" x1="103.4" y1="146.05" x2="104.54" y2="146.05"/>
+    <text class="cls-34" transform="translate(94.79 147.98)"><tspan x="0" y="0">20</tspan></text>
+    <line class="cls-1" x1="103.4" y1="125.08" x2="104.54" y2="125.08"/>
+    <text class="cls-34" transform="translate(94.79 127.02)"><tspan x="0" y="0">30</tspan></text>
+    <text class="cls-28" transform="translate(152.97 127.63)"><tspan x="0" y="0">p = 0.008</tspan></text>
+    <circle class="cls-24" cx="112.85" cy="169.78" r="1.25"/>
+    <circle class="cls-24" cx="113.83" cy="187.98" r="1.25"/>
+    <circle class="cls-24" cx="114.8" cy="161.92" r="1.25"/>
+    <circle class="cls-24" cx="115.77" cy="163.18" r="1.25"/>
+    <circle class="cls-24" cx="116.75" cy="151.65" r="1.25"/>
+    <circle class="cls-24" cx="117.72" cy="187.98" r="1.25"/>
+    <circle class="cls-24" cx="118.69" cy="142.96" r="1.25"/>
+    <circle class="cls-24" cx="119.67" cy="156.1" r="1.25"/>
+    <circle class="cls-24" cx="120.64" cy="187.98" r="1.25"/>
+    <circle class="cls-24" cx="121.61" cy="172.06" r="1.25"/>
+    <circle class="cls-24" cx="122.58" cy="187.98" r="1.25"/>
+    <circle class="cls-24" cx="123.56" cy="140.71" r="1.25"/>
+    <polygon class="cls-20" points="107.56 173.22 109.1 171.29 110.63 173.22 109.1 175.16 107.56 173.22"/>
+    <polygon class="cls-20" points="107.56 167.6 109.1 165.67 110.63 167.6 109.1 169.54 107.56 167.6"/>
+    <polygon class="cls-20" points="107.56 162.35 109.1 160.41 110.63 162.35 109.1 164.28 107.56 162.35"/>
+    <polygon class="cls-20" points="107.56 166.91 109.1 164.98 110.63 166.91 109.1 168.85 107.56 166.91"/>
+    <line class="cls-2" x1="112.51" y1="167.52" x2="123.9" y2="167.52"/>
+    <text class="cls-34" transform="translate(112.35 194.81)"><tspan x="0" y="0">SED</tspan></text>
+    <circle class="cls-37" cx="138.47" cy="187.98" r="1.25"/>
+    <circle class="cls-37" cx="139.45" cy="163.98" r="1.25"/>
+    <circle class="cls-37" cx="140.42" cy="187.98" r="1.25"/>
+    <circle class="cls-37" cx="141.39" cy="164.16" r="1.25"/>
+    <circle class="cls-37" cx="142.37" cy="187.98" r="1.25"/>
+    <circle class="cls-37" cx="143.34" cy="169.09" r="1.25"/>
+    <circle class="cls-37" cx="144.31" cy="187.98" r="1.25"/>
+    <circle class="cls-37" cx="145.28" cy="187.98" r="1.25"/>
+    <circle class="cls-37" cx="146.26" cy="150.69" r="1.25"/>
+    <circle class="cls-37" cx="147.23" cy="176.52" r="1.25"/>
+    <circle class="cls-37" cx="148.2" cy="160.85" r="1.25"/>
+    <circle class="cls-37" cx="149.18" cy="187.98" r="1.25"/>
+    <polygon class="cls-17" points="133.18 179.98 134.72 178.04 136.25 179.98 134.72 181.92 133.18 179.98"/>
+    <polygon class="cls-17" points="133.18 173.74 134.72 171.81 136.25 173.74 134.72 175.68 133.18 173.74"/>
+    <polygon class="cls-17" points="133.18 175.55 134.72 173.61 136.25 175.55 134.72 177.48 133.18 175.55"/>
+    <polygon class="cls-17" points="133.18 175.11 134.72 173.18 136.25 175.11 134.72 177.05 133.18 175.11"/>
+    <line class="cls-10" x1="138.13" y1="176.1" x2="149.52" y2="176.1"/>
+    <text class="cls-34" transform="translate(135.86 194.81)"><tspan class="cls-48" x="0" y="0">W</tspan><tspan class="cls-41" x="5.16" y="0">ALK</tspan></text>
+    <circle class="cls-49" cx="164.09" cy="187.98" r="1.25"/>
+    <circle class="cls-49" cx="164.72" cy="157.64" r="1.25"/>
+    <circle class="cls-49" cx="165.35" cy="181.4" r="1.25"/>
+    <circle class="cls-49" cx="165.98" cy="187.98" r="1.25"/>
+    <circle class="cls-49" cx="166.61" cy="167.59" r="1.25"/>
+    <circle class="cls-49" cx="167.24" cy="165.42" r="1.25"/>
+    <circle class="cls-49" cx="167.87" cy="187.98" r="1.25"/>
+    <circle class="cls-49" cx="168.5" cy="174.86" r="1.25"/>
+    <circle class="cls-49" cx="169.13" cy="177.22" r="1.25"/>
+    <circle class="cls-49" cx="169.76" cy="167.62" r="1.25"/>
+    <circle class="cls-49" cx="170.39" cy="187.98" r="1.25"/>
+    <circle class="cls-49" cx="171.02" cy="187.98" r="1.25"/>
+    <circle class="cls-49" cx="171.65" cy="187.98" r="1.25"/>
+    <circle class="cls-49" cx="172.28" cy="187.98" r="1.25"/>
+    <circle class="cls-49" cx="172.91" cy="187.98" r="1.25"/>
+    <circle class="cls-49" cx="173.54" cy="184" r="1.25"/>
+    <circle class="cls-49" cx="174.17" cy="187.98" r="1.25"/>
+    <circle class="cls-49" cx="174.8" cy="187.98" r="1.25"/>
+    <polygon class="cls-15" points="158.8 172.81 160.34 170.87 161.87 172.81 160.34 174.75 158.8 172.81"/>
+    <polygon class="cls-15" points="158.8 184.69 160.34 182.75 161.87 184.69 160.34 186.62 158.8 184.69"/>
+    <polygon class="cls-15" points="158.8 173.66 160.34 171.73 161.87 173.66 160.34 175.6 158.8 173.66"/>
+    <polygon class="cls-15" points="158.8 176.04 160.34 174.1 161.87 176.04 160.34 177.97 158.8 176.04"/>
+    <polygon class="cls-15" points="158.8 181.19 160.34 179.25 161.87 181.19 160.34 183.13 158.8 181.19"/>
+    <polygon class="cls-15" points="158.8 187.98 160.34 186.04 161.87 187.98 160.34 189.91 158.8 187.98"/>
+    <polygon class="cls-15" points="158.8 186.65 160.34 184.72 161.87 186.65 160.34 188.59 158.8 186.65"/>
+    <line class="cls-8" x1="163.75" y1="180.86" x2="175.14" y2="180.86"/>
+    <text class="cls-34" transform="translate(163.28 194.81)"><tspan x="0" y="0">RUN</tspan></text>
+  </g>
+  <g>
+    <text class="cls-36" transform="translate(191.75 110.8)"><tspan class="cls-43" x="0" y="0">T</tspan><tspan class="cls-39" x="3.14" y="0">ail-motion score, D14</tspan></text>
+    <text class="cls-30" transform="translate(193.91 118.38)"><tspan x="0" y="0">a.u.</tspan></text>
+    <line class="cls-13" x1="193.91" y1="121.62" x2="193.91" y2="184.37"/>
+    <line class="cls-13" x1="193.91" y1="184.37" x2="195" y2="184.37"/>
+    <text class="cls-29" transform="translate(188.74 186.21)"><tspan x="0" y="0">0</tspan></text>
+    <line class="cls-13" x1="193.91" y1="163.45" x2="195" y2="163.45"/>
+    <text class="cls-29" transform="translate(184.23 165.29)"><tspan x="0" y="0">0.5</tspan></text>
+    <line class="cls-13" x1="193.91" y1="142.54" x2="195" y2="142.54"/>
+    <text class="cls-29" transform="translate(188.74 144.38)"><tspan x="0" y="0">1</tspan></text>
+    <line class="cls-13" x1="193.91" y1="121.62" x2="195" y2="121.62"/>
+    <text class="cls-29" transform="translate(184.23 123.46)"><tspan x="0" y="0">1.5</tspan></text>
+    <text class="cls-26" transform="translate(241.01 128.11)"><tspan x="0" y="0">p = 0.089</tspan></text>
+    <circle class="cls-24" cx="202.89" cy="139.12" r="1.19"/>
+    <circle class="cls-24" cx="203.82" cy="167.14" r="1.19"/>
+    <circle class="cls-24" cx="204.74" cy="168.41" r="1.19"/>
+    <circle class="cls-24" cx="205.67" cy="167.48" r="1.19"/>
+    <circle class="cls-24" cx="206.59" cy="138.99" r="1.19"/>
+    <circle class="cls-24" cx="207.52" cy="155.46" r="1.19"/>
+    <circle class="cls-24" cx="208.44" cy="170.51" r="1.19"/>
+    <circle class="cls-24" cx="209.37" cy="166.09" r="1.19"/>
+    <circle class="cls-24" cx="210.29" cy="170.86" r="1.19"/>
+    <circle class="cls-24" cx="211.21" cy="174.23" r="1.19"/>
+    <circle class="cls-24" cx="212.14" cy="174.87" r="1.19"/>
+    <circle class="cls-24" cx="213.06" cy="173.82" r="1.19"/>
+    <polygon class="cls-19" points="197.86 158.22 199.32 156.38 200.78 158.22 199.32 160.06 197.86 158.22"/>
+    <polygon class="cls-19" points="197.86 153.98 199.32 152.14 200.78 153.98 199.32 155.82 197.86 153.98"/>
+    <polygon class="cls-19" points="197.86 169.15 199.32 167.31 200.78 169.15 199.32 170.99 197.86 169.15"/>
+    <polygon class="cls-19" points="197.86 174.31 199.32 172.47 200.78 174.31 199.32 176.15 197.86 174.31"/>
+    <line class="cls-5" x1="202.57" y1="163.91" x2="213.39" y2="163.91"/>
+    <text class="cls-29" transform="translate(202.42 190.86)"><tspan x="0" y="0">SED</tspan></text>
+    <circle class="cls-37" cx="227.24" cy="144.75" r="1.19"/>
+    <circle class="cls-37" cx="228.16" cy="178.13" r="1.19"/>
+    <circle class="cls-37" cx="229.09" cy="164.97" r="1.19"/>
+    <circle class="cls-37" cx="230.01" cy="167.21" r="1.19"/>
+    <circle class="cls-37" cx="230.93" cy="179.14" r="1.19"/>
+    <circle class="cls-37" cx="231.86" cy="176.88" r="1.19"/>
+    <circle class="cls-37" cx="232.78" cy="158.1" r="1.19"/>
+    <circle class="cls-37" cx="233.71" cy="163.5" r="1.19"/>
+    <circle class="cls-37" cx="234.63" cy="160.97" r="1.19"/>
+    <circle class="cls-37" cx="235.56" cy="174.29" r="1.19"/>
+    <circle class="cls-37" cx="236.48" cy="161.8" r="1.19"/>
+    <circle class="cls-37" cx="237.41" cy="172.91" r="1.19"/>
+    <polygon class="cls-18" points="222.21 162.62 223.67 160.78 225.13 162.62 223.67 164.46 222.21 162.62"/>
+    <polygon class="cls-18" points="222.21 174.41 223.67 172.57 225.13 174.41 223.67 176.25 222.21 174.41"/>
+    <polygon class="cls-18" points="222.21 160.86 223.67 159.02 225.13 160.86 223.67 162.7 222.21 160.86"/>
+    <polygon class="cls-18" points="222.21 169.67 223.67 167.83 225.13 169.67 223.67 171.5 222.21 169.67"/>
+    <line class="cls-14" x1="226.91" y1="166.89" x2="237.73" y2="166.89"/>
+    <text class="cls-29" transform="translate(224.76 190.86)"><tspan class="cls-45" x="0" y="0">W</tspan><tspan class="cls-38" x="4.91" y="0">ALK</tspan></text>
+    <circle class="cls-49" cx="251.58" cy="174.95" r="1.19"/>
+    <circle class="cls-49" cx="252.18" cy="179.7" r="1.19"/>
+    <circle class="cls-49" cx="252.78" cy="168.17" r="1.19"/>
+    <circle class="cls-49" cx="253.37" cy="167.58" r="1.19"/>
+    <circle class="cls-49" cx="253.97" cy="179.49" r="1.19"/>
+    <circle class="cls-49" cx="254.57" cy="168.82" r="1.19"/>
+    <circle class="cls-49" cx="255.17" cy="172.47" r="1.19"/>
+    <circle class="cls-49" cx="255.77" cy="173.21" r="1.19"/>
+    <circle class="cls-49" cx="256.36" cy="163.4" r="1.19"/>
+    <circle class="cls-49" cx="256.96" cy="174.65" r="1.19"/>
+    <circle class="cls-49" cx="257.56" cy="164.27" r="1.19"/>
+    <circle class="cls-49" cx="258.16" cy="155.13" r="1.19"/>
+    <circle class="cls-49" cx="258.76" cy="162.91" r="1.19"/>
+    <circle class="cls-49" cx="259.36" cy="174.63" r="1.19"/>
+    <circle class="cls-49" cx="259.95" cy="176.67" r="1.19"/>
+    <circle class="cls-49" cx="260.55" cy="171.42" r="1.19"/>
+    <circle class="cls-49" cx="261.15" cy="180" r="1.19"/>
+    <circle class="cls-49" cx="261.75" cy="169.49" r="1.19"/>
+    <polygon class="cls-16" points="246.55 177.32 248.01 175.49 249.47 177.32 248.01 179.16 246.55 177.32"/>
+    <polygon class="cls-16" points="246.55 167.87 248.01 166.04 249.47 167.87 248.01 169.71 246.55 167.87"/>
+    <polygon class="cls-16" points="246.55 173.59 248.01 171.75 249.47 173.59 248.01 175.43 246.55 173.59"/>
+    <polygon class="cls-16" points="246.55 168.31 248.01 166.47 249.47 168.31 248.01 170.15 246.55 168.31"/>
+    <polygon class="cls-16" points="246.55 164.68 248.01 162.84 249.47 164.68 248.01 166.52 246.55 164.68"/>
+    <polygon class="cls-16" points="246.55 171.4 248.01 169.56 249.47 171.4 248.01 173.24 246.55 171.4"/>
+    <polygon class="cls-16" points="246.55 173.63 248.01 171.79 249.47 173.63 248.01 175.47 246.55 173.63"/>
+    <line class="cls-12" x1="251.25" y1="170.94" x2="262.07" y2="170.94"/>
+    <text class="cls-29" transform="translate(250.8 190.86)"><tspan x="0" y="0">RUN</tspan></text>
+    <text class="cls-36" transform="translate(277.22 110.8)"><tspan class="cls-43" x="0" y="0">T</tspan><tspan class="cls-39" x="3.14" y="0">ail slips, D14</tspan></text>
+    <text class="cls-30" transform="translate(279.38 118.38)"><tspan x="0" y="0">count</tspan></text>
+    <line class="cls-13" x1="279.38" y1="121.62" x2="279.38" y2="184.37"/>
+    <line class="cls-13" x1="279.38" y1="184.37" x2="280.47" y2="184.37"/>
+    <text class="cls-29" transform="translate(274.21 186.21)"><tspan x="0" y="0">0</tspan></text>
+    <line class="cls-13" x1="279.38" y1="163.45" x2="280.47" y2="163.45"/>
+    <text class="cls-29" transform="translate(274.21 165.29)"><tspan x="0" y="0">5</tspan></text>
+    <line class="cls-13" x1="279.38" y1="142.54" x2="280.47" y2="142.54"/>
+    <text class="cls-29" transform="translate(271.2 144.38)"><tspan x="0" y="0">10</tspan></text>
+    <line class="cls-13" x1="279.38" y1="121.62" x2="280.47" y2="121.62"/>
+    <text class="cls-29" transform="translate(271.2 123.46)"><tspan x="0" y="0">15</tspan></text>
+    <text class="cls-26" transform="translate(326.47 128.11)"><tspan x="0" y="0">p = 0.016</tspan></text>
+    <circle class="cls-24" cx="288.36" cy="150.9" r="1.19"/>
+    <circle class="cls-24" cx="289.29" cy="167.64" r="1.19"/>
+    <circle class="cls-24" cx="290.21" cy="159.27" r="1.19"/>
+    <circle class="cls-24" cx="291.14" cy="159.27" r="1.19"/>
+    <circle class="cls-24" cx="292.06" cy="146.72" r="1.19"/>
+    <circle class="cls-24" cx="292.99" cy="171.82" r="1.19"/>
+    <circle class="cls-24" cx="293.91" cy="159.27" r="1.19"/>
+    <circle class="cls-24" cx="294.83" cy="171.82" r="1.19"/>
+    <circle class="cls-24" cx="295.76" cy="155.09" r="1.19"/>
+    <circle class="cls-24" cx="296.68" cy="134.17" r="1.19"/>
+    <circle class="cls-24" cx="297.61" cy="146.72" r="1.19"/>
+    <circle class="cls-24" cx="298.53" cy="155.09" r="1.19"/>
+    <polygon class="cls-19" points="283.33 159.27 284.79 157.43 286.25 159.27 284.79 161.11 283.33 159.27"/>
+    <polygon class="cls-19" points="283.33 159.27 284.79 157.43 286.25 159.27 284.79 161.11 283.33 159.27"/>
+    <polygon class="cls-19" points="283.33 162.06 284.79 160.22 286.25 162.06 284.79 163.9 283.33 162.06"/>
+    <polygon class="cls-19" points="283.33 145.33 284.79 143.49 286.25 145.33 284.79 147.17 283.33 145.33"/>
+    <line class="cls-5" x1="288.04" y1="156.48" x2="298.86" y2="156.48"/>
+    <text class="cls-29" transform="translate(287.89 190.86)"><tspan x="0" y="0">SED</tspan></text>
+    <circle class="cls-37" cx="312.71" cy="163.45" r="1.19"/>
+    <circle class="cls-37" cx="313.63" cy="155.09" r="1.19"/>
+    <circle class="cls-37" cx="314.55" cy="171.82" r="1.19"/>
+    <circle class="cls-37" cx="315.48" cy="167.64" r="1.19"/>
+    <circle class="cls-37" cx="316.4" cy="155.09" r="1.19"/>
+    <circle class="cls-37" cx="317.33" cy="171.82" r="1.19"/>
+    <circle class="cls-37" cx="318.25" cy="159.27" r="1.19"/>
+    <circle class="cls-37" cx="319.18" cy="171.82" r="1.19"/>
+    <circle class="cls-37" cx="320.1" cy="176" r="1.19"/>
+    <circle class="cls-37" cx="321.03" cy="163.45" r="1.19"/>
+    <circle class="cls-37" cx="321.95" cy="155.09" r="1.19"/>
+    <circle class="cls-37" cx="322.87" cy="159.27" r="1.19"/>
+    <polygon class="cls-18" points="307.67 163.45 309.14 161.61 310.6 163.45 309.14 165.29 307.67 163.45"/>
+    <polygon class="cls-18" points="307.67 164.85 309.14 163.01 310.6 164.85 309.14 166.69 307.67 164.85"/>
+    <polygon class="cls-18" points="307.67 169.03 309.14 167.19 310.6 169.03 309.14 170.87 307.67 169.03"/>
+    <polygon class="cls-18" points="307.67 159.27 309.14 157.43 310.6 159.27 309.14 161.11 307.67 159.27"/>
+    <line class="cls-14" x1="312.38" y1="164.15" x2="323.2" y2="164.15"/>
+    <text class="cls-29" transform="translate(310.22 190.86)"><tspan class="cls-45" x="0" y="0">W</tspan><tspan class="cls-38" x="4.91" y="0">ALK</tspan></text>
+    <circle class="cls-49" cx="337.05" cy="163.45" r="1.19"/>
+    <circle class="cls-49" cx="337.65" cy="167.64" r="1.19"/>
+    <circle class="cls-49" cx="338.24" cy="159.27" r="1.19"/>
+    <circle class="cls-49" cx="338.84" cy="176" r="1.19"/>
+    <circle class="cls-49" cx="339.44" cy="163.45" r="1.19"/>
+    <circle class="cls-49" cx="340.04" cy="167.64" r="1.19"/>
+    <circle class="cls-49" cx="340.64" cy="163.45" r="1.19"/>
+    <circle class="cls-49" cx="341.24" cy="163.45" r="1.19"/>
+    <circle class="cls-49" cx="341.83" cy="163.45" r="1.19"/>
+    <circle class="cls-49" cx="342.43" cy="159.27" r="1.19"/>
+    <circle class="cls-49" cx="343.03" cy="163.45" r="1.19"/>
+    <circle class="cls-49" cx="343.63" cy="171.82" r="1.19"/>
+    <circle class="cls-49" cx="344.23" cy="171.82" r="1.19"/>
+    <circle class="cls-49" cx="344.82" cy="171.82" r="1.19"/>
+    <circle class="cls-49" cx="345.42" cy="163.45" r="1.19"/>
+    <circle class="cls-49" cx="346.02" cy="163.45" r="1.19"/>
+    <circle class="cls-49" cx="346.62" cy="171.82" r="1.19"/>
+    <circle class="cls-49" cx="347.22" cy="159.27" r="1.19"/>
+    <polygon class="cls-16" points="332.02 165.55 333.48 163.71 334.94 165.55 333.48 167.38 332.02 165.55"/>
+    <polygon class="cls-16" points="332.02 167.64 333.48 165.8 334.94 167.64 333.48 169.48 332.02 167.64"/>
+    <polygon class="cls-16" points="332.02 164.85 333.48 163.01 334.94 164.85 333.48 166.69 332.02 164.85"/>
+    <polygon class="cls-16" points="332.02 163.45 333.48 161.61 334.94 163.45 333.48 165.29 332.02 163.45"/>
+    <polygon class="cls-16" points="332.02 164.85 333.48 163.01 334.94 164.85 333.48 166.69 332.02 164.85"/>
+    <polygon class="cls-16" points="332.02 169.03 333.48 167.19 334.94 169.03 333.48 170.87 332.02 169.03"/>
+    <polygon class="cls-16" points="332.02 164.85 333.48 163.01 334.94 164.85 333.48 166.69 332.02 164.85"/>
+    <line class="cls-12" x1="336.72" y1="165.78" x2="347.54" y2="165.78"/>
+    <text class="cls-29" transform="translate(336.27 190.86)"><tspan x="0" y="0">RUN</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+{
+  "retained_hash_errors": [],
+  "within_session_speed": "42 mice/15 cages on each day; all saved deltas equal last minus first",
+  "D0_first_retained": "42 mice/15 cages",
+  "D14_last_retained": "42 mice",
+  "spatial_selection": "84 mouse/day filenames and last-trial identifiers match within-session inventory",
+  "trace_zip": "CRC verification passed",
+  "new_statistical_analysis": false
+}

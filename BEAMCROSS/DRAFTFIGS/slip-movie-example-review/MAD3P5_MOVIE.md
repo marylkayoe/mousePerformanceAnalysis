@@ -1,0 +1,9 @@
+# MAD3.5 tail presentation, green display gain2
+
+Candidate detection: exact MATLAB findpeaks prominence3.5x per-trial robustMAD, existing minimum separation0.1s, valid masks, saved smoothed motion height<=+7.5mm at peak. In12 reviewed trials the28 accepted event frames are identical toMAD4; both additions seen atMAD3 are excluded. Sample is six illustration-selected mice in five cages, not a representative or blinded validation sample. User prioritizes false-positive avoidance. No dataset-wide detector/statistical change.
+
+Six-panel horizontal movie preserves source frames, first-valid trim,30fps playback, end-frame holds, layout/headings, purple profile, black motion-height marker, persistent orange markers and20mm scale bar. Green linear trace vertical gain doubled (300displaypixels at pairmaximum rather than150); red unchanged log1p. Same full-trial per-mouse raw column maximum denominator. This display-only gain means green/red displayed heights are not directly comparable; footer explicitly labels green linear x2. Underlying measurements unchanged.
+
+Inputs: parent validated trial folders and /Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_tail_threshold_review_20261112/MAD3p5_height7p5/events.csv. Code tests/renderMarkedTailExamples.py --log-below --horizontal --height-max-mm7.5 --green-gain2 --event-table <events.csv> --output-name presentations_MAD3p5_height7p5_green2x (space between numeric values and their options). Fresh destination; previous movies preserved. Source lossless frame hashes, motionheight parity, output dimensions/framecount/30fps and complete decode checked during render. manifest.json written only after successful completion.
+
+Canonical folder: /Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_tail_D14_examples_marked_20261112/presentations_MAD3p5_height7p5_green2x

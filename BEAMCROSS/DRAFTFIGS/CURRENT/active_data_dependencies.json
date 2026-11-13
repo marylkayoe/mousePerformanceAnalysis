@@ -1,0 +1,122 @@
+[
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/trial_manifest.csv",
+    "sha256": "6f0a047cf7f99c09731f0cee91c80eda3f0f3bd939ad230ecac6e92f483c8496"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/events.csv",
+    "sha256": "9cd4effd15aac309fa0e61ff39dd430de32c9de4038b74aac80650c5fc5fe179"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/trial_values.csv",
+    "sha256": "6e0329fedd4d7f73cffae4199e65f4380b653182a24465e47cc124ecd266886a"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/event_validation.csv",
+    "sha256": "11585fcf7e85a88a43335bf89c1fbcee0b068d3e102630149e9fab676300faa4"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/group_statistics.csv",
+    "sha256": "806e82efbd87983f94de1252ce937cba4f6f0afba38dd89b0950044713140a5e"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/spatial_summary.csv",
+    "sha256": "71963016723936bc91ed2043979c5a3a0226d2b70d9f9c1dd6511aa5c0faadc0"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/D0_first_retained_tail_panels.csv",
+    "sha256": "55b4796998465814a5ab2ebba2df510928c77f876574c8ccf6438def88cc53b4"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/D0_first_retained_tail_panels.json",
+    "sha256": "08fd0114659291edf9ef7b067314e675fbc8d01f5df368d4fbac1e98577b9122"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/D0_pooled_event_positions_10mm_mirrored.csv",
+    "sha256": "5088e930c5acb36cf7e3a546d7a52b85119814d07f31b50eb48b8b057ceb87c8"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/speed-presentation/speed-profile-source.json",
+    "sha256": "7c6df34f35744879925cb7fb0f62fed964efe461972146a6898b29da1769177f"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/posture-presentation/posture-profile-source.json",
+    "sha256": "5124df047a35af285a218d2241dca8dee809c1f756feac896899eead96f15706"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/height-exploratory/trial-motion-height.csv",
+    "sha256": "41eee6286f9c9ce7c42c9f0718a9519eb90742e7e9504ba4e2ff413e7c40d330"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/whole-motion-reweighted/trial-values.csv",
+    "sha256": "5fd321d4ad447813c9fb0e1162ca0a2442f06617b75540fffe9903239ca12bbc"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/whole-motion-reweighted/cage_tests.py",
+    "sha256": "81ae525338305c0d41c448fa3805dd2fef4bc632c57f65e78ff751a2b8201247"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/below-bar-episodes/trial_summary.csv",
+    "sha256": "33299ddc96f05f128275b0ad85a64a6a9cf686cbec2590eb0cbe5a6714f28361"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/below-bar-episodes/peak-pilot-strict/D0_first_retained_below_bar_peak_count.csv",
+    "sha256": "ac44e17267c551db1d941d99e59a547bb00ef90d5742f34b9b05a23ad7c2deef"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/below-bar-episodes/peak-pilot-strict/D0_first_retained_below_bar_peak_count.json",
+    "sha256": "476a79b31d0b6e227f96ad24e413e5c179e8916d7a512119b429990b75bcdfb1"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/below-bar-episodes/peak-pilot-strict/D14_last_peak_counts.csv",
+    "sha256": "102ebf83b8a2bb525e923f7aad7f5ec35d724012b347a6d0176d3d45e85899af"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/below-bar-episodes/D14-last-trial/mouse_values.csv",
+    "sha256": "feb1ec6f5c70fedf1d0f53daf5e461229df4f7a0c950840a91e7e46d862b47e6"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/below-bar-episodes/D14-last-trial/statistics.json",
+    "sha256": "691596eace8801fd82408fd75d5e2611867b3679859c2f33ee36072a1676db2e"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/CDF-D14-and-change/trial-index.csv",
+    "sha256": "bcae09c70aafa29b0cbd10d97093a5867bd8c7ada6f778db21069de4d08820f6"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/CDF-D14-and-change/frame-values.csv",
+    "sha256": "236f05f9367e1d202ebaf97f05aabbd816be811524106b1d7a05eb8eff85fffa"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/D0-spatial-motion-and-height/trial-position-bins.csv",
+    "sha256": "1e71e5ded8e0bbe1bfe76490d468e3b9a97626d6f9324e8fae38fa6cb07a5ecd"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/D14-minus-D0-spatial-motion-and-height/trial-position-bins.csv",
+    "sha256": "6036c3b0c179ba4e59ad435beebc64a6aec43ad0e404a424895c60242364d428"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-D14/last_crossing_values.csv",
+    "sha256": "2621563886a6036d45f3a7425508c9421bb2d177cce628dc5452b48afa7e719a"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-D14/statistics.json",
+    "sha256": "5af0abb9b7b7bbd05b5f8af2ba13a8f3666b8e8b43086fb044e6a6967f79ff73"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-D14/statistics.csv",
+    "sha256": "9e18f50001766eb257aa4652fa0f71447ae0eb3caff76fe52c74b90fd2c03ac5"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-spatial/mouse_profiles.csv",
+    "sha256": "58ed07d26ead30a146eaffe8a64826daeade8e9d23c2861db97acd7e467e49f0"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-spatial/group_profiles.csv",
+    "sha256": "80a613bbb26cd8e0665cbf0134a2b4bf49f4ee0995cec0c113a9d4330d3c792e"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/mouse_first_last_changes.csv",
+    "sha256": "c7770b1fcde07f5c9b354936a1524277742f4a83e1acc2ca9048d4d0099d55e3"
+  }
+]

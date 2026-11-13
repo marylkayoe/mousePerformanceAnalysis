@@ -1,0 +1,62 @@
+[
+  {
+    "file": "TMCS3_S08_T2_C03_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S08",
+    "group": "sedentary",
+    "day": "D0",
+    "trial": 1,
+    "score": 0.3098197678933413,
+    "height": 40.9159034138218,
+    "valid": 0.767552182163188
+  },
+  {
+    "file": "TMCS3_S08_T2_C03_BB_D14_20260305_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S08",
+    "group": "sedentary",
+    "day": "D14",
+    "trial": 1,
+    "score": 0.3989297152784665,
+    "height": 26.4029975020816,
+    "valid": 0.840970350404313
+  },
+  {
+    "file": "TMCS2_S19_T1_C06_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S19",
+    "group": "walk",
+    "day": "D0",
+    "trial": 3,
+    "score": 0.40262779470854965,
+    "height": 43.7135720233139,
+    "valid": 0.820531227566403
+  },
+  {
+    "file": "TMCS2_S19_T1_C06_BB_D14_20251105_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S19",
+    "group": "walk",
+    "day": "D14",
+    "trial": 1,
+    "score": 0.36884650651639994,
+    "height": 33.7468776019983,
+    "valid": 0.800438596491228
+  },
+  {
+    "file": "TMCS3_S01_T1_C01_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S01",
+    "group": "run",
+    "day": "D0",
+    "trial": 1,
+    "score": 0.42414444314913347,
+    "height": 37.1856786011657,
+    "valid": 0.805489260143198
+  },
+  {
+    "file": "TMCS3_S01_T1_C01_BB_D14_20260305_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS3_S01",
+    "group": "run",
+    "day": "D14",
+    "trial": 1,
+    "score": 0.35986255180773796,
+    "height": 34.2131557035803,
+    "valid": 0.71461716937355
+  }
+]

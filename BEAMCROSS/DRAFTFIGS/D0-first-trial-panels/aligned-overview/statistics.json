@@ -1,0 +1,30 @@
+{
+  "p_values": {
+    "speed": 0.4137962962962963,
+    "slips": 0.760515873015873,
+    "stopped": 0.5850925925925926,
+    "speed_profile": 0.5235714285714286,
+    "slip_CDF": 0.9155687830687831,
+    "total": 0.8017460317460318
+  },
+  "totalSlipScorePairs": [
+    {
+      "pair": "walk minus sedentary",
+      "difference_cage_cohort_balanced": -233.21552072576765,
+      "p_raw": 0.6,
+      "p_holm_3_pairs": 1.0
+    },
+    {
+      "pair": "run minus sedentary",
+      "difference_cage_cohort_balanced": -365.65947110533506,
+      "p_raw": 0.5238095238095238,
+      "p_holm_3_pairs": 1.0
+    },
+    {
+      "pair": "run minus walk",
+      "difference_cage_cohort_balanced": -132.44395037956735,
+      "p_raw": 0.6666666666666666,
+      "p_holm_3_pairs": 1.0
+    }
+  ]
+}

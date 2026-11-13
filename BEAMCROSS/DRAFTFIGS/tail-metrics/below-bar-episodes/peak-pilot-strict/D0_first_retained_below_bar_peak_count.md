@@ -1,0 +1,5 @@
+# D0 first-retained below-bar peaks
+
+42 mice /15 cages; dots=mice, diamonds=cage means, horizontal bars=mouse-group means. First retained D0 trial verified against manifest. Raw corrected below-bar motion, prominence>=5 times trial-valid scaled MAD, separation>=0.1 seconds; exact settings and limitations in README.md. No raw-trace smoothing or amplitude transformation. Joint validity includes height validity for comparability with the pilot; invalid gaps never bridged. Counts are not rates, so duration/missingness can influence them. Trial-specific thresholds are not a fixed physical-motion cutoff.
+
+Exploratory omnibus exact cage-label permutation within cohort; raw p shown, no across-outcome correction. Same test as prior panel. Pairwise statistics saved separately. No independent biological validation. Source counts and individual original-frame peaks from tests/countD0FirstBelowBarPeaks.m. Figure from tests/plotD0FirstBelowBarPeaks.py; exact user template fonts/markers retained, y range extended only if needed. Canonical sources unchanged.

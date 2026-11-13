@@ -1,0 +1,12 @@
+[
+  {
+    "metric": "mean_slip",
+    "file": "TMCS2_S05_T2_C01_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+    "reason": "nonfinite; retained in value table, omitted from plot/test"
+  },
+  {
+    "metric": "mean_slip",
+    "file": "TMCS2_S27_T3_C09_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+    "reason": "nonfinite; retained in value table, omitted from plot/test"
+  }
+]

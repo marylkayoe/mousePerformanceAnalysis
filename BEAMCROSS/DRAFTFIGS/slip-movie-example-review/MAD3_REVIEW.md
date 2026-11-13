@@ -1,0 +1,5 @@
+# MAD3 plus height<=+7.5mm
+
+Exact MATLAB comparison on12 review trials:30 retained peaks versus28 atMAD4; no previous retained peaks lost. Two added peaks, both TMCS3_S08: D0T1 original1467(prominence3.069MAD,height+6.761mm) and D14T1 original1210(3.375MAD,+4.779mm). First recovers onset of the previously inspected vertical-tail episode. Second has folded/blurred tail and paw/body proximity; identity of below-bar motion is uncertain in the peak crop, not confidently a true tail-slip. With user prioritizing false-positive avoidance, do not claim all30 reliable or adoptMAD3 solely from this comparison. Further temporal review needed for1210. Selected lossless frame hashes verified. Old detector/results and MAD5 movie unchanged.
+
+Outputs in /Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_tail_threshold_review_20261112/MAD3_height7p5: events.csv ungated peaks; retained.csv applies+7.5mm; added.csv; added_MAD3_1.png. counts.csv WithHeight still refers to<=0 legacy tally. Reproduce reviewLowerTailThresholds(3,'MAD3_height7p5'), tests/summarizeMAD3TailReview.py and tests/showMAD3TailFrames.py. This is exploratory unblinded calibration with no sensitivity estimate.

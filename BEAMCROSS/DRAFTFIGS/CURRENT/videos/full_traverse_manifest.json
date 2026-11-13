@@ -1,0 +1,142 @@
+[
+  {
+    "output": "existing_examples_SED_WALK_RUN_D0_D14_log_smoothed_60fps.mp4",
+    "inputs": [
+      {
+        "group": "sedentary",
+        "mouse": "TMCS3_S07",
+        "sourceFiles": [
+          "TMCS3_S07_T1_C03_BB_D00_20260219_THT_TRIAL3_gray.mp4",
+          "TMCS3_S07_T1_C03_BB_D14_20260305_THT_TRIAL2_gray.mp4"
+        ],
+        "frames": [
+          2100,
+          1187
+        ],
+        "output": "TMCS3_S07_sedentary_D0_D14_underbar_presentation_60fps.mp4",
+        "motionScaleScope": "mouse",
+        "motionDisplayTransform": "log1p",
+        "motionSpatialGaussianSigmaPixels": 2.0,
+        "sharedColumnMax": 348.6837466297799,
+        "sharedSlipScoreMax": 2935.15718005536,
+        "playbackFPS": 60
+      },
+      {
+        "group": "walk",
+        "mouse": "TMCS2_S20",
+        "sourceFiles": [
+          "TMCS2_S20_T2_C06_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+          "TMCS2_S20_T2_C06_BB_D14_20251105_THT_TRIAL2_gray.mp4"
+        ],
+        "frames": [
+          935,
+          684
+        ],
+        "output": "TMCS2_S20_walk_D0_D14_underbar_presentation_60fps.mp4",
+        "motionScaleScope": "mouse",
+        "motionDisplayTransform": "log1p",
+        "motionSpatialGaussianSigmaPixels": 2.0,
+        "sharedColumnMax": 30.13675917959334,
+        "sharedSlipScoreMax": 2935.15718005536,
+        "playbackFPS": 60
+      },
+      {
+        "group": "run",
+        "mouse": "TMCS3_S12",
+        "sourceFiles": [
+          "TMCS3_S12_T3_C04_BB_D00_20260219_THT_TRIAL1_gray.mp4",
+          "TMCS3_S12_T3_C04_BB_D14_20260305_THT_TRIAL2_gray.mp4"
+        ],
+        "frames": [
+          1166,
+          634
+        ],
+        "output": "TMCS3_S12_run_D0_D14_underbar_presentation_60fps.mp4",
+        "motionScaleScope": "mouse",
+        "motionDisplayTransform": "log1p",
+        "motionSpatialGaussianSigmaPixels": 2.0,
+        "sharedColumnMax": 218.28188757971935,
+        "sharedSlipScoreMax": 2935.15718005536,
+        "playbackFPS": 60
+      }
+    ],
+    "frames": 2100,
+    "fps": 60,
+    "width": 2560,
+    "height": 1224,
+    "layout": "rows SED/WALK/RUN; columns D0/D14",
+    "scaling": "no pixel resizing, no trace rescaling; existing per-mouse motion scale preserved",
+    "shortPanels": "hold last frame",
+    "sha256": "c303ed8f53679fbd97eef83048b676203583df33c294bf84aa2923e3299458c5"
+  },
+  {
+    "output": "change_examples_SED_WALK_RUN_D0_D14_log_smoothed_60fps.mp4",
+    "inputs": [
+      {
+        "group": "sedentary",
+        "mouse": "TMCS2_S14",
+        "sourceFiles": [
+          "TMCS2_S14_T2_C08_BB_D00_20251022_THT_TRIAL4_gray.mp4",
+          "TMCS2_S14_T2_C08_BB_D14_20251105_THT_TRIAL1_gray.mp4"
+        ],
+        "frames": [
+          1281,
+          750
+        ],
+        "output": "TMCS2_S14_sedentary_D0_D14_underbar_presentation_60fps.mp4",
+        "motionScaleScope": "mouse",
+        "motionDisplayTransform": "log1p",
+        "motionSpatialGaussianSigmaPixels": 2.0,
+        "sharedColumnMax": 26.438173390878642,
+        "sharedSlipScoreMax": 2935.15718005536,
+        "playbackFPS": 60
+      },
+      {
+        "group": "walk",
+        "mouse": "TMCS3_S05",
+        "sourceFiles": [
+          "TMCS3_S05_T2_C02_BB_D00_20260219_THT_TRIAL2_gray.mp4",
+          "TMCS3_S05_T2_C02_BB_D14_20260305_THT_TRIAL2_gray.mp4"
+        ],
+        "frames": [
+          892,
+          580
+        ],
+        "output": "TMCS3_S05_walk_D0_D14_underbar_presentation_60fps.mp4",
+        "motionScaleScope": "mouse",
+        "motionDisplayTransform": "log1p",
+        "motionSpatialGaussianSigmaPixels": 2.0,
+        "sharedColumnMax": 118.71326279898582,
+        "sharedSlipScoreMax": 2935.15718005536,
+        "playbackFPS": 60
+      },
+      {
+        "group": "run",
+        "mouse": "TMCS2_S18",
+        "sourceFiles": [
+          "TMCS2_S18_T3_C05_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+          "TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL3_gray.mp4"
+        ],
+        "frames": [
+          924,
+          675
+        ],
+        "output": "TMCS2_S18_run_D0_D14_underbar_presentation_60fps.mp4",
+        "motionScaleScope": "mouse",
+        "motionDisplayTransform": "log1p",
+        "motionSpatialGaussianSigmaPixels": 2.0,
+        "sharedColumnMax": 40.43969789752776,
+        "sharedSlipScoreMax": 2935.15718005536,
+        "playbackFPS": 60
+      }
+    ],
+    "frames": 1281,
+    "fps": 60,
+    "width": 2560,
+    "height": 1224,
+    "layout": "rows SED/WALK/RUN; columns D0/D14",
+    "scaling": "no pixel resizing, no trace rescaling; existing per-mouse motion scale preserved",
+    "shortPanels": "hold last frame",
+    "sha256": "69db0cf88377b1dd928b7a8e9aa4b46fa76e2918422a20191d0a527b798e5904"
+  }
+]

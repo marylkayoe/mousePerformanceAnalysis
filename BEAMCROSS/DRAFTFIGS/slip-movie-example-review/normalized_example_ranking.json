@@ -1,0 +1,542 @@
+{
+  "sedentary": {
+    "target": {
+      "CountHeightFiltered": 3.0,
+      "TotalScoreHeightFiltered": 121.86443322301457
+    },
+    "scale": {
+      "CountHeightFiltered": 3.437758254761643,
+      "TotalScoreHeightFiltered": 220.64224797101107
+    },
+    "ranking": [
+      {
+        "File": "TMCS2_S30_T3_C10_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "105.723844034639",
+        "MADScale": "25.2311298550546",
+        "CountUngated": "3",
+        "CountHeightFiltered": "3",
+        "TotalScoreUngated": "162.739532710904",
+        "TotalScoreHeightFiltered": "162.739532710904",
+        "MeanScoreUngated": "54.2465109036347",
+        "MeanScoreHeightFiltered": "54.2465109036347",
+        "JointValidFrames": "542"
+      },
+      {
+        "File": "TMCS3_S09_T3_C03_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "112.816601745189",
+        "MADScale": "26.4526974836298",
+        "CountUngated": "2",
+        "CountHeightFiltered": "2",
+        "TotalScoreUngated": "55.7550150971312",
+        "TotalScoreHeightFiltered": "55.7550150971312",
+        "MeanScoreUngated": "27.8775075485656",
+        "MeanScoreHeightFiltered": "27.8775075485656",
+        "JointValidFrames": "708"
+      },
+      {
+        "File": "TMCS2_S28_T1_C10_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "122.575745793699",
+        "MADScale": "27.9930264880081",
+        "CountUngated": "3",
+        "CountHeightFiltered": "3",
+        "TotalScoreUngated": "20.4042023744086",
+        "TotalScoreHeightFiltered": "20.4042023744086",
+        "MeanScoreUngated": "6.80140079146954",
+        "MeanScoreHeightFiltered": "6.80140079146954",
+        "JointValidFrames": "928"
+      },
+      {
+        "File": "TMCS3_S07_T1_C03_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "82.8694985029399",
+        "MADScale": "21.3971924949924",
+        "CountUngated": "2",
+        "CountHeightFiltered": "2",
+        "TotalScoreUngated": "6.55775712900374",
+        "TotalScoreHeightFiltered": "6.55775712900374",
+        "MeanScoreUngated": "3.27887856450187",
+        "MeanScoreHeightFiltered": "3.27887856450187",
+        "JointValidFrames": "910"
+      },
+      {
+        "File": "TMCS3_S14_T2_C05_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "74.8420733186007",
+        "MADScale": "15.5155172007026",
+        "CountUngated": "4",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "17.4042006618468",
+        "TotalScoreHeightFiltered": "3.7537586672234",
+        "MeanScoreUngated": "4.3510501654617",
+        "MeanScoreHeightFiltered": "3.7537586672234",
+        "JointValidFrames": "750"
+      },
+      {
+        "File": "TMCS2_S14_T2_C08_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "101.56460056471",
+        "MADScale": "22.3092389374273",
+        "CountUngated": "1",
+        "CountHeightFiltered": "0",
+        "TotalScoreUngated": "1.20639859370709",
+        "TotalScoreHeightFiltered": "0",
+        "MeanScoreUngated": "1.20639859370709",
+        "MeanScoreHeightFiltered": "NaN",
+        "JointValidFrames": "756"
+      },
+      {
+        "File": "TMCS3_S08_T2_C03_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "82.1065978250504",
+        "MADScale": "17.8135707121631",
+        "CountUngated": "3",
+        "CountHeightFiltered": "0",
+        "TotalScoreUngated": "10.921305542862",
+        "TotalScoreHeightFiltered": "0",
+        "MeanScoreUngated": "3.64043518095399",
+        "MeanScoreHeightFiltered": "NaN",
+        "JointValidFrames": "717"
+      },
+      {
+        "File": "TMCS3_S13_T1_C05_BB_D14_20260305_THT_TRIAL4_gray.mp4",
+        "BaselineMedian": "86.375891161561",
+        "MADScale": "22.1967853991121",
+        "CountUngated": "1",
+        "CountHeightFiltered": "0",
+        "TotalScoreUngated": "3.37981377249228",
+        "TotalScoreHeightFiltered": "0",
+        "MeanScoreUngated": "3.37981377249228",
+        "MeanScoreHeightFiltered": "NaN",
+        "JointValidFrames": "1133"
+      },
+      {
+        "File": "TMCS3_S15_T3_C05_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "78.0750357784629",
+        "MADScale": "17.0495695349836",
+        "CountUngated": "2",
+        "CountHeightFiltered": "0",
+        "TotalScoreUngated": "6.89987010572031",
+        "TotalScoreHeightFiltered": "0",
+        "MeanScoreUngated": "3.44993505286015",
+        "MeanScoreHeightFiltered": "NaN",
+        "JointValidFrames": "797"
+      },
+      {
+        "File": "TMCS2_S15_T3_C08_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "124.918926302486",
+        "MADScale": "36.1583684632203",
+        "CountUngated": "7",
+        "CountHeightFiltered": "7",
+        "TotalScoreUngated": "83.2520970561699",
+        "TotalScoreHeightFiltered": "83.2520970561699",
+        "MeanScoreUngated": "11.89315672231",
+        "MeanScoreHeightFiltered": "11.89315672231",
+        "JointValidFrames": "759"
+      },
+      {
+        "File": "TMCS2_S13_T1_C08_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "118.598000861193",
+        "MADScale": "35.5200332430163",
+        "CountUngated": "9",
+        "CountHeightFiltered": "9",
+        "TotalScoreUngated": "426.431169009967",
+        "TotalScoreHeightFiltered": "426.431169009967",
+        "MeanScoreUngated": "47.3812410011074",
+        "MeanScoreHeightFiltered": "47.3812410011074",
+        "JointValidFrames": "734"
+      },
+      {
+        "File": "TMCS2_S29_T2_C10_BB_D14_20251105_THT_TRIAL4_gray.mp4",
+        "BaselineMedian": "114.026099871247",
+        "MADScale": "38.6530308859003",
+        "CountUngated": "9",
+        "CountHeightFiltered": "9",
+        "TotalScoreUngated": "703.479666631367",
+        "TotalScoreHeightFiltered": "703.479666631367",
+        "MeanScoreUngated": "78.1644074034852",
+        "MeanScoreHeightFiltered": "78.1644074034852",
+        "JointValidFrames": "1057"
+      }
+    ]
+  },
+  "walk": {
+    "target": {
+      "CountHeightFiltered": 1.5,
+      "TotalScoreHeightFiltered": 109.92957698189412
+    },
+    "scale": {
+      "CountHeightFiltered": 1.381698559415515,
+      "TotalScoreHeightFiltered": 113.77054393109337
+    },
+    "ranking": [
+      {
+        "File": "TMCS2_S33_T3_C02_BB_D14_20251105_THT_TRIAL4_gray.mp4",
+        "BaselineMedian": "99.986599452168",
+        "MADScale": "24.4343620529649",
+        "CountUngated": "1",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "106.047330716425",
+        "TotalScoreHeightFiltered": "106.047330716425",
+        "MeanScoreUngated": "106.047330716425",
+        "MeanScoreHeightFiltered": "106.047330716425",
+        "JointValidFrames": "753"
+      },
+      {
+        "File": "TMCS2_S09_T3_C03_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "105.525471543879",
+        "MADScale": "22.5324469389649",
+        "CountUngated": "3",
+        "CountHeightFiltered": "2",
+        "TotalScoreUngated": "121.119867033527",
+        "TotalScoreHeightFiltered": "117.42956592748",
+        "MeanScoreUngated": "40.3732890111757",
+        "MeanScoreHeightFiltered": "58.7147829637399",
+        "JointValidFrames": "460"
+      },
+      {
+        "File": "TMCS2_S32_T2_C02_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "108.795565142886",
+        "MADScale": "22.6830684871123",
+        "CountUngated": "2",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "157.740486835601",
+        "TotalScoreHeightFiltered": "156.120457895631",
+        "MeanScoreUngated": "78.8702434178005",
+        "MeanScoreHeightFiltered": "156.120457895631",
+        "JointValidFrames": "489"
+      },
+      {
+        "File": "TMCS2_S08_T2_C03_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "101.084996798282",
+        "MADScale": "24.6281040540866",
+        "CountUngated": "3",
+        "CountHeightFiltered": "2",
+        "TotalScoreUngated": "57.1414648358309",
+        "TotalScoreHeightFiltered": "49.3325103235683",
+        "MeanScoreUngated": "19.047154945277",
+        "MeanScoreHeightFiltered": "24.6662551617842",
+        "JointValidFrames": "788"
+      },
+      {
+        "File": "TMCS2_S21_T3_C06_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "98.2306263733456",
+        "MADScale": "25.3298243847224",
+        "CountUngated": "1",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "39.3872929635708",
+        "TotalScoreHeightFiltered": "39.3872929635708",
+        "MeanScoreUngated": "39.3872929635708",
+        "MeanScoreHeightFiltered": "39.3872929635708",
+        "JointValidFrames": "689"
+      },
+      {
+        "File": "TMCS2_S19_T1_C06_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "105.661476231372",
+        "MADScale": "28.766506682076",
+        "CountUngated": "1",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "14.0579557442196",
+        "TotalScoreHeightFiltered": "14.0579557442196",
+        "MeanScoreUngated": "14.0579557442196",
+        "MeanScoreHeightFiltered": "14.0579557442196",
+        "JointValidFrames": "983"
+      },
+      {
+        "File": "TMCS3_S06_T3_C02_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "96.31714699471",
+        "MADScale": "22.1692569848439",
+        "CountUngated": "2",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "7.80200630039308",
+        "TotalScoreHeightFiltered": "7.45527802677875",
+        "MeanScoreUngated": "3.90100315019654",
+        "MeanScoreHeightFiltered": "7.45527802677875",
+        "JointValidFrames": "695"
+      },
+      {
+        "File": "TMCS2_S20_T2_C06_BB_D14_20251105_THT_TRIAL4_gray.mp4",
+        "BaselineMedian": "123.922096659664",
+        "MADScale": "22.3821659626381",
+        "CountUngated": "3",
+        "CountHeightFiltered": "0",
+        "TotalScoreUngated": "15.506128280403",
+        "TotalScoreHeightFiltered": "0",
+        "MeanScoreUngated": "5.168709426801",
+        "MeanScoreHeightFiltered": "NaN",
+        "JointValidFrames": "529"
+      },
+      {
+        "File": "TMCS3_S04_T1_C02_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "131.074270143363",
+        "MADScale": "30.3602751519705",
+        "CountUngated": "0",
+        "CountHeightFiltered": "0",
+        "TotalScoreUngated": "0",
+        "TotalScoreHeightFiltered": "0",
+        "MeanScoreUngated": "NaN",
+        "MeanScoreHeightFiltered": "NaN",
+        "JointValidFrames": "680"
+      },
+      {
+        "File": "TMCS2_S31_T1_C02_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "108.622951128783",
+        "MADScale": "27.2080724127898",
+        "CountUngated": "1",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "313.775834970191",
+        "TotalScoreHeightFiltered": "313.775834970191",
+        "MeanScoreUngated": "313.775834970191",
+        "MeanScoreHeightFiltered": "313.775834970191",
+        "JointValidFrames": "941"
+      },
+      {
+        "File": "TMCS2_S07_T1_C03_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "120.157398903415",
+        "MADScale": "26.5720083096111",
+        "CountUngated": "4",
+        "CountHeightFiltered": "3",
+        "TotalScoreUngated": "293.650549310629",
+        "TotalScoreHeightFiltered": "292.394736187787",
+        "MeanScoreUngated": "73.4126373276573",
+        "MeanScoreHeightFiltered": "97.4649120625956",
+        "JointValidFrames": "541"
+      },
+      {
+        "File": "TMCS3_S05_T2_C02_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "120.116168352127",
+        "MADScale": "41.3112497101422",
+        "CountUngated": "5",
+        "CountHeightFiltered": "5",
+        "TotalScoreUngated": "223.153961027078",
+        "TotalScoreHeightFiltered": "223.153961027078",
+        "MeanScoreUngated": "44.6307922054156",
+        "MeanScoreHeightFiltered": "44.6307922054156",
+        "JointValidFrames": "825"
+      }
+    ]
+  },
+  "run": {
+    "target": {
+      "CountHeightFiltered": 1.1111111111111112,
+      "TotalScoreHeightFiltered": 18.311687893246102
+    },
+    "scale": {
+      "CountHeightFiltered": 1.2313975269103985,
+      "TotalScoreHeightFiltered": 29.294271872180563
+    },
+    "ranking": [
+      {
+        "File": "TMCS2_S17_T2_C05_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "94.0257888313468",
+        "MADScale": "16.763298986264",
+        "CountUngated": "2",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "22.4012673238074",
+        "TotalScoreHeightFiltered": "19.7011753628724",
+        "MeanScoreUngated": "11.2006336619037",
+        "MeanScoreHeightFiltered": "19.7011753628724",
+        "JointValidFrames": "528"
+      },
+      {
+        "File": "TMCS2_S25_T1_C09_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "109.428673591778",
+        "MADScale": "24.5510282273322",
+        "CountUngated": "2",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "17.5139693928774",
+        "TotalScoreHeightFiltered": "14.4775384666066",
+        "MeanScoreUngated": "8.75698469643871",
+        "MeanScoreHeightFiltered": "14.4775384666066",
+        "JointValidFrames": "857"
+      },
+      {
+        "File": "TMCS3_S01_T1_C01_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "104.644227963448",
+        "MADScale": "24.8225312851035",
+        "CountUngated": "1",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "13.0762091913335",
+        "TotalScoreHeightFiltered": "13.0762091913335",
+        "MeanScoreUngated": "13.0762091913335",
+        "MeanScoreHeightFiltered": "13.0762091913335",
+        "JointValidFrames": "567"
+      },
+      {
+        "File": "TMCS2_S11_T2_C04_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "122.496738930695",
+        "MADScale": "33.0185658826106",
+        "CountUngated": "1",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "9.45238914038875",
+        "TotalScoreHeightFiltered": "9.45238914038875",
+        "MeanScoreUngated": "9.45238914038875",
+        "MeanScoreHeightFiltered": "9.45238914038875",
+        "JointValidFrames": "549"
+      },
+      {
+        "File": "TMCS2_S05_T2_C01_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "127.253768580561",
+        "MADScale": "26.1263826965631",
+        "CountUngated": "3",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "11.6846200539001",
+        "TotalScoreHeightFiltered": "7.37635553064572",
+        "MeanScoreUngated": "3.89487335130002",
+        "MeanScoreHeightFiltered": "7.37635553064572",
+        "JointValidFrames": "444"
+      },
+      {
+        "File": "TMCS2_S26_T2_C09_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "116.057350860297",
+        "MADScale": "25.2295360187819",
+        "CountUngated": "2",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "35.3994957833945",
+        "TotalScoreHeightFiltered": "29.6493728040396",
+        "MeanScoreUngated": "17.6997478916972",
+        "MeanScoreHeightFiltered": "29.6493728040396",
+        "JointValidFrames": "535"
+      },
+      {
+        "File": "TMCS2_S22_T1_C07_BB_D14_20251105_THT_TRIAL4_gray.mp4",
+        "BaselineMedian": "100.302065448124",
+        "MADScale": "24.2079949430036",
+        "CountUngated": "2",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "8.94453841081188",
+        "TotalScoreHeightFiltered": "5.99725419849803",
+        "MeanScoreUngated": "4.47226920540594",
+        "MeanScoreHeightFiltered": "5.99725419849803",
+        "JointValidFrames": "754"
+      },
+      {
+        "File": "TMCS3_S11_T2_C04_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "83.7764654779434",
+        "MADScale": "22.1646890851856",
+        "CountUngated": "2",
+        "CountHeightFiltered": "1",
+        "TotalScoreUngated": "0.960956454889413",
+        "TotalScoreHeightFiltered": "0.669229403380259",
+        "MeanScoreUngated": "0.480478227444707",
+        "MeanScoreHeightFiltered": "0.669229403380259",
+        "JointValidFrames": "829"
+      },
+      {
+        "File": "TMCS2_S06_T3_C01_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "111.405731233249",
+        "MADScale": "29.1542011384581",
+        "CountUngated": "3",
+        "CountHeightFiltered": "2",
+        "TotalScoreUngated": "8.02825334124263",
+        "TotalScoreHeightFiltered": "7.73306981983088",
+        "MeanScoreUngated": "2.67608444708088",
+        "MeanScoreHeightFiltered": "3.86653490991544",
+        "JointValidFrames": "689"
+      },
+      {
+        "File": "TMCS2_S16_T1_C05_BB_D14_20251105_THT_TRIAL6_gray.mp4",
+        "BaselineMedian": "100.388089602116",
+        "MADScale": "19.6762235158664",
+        "CountUngated": "2",
+        "CountHeightFiltered": "0",
+        "TotalScoreUngated": "12.3818630079238",
+        "TotalScoreHeightFiltered": "0",
+        "MeanScoreUngated": "6.19093150396191",
+        "MeanScoreHeightFiltered": "NaN",
+        "JointValidFrames": "625"
+      },
+      {
+        "File": "TMCS2_S18_T3_C05_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "121.880166255904",
+        "MADScale": "26.2540624458599",
+        "CountUngated": "1",
+        "CountHeightFiltered": "0",
+        "TotalScoreUngated": "4.77696089291483",
+        "TotalScoreHeightFiltered": "0",
+        "MeanScoreUngated": "4.77696089291483",
+        "MeanScoreHeightFiltered": "NaN",
+        "JointValidFrames": "572"
+      },
+      {
+        "File": "TMCS3_S02_T2_C01_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "107.411482132912",
+        "MADScale": "25.3187349411695",
+        "CountUngated": "1",
+        "CountHeightFiltered": "0",
+        "TotalScoreUngated": "0.743161936862059",
+        "TotalScoreHeightFiltered": "0",
+        "MeanScoreUngated": "0.743161936862059",
+        "MeanScoreHeightFiltered": "NaN",
+        "JointValidFrames": "465"
+      },
+      {
+        "File": "TMCS3_S03_T3_C01_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "108.475607459784",
+        "MADScale": "18.4924274789743",
+        "CountUngated": "4",
+        "CountHeightFiltered": "0",
+        "TotalScoreUngated": "24.6743190257056",
+        "TotalScoreHeightFiltered": "0",
+        "MeanScoreUngated": "6.16857975642641",
+        "MeanScoreHeightFiltered": "NaN",
+        "JointValidFrames": "425"
+      },
+      {
+        "File": "TMCS3_S10_T1_C04_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "103.80833805263",
+        "MADScale": "26.110605513005",
+        "CountUngated": "0",
+        "CountHeightFiltered": "0",
+        "TotalScoreUngated": "0",
+        "TotalScoreHeightFiltered": "0",
+        "MeanScoreUngated": "NaN",
+        "MeanScoreHeightFiltered": "NaN",
+        "JointValidFrames": "911"
+      },
+      {
+        "File": "TMCS3_S12_T3_C04_BB_D14_20260305_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "101.596317595363",
+        "MADScale": "17.3479484729646",
+        "CountUngated": "2",
+        "CountHeightFiltered": "0",
+        "TotalScoreUngated": "24.5395886461801",
+        "TotalScoreHeightFiltered": "0",
+        "MeanScoreUngated": "12.2697943230901",
+        "MeanScoreHeightFiltered": "NaN",
+        "JointValidFrames": "519"
+      },
+      {
+        "File": "TMCS2_S27_T3_C09_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "134.741970823466",
+        "MADScale": "26.2850791709633",
+        "CountUngated": "3",
+        "CountHeightFiltered": "2",
+        "TotalScoreUngated": "67.190629483448",
+        "TotalScoreHeightFiltered": "65.2244478908717",
+        "MeanScoreUngated": "22.3968764944827",
+        "MeanScoreHeightFiltered": "32.6122239454359",
+        "JointValidFrames": "388"
+      },
+      {
+        "File": "TMCS2_S24_T3_C07_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "160.136078794949",
+        "MADScale": "67.6883979206141",
+        "CountUngated": "4",
+        "CountHeightFiltered": "4",
+        "TotalScoreUngated": "44.4014325296194",
+        "TotalScoreHeightFiltered": "44.4014325296194",
+        "MeanScoreUngated": "11.1003581324048",
+        "MeanScoreHeightFiltered": "11.1003581324048",
+        "JointValidFrames": "517"
+      },
+      {
+        "File": "TMCS2_S10_T1_C04_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+        "BaselineMedian": "129.798301808479",
+        "MADScale": "28.2074422440849",
+        "CountUngated": "4",
+        "CountHeightFiltered": "4",
+        "TotalScoreUngated": "111.851907740343",
+        "TotalScoreHeightFiltered": "111.851907740343",
+        "MeanScoreUngated": "27.9629769350857",
+        "MeanScoreHeightFiltered": "27.9629769350857",
+        "JointValidFrames": "607"
+      }
+    ]
+  }
+}

@@ -24,3 +24,6 @@
 *.pdf binary
 *.png binary
 *.xlsx binary
+
+# Illustrator masters are binary scientific artwork; preserve bytes.
+*.ai binary

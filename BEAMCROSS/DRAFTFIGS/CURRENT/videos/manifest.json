@@ -1,0 +1,14 @@
+[
+  {
+    "file": "full_traverse_SED_WALK_RUN_D0_D14_final.mp4",
+    "canonical": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_D0_slip_example_review_20261112/group_presentations/three_rows_two_days/existing_examples_SED_WALK_RUN_D0_D14_log_smoothed_60fps.mp4",
+    "bytes": 18457581,
+    "sha256": "c303ed8f53679fbd97eef83048b676203583df33c294bf84aa2923e3299458c5"
+  },
+  {
+    "file": "tail_SED_WALK_RUN_D0_D14_final.mp4",
+    "canonical": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_tail_centroid3_height10_20261113/presentations_tail_background_aligned/SED_WALK_RUN_D0_D14_tail_slips.mp4",
+    "bytes": 22225013,
+    "sha256": "db7ab2b75074e1f733ae10f74de46737ac3297355441e9cacb8c2a03dec5f157"
+  }
+]

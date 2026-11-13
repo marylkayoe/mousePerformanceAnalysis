@@ -1,0 +1,272 @@
+[
+  {
+    "metric": "speed",
+    "title": "Locomoting speed",
+    "nMice": 42,
+    "nCages": 15,
+    "overall_p": 0.004021164021164021,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": 18.939098373980237,
+        "p_raw": 0.03333333333333333,
+        "p_holm_3_pairs": 0.06666666666666667
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": 43.20471618273772,
+        "p_raw": 0.007936507936507936,
+        "p_holm_3_pairs": 0.023809523809523808
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": 24.265617808757483,
+        "p_raw": 0.35119047619047616,
+        "p_holm_3_pairs": 0.35119047619047616
+      }
+    ],
+    "source": "See README for metric-specific sources",
+    "source_field": "speed",
+    "conversion": 0.5828476269775187
+  },
+  {
+    "metric": "duration",
+    "title": "Crossing duration",
+    "nMice": 42,
+    "nCages": 15,
+    "overall_p": 0.00041005291005291003,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": -1.1328125000000004,
+        "p_raw": 0.03333333333333333,
+        "p_holm_3_pairs": 0.06666666666666667
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": -1.9950000000000006,
+        "p_raw": 0.007936507936507936,
+        "p_holm_3_pairs": 0.023809523809523808
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": -0.8621875000000001,
+        "p_raw": 0.34523809523809523,
+        "p_holm_3_pairs": 0.34523809523809523
+      }
+    ],
+    "source": "See README for metric-specific sources",
+    "source_field": "duration",
+    "conversion": 1
+  },
+  {
+    "metric": "time_stopped",
+    "title": "Time stopped",
+    "nMice": 42,
+    "nCages": 15,
+    "overall_p": 0.008465608465608466,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": -3.93314647185429,
+        "p_raw": 0.03333333333333333,
+        "p_holm_3_pairs": 0.07142857142857142
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": -7.142309833746225,
+        "p_raw": 0.023809523809523808,
+        "p_holm_3_pairs": 0.07142857142857142
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": -3.209163361891935,
+        "p_raw": 0.125,
+        "p_holm_3_pairs": 0.125
+      }
+    ],
+    "source": "See README for metric-specific sources",
+    "source_field": "time_stopped",
+    "conversion": 1
+  },
+  {
+    "metric": "posture",
+    "title": "Posture height",
+    "nMice": 42,
+    "nCages": 15,
+    "overall_p": 0.24703703703703703,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": 0.08261003007123424,
+        "p_raw": 0.7666666666666667,
+        "p_holm_3_pairs": 0.7666666666666667
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": 0.4215605440732535,
+        "p_raw": 0.1111111111111111,
+        "p_holm_3_pairs": 0.3333333333333333
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": 0.33895051400201925,
+        "p_raw": 0.16071428571428573,
+        "p_holm_3_pairs": 0.3333333333333333
+      }
+    ],
+    "source": "See README for metric-specific sources",
+    "source_field": "posture",
+    "conversion": 0.5828476269775187
+  },
+  {
+    "metric": "slip_count",
+    "title": "Slip count",
+    "nMice": 42,
+    "nCages": 15,
+    "overall_p": 0.009404761904761905,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": -1.611111111111111,
+        "p_raw": 0.06666666666666667,
+        "p_holm_3_pairs": 0.13333333333333333
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": -2.5,
+        "p_raw": 0.031746031746031744,
+        "p_holm_3_pairs": 0.09523809523809523
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": -0.8888888888888891,
+        "p_raw": 0.20238095238095238,
+        "p_holm_3_pairs": 0.20238095238095238
+      }
+    ],
+    "source": "See README for metric-specific sources",
+    "source_field": "slip_count",
+    "conversion": 1
+  },
+  {
+    "metric": "slip_score",
+    "title": "Total slip score",
+    "nMice": 42,
+    "nCages": 15,
+    "overall_p": 0.005079365079365079,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": -74.73627841765958,
+        "p_raw": 0.6666666666666666,
+        "p_holm_3_pairs": 0.6666666666666666
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": -457.1076271125406,
+        "p_raw": 0.007936507936507936,
+        "p_holm_3_pairs": 0.023809523809523808
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": -382.371348694881,
+        "p_raw": 0.08928571428571429,
+        "p_holm_3_pairs": 0.17857142857142858
+      }
+    ],
+    "source": "See README for metric-specific sources",
+    "source_field": "slip_score",
+    "conversion": 1
+  },
+  {
+    "metric": "mean_slip",
+    "title": "Mean slip-event score",
+    "nMice": 40,
+    "nCages": 15,
+    "overall_p": 0.024497354497354497,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": 12.380372573564983,
+        "p_raw": 0.6333333333333333,
+        "p_holm_3_pairs": 0.6333333333333333
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": -58.97756979387087,
+        "p_raw": 0.047619047619047616,
+        "p_holm_3_pairs": 0.09523809523809523
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": -71.35794236743585,
+        "p_raw": 0.023809523809523808,
+        "p_holm_3_pairs": 0.07142857142857142
+      }
+    ],
+    "source": "See README for metric-specific sources",
+    "source_field": "mean_slip",
+    "conversion": 1
+  },
+  {
+    "metric": "motion_height",
+    "title": "Motion height",
+    "nMice": 42,
+    "nCages": 15,
+    "overall_p": 0.4667328042328042,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": 1.5979739106300208,
+        "p_raw": 0.5333333333333333,
+        "p_holm_3_pairs": 1.0
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": 1.0763252844851348,
+        "p_raw": 0.6507936507936508,
+        "p_holm_3_pairs": 1.0
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": -0.521648626144886,
+        "p_raw": 0.8630952380952381,
+        "p_holm_3_pairs": 1.0
+      }
+    ],
+    "source": "See README for metric-specific sources",
+    "source_field": "motion_height",
+    "conversion": 1
+  },
+  {
+    "metric": "tail_score",
+    "title": "Tail-motion score",
+    "nMice": 42,
+    "nCages": 15,
+    "overall_p": 0.08949735449735449,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": -0.09322829910250821,
+        "p_raw": 0.36666666666666664,
+        "p_holm_3_pairs": 0.36666666666666664
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": -0.17984914953309217,
+        "p_raw": 0.031746031746031744,
+        "p_holm_3_pairs": 0.09523809523809523
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": -0.08662085043058396,
+        "p_raw": 0.1488095238095238,
+        "p_holm_3_pairs": 0.2976190476190476
+      }
+    ],
+    "source": "See README for metric-specific sources",
+    "source_field": "tail_score",
+    "conversion": 1
+  }
+]

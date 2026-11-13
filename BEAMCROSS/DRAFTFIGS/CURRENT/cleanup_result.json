@@ -1,0 +1,11 @@
+{
+  "archive": "/Volumes/ShosaiData/DATA/Tara/RESULTS/balance_beam_figure_cleanup_20261112/precleanup_working_state.tar.gz",
+  "archive_sha256": "f8d79c672e7ff542728f7ddac45c5f21cd7505b65302ea323c1f863f0d87b516",
+  "snapshot_file_count": 2617,
+  "removed_render_count": 284,
+  "removed_bytes": 92680951,
+  "validation": "All archived members hash-verified before removal; all retained original draft files hash-verified unchanged.",
+  "alignment_followup": "Removed six alignment-only assembly SVG/PNG files after matching each to the verified archive; user requested no separate copies.",
+  "removed_sidecar_bundle_count": 233,
+  "removed_sidecar_bundle_bytes": 40277638
+}

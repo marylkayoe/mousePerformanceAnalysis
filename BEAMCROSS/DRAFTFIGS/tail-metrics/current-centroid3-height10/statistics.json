@@ -1,0 +1,258 @@
+[
+  {
+    "selection": "D0_first",
+    "metric": "LocomotingMean",
+    "omnibus_p": 0.6121164021164022,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": 0.16089905994646125,
+        "p_raw": 0.43333333333333335,
+        "p_holm_3_pairs": 0.875
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": 0.005531691023190621,
+        "p_raw": 0.9603174603174603,
+        "p_holm_3_pairs": 0.9603174603174603
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": -0.15536736892327063,
+        "p_raw": 0.2916666666666667,
+        "p_holm_3_pairs": 0.875
+      }
+    ],
+    "nMice": 42,
+    "nCages": 15,
+    "means": {
+      "sedentary": 4.253903330400788,
+      "walk": 4.460827118631155,
+      "run": 4.282985960486969
+    }
+  },
+  {
+    "selection": "D0_first",
+    "metric": "MeanHeight",
+    "omnibus_p": 0.5581349206349207,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": 2.0385078860943118,
+        "p_raw": 0.6666666666666666,
+        "p_holm_3_pairs": 1.0
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": 3.5375580919239162,
+        "p_raw": 0.30952380952380953,
+        "p_holm_3_pairs": 0.9285714285714286
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": 1.4990502058296045,
+        "p_raw": 0.7202380952380952,
+        "p_holm_3_pairs": 1.0
+      }
+    ],
+    "nMice": 42,
+    "nCages": 15,
+    "means": {
+      "sedentary": 40.74960766278619,
+      "walk": 43.80495600680156,
+      "run": 42.24080527012493
+    }
+  },
+  {
+    "selection": "D0_first",
+    "metric": "CountHeightFiltered",
+    "omnibus_p": 0.9959259259259259,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": 0.38888888888888895,
+        "p_raw": 0.6333333333333333,
+        "p_holm_3_pairs": 1.0
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": -0.11666666666666653,
+        "p_raw": 0.9047619047619048,
+        "p_holm_3_pairs": 1.0
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": -0.5055555555555554,
+        "p_raw": 0.6964285714285714,
+        "p_holm_3_pairs": 1.0
+      }
+    ],
+    "nMice": 42,
+    "nCages": 15,
+    "means": {
+      "sedentary": 1.8333333333333333,
+      "walk": 2.0,
+      "run": 2.2777777777777777
+    }
+  },
+  {
+    "selection": "D0_first",
+    "metric": "TotalScoreHeightFiltered",
+    "omnibus_p": 0.7258730158730159,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": 45.645535343528366,
+        "p_raw": 0.7,
+        "p_holm_3_pairs": 0.9642857142857144
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": -76.71418003168786,
+        "p_raw": 0.42063492063492064,
+        "p_holm_3_pairs": 0.9642857142857144
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": -122.35971537521623,
+        "p_raw": 0.32142857142857145,
+        "p_holm_3_pairs": 0.9642857142857144
+      }
+    ],
+    "nMice": 42,
+    "nCages": 15,
+    "means": {
+      "sedentary": 209.38553190108462,
+      "walk": 232.1248412120349,
+      "run": 179.15991995791842
+    }
+  },
+  {
+    "selection": "D14_last",
+    "metric": "LocomotingMean",
+    "omnibus_p": 0.8041402116402117,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": 0.24351582914850178,
+        "p_raw": 0.4,
+        "p_holm_3_pairs": 1.0
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": 0.08163183688905473,
+        "p_raw": 0.6984126984126984,
+        "p_holm_3_pairs": 1.0
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": -0.16188399225944705,
+        "p_raw": 0.5416666666666666,
+        "p_holm_3_pairs": 1.0
+      }
+    ],
+    "nMice": 42,
+    "nCages": 15,
+    "means": {
+      "sedentary": 4.376831671018603,
+      "walk": 4.5987574957818635,
+      "run": 4.485812350728121
+    }
+  },
+  {
+    "selection": "D14_last",
+    "metric": "MeanHeight",
+    "omnibus_p": 0.3676190476190476,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": -3.0258391631645694,
+        "p_raw": 0.6,
+        "p_holm_3_pairs": 1.0
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": -2.624445561976273,
+        "p_raw": 0.2222222222222222,
+        "p_holm_3_pairs": 0.6666666666666666
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": 0.40139360118829615,
+        "p_raw": 0.9464285714285714,
+        "p_holm_3_pairs": 1.0
+      }
+    ],
+    "nMice": 42,
+    "nCages": 15,
+    "means": {
+      "sedentary": 43.18838332350215,
+      "walk": 41.648795492880936,
+      "run": 39.34124008347026
+    }
+  },
+  {
+    "selection": "D14_last",
+    "metric": "CountHeightFiltered",
+    "omnibus_p": 0.4042857142857143,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": -0.13888888888888873,
+        "p_raw": 0.9,
+        "p_holm_3_pairs": 0.9
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": -1.0166666666666664,
+        "p_raw": 0.07142857142857142,
+        "p_holm_3_pairs": 0.21428571428571427
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": -0.8777777777777777,
+        "p_raw": 0.375,
+        "p_holm_3_pairs": 0.75
+      }
+    ],
+    "nMice": 42,
+    "nCages": 15,
+    "means": {
+      "sedentary": 2.0833333333333335,
+      "walk": 1.5833333333333333,
+      "run": 1.2222222222222223
+    }
+  },
+  {
+    "selection": "D14_last",
+    "metric": "TotalScoreHeightFiltered",
+    "omnibus_p": 0.016785714285714286,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": -83.66532575337247,
+        "p_raw": 0.4,
+        "p_holm_3_pairs": 0.4
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": -218.39419413017808,
+        "p_raw": 0.023809523809523808,
+        "p_holm_3_pairs": 0.05357142857142857
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": -134.72886837680562,
+        "p_raw": 0.017857142857142856,
+        "p_holm_3_pairs": 0.05357142857142857
+      }
+    ],
+    "nMice": 42,
+    "nCages": 15,
+    "means": {
+      "sedentary": 252.90839585959398,
+      "walk": 192.49311943511853,
+      "run": 40.22646042765151
+    }
+  }
+]

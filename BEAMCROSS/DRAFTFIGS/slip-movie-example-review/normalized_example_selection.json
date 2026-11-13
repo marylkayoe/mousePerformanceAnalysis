@@ -1,0 +1,50 @@
+[
+  {
+    "file": "TMCS2_S30_T3_C10_BB_D00_20251022_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S30",
+    "group": "sedentary",
+    "day": "D0",
+    "score": 330.38239046976,
+    "count": 6
+  },
+  {
+    "file": "TMCS2_S30_T3_C10_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S30",
+    "group": "sedentary",
+    "day": "D14",
+    "score": 162.739532710904,
+    "count": 3
+  },
+  {
+    "file": "TMCS2_S33_T3_C02_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S33",
+    "group": "walk",
+    "day": "D0",
+    "score": 0.0,
+    "count": 0
+  },
+  {
+    "file": "TMCS2_S33_T3_C02_BB_D14_20251105_THT_TRIAL4_gray.mp4",
+    "mouse": "TMCS2_S33",
+    "group": "walk",
+    "day": "D14",
+    "score": 106.047330716425,
+    "count": 1
+  },
+  {
+    "file": "TMCS2_S17_T2_C05_BB_D00_20251022_THT_TRIAL1_gray.mp4",
+    "mouse": "TMCS2_S17",
+    "group": "run",
+    "day": "D0",
+    "score": 456.140511131582,
+    "count": 3
+  },
+  {
+    "file": "TMCS2_S17_T2_C05_BB_D14_20251105_THT_TRIAL3_gray.mp4",
+    "mouse": "TMCS2_S17",
+    "group": "run",
+    "day": "D14",
+    "score": 19.7011753628724,
+    "count": 1
+  }
+]

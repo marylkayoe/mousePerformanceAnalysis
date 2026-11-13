@@ -1,3 +1,5 @@
+> Current figure and tail definitions: [CURRENT/README.md](CURRENT/README.md) and [13 November handoff](CURRENT/HANDOFF_20261113.md). The historical panel choices below are superseded; removed files are recoverable from the external archive.
+
 # Balance-beam figure handoff
 
 > **Current figure update (2026-11-11):** Read [FIGURE_HANDOFF_20261111.md](FIGURE_HANDOFF_20261111.md) first for the current Illustrator panel map, corrected whole-tail definitions, paired-change presentation, statistics, alternatives and unresolved checks. The historical notes below remain useful but some presentation choices are superseded.

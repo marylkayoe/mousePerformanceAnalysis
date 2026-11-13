@@ -1,0 +1,5 @@
+# Aligned D0 tail triptych
+
+Same native panel geometry and styling as aligned locomotion/slip overview: scatter width63,height58; Arial5 axis labels,5.8 titles,4.4 p labels; radius1.1 circular mouse markers (no scale transforms), consistent cage diamonds and mean bars. All titles, units, axis ends, group labels and p labels align. No data, selection or statistical changes.
+
+42 first-retained D0 crossings,15cages; original trial number is not necessarily1. Height=per-trial median of five-frame-smoothed full-profile motion median heights. Score=corrected whole-range legacy-mask normalized mean, not an event sum. Tail slips=strict corrected below-bar raw peaks with5-MAD prominence and0.1s separation. Read exact existing figure CSVs/JSONs; omnibus p0.597/0.359/0.415 retained. These exploratory raw cage/cohort tests are not adjusted across outcomes. No significance claims from this layout change. Source paths and script are in tests/plotAlignedD0TailOverview.py. Earlier figures and original supplied SVG unchanged.

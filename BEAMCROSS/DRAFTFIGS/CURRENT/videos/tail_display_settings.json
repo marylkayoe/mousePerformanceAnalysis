@@ -1,0 +1,25 @@
+{
+  "colorLimits": [
+    3.15164584,
+    7.1119383
+  ],
+  "belowBaseline": "bar_bottom",
+  "minimalLegend": true,
+  "heightMarker": "40x12px rectangle, white2px outline",
+  "colorbar": true,
+  "colorUnits": "0.001 a.u./pixel",
+  "activitySmoothingFrames": 17,
+  "columnTemporalSmoothingFrames": 5,
+  "columnSpatialSmoothing": 5,
+  "rowTemporalSmoothing": 5,
+  "rowSpatialSmoothing": 5,
+  "heightSmoothingFrames": 5,
+  "maximumDisplayGapFrames": 4,
+  "trailAcquisitionSeconds": 0.5,
+  "trailDirection": "right",
+  "probabilityRule": "existing minwidth15 inputs; body-connected exclusion preserved",
+  "greenHidden": true,
+  "profileColor": "black",
+  "belowAndMarkersColor": "purple",
+  "eventDetectionUnchanged": true
+}

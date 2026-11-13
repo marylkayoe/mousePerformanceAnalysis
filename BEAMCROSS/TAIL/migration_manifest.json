@@ -1,0 +1,82 @@
+[
+  {
+    "original": "BEAMCROSS/getTailMotionTrace.m",
+    "implementation": "BEAMCROSS/TAIL/+bbtail/getTailMotionTrace.m",
+    "original_sha256": "e454a0f0ae68a49c94b2454bff6b8234787abcec64ec9768cc3ee07c41bcb35e",
+    "implementation_sha256": "e454a0f0ae68a49c94b2454bff6b8234787abcec64ec9768cc3ee07c41bcb35e",
+    "changes": "Package resolution/repository-root discovery only; height writer retains historical output folder. Original entry point becomes compatibility wrapper.",
+    "wrapper_sha256": "9387aa2aba80fae782b5793d2fdab211ee03ae6ea06339ed58f4056314c883ba"
+  },
+  {
+    "original": "BEAMCROSS/getTailMotionMetrics.m",
+    "implementation": "BEAMCROSS/TAIL/+bbtail/getTailMotionMetrics.m",
+    "original_sha256": "d209f85dbf612e32f49fd9a3963cac6a2d07aa99bfd347983e9fc9ed7133a6b7",
+    "implementation_sha256": "ce36b6bbbd3187f1bb1cd07556b0201ff82ad8c609d9f650bcc6cd807decddb1",
+    "changes": "Package resolution/repository-root discovery only; height writer retains historical output folder. Original entry point becomes compatibility wrapper.",
+    "wrapper_sha256": "041168460b8368a3e7b6322bf534b51eb118180f7b9f010fbb105094af98c99e"
+  },
+  {
+    "original": "tests/reweightTaraTailProfiles.m",
+    "implementation": "BEAMCROSS/TAIL/+bbtail/reweightTaraTailProfiles.m",
+    "original_sha256": "59c6112b6c30b9cd3b7ae81dbe6721592dc6eea184af15ddef9077e10ff40727",
+    "implementation_sha256": "59c6112b6c30b9cd3b7ae81dbe6721592dc6eea184af15ddef9077e10ff40727",
+    "changes": "Package resolution/repository-root discovery only; height writer retains historical output folder. Original entry point becomes compatibility wrapper.",
+    "wrapper_sha256": "f1bf98378269587b63283beeb44df023cb858188c0082350fcf930aa72eff07e"
+  },
+  {
+    "original": "tests/reweightTaraWholeTailProfiles.m",
+    "implementation": "BEAMCROSS/TAIL/+bbtail/reweightTaraWholeTailProfiles.m",
+    "original_sha256": "79c1cc57e4e50507df4aa3362a872c9c8fba49fa8f83e15dbc3aadca8ee49f81",
+    "implementation_sha256": "79c1cc57e4e50507df4aa3362a872c9c8fba49fa8f83e15dbc3aadca8ee49f81",
+    "changes": "Package resolution/repository-root discovery only; height writer retains historical output folder. Original entry point becomes compatibility wrapper.",
+    "wrapper_sha256": "5e7bf77e95c7246ada2b8a25073c13cbc627ada3af68e1728233516c2ad015ab"
+  },
+  {
+    "original": "tests/exportD0TailSpatialProfiles.m",
+    "implementation": "BEAMCROSS/TAIL/+bbtail/exportD0TailSpatialProfiles.m",
+    "original_sha256": "516025f081ee6591f1da56a71d70dac8457580370446e573e3a0ebd47b86e85e",
+    "implementation_sha256": "00cb2423c93e2b2c021eba99b177b178baeb741ac615a6dc2ee532422065a52d",
+    "changes": "Package resolution/repository-root discovery only; height writer retains historical output folder. Original entry point becomes compatibility wrapper.",
+    "wrapper_sha256": "5cb7f687e37c705d6a891e095cf2b3d2a7286d7310fe68687e5f25f6b6a993df"
+  },
+  {
+    "original": "tests/exportD14TailSpatialProfiles.m",
+    "implementation": "BEAMCROSS/TAIL/+bbtail/exportD14TailSpatialProfiles.m",
+    "original_sha256": "586ad98e07e27257601f7ee52fa19b87a2b5468dcb940875ea9b55fa3b959d49",
+    "implementation_sha256": "e7607ed47382e42434e6634e892a7462318aa702e4a6634e39ac7514dc301aef",
+    "changes": "Package resolution/repository-root discovery only; height writer retains historical output folder. Original entry point becomes compatibility wrapper.",
+    "wrapper_sha256": "76b13ca626aecd5f8eb9a8ec3a69cb56b9e8a3aad2c8c7e0e70fc4da58d47df2"
+  },
+  {
+    "original": "tests/exportTailCDFValues.m",
+    "implementation": "BEAMCROSS/TAIL/+bbtail/exportTailCDFValues.m",
+    "original_sha256": "9427a774812fbbccb21d7eff071378c982ce125cbfcd9e02c80741cb24c436f3",
+    "implementation_sha256": "048ec02d642ba3d452d7476b6a203dc633029c4f2c4420a039fb6b6376dfba41",
+    "changes": "Package resolution/repository-root discovery only; height writer retains historical output folder. Original entry point becomes compatibility wrapper.",
+    "wrapper_sha256": "1f595e76261f19e55879cbbcac7a6997983653ae9b0e119a17771d4079b6ee64"
+  },
+  {
+    "original": "tests/countD0FirstBelowBarPeaks.m",
+    "implementation": "BEAMCROSS/TAIL/+bbtail/countD0FirstBelowBarPeaks.m",
+    "original_sha256": "91729df38db57d2becd5e263689e79efed8d12926c9881bc2fe847ba3281deb8",
+    "implementation_sha256": "60a9ca2a413297e05fff596f53c1355e51336f7655a033cffafce36a7dd6521d",
+    "changes": "Package resolution/repository-root discovery only; height writer retains historical output folder. Original entry point becomes compatibility wrapper.",
+    "wrapper_sha256": "b8b39ecb31630db4883098ffb5db052f282027331d0ade5794024a8980e6eb59"
+  },
+  {
+    "original": "tests/countBelowBarMotionEpisodes.m",
+    "implementation": "BEAMCROSS/TAIL/+bbtail/countBelowBarMotionEpisodes.m",
+    "original_sha256": "93cdf800807191f6a66e7bb0c91abfb30e2626cec28dd7fff99185981754ba30",
+    "implementation_sha256": "0205d9ea2b9b7aac4892d2db0f9420a714f5092ab33799f49ca5cca935c6a4a9",
+    "changes": "Package resolution/repository-root discovery only; height writer retains historical output folder. Original entry point becomes compatibility wrapper.",
+    "wrapper_sha256": "861bf57417be8c76169492cd419b1b5ac7f5303504cf7923037e2b7be24a1a8c"
+  },
+  {
+    "original": "BEAMCROSS/DRAFTFIGS/tail-metrics/height-exploratory/extract_tail_height.m",
+    "implementation": "BEAMCROSS/TAIL/+bbtail/extractTailHeight.m",
+    "original_sha256": "92450c2f1d4a3061bf9e15862162b1014f8c21398b3bbada7a535d9efb270156",
+    "implementation_sha256": "0e7179e93a6864aceca492911b4a185df42e91ab5a04838ad65fb32fb7328b31",
+    "changes": "Package resolution/repository-root discovery only; height writer retains historical output folder. Original entry point becomes compatibility wrapper.",
+    "wrapper_sha256": "6e164ad361a4e956e9f66a8c86d7496afaff6e55ea9d9573699f41713d3cf8f4"
+  }
+]

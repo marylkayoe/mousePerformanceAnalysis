@@ -1,0 +1,22 @@
+[
+  {
+    "group": "sedentary",
+    "day": "D0",
+    "file": "TMCS3_S07_T1_C03_BB_D00_20260219_THT_TRIAL3_gray.mp4"
+  },
+  {
+    "group": "sedentary",
+    "day": "D14",
+    "file": "TMCS3_S07_T1_C03_BB_D14_20260305_THT_TRIAL2_gray.mp4"
+  },
+  {
+    "group": "run",
+    "day": "D0",
+    "file": "TMCS3_S12_T3_C04_BB_D00_20260219_THT_TRIAL1_gray.mp4"
+  },
+  {
+    "group": "run",
+    "day": "D14",
+    "file": "TMCS3_S12_T3_C04_BB_D14_20260305_THT_TRIAL2_gray.mp4"
+  }
+]

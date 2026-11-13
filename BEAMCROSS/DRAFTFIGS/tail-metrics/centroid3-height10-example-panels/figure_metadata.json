@@ -1,0 +1,51 @@
+{
+  "file": "TMCS2_S18_T3_C05_BB_D00_20251022_THT_TRIAL2_gray.mp4",
+  "frames": [
+    856,
+    1822
+  ],
+  "fps": 160,
+  "mask": "3x centroid; minwidth15",
+  "heightGateMM": 10,
+  "eventCount": 3,
+  "summedEventScore": 119.74915988394368,
+  "colorLimits": [
+    2.9283072684105305,
+    6.238675440444407
+  ],
+  "heightSmoothingFrames": 5,
+  "colorSmoothingFrames": 17,
+  "normalization": "whole motion / geometrical crop area *1000; no height, speed or MAD scaling; locomotion-only color; stops gray",
+  "scatter": {
+    "selection": "D0_first",
+    "metric": "MeanHeight",
+    "omnibus_p": 0.5581349206349207,
+    "pairs": [
+      {
+        "pair": "walk minus sedentary",
+        "difference_cage_cohort_balanced": 2.0385078860943118,
+        "p_raw": 0.6666666666666666,
+        "p_holm_3_pairs": 1.0
+      },
+      {
+        "pair": "run minus sedentary",
+        "difference_cage_cohort_balanced": 3.5375580919239162,
+        "p_raw": 0.30952380952380953,
+        "p_holm_3_pairs": 0.9285714285714286
+      },
+      {
+        "pair": "run minus walk",
+        "difference_cage_cohort_balanced": 1.4990502058296045,
+        "p_raw": 0.7202380952380952,
+        "p_holm_3_pairs": 1.0
+      }
+    ],
+    "nMice": 42,
+    "nCages": 15,
+    "means": {
+      "sedentary": 40.74960766278619,
+      "walk": 43.80495600680156,
+      "run": 42.24080527012493
+    }
+  }
+}

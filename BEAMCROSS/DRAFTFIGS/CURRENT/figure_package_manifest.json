@@ -1,0 +1,1402 @@
+[
+  {
+    "path": "BEAMCROSS/BBanalysisSingleFile.m",
+    "bytes": 15254,
+    "sha256": "6b836b63021059fa60b6a91dadd56df4774719ead5df302dc6f4b3abeb8faafa"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/active_data_dependencies.json",
+    "bytes": 5338,
+    "sha256": "ac0c7e2ebd006bd42866eaf7e42f30cbc5f0e0650a8e7dab6223abf7680e9bf8"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/archive_20261113.json",
+    "bytes": 240,
+    "sha256": "3736a2e158612470ef2aa5f6427fd597982fce269fdb6d99ac4584e615348129"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/cleanup_20261113.csv",
+    "bytes": 333542,
+    "sha256": "45345d34a090205a50e19be7bbfa01fee2b264aa3d410e88eb4a5d348c881862"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/cleanup_manifest.csv",
+    "bytes": 164822,
+    "sha256": "24d29c9b60d083e1ee8a6a8439e6aecc7231d38cbee46f60b08f7acd63d5fb8e"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/cleanup_result.json",
+    "bytes": 674,
+    "sha256": "1a45bd4a341d3112c64ec26635868e66a5b0b9de1c6af41f229babd1edcb32f0"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/latest_panels.json",
+    "bytes": 266,
+    "sha256": "dbb6084438761c03003fa62dda33b851500be31d319c832e3250afc59e4ce063"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/retained_script_roots.json",
+    "bytes": 3123,
+    "sha256": "3800d55a3c680f79bed2bf0a11fa9800ad7736b654c54b622593c074eb445d43"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/sidecar_cleanup_manifest.csv",
+    "bytes": 54293,
+    "sha256": "8d716c9fc5d56f6d83463f21da59239dc1c7b16ee9a3979a4ba453bd0744f8da"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/source_video_copy_removal.json",
+    "bytes": 708,
+    "sha256": "f9b363bb65e1bde90aa93e5c45a0a43f1fd328a0d88f26bd021307686632a367"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/verification.json",
+    "bytes": 395,
+    "sha256": "275be65d755cb6698910bfb860d7805e8048d9e2e9372b645212b5a6b0657687"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/videos/full_traverse_SED_WALK_RUN_D0_D14_final.mp4",
+    "bytes": 18457581,
+    "sha256": "c303ed8f53679fbd97eef83048b676203583df33c294bf84aa2923e3299458c5"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/videos/full_traverse_manifest.json",
+    "bytes": 4665,
+    "sha256": "bd8e9d4145fc729db2f4f9ed72e9f8fa809db91eea827b8637847161c8b4b555"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/videos/manifest.json",
+    "bytes": 718,
+    "sha256": "16245df62b92a4a68196253fee1e216da6b80072c211b88dc5087f1a38b51757"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/videos/tail_SED_WALK_RUN_D0_D14_final.mp4",
+    "bytes": 22225013,
+    "sha256": "db7ab2b75074e1f733ae10f74de46737ac3297355441e9cacb8c2a03dec5f157"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/videos/tail_display_settings.json",
+    "bytes": 719,
+    "sha256": "d7c5c94d2c51f88edb0960195b4fc738011bc36153dd53f7a1b569f7b77137ae"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/CURRENT/videos/tail_manifest.json",
+    "bytes": 6784,
+    "sha256": "5519c37b91dd00e30cea0b127cb30b1db3a84ca400267d17f045574db6517441"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/aligned-overview/D0_aligned_overview_total_slip_score.svg",
+    "bytes": 79951,
+    "sha256": "066ce5b2e5be156d55f719b580c6cdea8dc6feec0e0ed43b0e9025d632c194c3"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/aligned-overview/statistics.json",
+    "bytes": 769,
+    "sha256": "c657d3998d182221ecf573aac2f7838f8739be255de840d3742409168147ce21"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/aligned-overview/total_slip_score_mouse_values.csv",
+    "bytes": 6057,
+    "sha256": "80759049db9ee6cf775c56da3a5d67db8143fc2dfd8f06b74abdd2ca3aeb9fac"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/event_validation.csv",
+    "bytes": 3904,
+    "sha256": "11585fcf7e85a88a43335bf89c1fbcee0b068d3e102630149e9fab676300faa4"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/group_statistics.csv",
+    "bytes": 239,
+    "sha256": "806e82efbd87983f94de1252ce937cba4f6f0afba38dd89b0950044713140a5e"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/group_statistics.json",
+    "bytes": 2672,
+    "sha256": "2ea1184b40c3c859df88e8f08bbf76b54fc8cb880f25304f26649334bc1b39a6"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/spatial_source.csv",
+    "bytes": 538715,
+    "sha256": "19e647c7f52ac968e80f6582494bdd1f0f152d3446fc2ed2d1e2a64912f27489"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/spatial_summary.csv",
+    "bytes": 23714,
+    "sha256": "71963016723936bc91ed2043979c5a3a0226d2b70d9f9c1dd6511aa5c0faadc0"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/D0-first-trial-panels/trial_values.csv",
+    "bytes": 5304,
+    "sha256": "6e0329fedd4d7f73cffae4199e65f4380b653182a24465e47cc124ecd266886a"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/L-panel-layout-20261112/supplied_assembly.svg",
+    "bytes": 39345,
+    "sha256": "0c0c34f82436bf52a2283817ebda40783420b440a1b0af4f64b308cb175d0346"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/SLIPS&STOPS/stop-time-percentage/analyze.py",
+    "bytes": 7438,
+    "sha256": "ad9b91887b397ee87ee6a402823a2409b132d9498a732700e68c3a6db2c77025"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/SLIPS&STOPS/tape-exclusion-sensitivity/analyze.py",
+    "bytes": 5639,
+    "sha256": "2e807040d1faa877ef7527b1f40f490e1e778d8c567fc09a5384670dba89b756"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/centroid-trial-centered-mean-sem-data.mat",
+    "bytes": 12930,
+    "sha256": "17aa373dee10d7156533f7d272751f4b32b1031d3e850d492b2ad1a5c07c828f"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/centroid-trial-centered-stacked-mean-sem-data.mat",
+    "bytes": 12930,
+    "sha256": "aa71a4aa81e4493cbfe4af1e18b7750da986c6479a1addffeed21ab35d7b9ab0"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/events.csv",
+    "bytes": 769052,
+    "sha256": "9cd4effd15aac309fa0e61ff39dd430de32c9de4038b74aac80650c5fc5fe179"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/pooled-exposures.csv",
+    "bytes": 34615,
+    "sha256": "707eb94a32e6e31e061defc296de1d1f3f0556c7fe172a7cbefd158c77c49337"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/posture-by-position-data.mat",
+    "bytes": 480717,
+    "sha256": "dbf5761eb06b24e0fb933f4fb6161bf17d08241dec1da637c3275a78a127537c"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/posture-statistics/change-omnibus.csv",
+    "bytes": 146,
+    "sha256": "34dbf8166dbacc791d04aa1e5b75f8bdf7ed150f9a4e1d614b3a5f9a230ad671"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/posture-statistics/change-pairwise.csv",
+    "bytes": 404,
+    "sha256": "7227e1e91a5cb1b00cc65c0a745741d464b0c9d514a52b15ac7c558235c02bfe"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/posture-statistics/days-omnibus.csv",
+    "bytes": 288,
+    "sha256": "4a92b5d86bdcbb6bc20b8c69fc803f3941eed4d258c523ad6b4d624c3cb13971"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/posture-statistics/days-pairwise.csv",
+    "bytes": 868,
+    "sha256": "986317fe4a734055b9f632d55eae28a1a12a795d6ab996e998cab8ed4f84ed7e"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/posture-statistics/tail-changes.csv",
+    "bytes": 2164,
+    "sha256": "8835ffbd8f788b44e01e57a27c1754df3aa020a5aed0d183634a008291e41e80"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/posture-statistics/tail-days.csv",
+    "bytes": 47522,
+    "sha256": "d82bb7827f98d0846497f74f8a045a002cd0e3e1ce3bf71853d84d22d142f94f"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/speed-absolute-position-data.mat",
+    "bytes": 969149,
+    "sha256": "cef53e96887c1f49837932c9696d50679ca9f34c4ac4facec0108bb1890b2efb"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/tail-and-behavior-frame-traces.zip",
+    "bytes": 49868639,
+    "sha256": "b18dcaabf1f76799892f5da203e2e72920e5b0bc87f517f47bd30cf9e134b9d2"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/trial_manifest.csv",
+    "bytes": 91509,
+    "sha256": "6f0a047cf7f99c09731f0cee91c80eda3f0f3bd939ad230ecac6e92f483c8496"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/weighted-speed/speed-D14-minus-D0.csv",
+    "bytes": 17333,
+    "sha256": "b521b912dd5951dd3c4715ae487a6c33bd63b4ed7645fc22e04a74a25a0636cb"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/weighted-speed/speed-D14-omnibus.csv",
+    "bytes": 145,
+    "sha256": "38c3a24bfd64253453e0787b1843f7cdb2baf21b5479533799ecb35da89e3853"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/weighted-speed/speed-D14-pairwise.csv",
+    "bytes": 340,
+    "sha256": "803f428f3e2be515bc3e5626f130cd63d555894371f202ee746b478715fffc43"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/weighted-speed/speed-change-omnibus.csv",
+    "bytes": 143,
+    "sha256": "7ef4a87184eac49835b38c72098f04c96cf55b1cba95c4f0d725b6aebf35e6ff"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/weighted-speed/speed-change-pairwise.csv",
+    "bytes": 341,
+    "sha256": "2f786a5492d19e02a4832a4371fc4a4fc6c7f05b7cc0061adae00b4cdbe856e9"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/weighted-speed/speed-days-input.csv",
+    "bytes": 6282,
+    "sha256": "515128488f72a6c39a18733c4b034e6063be288e0ff10c2d44e3a93d96c873e7"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/weighted-speed/speed-days-omnibus.csv",
+    "bytes": 258,
+    "sha256": "8740f7ba61fd1c298a9311ffb6f15d944b75f3c1898496aa104d93aad3074794"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/weighted-speed/speed-days-pairwise.csv",
+    "bytes": 831,
+    "sha256": "60aba3f7531b0858ca71839ee4c3010ab539523de09d18dad8d23c7bc2f1273e"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/analysis-data/weighted-speed/weighted-locomoting-speed.csv",
+    "bytes": 31093,
+    "sha256": "cd61d09e98556be4e341fc3f0fac5b0060d39393eed5ce833c888642a8d8bcac"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/assembled-panel-layout-20261112/supplied_assembly.svg",
+    "bytes": 95446,
+    "sha256": "30e037312e36a1cf15145403e5140f0e3cabedcb0d38bb94f7ad5a0a1b58be37"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/BBfigure.ai",
+    "bytes": 2906032,
+    "sha256": "79c8b447fb3a52bb6bc804a7fe00b63dd30ab661dfa54a5152504f30a12fbaff"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/BBfigure_D0.ai",
+    "bytes": 1949886,
+    "sha256": "05d2e2ad9a4c36170ac3e4af67f27d28e0c3112867af278177dd0c6b5076f970"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/BBfigure_all.ai",
+    "bytes": 2396893,
+    "sha256": "83aefc39b0f5b65b069060a629023f43eff8c25872e6d43b5d0c660b2bb52e15"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/D0_pooled_event_positions_10mm_mirrored.csv",
+    "bytes": 1002,
+    "sha256": "5088e930c5acb36cf7e3a546d7a52b85119814d07f31b50eb48b8b057ceb87c8"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/D0_pooled_event_positions_10mm_mirrored.json",
+    "bytes": 373,
+    "sha256": "c4673aa3284c3464dcf0033ea73a83b90516a68f4bee801be34a8c9a72862f65"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_f514_centroid_trajectory.json",
+    "bytes": 945,
+    "sha256": "12bec55756d7ac4eaa0574140f268eb703804508f5888a74d274d354eaaf26bd"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_f514_centroid_trajectory.svg",
+    "bytes": 194844,
+    "sha256": "fb8eab2ad2821f013921aa5719aa190ace6e8b3eeb0499056e1b8b6f0304dd4d"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_f514_schematic_slip_depth.json",
+    "bytes": 422,
+    "sha256": "8f661ff4894ecf8d54ef383f1ec3fcb37e03b57a10bef6a61973c8c7dda92fde"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_f514_slip_gradient_tail_weightbar.json",
+    "bytes": 929,
+    "sha256": "d590760726b62edeea609384a28885076986a0edae38ffd0dc5b63a1c2dff6ba"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_f514_slip_gradient_tail_weightbar_purple.svg",
+    "bytes": 234471,
+    "sha256": "afeeb6ef6f3f91b3cf6d147ee217a8d4416dfbe1a4b481a230dd622c9e478ae4"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_f514_tail_region_weightbar.json",
+    "bytes": 784,
+    "sha256": "3de447a8b27ca7ceef3c0500c3df50819a38aae113190a5d39c3c6db71a78355"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_f514_weights.json",
+    "bytes": 61660,
+    "sha256": "a9611bcdd6872bd726d7894f9e9369b9f25ca9533b282b6da6ba0249ccbc47c1"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_forward_speed_stops.csv",
+    "bytes": 36158,
+    "sha256": "117b2572da37898beb89f1c961087cc5d7f16d71b95126bbed5ff4e570ec3619"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_forward_speed_stops.json",
+    "bytes": 883,
+    "sha256": "7d74e294f55638da214594494dd671182bb5e04b07a562bb713ce4fc3d21aafb"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_forward_speed_stops.svg",
+    "bytes": 22890,
+    "sha256": "b5f3826207537b22577d99f4f7c7b897a13070eb3aaaabc6d7b34fba93ea1a73"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_under_bar_motion_slips_downward_areas.csv",
+    "bytes": 28947,
+    "sha256": "96cc3633b27508bc02dcff126ebe2abc601f1714f802ec7f18897fa265fcc10a"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_under_bar_motion_slips_downward_areas.json",
+    "bytes": 3511,
+    "sha256": "4380cfad37e14ef4744cdbb56891a804e9194f4c89577ce7e94ff5f47470b0db"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_under_bar_motion_slips_downward_areas.svg",
+    "bytes": 35729,
+    "sha256": "5f6ac6475c471c2a1895fbabd6e810f9a404715d091a99a01d3b76db6606000f"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_under_bar_motion_slips_downward_areas_log.csv",
+    "bytes": 28947,
+    "sha256": "96cc3633b27508bc02dcff126ebe2abc601f1714f802ec7f18897fa265fcc10a"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/TMCS2_S18_D0_T2_under_bar_motion_slips_downward_areas_log.json",
+    "bytes": 3697,
+    "sha256": "869870e19a99d2f8c2a4e856269b05209550549d1609bac75ac44f427bd03519"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/tail_motion_example_stills/nine_frame_averages/contrast_variants/strong_center_emphasized_f1186.png",
+    "bytes": 19879,
+    "sha256": "fc39e25628cf217a9e43a8b9b06c4510e8a1530dbb84738e289131beef4cbb52"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/tail_motion_example_stills/nine_frame_averages/contrast_variants/strong_center_emphasized_f1186_20mm.png",
+    "bytes": 42808,
+    "sha256": "e130b358394d767dee5e4047f97b63d2a5c6e24b696c1506b67761e1c051e315"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/tail_motion_example_stills/nine_frame_averages/contrast_variants/strong_center_emphasized_f1186_20mm.svg",
+    "bytes": 27064,
+    "sha256": "4d500b185cf33537f1b0020bd3f88af5928c3bf942478ee1b8c1a00b43451419"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/tail_motion_example_stills/nine_frame_averages/contrast_variants/strong_center_emphasized_f1639.png",
+    "bytes": 19746,
+    "sha256": "4d807d683dd26d98c52ebe313082987c9bb6da2c6fa0b6d858a3ac10a660a6c4"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/tail_motion_example_stills/nine_frame_averages/contrast_variants/strong_center_emphasized_f1639_20mm.png",
+    "bytes": 41335,
+    "sha256": "24ff3bf3b8d53a86fa1da3f68193214e3cb1a6fa67e00f51157b230315268471"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/figMaterials/tail_motion_example_stills/nine_frame_averages/contrast_variants/strong_center_emphasized_f1639_20mm.svg",
+    "bytes": 26884,
+    "sha256": "2408e8fd0b0bb96d063efc565b3a39c531ec5215ba1ea322849a5a27a4b4132f"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/font-alignment-20261112/supplied_assembly.svg",
+    "bytes": 312133,
+    "sha256": "964684b4208eeec59a1373f552615ecfe0cce3fce2ea4d2de0a97337f97bbfa4"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-D14/exclusions.json",
+    "bytes": 360,
+    "sha256": "ea7f0ddf31345f013fe2f649ac22d37b5a058eba6348df9df335e31589d23cf6"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-D14/last_crossing_values.csv",
+    "bytes": 42754,
+    "sha256": "2621563886a6036d45f3a7425508c9421bb2d177cce628dc5452b48afa7e719a"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-D14/ordered-pattern-tests/results.csv",
+    "bytes": 1103,
+    "sha256": "b84d95de573b88be0f4f06887e34ad006ab583dd3fd97087ef71d9005cf1ab93"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-D14/ordered-pattern-tests/results.json",
+    "bytes": 2430,
+    "sha256": "1d781958d2a7e9ede9517147f233eb0cfafa1daba2b5941abbc6b9138bcc2968"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-D14/selected_crossings.csv",
+    "bytes": 10893,
+    "sha256": "1dd6385fc6bda4749d1f73589ba1873a071f8e5d0bd68200985aa6a8ab8d148b"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-D14/statistics.csv",
+    "bytes": 3043,
+    "sha256": "9e18f50001766eb257aa4652fa0f71447ae0eb3caff76fe52c74b90fd2c03ac5"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-D14/statistics.json",
+    "bytes": 7850,
+    "sha256": "5af0abb9b7b7bbd05b5f8af2ba13a8f3666b8e8b43086fb044e6a6967f79ff73"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/EXISTING_FILES_BEFORE.sha256",
+    "bytes": 3572,
+    "sha256": "179add917aabd70fc2f72e6445cab6f6610a0cd19de29055bbec145f09c2dc0d"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/FOUR_OUTCOMES_change_permutation.csv",
+    "bytes": 1393,
+    "sha256": "3cfa6057d4c5f8a85af9ab697fce4b63a3c874c8cb73d6b22a584e420e5ab934"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/FOUR_OUTCOMES_existing_D14_permutation.csv",
+    "bytes": 1113,
+    "sha256": "05882a4a59affefe186c8d3b7f602abf54aafeb4a16be3b0a1135e8c8f5505f0"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/FOUR_OUTCOMES_leave_one_cage_out.csv",
+    "bytes": 31871,
+    "sha256": "1f5f737cf944a0ad2c4f96b4e66b544f11df713e6c0d60e5959acf7c3e10a3fb"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/FOUR_OUTCOMES_model_comparisons.csv",
+    "bytes": 8849,
+    "sha256": "2725ab6975f666d80debc2a1c6150d8e5cd16cd96ff4c169c3d5a24b428a4636"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/aligned-four-D14/D14_last_four_metrics.svg",
+    "bytes": 32587,
+    "sha256": "c82317a9ebe71ccf6b334711215efec6221314637c0cf5f8ef755d76d727d25b"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/aligned-four-D14/paired_mouse_values.csv",
+    "bytes": 32543,
+    "sha256": "0de16a2714bba376524b2a7b905fe7e2e16c013ca7379970363908f39a4b32b3"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/aligned-four-D14/statistics.json",
+    "bytes": 2903,
+    "sha256": "4b30c2f191d5f92b960e7634ef7c1cd95ed7f99855b593c431f8d02b9a5ce449"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/aligned-four-changes/paired_mouse_values.csv",
+    "bytes": 32885,
+    "sha256": "d2416e8a37bd19b40e365f30546509aebd0cf43389b5ace1bef9f2bf54290f0d"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/aligned-four-changes/statistics.json",
+    "bytes": 2873,
+    "sha256": "70b34bf0b59bbe113b6ec6761890137e3bb23d65c12179a004d44a6d86b71874"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/aligned-tail-D14/D14_aligned_tail_mouse_values.csv",
+    "bytes": 13626,
+    "sha256": "acc3c02b6c93cef7385be25473a95cd3ff7cf2b64b5a217795234af902c1fb7f"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/baseline_slope_diagnostics.csv",
+    "bytes": 647,
+    "sha256": "f12248dd68176cd99c1c0cc420ca96e19753aa590564cd47e4685ca46161fe43"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/cage_inputs.csv",
+    "bytes": 22309,
+    "sha256": "e37e8542ace4ba1c2383fe6c6aeab423c3c7030dd7fd9b66d90e8de385cc9ed4"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/cohort_contrasts.csv",
+    "bytes": 2949,
+    "sha256": "f8be90f657d2a42fc9c65e3e83ccdbc7ec1f7fb0d9d8682769db28fa2d788dfd"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/existing_D14_permutation_with_Holm9.csv",
+    "bytes": 2164,
+    "sha256": "9506836034e64bd6852a8800f6dbb969827f94ab0ddf4b86bda239958475f03e"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/group_summary.csv",
+    "bytes": 24708,
+    "sha256": "c60d1c0cd2bb945f765d7e243d3d1a1e67b972c6759f6d18288e6a3de60f12ba"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/influence_summary.csv",
+    "bytes": 11456,
+    "sha256": "52caaca1ad35c080cce5b5639b07f247f88c6a636f3dbdccf1b52495b35af2fd"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/leave_one_cage_out.csv",
+    "bytes": 62899,
+    "sha256": "f73797b413405e587cffc309680759782120436cc863ad1c4fba440194bec0ba"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/missing_pairs.csv",
+    "bytes": 532,
+    "sha256": "e0561440f9bfb412c2be52ca02fefe6c86c92ea4d900b935484d3e8043752f18"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/model_comparisons.csv",
+    "bytes": 16794,
+    "sha256": "6e8d4e618cde2236247599950c15c038460fa39637e0262084cf054d2f697543"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/model_diagnostics.csv",
+    "bytes": 25456,
+    "sha256": "83a58c6b606c1a8f201cf8c69669525c24d51725b1501d9c573753f2eeb41b8f"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/mouse_values.csv",
+    "bytes": 81158,
+    "sha256": "7cabf0d155d008c998e5daa92ecfb072b04a98adfd06f797d33637289088acc8"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/paired_change_permutation.csv",
+    "bytes": 2419,
+    "sha256": "460f05041557a7021a192ad31ea05593dc7638566fa2e7969297ae0f0a5a6ae8"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-paired-20261112/selected_crossings.csv",
+    "bytes": 6826,
+    "sha256": "46d70bf98146d009d4f66205928728f3e519f67b2b71f418641d6b0a149c7607"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-spatial/group_profiles.csv",
+    "bytes": 254690,
+    "sha256": "80a613bbb26cd8e0665cbf0134a2b4bf49f4ee0995cec0c113a9d4330d3c792e"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-spatial/mouse_profiles.csv",
+    "bytes": 2843500,
+    "sha256": "58ed07d26ead30a146eaffe8a64826daeade8e9d23c2861db97acd7e467e49f0"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-spatial/selected_crossings.csv",
+    "bytes": 21014,
+    "sha256": "7613219d6ffb8e85c486bdbd8c3d361a83e866de4150c5222a021422019a6d17"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-spatial/speed_change_D14_minus_D0_last_retained_reference.svg",
+    "bytes": 22444,
+    "sha256": "a7823c31ccec6ae015e63fe791822b1b096865f341a34424e672656b75f83f34"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/last-crossing-spatial/speed_change_reference_template.svg",
+    "bytes": 14780,
+    "sha256": "d53e7745415ec40b64382afb89ef712f4bac4799c24cdb1177316d181db4e490"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/posture-presentation/posture-profile-source.json",
+    "bytes": 1194924,
+    "sha256": "5124df047a35af285a218d2241dca8dee809c1f756feac896899eead96f15706"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/D14_tail_example_shortlist.json",
+    "bytes": 95437,
+    "sha256": "41fdd0b7fa42d3029af035f35e0c0ba849bda0b98f8a7fb9d40cc111b5d35971"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/candidate_ranking.json",
+    "bytes": 75912,
+    "sha256": "6f6aaedc9fef3548ca518aae9e4c9428ad957a50050cd01ae12f4c104901a238"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/change_example_ranking.json",
+    "bytes": 71250,
+    "sha256": "ded78ff445209644ff3b2fe83cd7c31b03f841c86f0da0f90c519d72297d9a39"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/change_movie_selection_metrics.csv",
+    "bytes": 1725,
+    "sha256": "a5575b68bac088fd9f37cbc083f0b9e864456c4673dce66ccf7b9f88215b1825"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/group_example_shortlist.json",
+    "bytes": 146303,
+    "sha256": "641cbacf84bc749d191f76b869ad72febc3ccd11c1bb52bdb0325cc79467f6f7"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/height_cutoff_sweep.csv",
+    "bytes": 263,
+    "sha256": "d47fd505c735039fd8c684ee96141be4016b16910098a19517347afe5bcebf29"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/normalized_example_ranking.json",
+    "bytes": 20675,
+    "sha256": "79e1a915c2a1b35c5e102e0f028c174a33b3b8f05c5103222d99872ec55487bd"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/normalized_example_selection.json",
+    "bytes": 1121,
+    "sha256": "8132a687807e0c958e888bd3e58b9be9988603d22237adde159bd79ce923a993"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/normalized_example_selection_v2.json",
+    "bytes": 1133,
+    "sha256": "f9b2e812090753cf3a8202129a49c92dfb1589e8de1d373d4c530b5431f369d2"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/presentation_candidates.json",
+    "bytes": 458,
+    "sha256": "b80784bb123c489ebeb9f88f8068df6c6f440f2112b367a4abb5ad44a373982a"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/sed_D14_ranking.json",
+    "bytes": 38798,
+    "sha256": "2005410a5e62a19292b309be296ead6089c75bea33710b63040f883af913dbc4"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/selected_change_movies.json",
+    "bytes": 1620,
+    "sha256": "ffae24f9c86dfffe2aec89d4da569cbf79b5541ca2b1e3ebb057d3ca8acb83f4"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/selected_group_movie_metrics.csv",
+    "bytes": 1076,
+    "sha256": "0d93a195162582185350c26ecaba33551432f8554bc891d69bda38a717f1ddbc"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/selected_group_movies.json",
+    "bytes": 468,
+    "sha256": "295578afc179491ce94ef8faec51be3e9876b10a06cf966a236d51b7f6f6e53f"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/tail_candidate_pairs.json",
+    "bytes": 1534,
+    "sha256": "56a421fe90f2062a10530af444d994e76712959ddfd43c83289faa6749ae9305"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/threshold_visual_summary.csv",
+    "bytes": 813,
+    "sha256": "465b97967524dc035ad0db9713bbd4908e5c557560d6aec485cd6866e7e453b1"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/slip-movie-example-review/visual_event_labels.csv",
+    "bytes": 5996,
+    "sha256": "928fa852af705eb48d4757f01d4aeca5dd3ab835dac16bc43fd40374040dd89b"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/speed-presentation/speed-profile-source.json",
+    "bytes": 2386716,
+    "sha256": "7c6df34f35744879925cb7fb0f62fed964efe461972146a6898b29da1769177f"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/CDF-D14-and-change/trial-index.csv",
+    "bytes": 61843,
+    "sha256": "bcae09c70aafa29b0cbd10d97093a5867bd8c7ada6f778db21069de4d08820f6"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/D0-spatial-motion-and-height/plot_profiles.py",
+    "bytes": 4844,
+    "sha256": "617e251c8e8b4431cce10f7b1e77c2b9b0c227825ea39ae8a7e0cad687bd4a51"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/centroid3-height10-example-panels/D0_first_tail_height.csv",
+    "bytes": 5403,
+    "sha256": "7e5faf3930e881bf39cab989962680acfbdf11fe780552881c820b1bc0dc2d69"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/centroid3-height10-example-panels/D0_first_tail_height.svg",
+    "bytes": 8471,
+    "sha256": "94cf66bc0c106132f88d7799c8026799c34e556cd6b78b3cc3dd814a71f76250"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/centroid3-height10-example-panels/TMCS2_S18_D0_T2_tail_traces_centroid3_height10.csv",
+    "bytes": 73202,
+    "sha256": "472e3215db25d29f375a74ca2c8073dd243b39b7006e203999f57861b31b873c"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/centroid3-height10-example-panels/TMCS2_S18_D0_T2_tail_traces_centroid3_height10.svg",
+    "bytes": 280706,
+    "sha256": "9aaf52bebe805b53fd9c288974957bcd24479fb8b0fb87519c61ba4451a3b8cb"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/centroid3-height10-example-panels/example_accepted_events.csv",
+    "bytes": 596,
+    "sha256": "2adb99b961bded3f5f62a8e302d98957d2614f3a019a2537ba4dd42c33af869a"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/centroid3-height10-example-panels/figure_metadata.json",
+    "bytes": 1365,
+    "sha256": "e46312ca2be52df5e5c78adda09b423b312243c0c3d11d7742a61d565745bcf9"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/compare_weighted_median_exclude_5mm.m",
+    "bytes": 3726,
+    "sha256": "5b5cba094dc87614351950462a737f9c4e81d39dcc99d7b767623a46e3139c65"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/current-centroid3-height10/D0_first_events.csv",
+    "bytes": 18418,
+    "sha256": "012de6cf4eda1668159b6c18516de76a599a6ca1d055fe2b3cd4f9131065351c"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/current-centroid3-height10/D0_first_summary.csv",
+    "bytes": 7642,
+    "sha256": "828192c7f875f8c19b7382ca4900a21e2ebd8553933d4b6646c7b79fb10e03c8"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/current-centroid3-height10/D0_first_tail_motion_and_swings.svg",
+    "bytes": 14603,
+    "sha256": "def5d45a1b3f4f39b5434e58f81f2ffd1a6b848fd478b4803b68e76a2a5ad031"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/current-centroid3-height10/D14_last_events.csv",
+    "bytes": 15235,
+    "sha256": "57c53c4988333bd666bd30a5e447f9294899f6ae310259d12cc1cceb13b019a2"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/current-centroid3-height10/D14_last_summary.csv",
+    "bytes": 7574,
+    "sha256": "2281f7ad435fed00a0bc2dc770fa5cb5c82cfb6d5f2b5e4666e6049761fa204d"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/current-centroid3-height10/D14_last_tail_motion_and_swings.svg",
+    "bytes": 14574,
+    "sha256": "5b319d18046202e073bde08ac727258acd6b1ec7085c6a61be314cc8e629cf7c"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/current-centroid3-height10/additional_events.csv",
+    "bytes": 891,
+    "sha256": "1a56fc480f6f9c6ebb10f586dc819b7cd2ba44a2706fbfa63d541aa485c60144"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/current-centroid3-height10/mouse_values.csv",
+    "bytes": 43813,
+    "sha256": "ef8a2470a079a21f397d70cc72ee90f4176e246dc610303c18c83ddf3e51376d"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/current-centroid3-height10/statistics.json",
+    "bytes": 6829,
+    "sha256": "a0771a6efaeca9b39ec7ab9313dbc39f69149421ad4442f11f8a4188ba2d5f65"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/height-exploratory/analyze_tail_height.py",
+    "bytes": 3252,
+    "sha256": "2c111d7c594074dafd01dc239a5709352130c6fb88d87d7c2304627fac5de0ef"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/height-exploratory/extract_tail_height.m",
+    "bytes": 361,
+    "sha256": "6e164ad361a4e956e9f66a8c86d7496afaff6e55ea9d9573699f41713d3cf8f4"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/height-exploratory/plot_median_height_statistics.m",
+    "bytes": 3403,
+    "sha256": "b263dc30c571d838cfaf5b5d8a1835ad572d7acc818fb86145127ff9df82b921"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/height-exploratory/plot_tail_height.m",
+    "bytes": 3178,
+    "sha256": "cdcf169fe1cd7844ce255619bbfcbe4dc0e83826d32b2c04745666440c9ca4ef"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/height-exploratory/select_debug_examples.py",
+    "bytes": 2238,
+    "sha256": "732c36e310fe39e9443345025acdacfcd5158d6b27ff0102c27ba9c7a683185d"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/plot_d0_tail_slips_stops_all_data.m",
+    "bytes": 1726,
+    "sha256": "a4b84cb4173bd2b2ee83d37a8c9abd4289194d1609ceea14a732c6a69801245d"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/plot_example_excluding_near_bar.m",
+    "bytes": 2840,
+    "sha256": "218b78b5b0f75777bdecbdc63a3dbf4f96320afb34d37c0a0cccd029a07da648"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/plot_example_motion_height_time.m",
+    "bytes": 1251,
+    "sha256": "f8c05db50242a3a7cb042e45aa6280f4e83cb6a151674b925b90ef262e7a7fbb"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/plot_example_motion_height_time_5frame.m",
+    "bytes": 1477,
+    "sha256": "53cb580b977ae04ebac5e1af3cf190014de4093710749d8cf248c34288338381"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/plot_pooled_tail_histogram.m",
+    "bytes": 1524,
+    "sha256": "82802ac6849c57852af7bbe763eb2f67b31c64ac246315e802070dccf0f15df2"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/plot_tail_position.m",
+    "bytes": 2589,
+    "sha256": "9bfce16e6af4f672d1c35a5833d5ab791d779596a9b5f4acfafa9db1a3cdedef"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/pool_tail_positions.py",
+    "bytes": 700,
+    "sha256": "595b47037867c6ace2c85791074455786d0e49303a758c528f0800f985bf5522"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/prepare_d0_tail_slips_stops.py",
+    "bytes": 1777,
+    "sha256": "e71ad357cbafe9831f2bb76a8d1f29aa86df84630091324347eb539dd9670081"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/prepare_example_motion_height_time.py",
+    "bytes": 1216,
+    "sha256": "01bf368f3c53da4508d2e15d0e34f6a31a2c006e16a7fd3ddaf4178b300efff3"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/prepare_position_profiles.py",
+    "bytes": 3086,
+    "sha256": "ce7b34db040aa612e4286f6e142bf2c0c7edeaca2063cd5b5c7d9ac213e75a48"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/whole-motion-reweighted/analyze.py",
+    "bytes": 4745,
+    "sha256": "b022ddf9375b46d78760d6b6c92db4a8468c14e390fe273a8a30ea1c700c868c"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/whole-motion-reweighted/cage_tests.py",
+    "bytes": 2077,
+    "sha256": "81ae525338305c0d41c448fa3805dd2fef4bc632c57f65e78ff751a2b8201247"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/tail-metrics/whole-motion-reweighted/plot_whole_reweighted.m",
+    "bytes": 2598,
+    "sha256": "cc69f403134280ded21a99139e619b023254389ba9fd1ff117e4dbd57846796f"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/cage_changes.csv",
+    "bytes": 30811,
+    "sha256": "a5895418d8ff5d16bdebd1f85858faa6c1efd050f01d0d68aef8f86304e0d0ca"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/cohort_descriptive_changes.csv",
+    "bytes": 1388,
+    "sha256": "93df819918bdbfdfcddbd983dbeb3e2a1326efe9c3631119911f529592ebaf7b"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/descriptive_changes.csv",
+    "bytes": 7232,
+    "sha256": "6d64cda60eff0f1f904d1bb0c215a37b8928a3c57f1d11e361f261ffde2020b4"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/first_to_last_locomoting_speed_D0_D14_markers_matched.svg",
+    "bytes": 14676,
+    "sha256": "c9d95b5d1150f361390bad31fbda0d5f520b8403821ff36636c36437dc5a01ac"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/first_to_last_locomoting_speed_D0_D14_source.csv",
+    "bytes": 17238,
+    "sha256": "2167ce5f550a6b656c558ab33e0bb05bad8196c42a101d8d92ced04756d95ccc"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/first_to_last_locomoting_speed_D0_D14_validation.csv",
+    "bytes": 229,
+    "sha256": "97bf0f8a7cca8dbe464f3746a90af4bf5edcae4d00edf9f82e1d37d400c1d95e"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/inference.csv",
+    "bytes": 33956,
+    "sha256": "4afd6b265ce816f520e71f0f10391b8373570c5ed68da9861cd5e7de87c4464d"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/mouse_day_difference_in_changes.csv",
+    "bytes": 21203,
+    "sha256": "13f8a66931adaa57e35751bd4a225b63e4bd4f49f28e6a8aab297063b0f2eca1"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/mouse_first_last_changes.csv",
+    "bytes": 97451,
+    "sha256": "c7770b1fcde07f5c9b354936a1524277742f4a83e1acc2ca9048d4d0099d55e3"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/nonstandard_trials.csv",
+    "bytes": 3598,
+    "sha256": "5a4b98a5335af910acf50a5eba51cee75ad9e3c5e0cd55e377bdf01916676b3c"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/retained_trial_inventory.csv",
+    "bytes": 12893,
+    "sha256": "9cca4b3722bec7e77d497a1ecc2db795df82df251c1fa74403a4f7e0cace5424"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/supplied_first_last_speed.svg",
+    "bytes": 13773,
+    "sha256": "b0a68ab5321689781a601acd073df068a7151c207b6c30eacdb8999952d1a129"
+  },
+  {
+    "path": "BEAMCROSS/DRAFTFIGS/within-session-diagnostics-20261112/trial_values.csv",
+    "bytes": 40751,
+    "sha256": "7db4ea125f3a106e19d0e667cbc61f0b7270632dff9739b1121c47a42620ea28"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/+bbtail/countBelowBarMotionEpisodes.m",
+    "bytes": 3442,
+    "sha256": "0205d9ea2b9b7aac4892d2db0f9420a714f5092ab33799f49ca5cca935c6a4a9"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/+bbtail/countD0FirstBelowBarPeaks.m",
+    "bytes": 2640,
+    "sha256": "60a9ca2a413297e05fff596f53c1355e51336f7655a033cffafce36a7dd6521d"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/+bbtail/exportD0TailSpatialProfiles.m",
+    "bytes": 2464,
+    "sha256": "00cb2423c93e2b2c021eba99b177b178baeb741ac615a6dc2ee532422065a52d"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/+bbtail/exportD14TailSpatialProfiles.m",
+    "bytes": 2477,
+    "sha256": "e7607ed47382e42434e6634e892a7462318aa702e4a6634e39ac7514dc301aef"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/+bbtail/exportTailCDFValues.m",
+    "bytes": 2230,
+    "sha256": "048ec02d642ba3d452d7476b6a203dc633029c4f2c4420a039fb6b6376dfba41"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/+bbtail/extractTailHeight.m",
+    "bytes": 1844,
+    "sha256": "0e7179e93a6864aceca492911b4a185df42e91ab5a04838ad65fb32fb7328b31"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/+bbtail/getTailMotionMetrics.m",
+    "bytes": 7259,
+    "sha256": "ce36b6bbbd3187f1bb1cd07556b0201ff82ad8c609d9f650bcc6cd807decddb1"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/+bbtail/getTailMotionTrace.m",
+    "bytes": 4969,
+    "sha256": "e454a0f0ae68a49c94b2454bff6b8234787abcec64ec9768cc3ee07c41bcb35e"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/+bbtail/repositoryRoot.m",
+    "bytes": 352,
+    "sha256": "4a3b503a88a0efdcd98f2f286a5488957e41d8fd3334dbbb52ef4a87b74db31b"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/+bbtail/reweightTaraTailProfiles.m",
+    "bytes": 6963,
+    "sha256": "59c6112b6c30b9cd3b7ae81dbe6721592dc6eea184af15ddef9077e10ff40727"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/+bbtail/reweightTaraWholeTailProfiles.m",
+    "bytes": 7472,
+    "sha256": "79c1cc57e4e50507df4aa3362a872c9c8fba49fa8f83e15dbc3aadca8ee49f81"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/migration_manifest.json",
+    "bytes": 5867,
+    "sha256": "da34ce7d3d71cd1228966bcea67fd62c3e2015cf285e04e3e04dd22e55a431ce"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/setupTail.m",
+    "bytes": 208,
+    "sha256": "6920424f4bc96101563a4daa2a0111fc35ac083a3a3f6f7a1d53468fbf27bd31"
+  },
+  {
+    "path": "BEAMCROSS/TAIL/tests/checkTailExtraction.m",
+    "bytes": 1330,
+    "sha256": "08a09ac1b910de878ac488c618d00d399e6505c6b0825623f0ce06dd2e54f4d6"
+  },
+  {
+    "path": "BEAMCROSS/analyzeCurrentTailCriteria.m",
+    "bytes": 6371,
+    "sha256": "c9d08f1d4ef3b3abe1c1c0cfe4cfa1326e1da03e44bee4e1d6545c76a1db9b3d"
+  },
+  {
+    "path": "BEAMCROSS/analyzeTailCentroidBoundary.m",
+    "bytes": 7312,
+    "sha256": "d33f24158ba82edef2cb0c2ca7e5fcf90ddbddbe822cdadc373f278ccde2fcf4"
+  },
+  {
+    "path": "BEAMCROSS/computeMouseProbabilityMatrix.m",
+    "bytes": 966,
+    "sha256": "316c05dddf4bd08c3e8fd53fe04140f4e49cdfb6e6279089f4b28e318a0e1a27"
+  },
+  {
+    "path": "BEAMCROSS/computeWeightedMovementTrace.m",
+    "bytes": 7130,
+    "sha256": "5ad283c60acd9e54f4296f47246bc23a313d6504091e510713eaa5036405d800"
+  },
+  {
+    "path": "BEAMCROSS/createTailMetricsDebugForTrial.m",
+    "bytes": 2124,
+    "sha256": "c9135a644ef98256525c8e5638f5cf02bfb39d76af57b51557ee430d985b2562"
+  },
+  {
+    "path": "BEAMCROSS/createTailMetricsDebugVideo.m",
+    "bytes": 5439,
+    "sha256": "c66a926fff0751af2f00349b06036e1fff5066b4cf572b59e3d23ea6400646f2"
+  },
+  {
+    "path": "BEAMCROSS/createTaraBeamDataset.m",
+    "bytes": 7121,
+    "sha256": "6f6c2dda4ed6be1bcbec4ff35c652ffa82b1de7cc8dc15a822c90143d042bbf2"
+  },
+  {
+    "path": "BEAMCROSS/detectBar.m",
+    "bytes": 11629,
+    "sha256": "f711bd1c697509e0ee3d5ae2a34695a04fd3d5ff0822811cb275df34ff810e42"
+  },
+  {
+    "path": "BEAMCROSS/detectSlips.m",
+    "bytes": 13894,
+    "sha256": "6eb000c56b1af9256ca4b5262a782263b94d46a54344b80085a272f333c09835"
+  },
+  {
+    "path": "BEAMCROSS/detectStoppingOnBeam.m",
+    "bytes": 2127,
+    "sha256": "ac5afcfbcf1ae6cc8e282b32ccea396de1fd8f7d2c382797766012784727849f"
+  },
+  {
+    "path": "BEAMCROSS/exportUnderbarMotionColumns.m",
+    "bytes": 5869,
+    "sha256": "97572ec6f9a681a0b717f2e5abed19ba473d807075b5deefad20a3063c268306"
+  },
+  {
+    "path": "BEAMCROSS/getTailMotionMetrics.m",
+    "bytes": 362,
+    "sha256": "041168460b8368a3e7b6322bf534b51eb118180f7b9f010fbb105094af98c99e"
+  },
+  {
+    "path": "BEAMCROSS/getTailMotionTrace.m",
+    "bytes": 354,
+    "sha256": "9387aa2aba80fae782b5793d2fdab211ee03ae6ea06339ed58f4056314c883ba"
+  },
+  {
+    "path": "BEAMCROSS/plotBBTrial.m",
+    "bytes": 8845,
+    "sha256": "f360be189acd635dc54bf096dbd749267c209e3eb6e14e3263fc68eeac436d69"
+  },
+  {
+    "path": "BEAMCROSS/prepareTailMetricsTrial.m",
+    "bytes": 13634,
+    "sha256": "8646d59650e61ca8b2f104e46ead7ecb9b29e36d840f4e9b61338444722a6214"
+  },
+  {
+    "path": "BEAMCROSS/readBBVideoIntoMatrix.m",
+    "bytes": 2990,
+    "sha256": "fcf880664a4bc32f9f4e02fb82b33ab9695eb8a7b06e855961e63f9e01a1da48"
+  },
+  {
+    "path": "BEAMCROSS/trackMouseOnBeam.m",
+    "bytes": 11201,
+    "sha256": "4f718422ff0dee28a1d7ce32ab055fa4de5c9110d29ecbdabc9f9aff143f660e"
+  },
+  {
+    "path": "BEAMCROSS/validateTailMetricsPreparation.m",
+    "bytes": 1320,
+    "sha256": "74dc55ce2697947778ac2032fbc20c3efb3555e06725cf2b457979487f016f2d"
+  },
+  {
+    "path": "assets/TMCS2-TMCS3-group-key.csv",
+    "bytes": 2102,
+    "sha256": "d11749b1a950a5a63c0dfc9eb291f819f913ea89cab93b16af0eb1baf476d379"
+  },
+  {
+    "path": "assets/Tara-BB-trial-data.csv",
+    "bytes": 14829127,
+    "sha256": "e355900573e9b861808fb0e638e0d1eb98f9f41e8014a3a504176c8e3fdd104a"
+  },
+  {
+    "path": "assets/convertAVItoMP4options.png",
+    "bytes": 1852234,
+    "sha256": "3b8083fb64277a5830ad0288b5411e2002ae88287388c29970c88df09c1d4ba5"
+  },
+  {
+    "path": "assets/ffmpeg-error.png",
+    "bytes": 42007,
+    "sha256": "7d7f5f7582a971f1e0b02f49d5e3b905f745b6a488ba91296200de2f5cc1716a"
+  },
+  {
+    "path": "tests/alignBeamPanelFonts.py",
+    "bytes": 3277,
+    "sha256": "113c7080139d1582f443b48c278ec3e730fe7a70d7537b351705cdca2e8b4b5c"
+  },
+  {
+    "path": "tests/analyzeEntranceDetectorStages.py",
+    "bytes": 8474,
+    "sha256": "ec4940f94c72686106ee1e7ae31bb64d85f403ffac05541f931453d7b22e1558"
+  },
+  {
+    "path": "tests/analyzeLastCrossingPairedBB.m",
+    "bytes": 13838,
+    "sha256": "64154f653967c7b5047a14880e8240530a08206dc8a529319d7006b5f83274b6"
+  },
+  {
+    "path": "tests/analyzeWithinSessionBB.m",
+    "bytes": 11384,
+    "sha256": "c5e12fbe2cc2fd9ae08c0ff7830e2dd1e0c11a871667590e31290728ffc175be"
+  },
+  {
+    "path": "tests/bbSimpleSVG.py",
+    "bytes": 2563,
+    "sha256": "bfaacd875400501161be2a284fd8993c29f63d41243c8176c5ff092946c0b0f0"
+  },
+  {
+    "path": "tests/buildEntranceReviewReport.py",
+    "bytes": 15169,
+    "sha256": "4f6115aa5bf8d21b54d870fb1e75a0ecaa647ec2114709280cea8164381fc9d7"
+  },
+  {
+    "path": "tests/compareStoppingFrameExclusion.m",
+    "bytes": 6030,
+    "sha256": "85dc3c7584be077a735ef314264a0ababb0e6bd8188a82c6e08a80802a39989a"
+  },
+  {
+    "path": "tests/createThreeGroupUnderbarPresentations.py",
+    "bytes": 7474,
+    "sha256": "aa03e3bd80433a9db8be765777c3581dafcba8e5e4c743e0b155c667af217576"
+  },
+  {
+    "path": "tests/entranceReviewObservations.json",
+    "bytes": 9580,
+    "sha256": "39acb32fa51a68f00f7e769688405c066413a9a818387d0587bce121e879141d"
+  },
+  {
+    "path": "tests/exportAllWholeTailTraces.m",
+    "bytes": 975,
+    "sha256": "c088e1f71c1daef60e0e04078fb27df06c65ce56a8b5c6001324f81b2e6a4d7d"
+  },
+  {
+    "path": "tests/exportSelectedGroupMovieColumns.m",
+    "bytes": 460,
+    "sha256": "f1378b58aca59679fb2ebcad27731aa4035095ab7b9299133162d7cd56b9d23c"
+  },
+  {
+    "path": "tests/figure_templates/D0_tail_scatter_reference.svg",
+    "bytes": 7404,
+    "sha256": "bcc17edb550755226d9263c6387316c2a4109973f24671ff22ba64f6879e9438"
+  },
+  {
+    "path": "tests/figure_templates/tail_candidate_scatter_reference.svg",
+    "bytes": 7077,
+    "sha256": "81a864c1ac8c95f53fe73a0c3399343d92509c132505356a2b18645ebb9b75b6"
+  },
+  {
+    "path": "tests/figure_templates/tail_combined_user_layout.svg",
+    "bytes": 91755,
+    "sha256": "732f0ea0040ffc672b557625404dc8909aad7b398dd8711bcd7931858edd7b2c"
+  },
+  {
+    "path": "tests/figure_templates/tail_example_centroid3_requested.svg",
+    "bytes": 192706,
+    "sha256": "7c42a2b1dbff731652c669df37177fd320c23cc57a1ec666bf2ea8f7dc1a00e0"
+  },
+  {
+    "path": "tests/figure_templates/tail_example_height_and_motion_reference.svg",
+    "bytes": 91755,
+    "sha256": "732f0ea0040ffc672b557625404dc8909aad7b398dd8711bcd7931858edd7b2c"
+  },
+  {
+    "path": "tests/figure_templates/tail_scatter_D14_user.svg",
+    "bytes": 13036,
+    "sha256": "a6745005059fb9aa5ccd9d1a6291e674d73e05f18644a7b6ffc6f6437b7bd72d"
+  },
+  {
+    "path": "tests/figure_templates/tail_scatter_user_three_panel.svg",
+    "bytes": 18811,
+    "sha256": "20b81f4e049d480434adf420d52d332042869042bfcadb655616f3cca3bd0dc3"
+  },
+  {
+    "path": "tests/focusLastCrossingBB.m",
+    "bytes": 5648,
+    "sha256": "d85b8e2056f38fd668139a4e312a786a61f8a801577a60cbeb28e35de75e7e8e"
+  },
+  {
+    "path": "tests/illustrateEntranceDetectorBand.py",
+    "bytes": 1508,
+    "sha256": "5d827c2f670fce79dbba694fc816d26e3ab0ef5c631aa39a50c64502ac7d9c5a"
+  },
+  {
+    "path": "tests/makeTailCentroid3ExamplePanels.py",
+    "bytes": 7462,
+    "sha256": "b28a35a011915e20792abf4351ac10e5335ea7d1f39a31bb1a108f64909e6542"
+  },
+  {
+    "path": "tests/makeTailCentroid3Height10Scatters.py",
+    "bytes": 6999,
+    "sha256": "bebfc5daf4ef5d1ff428a27905eeff2989cf1f80ff0c9ad940efd419beb6de07"
+  },
+  {
+    "path": "tests/movement_normalization_validation_20261015.json",
+    "bytes": 1675,
+    "sha256": "d59219f904c930b16689e66638cd909d917f96f2828e340a84058e7efcb7bad2"
+  },
+  {
+    "path": "tests/packageCurrentBBFigure.py",
+    "bytes": 1436,
+    "sha256": "a029ce9f739bdb2f065da5f62926b6f02c01f3bf54c177b3af646c0955a62fff"
+  },
+  {
+    "path": "tests/plotAlignedD0Overview.py",
+    "bytes": 7074,
+    "sha256": "0fe4fa44e092ecd3a5f4a49ed7af7b8e212ddca54347ab344b447c330c0ea051"
+  },
+  {
+    "path": "tests/plotD0FirstLastSpeedCDF.py",
+    "bytes": 4074,
+    "sha256": "d8440e6ae00cda0dbc386c7d921e23a7a9965c370c3786dc53339ca017cf2a6c"
+  },
+  {
+    "path": "tests/plotD0FirstTrialReferencePanels.py",
+    "bytes": 9389,
+    "sha256": "ae3b079496701efd03fbbe5c141e42185400b670b8000c16bb7c2163d41f2d29"
+  },
+  {
+    "path": "tests/plotD14LastFourAbsolute.py",
+    "bytes": 5324,
+    "sha256": "291050f72bbcb3fee7e6974fd1215fe408eec99ccd0a87b40c808cc8a4604f86"
+  },
+  {
+    "path": "tests/plotFirstLastSpeedCompact.m",
+    "bytes": 6938,
+    "sha256": "cf5832fa7481037bb24a9c034b809201ce7b499551587ea0b6b896627e23caa2"
+  },
+  {
+    "path": "tests/plotLastCrossingD14.py",
+    "bytes": 9261,
+    "sha256": "e3db140f7eea18585fb2b14ba4f2c02bf44a20be51080a396d85b7d639692ef9"
+  },
+  {
+    "path": "tests/plotLastCrossingSpatialProfiles.py",
+    "bytes": 8626,
+    "sha256": "921735fddfacfbc20e74309a34c614424419af85c94115ee7f254f8c3937fe67"
+  },
+  {
+    "path": "tests/plotLastSpeedChangeReference.m",
+    "bytes": 3346,
+    "sha256": "ba94f93cfed499f7840f8fe37ded983e797ab74bb57ed2267d8c646ceb6607e4"
+  },
+  {
+    "path": "tests/plotLocomotingWholeTail.py",
+    "bytes": 3884,
+    "sha256": "f9db377b9e20ad1f8cd80331a3727878329192cab6420adb6cab3bd76fbe92a1"
+  },
+  {
+    "path": "tests/plotStoppingFrameComparison.m",
+    "bytes": 3175,
+    "sha256": "52e21bd18b44c499f1da3ce9eb2fb9a0ce978e62350075deb0a66774ef8ddd23"
+  },
+  {
+    "path": "tests/plotTailCandidateResults.py",
+    "bytes": 3740,
+    "sha256": "91e28f09a4d8d1310a4bfe2e9946adfbbf608f25c3109290533594c63e49d0e7"
+  },
+  {
+    "path": "tests/plotWholeTailNoVerticalWeight.py",
+    "bytes": 2966,
+    "sha256": "c1aea54adad19f94d31ff862dfd26126b54e463f26a9254ff2dc1da1cbe06ec4"
+  },
+  {
+    "path": "tests/plotWholeTailPerPixel.py",
+    "bytes": 1128,
+    "sha256": "b4b73f86fa49038ef3191b72f3e83d928aefc11e43e16b6f60d7b955a674011d"
+  },
+  {
+    "path": "tests/prepareCentroidBoundaryMovies.py",
+    "bytes": 3058,
+    "sha256": "c419233d1c6feac230a3d0371d9dc983357369f90e4adb063d7e8f9dac4da1a5"
+  },
+  {
+    "path": "tests/prepareMarkedTailExamples.m",
+    "bytes": 3188,
+    "sha256": "95c5f1f5b7a36ec1b5665ae62882938adda20154a0365b35ee9302de0535f0e5"
+  },
+  {
+    "path": "tests/prepareNormalizedTailExamples.m",
+    "bytes": 3376,
+    "sha256": "98d1c2237036ae983b230a2c641bb49349b2f94d5584ca444cebb25b15bc2c8a"
+  },
+  {
+    "path": "tests/pruneCurrentBBFigure.py",
+    "bytes": 6827,
+    "sha256": "b58ca242277c60dac2a186fe0d9767a8f5aac05f8ee92ee7d205ab4b84171f89"
+  },
+  {
+    "path": "tests/renderMarkedTailExamples.py",
+    "bytes": 19844,
+    "sha256": "fdec718965b9ac8d4218fadc138651708d7167f73b634e9a4bf9ed9e40cd2afc"
+  },
+  {
+    "path": "tests/renderUnderbarMotionMovie.py",
+    "bytes": 14452,
+    "sha256": "d351a95edaf7b81eaf536bb1da4b1ffbeb727343d3cd12134ec1f6533b58290f"
+  },
+  {
+    "path": "tests/repairBeamTraceAlignment.py",
+    "bytes": 1966,
+    "sha256": "e1c8ad833accdb938c9d205105e28c1c9fb07896a9b9b4d1f59abbd7616c5463"
+  },
+  {
+    "path": "tests/reportTailCentroidBoundary.py",
+    "bytes": 6908,
+    "sha256": "dbbf7d3c15f4b51203dbbb2b8be467ff28c53cc10cde1d18e7e37e1a96b6f90d"
+  },
+  {
+    "path": "tests/resizePastedSpeedMarkers.rb",
+    "bytes": 1385,
+    "sha256": "85b6c96715caf8cbf73d135943484a646e5c0f55eb23e95caa5570b69075af70"
+  },
+  {
+    "path": "tests/runTailBoundaryMovies.py",
+    "bytes": 821,
+    "sha256": "804fdf949ad8f9798da8c4bc6df3c1a0689b2db23bb2058d6c64f302b6c9b46d"
+  },
+  {
+    "path": "tests/scoreTailEventsPawConvention.m",
+    "bytes": 2227,
+    "sha256": "f8a19e161033377ccafddad55ae1ad917192adb2ea55363bf0a62a32717f8e75"
+  },
+  {
+    "path": "tests/selectD14TailMovieExamples.py",
+    "bytes": 2098,
+    "sha256": "decb7e71f20f74b850af5ae71f2e0cd4982fba68d3713cc43c5a0d069d5977da"
+  },
+  {
+    "path": "tests/selectGroupMovieExamples.py",
+    "bytes": 1460,
+    "sha256": "fe59d6dfa97ec3973b2fb48c9094f2258bfbc15fbed27efcd5bb6931fb07e036"
+  },
+  {
+    "path": "tests/stackUnderbarTriplets.py",
+    "bytes": 2409,
+    "sha256": "50921ba95ef9a33dd0a5cb85a9a4e65eeaef401eff20aab91e10757571432836"
+  },
+  {
+    "path": "tests/summarizeEntranceReview.py",
+    "bytes": 7231,
+    "sha256": "4a0ac2a99b5c658c9631d2bbbe7d70be6ae45980db53158508c03bf6a25b7622"
+  },
+  {
+    "path": "tests/summarizeLastCrossingBB.m",
+    "bytes": 2865,
+    "sha256": "44731b15ee2c73685c6d1edf9fc6c0c0513593a63c60963e8a97c69313fd8223"
+  },
+  {
+    "path": "tests/summarizeLocomotingWholeTail.m",
+    "bytes": 1210,
+    "sha256": "40e46b71e1daeeac06d6bf08bb93c2528203218a8d06091146c236a8f50afa46"
+  },
+  {
+    "path": "tests/summarizeWholeTailNoVerticalWeight.m",
+    "bytes": 964,
+    "sha256": "1303c6323c109c26a3048ae55fdb309e37dbafb9b4cf0a1ef766a67a014370c8"
+  },
+  {
+    "path": "tests/tailMovieDisplay.py",
+    "bytes": 1043,
+    "sha256": "a6ee42fa149fb5f8bf035d41dfcf31e8455149ec1132fd53399befcdace4f8ba"
+  },
+  {
+    "path": "tests/testD0FirstTrialReferencePanels.py",
+    "bytes": 6785,
+    "sha256": "0ee264ba5dd30320cd4e8ee54c8a078419fbd9f22e370f4b2ea8c5019ee6d347"
+  },
+  {
+    "path": "tests/validateMovementNormalization.m",
+    "bytes": 3590,
+    "sha256": "c44e693fe895e53a6afbf66ee3500b7359fb4b806b23f3b2a181755979d14a96"
+  },
+  {
+    "path": "tests/validateTailCentroidBoundary.py",
+    "bytes": 4548,
+    "sha256": "54f291f1309ac1c484fddfa3230831edc30fb30a0d626012b8074f64ab63df77"
+  },
+  {
+    "path": "tests/verifyBBfigurePackage.py",
+    "bytes": 2851,
+    "sha256": "9ef09238b6cd99e9430b37e5e6a35cbcceb1c63e863783e44f65f329bd0bcd5b"
+  }
+]

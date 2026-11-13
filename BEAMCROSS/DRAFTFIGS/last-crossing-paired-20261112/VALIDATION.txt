@@ -1,0 +1,5 @@
+42 paired mouse identities; 15 cages; 21 exact123-both mice.
+All 378 D14 source rows match old export, including missingness; max finite error 0.
+Slip counts verified against manifest. Unique selected filenames and unchanged mouse/cage/cohort/group mapping checked.
+All 36 full-sample Change/ANCOVA contrasts independently match MATLAB fitlm coefficients and OLS p-values within 1e-9.
+All 36 full-sample Change/ANCOVA contrasts independently match MATLAB fitlm coefficients and OLS p-values within 1e-9.

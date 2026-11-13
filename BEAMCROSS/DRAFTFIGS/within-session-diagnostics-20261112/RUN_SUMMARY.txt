@@ -1,0 +1,1 @@
+Trials 251; mice 42; cages 15; nonstandard mouse-days 23
